@@ -4,9 +4,21 @@
 
 ## 🚀 Chạy nhanh (Quick Start)
 
+**Windows:**
+
 ```bash
 # Chỉ cần chạy 1 lệnh này!
 run-simple.bat
+```
+
+**macOS / Linux:**
+
+```bash
+# Cấp quyền thực thi (chỉ lần đầu)
+chmod +x run-simple.sh
+
+# Chạy ứng dụng
+./run-simple.sh
 ```
 
 **Yêu cầu:** Java 11+ đã cài đặt ([Tải Java](https://adoptium.net/))
@@ -32,11 +44,24 @@ run-simple.bat
 
 ### Cách 1: Chạy nhanh (Khuyến nghị)
 
-1. **Tải về dự án** và giải nén vào thư mục bất kỳ
-2. **Mở Command Prompt** tại thư mục dự án
-3. **Chạy lệnh:**
+1. **Tải về dự án** và giải nén vào thư mục bất kỳ.
+2. **Mở Terminal hoặc Command Prompt** tại thư mục dự án.
+3. **Chạy lệnh tương ứng với hệ điều hành của bạn:**
+
+   **Windows:**
+
    ```bash
    run-simple.bat
+   ```
+
+   **macOS / Linux:**
+
+   ```bash
+   # Cấp quyền thực thi (chỉ cần chạy lần đầu)
+   chmod +x run-simple.sh
+
+   # Chạy ứng dụng
+   ./run-simple.sh
    ```
 
 Script này sẽ tự động:
@@ -63,8 +88,12 @@ java -jar target/scorm-package-generator-1.0.0.jar
 ### Cách 3: Chạy thủ công
 
 ```bash
-# 1. Chạy script tải dependencies
+# Trên Windows
 run-app.bat
+
+# Trên macOS / Linux
+chmod +x run-app.sh
+./run-app.sh
 ```
 
 ## Hướng dẫn sử dụng
@@ -148,6 +177,8 @@ java -version
 
 ### ❌ Lỗi "Dependencies not found"
 
+**Windows:**
+
 ```bash
 # Chạy lại script tải dependencies
 run-simple.bat
@@ -155,6 +186,17 @@ run-simple.bat
 # Hoặc xóa thư mục lib và chạy lại
 rmdir /s lib
 run-simple.bat
+```
+
+**macOS / Linux:**
+
+```bash
+# Chạy lại script tải dependencies
+./run-simple.sh
+
+# Hoặc xóa thư mục lib và chạy lại
+rm -rf lib
+./run-simple.sh
 ```
 
 ### ❌ Lỗi compile
