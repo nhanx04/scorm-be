@@ -2,13 +2,6 @@
 
 Ứng dụng Java để tạo gói SCORM 2004 từ câu hỏi và đáp án với giao diện đồ họa đơn giản.
 
-## 🚀 Chạy nhanh (Quick Start)
-
-```bash
-# Chỉ cần chạy 1 lệnh này!
-run-simple.bat
-```
-
 **Yêu cầu:** Java 11+ đã cài đặt ([Tải Java](https://adoptium.net/))
 
 ## Tính năng
@@ -29,38 +22,6 @@ run-simple.bat
 - 100MB dung lượng đĩa trống
 
 ## Cài đặt và chạy
-
-### Cách 1: Chạy nhanh (Khuyến nghị)
-
-1. **Tải về dự án** và giải nén vào thư mục bất kỳ
-2. **Mở Command Prompt** tại thư mục dự án
-3. **Chạy lệnh:**
-   ```bash
-   run-simple.bat
-   ```
-
-Script này sẽ tự động:
-
-- ✅ Kiểm tra Java
-- ✅ Tải dependencies từ Maven Central
-- ✅ Compile source code
-- ✅ Khởi động ứng dụng
-
-### Cách 2: Sử dụng Maven (Cho developer)
-
-```bash
-# 1. Build dự án
-mvn clean compile
-
-# 2. Chạy ứng dụng
-mvn exec:java -Dexec.mainClass="com.scorm.generator.ScormGeneratorApp"
-
-# Hoặc build JAR và chạy
-mvn clean package
-java -jar target/scorm-package-generator-1.0.0.jar
-```
-
-### Cách 3: Chạy thủ công
 
 ```bash
 # 1. Chạy script tải dependencies
