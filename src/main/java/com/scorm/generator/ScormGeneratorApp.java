@@ -5,10 +5,7 @@ import com.scorm.generator.model.Quiz;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.io.File;
-import java.io.IOException;
 
 /**
  * Main application class for SCORM Package Generator
