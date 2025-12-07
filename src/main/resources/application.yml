@@ -1,0 +1,42 @@
+spring:
+  application:
+    name: scorm-package-generator-api
+
+  datasource:
+    url: jdbc:postgresql://localhost:5432/scorm
+    driver-class-name: org.postgresql.Driver
+    username: postgres # <-- THAY ĐỔI USERNAME CỦA BẠN
+    password: pass123 # <-- THAY ĐỔI PASSWORD CỦA BẠN
+
+  jpa:
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+    hibernate:
+      ddl-auto: update # 'update' để giữ lại dữ liệu, 'create' để tạo lại mỗi lần chạy
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
+
+  servlet:
+    multipart:
+      max-file-size: 100MB
+      max-request-size: 100MB
+
+server:
+  port: 8080
+  servlet:
+    context-path: /api
+
+jwt:
+  secret: your-secret-key-change-this-in-production-environment-with-a-long-random-string
+  expiration: 86400000 # 24 hours in milliseconds
+
+logging:
+  level:
+    root: INFO
+    com.scorm: DEBUG
+
+aws:
+  region: ap-southeast-2 # e.g., ap-southeast-1
+  s3:
+    bucket-name: scorm-generator-hcmut

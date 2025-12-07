@@ -1,0 +1,156 @@
+{
+  "info": {
+    "name": "SCORM Package Generator API",
+    "description": "Collection for testing SCORM Package Generator API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Auth",
+      "item": [
+        {
+          "name": "Register",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"email\": \"user@example.com\",\n  \"password\": \"password123\",\n  \"fullName\": \"Tên người dùng\"\n}"
+            },
+            "url": {
+              "raw": "http://localhost:8080/api/auth/register",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8080",
+              "path": ["api", "auth", "register"]
+            }
+          }
+        },
+        {
+          "name": "Login",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"email\": \"user@example.com\",\n  \"password\": \"password123\"\n}"
+            },
+            "url": {
+              "raw": "http://localhost:8080/api/auth/login",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8080",
+              "path": ["api", "auth", "login"]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "SCORM Packages",
+      "item": [
+        {
+          "name": "Create SCORM Package",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"title\": \"Bài kiểm tra Toán học\",\n  \"description\": \"Bài kiểm tra về phép cộng và phép trừ\",\n  \"passingScore\": 70,\n  \"maxAttempts\": 3,\n  \"questions\": [\n    {\n      \"text\": \"2 + 2 bằng bao nhiêu?\",\n      \"questionOrder\": 0,\n      \"answers\": [\n        {\n          \"text\": \"3\",\n          \"correct\": false,\n          \"answerOrder\": 0\n        },\n        {\n          \"text\": \"4\",\n          \"correct\": true,\n          \"answerOrder\": 1\n        },\n        {\n          \"text\": \"5\",\n          \"correct\": false,\n          \"answerOrder\": 2\n        }\n      ]\n    },\n    {\n      \"text\": \"5 - 3 bằng bao nhiêu?\",\n      \"questionOrder\": 1,\n      \"answers\": [\n        {\n          \"text\": \"1\",\n          \"correct\": false,\n          \"answerOrder\": 0\n        },\n        {\n          \"text\": \"2\",\n          \"correct\": true,\n          \"answerOrder\": 1\n        },\n        {\n          \"text\": \"3\",\n          \"correct\": false,\n          \"answerOrder\": 2\n        }\n      ]\n    }\n  ]\n}"
+            },
+            "url": {
+              "raw": "http://localhost:8080/api/scorm-packages",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8080",
+              "path": ["api", "scorm-packages"]
+            }
+          }
+        },
+        {
+          "name": "Get All SCORM Packages",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "url": {
+              "raw": "http://localhost:8080/api/scorm-packages",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8080",
+              "path": ["api", "scorm-packages"]
+            }
+          }
+        },
+        {
+          "name": "Get SCORM Package by ID",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "url": {
+              "raw": "http://localhost:8080/api/scorm-packages/1",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8080",
+              "path": ["api", "scorm-packages", "1"]
+            }
+          }
+        },
+        {
+          "name": "Delete SCORM Package",
+          "request": {
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "url": {
+              "raw": "http://localhost:8080/api/scorm-packages/1",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8080",
+              "path": ["api", "scorm-packages", "1"]
+            }
+          }
+        }
+      ]
+    }
+  ],
+  "variable": [
+    {
+      "key": "token",
+      "value": ""
+    }
+  ]
+}
+

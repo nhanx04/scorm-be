@@ -1,0 +1,64 @@
+# Maven
+target/
+pom.xml.tag
+pom.xml.releaseBackup
+pom.xml.versionsBackup
+pom.xml.next
+release.properties
+dependency-reduced-pom.xml
+.flattened-pom.xml
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+.DS_Store
+*.iml
+*.iws
+*.ipr
+.classpath
+.project
+.settings/
+bin/
+
+# Java
+*.class
+*.jar
+*.war
+*.ear
+*.zip
+*.tar.gz
+*.rar
+.mtj.tmp/
+*.log
+
+# Spring Boot
+application-local.yml
+application-dev.yml
+application-prod.yml
+
+# Database
+*.db
+*.sqlite
+*.h2.db
+
+# SCORM Packages
+scorm-packages/
+~/scorm-packages/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Node (if frontend is added)
+node_modules/
+npm-debug.log
+yarn-error.log
+
+# Environment
+.env
+.env.local
+.env.*.local
+

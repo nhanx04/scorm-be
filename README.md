@@ -1,37 +1,34 @@
-# SCORM Package Generator
+# SCORM Package Generator - Backend API
 
-Ứng dụng Java để tạo gói SCORM 2004 từ câu hỏi và đáp án với giao diện đồ họa đơn giản.
+REST API Backend để tạo gói SCORM 2004 từ câu hỏi và đáp án. Dự án này đã được chuyển đổi từ Desktop App sang Backend REST API sử dụng Spring Boot.
 
 ## 🚀 Chạy nhanh (Quick Start)
 
-**Windows:**
+**Yêu cầu:** Java 11+ và Maven 3.6+ đã cài đặt
 
 ```bash
-# Chỉ cần chạy 1 lệnh này!
-run-simple.bat
+# 1. Build dự án
+mvn clean install
+
+# 2. Chạy ứng dụng
+mvn spring-boot:run
 ```
 
-**macOS / Linux:**
-
-```bash
-# Cấp quyền thực thi (chỉ lần đầu)
-chmod +x run-simple.sh
-
-# Chạy ứng dụng
-./run-simple.sh
-```
+API sẽ chạy tại: `http://localhost:8080/api`
 
 **Yêu cầu:** Java 11+ đã cài đặt ([Tải Java](https://adoptium.net/))
 
 ## Tính năng
 
-- ✅ Giao diện đồ họa thân thiện với Swing
-- ✅ Tạo và chỉnh sửa câu hỏi trắc nghiệm
-- ✅ Xuất gói SCORM 2004 4th Edition
+- ✅ REST API hoàn chỉnh với Spring Boot
+- ✅ Xác thực người dùng với JWT
+- ✅ Đăng ký và đăng nhập
+- ✅ Tạo gói SCORM 2004 4th Edition
+- ✅ Quản lý gói SCORM (CRUD)
 - ✅ Tích hợp SCORM API đầy đủ
 - ✅ Hỗ trợ tracking điểm số và tiến độ
-- ✅ Responsive HTML quiz interface
 - ✅ Tương thích với các LMS phổ biến
+- ✅ CORS hỗ trợ cho frontend web
 
 ## Yêu cầu hệ thống
 
@@ -44,90 +41,46 @@ chmod +x run-simple.sh
 
 ### Cách 1: Chạy nhanh (Khuyến nghị)
 
-1. **Tải về dự án** và giải nén vào thư mục bất kỳ.
-2. **Mở Terminal hoặc Command Prompt** tại thư mục dự án.
-3. **Chạy lệnh tương ứng với hệ điều hành của bạn:**
+```bash
+# 1. Clone hoặc tải về dự án
+cd scorm-be
 
-   **Windows:**
+# 2. Build dự án
+mvn clean install
 
-   ```bash
-   run-simple.bat
-   ```
+# 3. Chạy ứng dụng
+mvn spring-boot:run
+```
 
-   **macOS / Linux:**
+API sẽ chạy tại: `http://localhost:8080/api`
 
-   ```bash
-   # Cấp quyền thực thi (chỉ cần chạy lần đầu)
-   chmod +x run-simple.sh
-
-   # Chạy ứng dụng
-   ./run-simple.sh
-   ```
-
-Script này sẽ tự động:
-
-- ✅ Kiểm tra Java
-- ✅ Tải dependencies từ Maven Central
-- ✅ Compile source code
-- ✅ Khởi động ứng dụng
-
-### Cách 2: Sử dụng Maven (Cho developer)
+### Cách 2: Build JAR và chạy
 
 ```bash
-# 1. Build dự án
-mvn clean compile
-
-# 2. Chạy ứng dụng
-mvn exec:java -Dexec.mainClass="com.scorm.generator.ScormGeneratorApp"
-
-# Hoặc build JAR và chạy
+# Build JAR
 mvn clean package
+
+# Chạy JAR
 java -jar target/scorm-package-generator-1.0.0.jar
 ```
 
-### Cách 3: Chạy thủ công
+### Cách 3: Chạy trong IDE
 
-```bash
-# Trên Windows
-run-app.bat
+1. Mở project trong IntelliJ IDEA hoặc Eclipse
+2. Tìm class `ScormGeneratorApplication`
+3. Click "Run" hoặc nhấn Shift+F10
 
-# Trên macOS / Linux
-chmod +x run-app.sh
-./run-app.sh
-```
+## Hướng dẫn sử dụng API
 
-## Hướng dẫn sử dụng
+Xem chi tiết và các ví dụ request/response tại file [API_DOCUMENTATION.md](API_DOCUMENTATION.md).
 
-### 1. Tạo bài kiểm tra mới
+### Các bước chính:
 
-1. Mở ứng dụng
-2. Nhập **Tiêu đề** bài kiểm tra
-3. Nhập **Mô tả** (tùy chọn)
-4. Thiết lập **Điểm đạt** (%) và **Số lần thử tối đa**
-
-### 2. Thêm câu hỏi
-
-1. Click **"Thêm câu hỏi"** trong danh sách bên trái
-2. Chọn câu hỏi vừa tạo
-3. Nhập nội dung câu hỏi ở panel bên phải
-4. Thêm các đáp án (tối thiểu 2 đáp án)
-5. Chọn đáp án đúng bằng radio button
-6. Thêm giải thích (tùy chọn)
-
-### 3. Xuất SCORM Package
-
-1. Click **"Export SCORM"** trên toolbar
-2. Chọn vị trí lưu file
-3. Đặt tên file (tự động thêm .zip)
-4. Click **"Save"**
-
-### 4. Upload lên LMS
-
-1. Đăng nhập vào LMS của bạn
-2. Tìm chức năng import/upload SCORM package
-3. Upload file .zip vừa tạo
-4. Cấu hình các thiết lập cần thiết
-5. Publish và test
+1.  **Đăng ký** tài khoản qua `POST /auth/register`.
+2.  **Đăng nhập** qua `POST /auth/login` để nhận JWT token.
+3.  Sử dụng token này trong header `Authorization: Bearer <token>` cho các request sau.
+4.  **Tạo gói SCORM** qua `POST /scorm-packages`.
+5.  **Quản lý** các gói đã tạo (lấy danh sách, xem chi tiết, xóa).
 
 ## Cấu trúc SCORM Package
 
@@ -175,52 +128,45 @@ java -version
 # hoặc https://www.oracle.com/java/technologies/downloads/
 ```
 
-### ❌ Lỗi "Dependencies not found"
-
-**Windows:**
+### ❌ Lỗi "Maven not found"
 
 ```bash
-# Chạy lại script tải dependencies
-run-simple.bat
+# Kiểm tra Maven đã cài đặt chưa
+mvn -version
 
-# Hoặc xóa thư mục lib và chạy lại
-rmdir /s lib
-run-simple.bat
+# Tải Maven từ: https://maven.apache.org/download.cgi
+# Hoặc sử dụng package manager:
+# Windows (Chocolatey): choco install maven
+# macOS (Homebrew): brew install maven
+# Linux (apt): sudo apt-get install maven
 ```
 
-**macOS / Linux:**
+### ❌ Port 8080 đã được sử dụng
 
 ```bash
-# Chạy lại script tải dependencies
-./run-simple.sh
-
-# Hoặc xóa thư mục lib và chạy lại
-rm -rf lib
-./run-simple.sh
+# Thay đổi port trong application.yml
+# Hoặc chạy với port khác:
+mvn spring-boot:run -Dspring-boot.run.arguments="--server.port=8081"
 ```
 
-### ❌ Lỗi compile
+### ❌ Lỗi build Maven
 
 ```bash
-# Kiểm tra encoding
-chcp 65001
+# Xóa cache Maven và build lại
+mvn clean install -U
 
-# Xóa target và compile lại
-rmdir /s target
-run-simple.bat
+# Hoặc xóa .m2 folder (Windows)
+rmdir /s %USERPROFILE%\.m2\repository
+mvn clean install
 
-# Nếu vẫn lỗi, kiểm tra file compile_error.log
+# Hoặc xóa .m2 folder (macOS/Linux)
+rm -rf ~/.m2/repository
+mvn clean install
 ```
 
-### ❌ Ứng dụng không khởi động
+### ❌ Token hết hạn
 
-```bash
-# Kiểm tra JAVA_HOME (Windows)
-echo %JAVA_HOME%
-
-# Chạy với thông tin debug
-java -verbose:class -cp "target\classes;lib\*" com.scorm.generator.ScormGeneratorApp
-```
+Token JWT có thời hạn 24 giờ. Nếu hết hạn, hãy đăng nhập lại để lấy token mới.
 
 ### ❌ SCORM package không hoạt động trên LMS
 
