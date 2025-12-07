@@ -15,10 +15,14 @@ public class ScormPackageDTO {
     private Long id;
     private String title;
     private String description;
+    private String welcomeVideoUrl;
+    private String themeJson;
     private Integer passingScore;
     private Integer maxAttempts;
     private String packageUrl;
     private LocalDateTime createdAt;
     private LocalDateTime updatedAt;
     private List<QuestionDTO> questions;
+    private com.scorm.generator.model.ReviewMode reviewMode;
+
 }

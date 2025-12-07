@@ -4,7 +4,9 @@ import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
+import com.scorm.generator.model.QuestionType;
 import lombok.NoArgsConstructor;
+
 import java.util.List;
 
 @Entity
@@ -21,6 +23,13 @@ public class Question {
     @Column(nullable = false, columnDefinition = "TEXT")
     private String text;
 
+    @Enumerated(EnumType.STRING)
+    @Column(name = "question_type", nullable = false)
+    private QuestionType questionType;
+
+    @Column(name = "image_url")
+    private String imageUrl;
+
     @Column(name = "question_order")
     private Integer questionOrder;
 
@@ -31,4 +40,3 @@ public class Question {
     @OneToMany(mappedBy = "question", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Answer> answers;
 }
-

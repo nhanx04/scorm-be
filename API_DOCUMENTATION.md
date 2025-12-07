@@ -86,54 +86,102 @@ Authorization: Bearer <token>
 Content-Type: application/json
 ```
 
-**Request Body:**
+**Request Body (Ví dụ đầy đủ):**
 
 ```json
 {
-  "title": "Bài kiểm tra Toán học",
-  "description": "Bài kiểm tra về phép cộng và phép trừ",
-  "passingScore": 70,
-  "maxAttempts": 3,
+  "title": "Bài kiểm tra Tổng hợp",
+  "description": "Một bài kiểm tra với nhiều loại câu hỏi và tùy chỉnh.",
+  "passingScore": 80,
+  "maxAttempts": 2,
+  "welcomeVideoUrl": "https://www.youtube.com/embed/your_video_id", // QUAN TRỌNG: Chỉ dán URL từ thuộc tính 'src' của mã nhúng, không phải toàn bộ thẻ <iframe>
+  "themeJson": "{\"primaryColor\": \"#4CAF50\", \"backgroundColor\": \"#f0f9f0\", \"fontFamily\": \"'Roboto', sans-serif\"}",
+  "reviewMode": "REVIEW_WITH_ANSWERS", // Chế độ xem lại: NO_REVIEW, REVIEW_WITHOUT_ANSWERS, REVIEW_WITH_ANSWERS
+
   "questions": [
     {
-      "text": "2 + 2 bằng bao nhiêu?",
+      "text": "Đâu là hình ảnh của một con mèo?",
+      "questionType": "MULTIPLE_CHOICE",
+      "imageUrl": "https://your-s3-bucket.s3.region.amazonaws.com/media/cat_image.jpg",
       "questionOrder": 0,
       "answers": [
         {
-          "text": "3",
+          "text": "Đây là con chó",
           "correct": false,
+          "answerOrder": 0,
+          "imageUrl": "https://your-s3-bucket.s3.region.amazonaws.com/media/dog_image.jpg"
+        },
+        {
+          "text": "Đây là con mèo",
+          "correct": true,
+          "answerOrder": 1,
+          "imageUrl": "https://your-s3-bucket.s3.region.amazonaws.com/media/cat_image.jpg"
+        },
+        {
+          "text": "Đây là con vịt",
+          "correct": false,
+          "answerOrder": 2,
+          "imageUrl": "https://your-s3-bucket.s3.region.amazonaws.com/media/duck_image.jpg"
+        }
+      ]
+    },
+    {
+      "text": "Trái đất quay quanh mặt trời.",
+      "questionType": "TRUE_FALSE",
+      "imageUrl": null,
+      "questionOrder": 1,
+      "answers": [
+        {
+          "text": "Đúng",
+          "correct": true,
+          "answerOrder": 0,
+          "matchValue": null
+        }
+      ]
+    },
+    {
+      "text": "Nối các quốc gia với thủ đô của chúng.",
+      "questionType": "MATCHING",
+      "imageUrl": null,
+      "questionOrder": 2,
+      "answers": [
+        {
+          "text": "Việt Nam",
+          "matchValue": "Hà Nội",
+          "correct": true,
           "answerOrder": 0
         },
         {
-          "text": "4",
+          "text": "Nhật Bản",
+          "matchValue": "Tokyo",
           "correct": true,
           "answerOrder": 1
         },
         {
-          "text": "5",
-          "correct": false,
+          "text": "Pháp",
+          "matchValue": "Paris",
+          "correct": true,
           "answerOrder": 2
         }
       ]
     },
     {
-      "text": "5 - 3 bằng bao nhiêu?",
-      "questionOrder": 1,
+      "text": "Thủ đô của Việt Nam là gì?",
+      "questionType": "SHORT_ANSWER",
+      "imageUrl": null,
+      "questionOrder": 3,
       "answers": [
         {
-          "text": "1",
-          "correct": false,
-          "answerOrder": 0
-        },
-        {
-          "text": "2",
+          "text": "Hà Nội",
           "correct": true,
-          "answerOrder": 1
+          "answerOrder": 0,
+          "matchValue": null
         },
         {
-          "text": "3",
-          "correct": false,
-          "answerOrder": 2
+          "text": "hanoi",
+          "correct": true,
+          "answerOrder": 1,
+          "matchValue": null
         }
       ]
     }
@@ -213,6 +261,35 @@ Authorization: Bearer <token>
   "updatedAt": "2023-12-15T14:30:22",
   "questions": [...]
 }
+```
+
+---
+
+### 6. Tải lên Media (Upload Media)
+
+**Endpoint:** `POST /media/upload`
+
+**Headers:**
+
+```
+Authorization: Bearer <token>
+Content-Type: multipart/form-data
+```
+
+**Request Body:**
+
+- `file`: Chọn một file ảnh hoặc video từ máy của bạn.
+
+**Response (200 OK):**
+
+- Một chuỗi (string) chứa URL công khai của file vừa được tải lên trên S3.
+
+**Ví dụ cURL:**
+
+```bash
+curl -X POST http://localhost:8080/api/media/upload \
+  -H "Authorization: Bearer <token>" \
+  -F "file=@/path/to/your/image.jpg"
 ```
 
 ---

@@ -29,6 +29,12 @@ public class ScormPackage {
     @JoinColumn(name = "user_id", nullable = false)
     private User user;
 
+    @Column(name = "welcome_video_url")
+    private String welcomeVideoUrl;
+
+    @Column(name = "theme_json", columnDefinition = "TEXT")
+    private String themeJson;
+
     @Column(name = "passing_score")
     private Integer passingScore;
 
@@ -37,6 +43,10 @@ public class ScormPackage {
 
     @Column(name = "package_url")
     private String packageUrl;
+
+    @Enumerated(EnumType.STRING)
+    @Column(name = "review_mode")
+    private com.scorm.generator.model.ReviewMode reviewMode;
 
     @Column(name = "created_at", nullable = false, updatable = false)
     private LocalDateTime createdAt;

@@ -33,8 +33,12 @@ public class ScormPackageService {
         ScormPackage scormPackage = ScormPackage.builder()
                 .title(request.getTitle())
                 .description(request.getDescription())
+                .welcomeVideoUrl(request.getWelcomeVideoUrl())
+                .themeJson(request.getThemeJson())
                 .passingScore(request.getPassingScore() != null ? request.getPassingScore() : 70)
                 .maxAttempts(request.getMaxAttempts() != null ? request.getMaxAttempts() : 3)
+                .reviewMode(request.getReviewMode() != null ? request.getReviewMode()
+                        : com.scorm.generator.model.ReviewMode.NO_REVIEW) // Set review mode
                 .user(user)
                 .questions(new java.util.ArrayList<>())
                 .build();
@@ -45,6 +49,8 @@ public class ScormPackageService {
                 var questionDTO = request.getQuestions().get(index);
                 Question question = Question.builder()
                         .text(questionDTO.getText())
+                        .questionType(questionDTO.getQuestionType())
+                        .imageUrl(questionDTO.getImageUrl())
                         .questionOrder(index)
                         .scormPackage(scormPackage)
                         .answers(new java.util.ArrayList<>())
@@ -56,6 +62,8 @@ public class ScormPackageService {
                         Answer answer = Answer.builder()
                                 .text(answerDTO.getText())
                                 .correct(answerDTO.getCorrect())
+                                .matchValue(answerDTO.getMatchValue())
+                                .imageUrl(answerDTO.getImageUrl()) // Add this line
                                 .answerOrder(ansIndex)
                                 .question(question)
                                 .build();

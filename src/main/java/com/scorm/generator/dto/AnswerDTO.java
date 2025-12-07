@@ -11,8 +11,10 @@ import lombok.NoArgsConstructor;
 @Builder
 public class AnswerDTO {
     private Long id;
+    private String matchValue;
     private String text;
     private Boolean correct;
     private Integer answerOrder;
-}
+    private String imageUrl;
 
+}

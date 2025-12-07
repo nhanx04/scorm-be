@@ -17,6 +17,8 @@ public class MapperService {
                                 .id(scormPackage.getId())
                                 .title(scormPackage.getTitle())
                                 .description(scormPackage.getDescription())
+                                .welcomeVideoUrl(scormPackage.getWelcomeVideoUrl())
+                                .themeJson(scormPackage.getThemeJson())
                                 .passingScore(scormPackage.getPassingScore())
                                 .maxAttempts(scormPackage.getMaxAttempts())
                                 .packageUrl(scormPackage.getPackageUrl())
@@ -26,6 +28,7 @@ public class MapperService {
                                                 .map(this::toQuestionDTO)
                                                 .collect(Collectors.toList())
                                                 : null)
+                                .reviewMode(scormPackage.getReviewMode()) // Add this line
                                 .build();
         }
 
@@ -33,6 +36,8 @@ public class MapperService {
                 return QuestionDTO.builder()
                                 .id(question.getId())
                                 .text(question.getText())
+                                .questionType(question.getQuestionType())
+                                .imageUrl(question.getImageUrl())
                                 .questionOrder(question.getQuestionOrder())
                                 .answers(question.getAnswers() != null ? question.getAnswers().stream()
                                                 .map(this::toAnswerDTO)
@@ -46,7 +51,9 @@ public class MapperService {
                                 .id(answer.getId())
                                 .text(answer.getText())
                                 .correct(answer.getCorrect())
+                                .matchValue(answer.getMatchValue())
                                 .answerOrder(answer.getAnswerOrder())
+                                .imageUrl(answer.getImageUrl()) // Add this line
                                 .build();
         }
 }
