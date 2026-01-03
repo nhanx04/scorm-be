@@ -1,65 +1,78 @@
 package com.scorm.generator.service;
 
-import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
-import software.amazon.awssdk.core.sync.RequestBody;
-import software.amazon.awssdk.services.s3.S3Client;
-import software.amazon.awssdk.services.s3.model.DeleteObjectRequest;
-import software.amazon.awssdk.services.s3.model.PutObjectRequest;
 
-import java.net.URL;
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
 
 @Service
-@RequiredArgsConstructor
 public class AwsS3Service {
 
-    private final S3Client s3Client;
-
-    @Value("${aws.s3.bucket-name}")
-    private String bucketName;
+    // Chúng ta xóa bỏ S3Client và bucketName vì không dùng đến nữa
 
     /**
-     * Uploads a file to Amazon S3 and returns its public URL.
+     * Thay vì upload lên S3, hàm này sẽ lưu file vào thư mục 'uploads' ngay tại máy
+     * của bạn.
      *
-     * @param fileData    The file content as a byte array.
-     * @param fileName    The key (path and name) for the file in the bucket.
-     * @param contentType The MIME type of the file (e.g., "application/zip").
-     * @return The public URL of the uploaded file.
+     * @param fileData    Nội dung file dưới dạng byte array.
+     * @param fileName    Tên file muốn lưu (ví dụ: scorm_package_123.zip).
+     * @param contentType Loại file (giữ lại để đúng chuẩn hàm cũ, dù không dùng).
+     * @return Đường dẫn tuyệt đối tới file đã lưu trên máy tính.
      */
     public String uploadFile(byte[] fileData, String fileName, String contentType) {
-        PutObjectRequest putObjectRequest = PutObjectRequest.builder()
-                .bucket(bucketName)
-                .key(fileName)
-                .contentType(contentType)
-                .build();
+        try {
+            // 1. Xác định thư mục lưu trữ là thư mục 'uploads' trong thư mục gốc dự án
+            String currentDir = System.getProperty("user.dir");
+            File uploadDir = new File(currentDir, "uploads");
 
-        s3Client.putObject(putObjectRequest, RequestBody.fromBytes(fileData));
+            // Tạo thư mục nếu chưa tồn tại
+            if (!uploadDir.exists()) {
+                boolean created = uploadDir.mkdirs();
+                if (!created) {
+                    System.err.println("Không thể tạo thư mục uploads!");
+                }
+            }
 
-        // Return the public URL of the object
-        return s3Client.utilities().getUrl(builder -> builder.bucket(bucketName).key(fileName)).toExternalForm();
+            // 2. Làm sạch tên file (chỉ lấy tên file, bỏ phần đường dẫn folder ảo nếu có)
+            String cleanFileName = new File(fileName).getName();
+            File destFile = new File(uploadDir, cleanFileName);
+
+            // 3. Ghi dữ liệu ra file
+            try (FileOutputStream fos = new FileOutputStream(destFile)) {
+                fos.write(fileData);
+            }
+
+            System.out.println("✅ [LOCAL STORAGE] Đã lưu file thành công tại: " + destFile.getAbsolutePath());
+
+            // Trả về đường dẫn tuyệt đối để bạn dễ dàng tìm thấy file
+            return destFile.getAbsolutePath();
+
+        } catch (IOException e) {
+            e.printStackTrace();
+            throw new RuntimeException("Lỗi khi lưu file cục bộ: " + e.getMessage());
+        }
     }
 
     /**
-     * Deletes a file from Amazon S3.
+     * Xóa file khỏi ổ cứng dựa trên đường dẫn file.
      *
-     * @param fileUrl The public URL of the file to delete.
+     * @param fileUrl Đường dẫn tuyệt đối của file cần xóa.
      */
     public void deleteFileFromUrl(String fileUrl) {
         try {
-            // Extract the key from the URL
-            String key = new URL(fileUrl).getPath().substring(1);
-
-            DeleteObjectRequest deleteObjectRequest = DeleteObjectRequest.builder()
-                    .bucket(bucketName)
-                    .key(key)
-                    .build();
-
-            s3Client.deleteObject(deleteObjectRequest);
+            File file = new File(fileUrl);
+            if (file.exists()) {
+                if (file.delete()) {
+                    System.out.println("✅ [LOCAL STORAGE] Đã xóa file: " + fileUrl);
+                } else {
+                    System.err.println("❌ [LOCAL STORAGE] Không thể xóa file: " + fileUrl);
+                }
+            } else {
+                System.out.println("⚠️ [LOCAL STORAGE] File không tồn tại để xóa: " + fileUrl);
+            }
         } catch (Exception e) {
-            // Log the error, e.g., using a logger
-            System.err.println("Error deleting file from S3: " + e.getMessage());
+            System.err.println("Lỗi khi xóa file cục bộ: " + e.getMessage());
         }
     }
 }
-
