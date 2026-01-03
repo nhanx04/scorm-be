@@ -17,16 +17,34 @@ import java.util.List;
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "userid") // Map với cột userid
     private Long id;
 
     @Column(unique = true, nullable = false)
     private String email;
 
-    @Column(nullable = false)
+    @Column(name = "password_hash", nullable = false) // Map với cột password_hash
     private String password;
 
-    @Column(nullable = false)
-    private String fullName;
+    // Thay thế fullName bằng fname, lname, minit
+    @Column(name = "fname", length = 100)
+    private String firstName;
+
+    @Column(name = "lname", length = 255)
+    private String lastName;
+
+    @Column(name = "minit", length = 10)
+    private String middleInit;
+
+    @Column(name = "avatar_url", columnDefinition = "TEXT")
+    private String avatarUrl;
+
+    @Column(name = "is_active")
+    @Builder.Default
+    private Boolean isActive = true;
+
+    @Column(name = "last_login_at")
+    private LocalDateTime lastLoginAt;
 
     @Column(name = "created_at", nullable = false, updatable = false)
     private LocalDateTime createdAt;
@@ -34,13 +52,22 @@ public class User {
     @Column(name = "updated_at")
     private LocalDateTime updatedAt;
 
+    // Quan hệ cũ (Giữ lại nếu chưa xóa các file liên quan đến ScormPackage)
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<ScormPackage> scormPackages;
 
+    // --- MỚI: Quan hệ với bảng Course ---
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<Course> courses;
+
     @PrePersist
     protected void onCreate() {
-        createdAt = LocalDateTime.now();
-        updatedAt = LocalDateTime.now();
+        if (createdAt == null)
+            createdAt = LocalDateTime.now();
+        if (updatedAt == null)
+            updatedAt = LocalDateTime.now();
+        if (isActive == null)
+            isActive = true;
     }
 
     @PreUpdate
@@ -48,4 +75,3 @@ public class User {
         updatedAt = LocalDateTime.now();
     }
 }
-
