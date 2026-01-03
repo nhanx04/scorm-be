@@ -17,12 +17,15 @@ public class UserPrincipal implements UserDetails {
     private String fullName;
 
     public static UserPrincipal create(User user) {
+        // Ghép fname và lname để tạo thành fullName cho Spring Security dùng
+        String fullName = (user.getFirstName() != null ? user.getFirstName() : "")
+                + (user.getLastName() != null ? " " + user.getLastName() : "");
+
         return new UserPrincipal(
                 user.getId(),
                 user.getEmail(),
                 user.getPassword(),
-                user.getFullName()
-        );
+                fullName.trim());
     }
 
     @Override
@@ -60,4 +63,3 @@ public class UserPrincipal implements UserDetails {
         return true;
     }
 }
-

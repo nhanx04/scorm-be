@@ -20,13 +20,19 @@ public class AuthController {
     private static final Logger logger = LoggerFactory.getLogger(AuthController.class);
 
     @PostMapping("/register")
+    // Sửa kiểu trả về thành ResponseEntity<?> để có thể trả về chuỗi lỗi
     public ResponseEntity<?> register(@RequestBody RegisterRequest request) {
         try {
             AuthResponse response = authService.register(request);
             return ResponseEntity.status(HttpStatus.CREATED).body(response);
         } catch (Exception e) {
+            // Log lỗi ra file log
             logger.error("Registration failed for email: {}", request.getEmail(), e);
-            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(e.getMessage());
+            // In lỗi ra terminal để debug
+            e.printStackTrace();
+            // Trả về thông báo lỗi cho Frontend hiển thị
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST)
+                    .body("Đăng ký thất bại: " + e.getMessage());
         }
     }
 
@@ -36,7 +42,8 @@ public class AuthController {
             AuthResponse response = authService.login(request);
             return ResponseEntity.ok(response);
         } catch (Exception e) {
-            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).build();
+            e.printStackTrace();
+            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("Đăng nhập thất bại: " + e.getMessage());
         }
     }
 }

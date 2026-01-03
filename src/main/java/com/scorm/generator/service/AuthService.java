@@ -27,31 +27,36 @@ public class AuthService {
             throw new RuntimeException("Email already registered");
         }
 
+        // Logic tách tên (Optional): Nếu muốn tách fullName thành fname/lname
+        // Hiện tại lưu thẳng fullName vào firstName cho đơn giản
         User user = User.builder()
                 .email(request.getEmail())
                 .password(passwordEncoder.encode(request.getPassword()))
-                .fullName(request.getFullName())
+                .firstName(request.getFullName()) // Lưu fullName vào cột fname
+                .lastName("") // Để trống hoặc xử lý tách chuỗi nếu muốn
+                .isActive(true)
                 .build();
 
         user = userRepository.save(user);
 
         String token = tokenProvider.generateTokenFromUserId(user.getId());
 
-        return new AuthResponse(token, user.getId(), user.getEmail(), user.getFullName());
+        return new AuthResponse(token, user.getId(), user.getEmail(), user.getFirstName());
     }
 
     public AuthResponse login(AuthRequest request) {
         Authentication authentication = authenticationManager.authenticate(
                 new UsernamePasswordAuthenticationToken(
                         request.getEmail(),
-                        request.getPassword()
-                )
-        );
+                        request.getPassword()));
 
         String token = tokenProvider.generateToken(authentication);
         User user = userRepository.findByEmail(request.getEmail()).orElseThrow();
 
-        return new AuthResponse(token, user.getId(), user.getEmail(), user.getFullName());
+        // Cập nhật thời gian login
+        user.setLastLoginAt(java.time.LocalDateTime.now());
+        userRepository.save(user);
+
+        return new AuthResponse(token, user.getId(), user.getEmail(), user.getFirstName());
     }
 }
-
