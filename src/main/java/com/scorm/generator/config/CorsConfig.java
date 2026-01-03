@@ -13,13 +13,12 @@ public class CorsConfig {
         return new WebMvcConfigurer() {
             @Override
             public void addCorsMappings(CorsRegistry registry) {
-                // SỬA: Đổi "/api/**" thành "/**" để áp dụng cho mọi controller
                 registry.addMapping("/**")
-                        // SỬA: Chỉ định rõ Frontend (React/Vite chạy port 3000)
-                        .allowedOrigins("http://localhost:3000", "http://localhost:5173")
+                        // Must NOT be "*" when allowCredentials(true)
+                        .allowedOriginPatterns("http://localhost:*", "http://127.0.0.1:*")
                         .allowedMethods("GET", "POST", "PUT", "DELETE", "OPTIONS")
                         .allowedHeaders("*")
-                        .allowCredentials(true) // Cho phép gửi cookie/auth header
+                        .allowCredentials(true)
                         .maxAge(3600);
             }
         };

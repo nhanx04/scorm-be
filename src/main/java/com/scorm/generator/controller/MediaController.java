@@ -12,7 +12,8 @@ import java.util.UUID;
 @RestController
 @RequestMapping("/media")
 @RequiredArgsConstructor
-@CrossOrigin(origins = "*", maxAge = 3600)
+// CORS is configured globally in CorsConfig
+// @CrossOrigin removed to avoid origins="*" + allowCredentials(true) conflict
 public class MediaController {
 
     private final AwsS3Service s3Service;
@@ -32,4 +33,3 @@ public class MediaController {
         }
     }
 }
-

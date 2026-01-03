@@ -14,7 +14,8 @@ import java.util.List;
 @RestController
 @RequestMapping("/scorm-packages")
 @RequiredArgsConstructor
-@CrossOrigin(origins = "*", maxAge = 3600)
+// CORS is configured globally in CorsConfig
+// @CrossOrigin removed to avoid origins="*" + allowCredentials(true) conflict
 public class ScormPackageController {
 
     private final ScormPackageService scormPackageService;
@@ -66,4 +67,3 @@ public class ScormPackageController {
         }
     }
 }
-

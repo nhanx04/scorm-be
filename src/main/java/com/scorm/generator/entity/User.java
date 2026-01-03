@@ -23,17 +23,20 @@ public class User {
     @Column(unique = true, nullable = false)
     private String email;
 
-    @Column(name = "password_hash", nullable = false) // Map với cột password_hash
+    @Column(name = "password", nullable = false) // Changed to match database column name
     private String password;
 
-    // Thay thế fullName bằng fname, lname, minit
-    @Column(name = "fname", length = 100)
+    @Column(name = "full_name", nullable = false)
+    private String fullName;
+
+    // Keep these fields but mark them as @Transient since they don't exist in DB
+    @Transient
     private String firstName;
 
-    @Column(name = "lname", length = 255)
+    @Transient
     private String lastName;
 
-    @Column(name = "minit", length = 10)
+    @Transient
     private String middleInit;
 
     @Column(name = "avatar_url", columnDefinition = "TEXT")

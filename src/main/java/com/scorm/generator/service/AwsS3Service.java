@@ -1,78 +1,79 @@
 package com.scorm.generator.service;
 
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
+import software.amazon.awssdk.core.sync.RequestBody;
+import software.amazon.awssdk.regions.Region;
+import software.amazon.awssdk.services.s3.S3Client;
+import software.amazon.awssdk.services.s3.model.DeleteObjectRequest;
+import software.amazon.awssdk.services.s3.model.PutObjectRequest;
 
-import java.io.File;
-import java.io.FileOutputStream;
-import java.io.IOException;
+import java.net.URI;
 
 @Service
 public class AwsS3Service {
 
-    // Chúng ta xóa bỏ S3Client và bucketName vì không dùng đến nữa
+    private final S3Client s3;
 
-    /**
-     * Thay vì upload lên S3, hàm này sẽ lưu file vào thư mục 'uploads' ngay tại máy
-     * của bạn.
-     *
-     * @param fileData    Nội dung file dưới dạng byte array.
-     * @param fileName    Tên file muốn lưu (ví dụ: scorm_package_123.zip).
-     * @param contentType Loại file (giữ lại để đúng chuẩn hàm cũ, dù không dùng).
-     * @return Đường dẫn tuyệt đối tới file đã lưu trên máy tính.
-     */
-    public String uploadFile(byte[] fileData, String fileName, String contentType) {
-        try {
-            // 1. Xác định thư mục lưu trữ là thư mục 'uploads' trong thư mục gốc dự án
-            String currentDir = System.getProperty("user.dir");
-            File uploadDir = new File(currentDir, "uploads");
+    @Value("${aws.region}")
+    private String region;
 
-            // Tạo thư mục nếu chưa tồn tại
-            if (!uploadDir.exists()) {
-                boolean created = uploadDir.mkdirs();
-                if (!created) {
-                    System.err.println("Không thể tạo thư mục uploads!");
-                }
-            }
+    @Value("${aws.s3.bucket-name}")
+    private String bucketName;
 
-            // 2. Làm sạch tên file (chỉ lấy tên file, bỏ phần đường dẫn folder ảo nếu có)
-            String cleanFileName = new File(fileName).getName();
-            File destFile = new File(uploadDir, cleanFileName);
-
-            // 3. Ghi dữ liệu ra file
-            try (FileOutputStream fos = new FileOutputStream(destFile)) {
-                fos.write(fileData);
-            }
-
-            System.out.println("✅ [LOCAL STORAGE] Đã lưu file thành công tại: " + destFile.getAbsolutePath());
-
-            // Trả về đường dẫn tuyệt đối để bạn dễ dàng tìm thấy file
-            return destFile.getAbsolutePath();
-
-        } catch (IOException e) {
-            e.printStackTrace();
-            throw new RuntimeException("Lỗi khi lưu file cục bộ: " + e.getMessage());
-        }
+    public AwsS3Service() {
+        // Uses default credentials provider chain:
+        // - AWS_PROFILE / ~/.aws/credentials (recommended for local)
+        // - env vars AWS_ACCESS_KEY_ID/AWS_SECRET_ACCESS_KEY
+        // - etc.
+        this.s3 = S3Client.builder().build();
     }
 
     /**
-     * Xóa file khỏi ổ cứng dựa trên đường dẫn file.
+     * Upload file bytes to S3 and return a public URL.
      *
-     * @param fileUrl Đường dẫn tuyệt đối của file cần xóa.
+     * NOTE: This only works as a "public" URL if:
+     * - the object is public (ACL/policy), OR
+     * - the bucket is public, OR
+     * - you serve it via CloudFront.
      */
+    public String uploadFile(byte[] fileData, String key, String contentType) {
+        String cleanKey = key.startsWith("/") ? key.substring(1) : key;
+
+        PutObjectRequest putReq = PutObjectRequest.builder()
+                .bucket(bucketName)
+                .key(cleanKey)
+                .contentType(contentType)
+                .build();
+
+        s3.putObject(putReq, RequestBody.fromBytes(fileData));
+
+        // Build standard S3 virtual-hosted style URL
+        // https://{bucket}.s3.{region}.amazonaws.com/{key}
+        String resolvedRegion = (region == null || region.isBlank()) ? Region.AWS_GLOBAL.id() : region;
+        return "https://" + bucketName + ".s3." + resolvedRegion + ".amazonaws.com/" + cleanKey;
+    }
+
     public void deleteFileFromUrl(String fileUrl) {
+        // Accept either full URL or s3 key (best effort)
+        String key = fileUrl;
         try {
-            File file = new File(fileUrl);
-            if (file.exists()) {
-                if (file.delete()) {
-                    System.out.println("✅ [LOCAL STORAGE] Đã xóa file: " + fileUrl);
-                } else {
-                    System.err.println("❌ [LOCAL STORAGE] Không thể xóa file: " + fileUrl);
+            if (fileUrl != null && (fileUrl.startsWith("http://") || fileUrl.startsWith("https://"))) {
+                URI uri = URI.create(fileUrl);
+                String path = uri.getPath();
+                if (path != null && path.startsWith("/")) {
+                    key = path.substring(1);
                 }
-            } else {
-                System.out.println("⚠️ [LOCAL STORAGE] File không tồn tại để xóa: " + fileUrl);
             }
-        } catch (Exception e) {
-            System.err.println("Lỗi khi xóa file cục bộ: " + e.getMessage());
+        } catch (Exception ignored) {
         }
+
+        if (key == null || key.isBlank())
+            return;
+
+        s3.deleteObject(DeleteObjectRequest.builder()
+                .bucket(bucketName)
+                .key(key)
+                .build());
     }
 }
