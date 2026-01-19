@@ -6,22 +6,24 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Data
+@Builder
 @NoArgsConstructor
 @AllArgsConstructor
-@Builder
 public class AuthResponse {
     private String token;
-    private String type;
-    private Long userId;
-    private String email;
-    private String fullName;
+    private UserDto user;
 
-    public AuthResponse(String token, Long userId, String email, String fullName) {
-        this.token = token;
-        this.type = "Bearer";
-        this.userId = userId;
-        this.email = email;
-        this.fullName = fullName;
+    @Data
+    @Builder
+    @NoArgsConstructor
+    @AllArgsConstructor
+    public static class UserDto {
+        private Long userId;
+        private String fname;
+        private String minit;
+        private String lname;
+        private String email;
+        private String avatarUrl;
     }
 }
 

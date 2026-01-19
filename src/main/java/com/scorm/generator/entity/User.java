@@ -5,76 +5,100 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import java.time.LocalDateTime;
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.userdetails.UserDetails;
+
+import java.time.OffsetDateTime;
+import java.util.Collection;
 import java.util.List;
 
-@Entity
-@Table(name = "users")
 @Data
+@Builder
 @NoArgsConstructor
 @AllArgsConstructor
-@Builder
-public class User {
+@Entity
+@Table(name = "users")
+public class User implements UserDetails {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "userid") // Map với cột userid
-    private Long id;
+    @Column(name = "userid")
+    private Long userId;
 
-    @Column(unique = true, nullable = false)
+    @Column(name = "fname")
+    private String fname;
+
+    @Column(name = "minit")
+    private String minit;
+
+    @Column(name = "lname")
+    private String lname;
+
+    @Column(name = "email", nullable = false, unique = true)
     private String email;
 
-    @Column(name = "password", nullable = false) // Changed to match database column name
+    @Column(name = "password_hash", nullable = false)
     private String password;
 
-    @Column(name = "full_name", nullable = false)
-    private String fullName;
-
-    // Keep these fields but mark them as @Transient since they don't exist in DB
-    @Transient
-    private String firstName;
-
-    @Transient
-    private String lastName;
-
-    @Transient
-    private String middleInit;
-
-    @Column(name = "avatar_url", columnDefinition = "TEXT")
+    @Column(name = "avatar_url")
     private String avatarUrl;
 
     @Column(name = "is_active")
-    @Builder.Default
-    private Boolean isActive = true;
+    private boolean isActive = true;
 
     @Column(name = "last_login_at")
-    private LocalDateTime lastLoginAt;
+    private OffsetDateTime lastLoginAt;
 
-    @Column(name = "created_at", nullable = false, updatable = false)
-    private LocalDateTime createdAt;
+    @Column(name = "created_at", updatable = false)
+    private OffsetDateTime createdAt;
 
     @Column(name = "updated_at")
-    private LocalDateTime updatedAt;
-
-    // Quan hệ cũ (Giữ lại nếu chưa xóa các file liên quan đến ScormPackage)
-    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
-    private List<ScormPackage> scormPackages;
-
-    // --- MỚI: Quan hệ với bảng Course ---
-    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
-    private List<Course> courses;
+    private OffsetDateTime updatedAt;
 
     @PrePersist
     protected void onCreate() {
-        if (createdAt == null)
-            createdAt = LocalDateTime.now();
-        if (updatedAt == null)
-            updatedAt = LocalDateTime.now();
-        if (isActive == null)
-            isActive = true;
+        createdAt = OffsetDateTime.now();
+        updatedAt = OffsetDateTime.now();
     }
 
     @PreUpdate
     protected void onUpdate() {
-        updatedAt = LocalDateTime.now();
+        updatedAt = OffsetDateTime.now();
+    }
+
+    @Override
+    public Collection<? extends GrantedAuthority> getAuthorities() {
+        return List.of(); // No roles defined for now
+    }
+
+    @Override
+    public String getPassword() {
+        return password;
+    }
+
+    @Override
+    public String getUsername() {
+        return email;
+    }
+
+    @Override
+    public boolean isAccountNonExpired() {
+        return true;
+    }
+
+    @Override
+    public boolean isAccountNonLocked() {
+        return true;
+    }
+
+    @Override
+    public boolean isCredentialsNonExpired() {
+        return true;
+    }
+
+    @Override
+    public boolean isEnabled() {
+        return isActive;
     }
 }
+

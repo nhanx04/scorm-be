@@ -8,6 +8,7 @@ import org.springframework.security.core.AuthenticationException;
 import java.time.LocalDateTime;
 import java.util.HashMap;
 import java.util.Map;
+import org.springframework.web.HttpMediaTypeNotSupportedException;
 
 @RestControllerAdvice
 public class GlobalExceptionHandler {
@@ -20,6 +21,19 @@ public class GlobalExceptionHandler {
         response.put("error", "Authentication Failed");
         response.put("message", ex.getMessage());
         return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(response);
+    }
+
+    @ExceptionHandler(HttpMediaTypeNotSupportedException.class)
+    public ResponseEntity<Map<String, Object>> handleHttpMediaTypeNotSupportedException(
+            HttpMediaTypeNotSupportedException ex) {
+        Map<String, Object> response = new HashMap<>();
+        response.put("timestamp", LocalDateTime.now());
+        response.put("status", HttpStatus.UNSUPPORTED_MEDIA_TYPE.value());
+        response.put("error", "Unsupported Media Type");
+        response.put("message", ex.getMessage());
+        response.put("contentType", ex.getContentType() == null ? null : ex.getContentType().toString());
+        response.put("supported", ex.getSupportedMediaTypes().stream().map(Object::toString).toList());
+        return ResponseEntity.status(HttpStatus.UNSUPPORTED_MEDIA_TYPE).body(response);
     }
 
     @ExceptionHandler(RuntimeException.class)
@@ -42,4 +56,3 @@ public class GlobalExceptionHandler {
         return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(response);
     }
 }
-

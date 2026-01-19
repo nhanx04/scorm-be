@@ -1,53 +1,36 @@
 spring:
-  application:
-    name: scorm-package-generator-api
-
-  # --- CẤU HÌNH AWS GIẢ (BẮT BUỘC ĐỂ CHẠY OFFLINE) ---
-  # Các dòng này cung cấp thông tin "rác" để thư viện AWS không báo lỗi khi khởi động
-  cloud:
-    aws:
-      region:
-        static: us-east-1
-      credentials:
-        access-key: dummy-access-key
-        secret-key: dummy-secret-key
-  # ---------------------------------------------------
-
   datasource:
-    url: jdbc:postgresql://localhost:5432/scorm
+    url: ${SPRING_DATASOURCE_URL:jdbc:postgresql://localhost:5432/scorm_db}
+    username: ${SPRING_DATASOURCE_USERNAME:postgres}
+    password: ${SPRING_DATASOURCE_PASSWORD:pass123}
     driver-class-name: org.postgresql.Driver
-    username: postgres # <-- THAY ĐỔI USERNAME CỦA BẠN NẾU KHÁC
-    password: "pass123" # <-- THAY ĐỔI PASSWORD CỦA BẠN NẾU KHÁC
-
   jpa:
-    database-platform: org.hibernate.dialect.PostgreSQLDialect
     hibernate:
-      ddl-auto: update # 'update' giữ dữ liệu, 'create' xóa sạch làm lại từ đầu
+      ddl-auto: validate
     show-sql: true
     properties:
       hibernate:
         format_sql: true
-
+        dialect: org.hibernate.dialect.PostgreSQLDialect
   servlet:
     multipart:
-      max-file-size: 100MB
-      max-request-size: 100MB
+      enabled: true
+      max-file-size: 10MB
+      max-request-size: 10MB
+      file-size-threshold: 0
+
+app:
+  jwt:
+    secret: ${APP_JWT_SECRET}
+    expiration-ms: ${APP_JWT_EXPIRATION_MS:86400000}
+  r2:
+    endpoint: ${APP_R2_ENDPOINT}
+    public-base-url: ${APP_R2_PUBLIC_BASE_URL}
+    bucket: ${APP_R2_BUCKET:scorm-generator}
+    access-key-id: ${APP_R2_ACCESS_KEY_ID}
+    secret-access-key: ${APP_R2_SECRET_ACCESS_KEY}
 
 server:
-  port: 8080
-
-jwt:
-  secret: your-secret-key-change-this-in-production-environment-with-a-long-random-string
-  expiration: 86400000 # 24 hours
-
-logging:
-  level:
-    root: INFO
-    com.scorm: DEBUG
-
-# Cấu hình riêng của App (Vẫn giữ để code Java đọc được biến này, tránh lỗi Null)
-aws:
-  region: ap-southeast-2
-  s3:
-    bucket-name: scorm-generator-hcmut
-    prefix: scorm/
+  port: ${SERVER_PORT:8080}
+  servlet:
+    context-path: ${SERVER_SERVLET_CONTEXT_PATH:/api}
