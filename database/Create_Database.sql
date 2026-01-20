@@ -87,7 +87,15 @@ CREATE TABLE course (
 -- ============================================
 CREATE TABLE scorm_export_config (
     scorm_configid   BIGSERIAL,
+
+    -- Export & runtime config (SCORM version, navigation, tracking, etc.)
     extra_config     JSONB,
+
+    -- Theme / UI customization (design tokens)
+    -- Store as JSONB to allow maximum flexibility for future additions.
+    -- Suggested structure is documented in the backend layer (DTO/validation).
+    theme_config     JSONB,
+
     config_courseid  BIGINT NOT NULL,
     CONSTRAINT pk_scorm_export_config PRIMARY KEY (scorm_configid),
     CONSTRAINT fk_scorm_export_config_course
@@ -103,7 +111,13 @@ CREATE TABLE scorm_package (
     scorm_packageid   BIGSERIAL,
     package_name      VARCHAR(255),
     package_type      VARCHAR(50),
+
+    -- Output artifact
     zip_file_path     TEXT,
+
+    -- Theme snapshot at export time (so package remains stable even if config changes later)
+    theme_snapshot    JSONB,
+
     package_courseid  BIGINT NOT NULL,
     package_configid  BIGINT NOT NULL,
     package_userid    BIGINT NOT NULL,
@@ -220,6 +234,19 @@ CREATE TABLE audio_asset (
 );
 
 -- ============================================
+-- 14b. VIDEO_ASSET
+-- VIDEO_ASSET(MediaID, Youtube_Url)
+-- (YouTube embed link only)
+-- ============================================
+CREATE TABLE video_asset (
+    mediaid       BIGINT,
+    youtube_url   TEXT NOT NULL,
+    CONSTRAINT pk_video_asset PRIMARY KEY (mediaid),
+    CONSTRAINT fk_video_asset_media
+        FOREIGN KEY (mediaid) REFERENCES media_asset(mediaid)
+);
+
+-- ============================================
 -- 14. DOCUMENT_ASSET
 -- DOCUMENT_ASSET(MediaID, Metadata)
 -- ============================================
@@ -246,37 +273,230 @@ CREATE TABLE thumbnail_of_course (
 );
 
 -- ============================================
--- 16. QUESTION
--- QUESTION(QuestionID, Title, Instruction, Prompt_Html, Extra_Config,
---          Question_Type)
+-- 16. QUESTION (Universal model)
+-- Supports: single choice, multiple choice, true/false, fill blank, matching,
+-- short answer, grouping/classification, and future question types.
 -- ============================================
 CREATE TABLE question (
-    questionid     BIGSERIAL,
-    title          VARCHAR(255),
-    instruction    TEXT,
-    prompt_html    TEXT,
-    extra_config   JSONB,
-    question_type  VARCHAR(50),
+    questionid          BIGSERIAL,
+
+    -- Human-readable
+    title               VARCHAR(255),
+    instruction         TEXT,
+    prompt_html         TEXT,
+
+    -- Core typing
+    -- Suggested values: MCQ_SINGLE, MCQ_MULTI, TRUE_FALSE, FILL_BLANK,
+    -- MATCHING, SHORT_ANSWER, GROUPING
+    question_type       VARCHAR(50) NOT NULL,
+
+    -- Shared behavior
+    -- points: score weight
+    -- shuffle_options: for option-based questions
+    -- case_sensitive: for text-based questions
+    points              NUMERIC(8,2) DEFAULT 1,
+    shuffle_options     BOOLEAN DEFAULT FALSE,
+    case_sensitive      BOOLEAN DEFAULT FALSE,
+
+    -- Extensible config (validation rules, feedback, hints, etc.)
+    extra_config        JSONB,
+
     CONSTRAINT pk_question PRIMARY KEY (questionid)
 );
 
 -- ============================================
--- 17. QUESTION_OPTION
--- QUESTION_OPTION(OptionID, QuestionID, Is_Correst, Content_Html)
+-- 17. QUESTION_CHOICE_OPTION (for MCQ_SINGLE / MCQ_MULTI / TRUE_FALSE)
+-- One question can have many options.
+-- is_correct supports multiple correct answers.
 -- ============================================
-CREATE TABLE question_option (
-    optionid      BIGSERIAL,
-    questionid    BIGINT,
-    is_correst    BOOLEAN,
-    content_html  TEXT,
-    CONSTRAINT pk_question_option PRIMARY KEY (optionid, questionid),
-    CONSTRAINT fk_question_option_question
+CREATE TABLE question_choice_option (
+    optionid        BIGSERIAL,
+    questionid      BIGINT NOT NULL,
+    order_index     INT,
+    content_html    TEXT,
+    is_correct      BOOLEAN DEFAULT FALSE,
+    score_fraction  NUMERIC(6,4),
+
+    CONSTRAINT pk_question_choice_option PRIMARY KEY (optionid),
+    CONSTRAINT fk_q_choice_option_question
         FOREIGN KEY (questionid) REFERENCES question(questionid)
 );
 
 -- ============================================
--- 18. MEDIA_OF_QUESTION
--- MEDIA_OF_QUESTION(QuestionID, MediaID)
+-- 18. QUESTION_TRUE_FALSE (optional helper table)
+-- If you want strict T/F semantics separate from general options.
+-- You can keep using question_choice_option with 2 options instead.
+-- ============================================
+CREATE TABLE question_true_false (
+    questionid     BIGINT,
+    correct_value  BOOLEAN NOT NULL,
+
+    CONSTRAINT pk_question_true_false PRIMARY KEY (questionid),
+    CONSTRAINT fk_question_true_false_question
+        FOREIGN KEY (questionid) REFERENCES question(questionid)
+);
+
+-- ============================================
+-- 19. QUESTION_FILL_BLANK
+-- prompt_html contains placeholders. Each blank has accepted answers.
+-- ============================================
+CREATE TABLE question_fill_blank (
+    questionid      BIGINT,
+    -- if TRUE: blanks must be filled in a specific order
+    ordered_blanks  BOOLEAN DEFAULT FALSE,
+
+    CONSTRAINT pk_question_fill_blank PRIMARY KEY (questionid),
+    CONSTRAINT fk_question_fill_blank_question
+        FOREIGN KEY (questionid) REFERENCES question(questionid)
+);
+
+CREATE TABLE question_blank (
+    blankid      BIGSERIAL,
+    questionid   BIGINT NOT NULL,
+    blank_key    VARCHAR(100),
+    order_index  INT,
+
+    CONSTRAINT pk_question_blank PRIMARY KEY (blankid),
+    CONSTRAINT fk_question_blank_question
+        FOREIGN KEY (questionid) REFERENCES question(questionid)
+);
+
+CREATE TABLE question_blank_answer (
+    answerid     BIGSERIAL,
+    blankid      BIGINT NOT NULL,
+    answer_text  TEXT NOT NULL,
+    -- allow alternative spellings, synonyms, etc.
+    match_rule   VARCHAR(50),
+
+    CONSTRAINT pk_question_blank_answer PRIMARY KEY (answerid),
+    CONSTRAINT fk_question_blank_answer_blank
+        FOREIGN KEY (blankid) REFERENCES question_blank(blankid)
+);
+
+-- ============================================
+-- 20. QUESTION_MATCHING
+-- Pair left items to right items (can support many-to-one if needed).
+-- ============================================
+CREATE TABLE question_matching (
+    questionid  BIGINT,
+
+    CONSTRAINT pk_question_matching PRIMARY KEY (questionid),
+    CONSTRAINT fk_question_matching_question
+        FOREIGN KEY (questionid) REFERENCES question(questionid)
+);
+
+CREATE TABLE question_matching_left (
+    leftid       BIGSERIAL,
+    questionid   BIGINT NOT NULL,
+    order_index  INT,
+    content_html TEXT,
+
+    CONSTRAINT pk_question_matching_left PRIMARY KEY (leftid),
+    CONSTRAINT fk_q_matching_left_question
+        FOREIGN KEY (questionid) REFERENCES question(questionid)
+);
+
+CREATE TABLE question_matching_right (
+    rightid      BIGSERIAL,
+    questionid   BIGINT NOT NULL,
+    order_index  INT,
+    content_html TEXT,
+
+    CONSTRAINT pk_question_matching_right PRIMARY KEY (rightid),
+    CONSTRAINT fk_q_matching_right_question
+        FOREIGN KEY (questionid) REFERENCES question(questionid)
+);
+
+CREATE TABLE question_matching_pair (
+    pairid    BIGSERIAL,
+    questionid BIGINT NOT NULL,
+    leftid    BIGINT NOT NULL,
+    rightid   BIGINT NOT NULL,
+    score     NUMERIC(8,2),
+
+    CONSTRAINT pk_question_matching_pair PRIMARY KEY (pairid),
+    CONSTRAINT fk_q_matching_pair_question
+        FOREIGN KEY (questionid) REFERENCES question(questionid),
+    CONSTRAINT fk_q_matching_pair_left
+        FOREIGN KEY (leftid) REFERENCES question_matching_left(leftid),
+    CONSTRAINT fk_q_matching_pair_right
+        FOREIGN KEY (rightid) REFERENCES question_matching_right(rightid)
+);
+
+-- ============================================
+-- 21. QUESTION_SHORT_ANSWER
+-- Store expected answers and validation rules.
+-- ============================================
+CREATE TABLE question_short_answer (
+    questionid       BIGINT,
+    min_length       INT,
+    max_length       INT,
+
+    CONSTRAINT pk_question_short_answer PRIMARY KEY (questionid),
+    CONSTRAINT fk_question_short_answer_question
+        FOREIGN KEY (questionid) REFERENCES question(questionid)
+);
+
+CREATE TABLE question_short_answer_expected (
+    expectedid    BIGSERIAL,
+    questionid    BIGINT NOT NULL,
+    answer_text   TEXT NOT NULL,
+    match_rule    VARCHAR(50),
+
+    CONSTRAINT pk_question_short_answer_expected PRIMARY KEY (expectedid),
+    CONSTRAINT fk_q_short_answer_expected_question
+        FOREIGN KEY (questionid) REFERENCES question(questionid)
+);
+
+-- ============================================
+-- 22. QUESTION_GROUPING (classification)
+-- Items must be assigned into groups.
+-- ============================================
+CREATE TABLE question_grouping (
+    questionid  BIGINT,
+
+    CONSTRAINT pk_question_grouping PRIMARY KEY (questionid),
+    CONSTRAINT fk_question_grouping_question
+        FOREIGN KEY (questionid) REFERENCES question(questionid)
+);
+
+CREATE TABLE question_group (
+    groupid      BIGSERIAL,
+    questionid   BIGINT NOT NULL,
+    order_index  INT,
+    title        VARCHAR(255),
+    description  TEXT,
+
+    CONSTRAINT pk_question_group PRIMARY KEY (groupid),
+    CONSTRAINT fk_question_group_question
+        FOREIGN KEY (questionid) REFERENCES question(questionid)
+);
+
+CREATE TABLE question_group_item (
+    itemid       BIGSERIAL,
+    questionid   BIGINT NOT NULL,
+    order_index  INT,
+    content_html TEXT,
+
+    CONSTRAINT pk_question_group_item PRIMARY KEY (itemid),
+    CONSTRAINT fk_question_group_item_question
+        FOREIGN KEY (questionid) REFERENCES question(questionid)
+);
+
+CREATE TABLE question_group_item_answer (
+    answerid   BIGSERIAL,
+    itemid     BIGINT NOT NULL,
+    groupid    BIGINT NOT NULL,
+
+    CONSTRAINT pk_question_group_item_answer PRIMARY KEY (answerid),
+    CONSTRAINT fk_q_group_item_answer_item
+        FOREIGN KEY (itemid) REFERENCES question_group_item(itemid),
+    CONSTRAINT fk_q_group_item_answer_group
+        FOREIGN KEY (groupid) REFERENCES question_group(groupid)
+);
+
+-- ============================================
+-- 23. MEDIA_OF_QUESTION
 -- ============================================
 CREATE TABLE media_of_question (
     questionid  BIGINT,
@@ -289,18 +509,16 @@ CREATE TABLE media_of_question (
 );
 
 -- ============================================
--- 19. IMAGE_OF_OPTION
--- IMAGE_OF_OPTION(OptionID, QuestionID, MediaID)
+-- 24. IMAGE_OF_CHOICE_OPTION (replaces IMAGE_OF_OPTION)
 -- ============================================
-CREATE TABLE image_of_option (
+CREATE TABLE image_of_choice_option (
     optionid    BIGINT,
-    questionid  BIGINT,
     mediaid     BIGINT,
-    CONSTRAINT pk_image_of_option PRIMARY KEY (optionid, questionid),
-    CONSTRAINT fk_image_of_option_question_option
-        FOREIGN KEY (optionid, questionid)
-            REFERENCES question_option(optionid, questionid),
-    CONSTRAINT fk_image_of_option_media
+    CONSTRAINT pk_image_of_choice_option PRIMARY KEY (optionid, mediaid),
+    CONSTRAINT fk_image_of_choice_option_option
+        FOREIGN KEY (optionid)
+            REFERENCES question_choice_option(optionid),
+    CONSTRAINT fk_image_of_choice_option_media
         FOREIGN KEY (mediaid)
             REFERENCES image_asset(mediaid)
 );
@@ -316,6 +534,10 @@ CREATE TABLE section (
     description         TEXT,
     order_index         INT,
     learning_objective  TEXT,
+
+    -- Theme override for this section (merged on top of course/package theme)
+    theme_override      JSONB,
+
     section_courseid    BIGINT NOT NULL,
     CONSTRAINT pk_section PRIMARY KEY (sectionid),
     CONSTRAINT fk_section_course
@@ -331,6 +553,10 @@ CREATE TABLE page (
     title       VARCHAR(255),
     order_index INT,
     page_type   VARCHAR(50),
+
+    -- Theme override for this page (merged on top of section/theme)
+    theme_override JSONB,
+
     sectionid   BIGINT NOT NULL,
     CONSTRAINT pk_page PRIMARY KEY (pageid),
     CONSTRAINT fk_page_section
