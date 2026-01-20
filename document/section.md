@@ -18,6 +18,18 @@ Request body:
 
 Response: `SectionResponse`
 
+## GET `/courses/{courseId}/sections`
+
+List section trong course (chỉ owner của course).
+
+Response: `SectionResponse[]`
+
+## GET `/sections/{sectionId}`
+
+Lấy chi tiết section theo id (chỉ owner).
+
+Response: `SectionResponse`
+
 ## PATCH `/sections/{sectionId}`
 
 Update section (chỉ owner).

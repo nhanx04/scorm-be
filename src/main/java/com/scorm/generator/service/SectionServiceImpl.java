@@ -69,6 +69,21 @@ public class SectionServiceImpl implements SectionService {
         sectionRepository.delete(section);
     }
 
+    @Override
+    public java.util.List<SectionResponse> listByCourseId(Long courseId, Authentication authentication) {
+        getOwnedCourseOrThrow(courseId, authentication);
+        return sectionRepository.findByCourse_CourseIdOrderByOrderIndexAsc(courseId)
+                .stream()
+                .map(SectionResponse::fromEntity)
+                .toList();
+    }
+
+    @Override
+    public SectionResponse getById(Long sectionId, Authentication authentication) {
+        Section section = getOwnedSectionOrThrow(sectionId, authentication);
+        return SectionResponse.fromEntity(section);
+    }
+
     private Course getOwnedCourseOrThrow(Long courseId, Authentication authentication) {
         if (courseId == null) {
             throw new AppException(HttpStatus.BAD_REQUEST, "courseId is required");
@@ -106,4 +121,3 @@ public class SectionServiceImpl implements SectionService {
         return section;
     }
 }
-

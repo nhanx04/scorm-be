@@ -1,6 +1,7 @@
 package com.scorm.generator.service;
 
 import com.scorm.generator.dto.CourseCreateRequest;
+import com.scorm.generator.dto.CourseDetailResponse;
 import com.scorm.generator.dto.CourseResponse;
 import com.scorm.generator.dto.CourseUpdateRequest;
 import org.springframework.security.core.Authentication;
@@ -12,10 +13,9 @@ public interface CourseService {
 
     List<CourseResponse> listMine(Authentication authentication);
 
-    CourseResponse getById(Long courseId, Authentication authentication);
+    CourseDetailResponse getById(Long courseId, Authentication authentication);
 
     CourseResponse update(Long courseId, CourseUpdateRequest request, Authentication authentication);
 
     void delete(Long courseId, Authentication authentication);
 }
-

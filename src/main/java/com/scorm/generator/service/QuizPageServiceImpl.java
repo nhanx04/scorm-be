@@ -58,6 +58,16 @@ public class QuizPageServiceImpl implements QuizPageService {
         return QuizPageResponse.fromEntity(quizPageRepository.save(quizPage));
     }
 
+    @Override
+    public QuizPageResponse getByPageId(Long pageId, Authentication authentication) {
+        getOwnedPageOrThrow(pageId, authentication);
+
+        QuizPage quizPage = quizPageRepository.findById(pageId)
+                .orElseThrow(() -> new AppException(HttpStatus.NOT_FOUND, "QuizPage not found"));
+
+        return QuizPageResponse.fromEntity(quizPage);
+    }
+
     private Page getOwnedPageOrThrow(Long pageId, Authentication authentication) {
         if (pageId == null) {
             throw new AppException(HttpStatus.BAD_REQUEST, "pageId is required");
@@ -67,9 +77,10 @@ public class QuizPageServiceImpl implements QuizPageService {
                 .orElseThrow(() -> new AppException(HttpStatus.NOT_FOUND, "Page not found"));
 
         User currentUser = (User) authentication.getPrincipal();
-        Long ownerId = page.getSection() != null && page.getSection().getCourse() != null && page.getSection().getCourse().getUser() != null
-                ? page.getSection().getCourse().getUser().getUserId()
-                : null;
+        Long ownerId = page.getSection() != null && page.getSection().getCourse() != null
+                && page.getSection().getCourse().getUser() != null
+                        ? page.getSection().getCourse().getUser().getUserId()
+                        : null;
 
         if (ownerId == null || !ownerId.equals(currentUser.getUserId())) {
             throw new AppException(HttpStatus.FORBIDDEN, "You do not have permission to access this page");
@@ -78,4 +89,3 @@ public class QuizPageServiceImpl implements QuizPageService {
         return page;
     }
 }
-

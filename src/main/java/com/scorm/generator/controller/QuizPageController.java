@@ -26,6 +26,13 @@ public class QuizPageController {
         return ResponseEntity.ok(quizPageService.create(pageId, request, authentication));
     }
 
+    @GetMapping("/quiz-pages/{pageId}")
+    public ResponseEntity<QuizPageResponse> getByPageId(
+            @PathVariable Long pageId,
+            Authentication authentication) {
+        return ResponseEntity.ok(quizPageService.getByPageId(pageId, authentication));
+    }
+
     @PatchMapping("/quiz-pages/{pageId}")
     public ResponseEntity<QuizPageResponse> update(
             @PathVariable Long pageId,
@@ -34,4 +41,3 @@ public class QuizPageController {
         return ResponseEntity.ok(quizPageService.update(pageId, request, authentication));
     }
 }
-

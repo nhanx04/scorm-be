@@ -21,7 +21,8 @@ public class CourseController {
     }
 
     @PostMapping
-    public ResponseEntity<CourseResponse> create(@RequestBody CourseCreateRequest request, Authentication authentication) {
+    public ResponseEntity<CourseResponse> create(@RequestBody CourseCreateRequest request,
+            Authentication authentication) {
         return ResponseEntity.ok(courseService.create(request, authentication));
     }
 
@@ -31,7 +32,9 @@ public class CourseController {
     }
 
     @GetMapping("/{courseId}")
-    public ResponseEntity<CourseResponse> getById(@PathVariable Long courseId, Authentication authentication) {
+    public ResponseEntity<com.scorm.generator.dto.CourseDetailResponse> getById(
+            @PathVariable Long courseId,
+            Authentication authentication) {
         return ResponseEntity.ok(courseService.getById(courseId, authentication));
     }
 
@@ -49,4 +52,3 @@ public class CourseController {
         return ResponseEntity.ok().build();
     }
 }
-

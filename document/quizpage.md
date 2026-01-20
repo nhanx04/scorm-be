@@ -61,7 +61,36 @@
 
 ---
 
-### 2) Update QuizPage
+### 2) Get QuizPage by pageId
+
+- Method: `GET`
+- Path: `/api/quiz-pages/{pageId}`
+
+#### Response (200)
+
+```json
+{
+  "pageId": 123,
+  "passingScore": 80.0,
+  "attemptAllowed": 3
+}
+```
+
+#### Error cases
+
+- `400 BAD_REQUEST`
+  - `pageId is required`
+- `401 UNAUTHORIZED`
+  - not logged in
+- `403 FORBIDDEN`
+  - `You do not have permission to access this page`
+- `404 NOT_FOUND`
+  - `Page not found`
+  - `QuizPage not found`
+
+---
+
+### 3) Update QuizPage
 
 - Method: `PATCH`
 - Path: `/api/quiz-pages/{pageId}`

@@ -25,6 +25,13 @@ public class ContentPageController {
         return ResponseEntity.ok(contentPageService.create(pageId, request, authentication));
     }
 
+    @GetMapping("/content-pages/{pageId}")
+    public ResponseEntity<ContentPageResponse> getByPageId(
+            @PathVariable Long pageId,
+            Authentication authentication) {
+        return ResponseEntity.ok(contentPageService.getByPageId(pageId, authentication));
+    }
+
     @PatchMapping("/content-pages/{pageId}")
     public ResponseEntity<ContentPageResponse> update(
             @PathVariable Long pageId,

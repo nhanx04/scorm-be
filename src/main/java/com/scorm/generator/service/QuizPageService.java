@@ -8,6 +8,7 @@ import org.springframework.security.core.Authentication;
 public interface QuizPageService {
     QuizPageResponse create(Long pageId, QuizPageCreateRequest request, Authentication authentication);
 
+    QuizPageResponse getByPageId(Long pageId, Authentication authentication);
+
     QuizPageResponse update(Long pageId, QuizPageUpdateRequest request, Authentication authentication);
 }
-

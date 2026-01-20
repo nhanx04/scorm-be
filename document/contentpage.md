@@ -58,7 +58,35 @@
 
 ---
 
-### 2) Update ContentPage
+### 2) Get ContentPage by pageId
+
+- Method: `GET`
+- Path: `/api/content-pages/{pageId}`
+
+#### Response (200)
+
+```json
+{
+  "pageId": 123,
+  "layoutType": "SINGLE_COLUMN"
+}
+```
+
+#### Error cases
+
+- `400 BAD_REQUEST`
+  - `pageId is required`
+- `401 UNAUTHORIZED`
+  - not logged in
+- `403 FORBIDDEN`
+  - `You do not have permission to access this page`
+- `404 NOT_FOUND`
+  - `Page not found`
+  - `ContentPage not found`
+
+---
+
+### 3) Update ContentPage
 
 - Method: `PATCH`
 - Path: `/api/content-pages/{pageId}`

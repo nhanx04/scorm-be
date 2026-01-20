@@ -54,6 +54,16 @@ public class ContentPageServiceImpl implements ContentPageService {
         return ContentPageResponse.fromEntity(contentPageRepository.save(contentPage));
     }
 
+    @Override
+    public ContentPageResponse getByPageId(Long pageId, Authentication authentication) {
+        getOwnedPageOrThrow(pageId, authentication);
+
+        ContentPage contentPage = contentPageRepository.findById(pageId)
+                .orElseThrow(() -> new AppException(HttpStatus.NOT_FOUND, "ContentPage not found"));
+
+        return ContentPageResponse.fromEntity(contentPage);
+    }
+
     private Page getOwnedPageOrThrow(Long pageId, Authentication authentication) {
         if (pageId == null) {
             throw new AppException(HttpStatus.BAD_REQUEST, "pageId is required");
@@ -63,9 +73,10 @@ public class ContentPageServiceImpl implements ContentPageService {
                 .orElseThrow(() -> new AppException(HttpStatus.NOT_FOUND, "Page not found"));
 
         User currentUser = (User) authentication.getPrincipal();
-        Long ownerId = page.getSection() != null && page.getSection().getCourse() != null && page.getSection().getCourse().getUser() != null
-                ? page.getSection().getCourse().getUser().getUserId()
-                : null;
+        Long ownerId = page.getSection() != null && page.getSection().getCourse() != null
+                && page.getSection().getCourse().getUser() != null
+                        ? page.getSection().getCourse().getUser().getUserId()
+                        : null;
 
         if (ownerId == null || !ownerId.equals(currentUser.getUserId())) {
             throw new AppException(HttpStatus.FORBIDDEN, "You do not have permission to access this page");
@@ -74,4 +85,3 @@ public class ContentPageServiceImpl implements ContentPageService {
         return page;
     }
 }
-

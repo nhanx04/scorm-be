@@ -8,5 +8,7 @@ import org.springframework.security.core.Authentication;
 public interface ContentPageService {
     ContentPageResponse create(Long pageId, ContentPageCreateRequest request, Authentication authentication);
 
+    ContentPageResponse getByPageId(Long pageId, Authentication authentication);
+
     ContentPageResponse update(Long pageId, ContentPageUpdateRequest request, Authentication authentication);
 }

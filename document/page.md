@@ -17,6 +17,18 @@ Request body:
 
 Response: `PageResponse`
 
+## GET `/sections/{sectionId}/pages`
+
+List page trong section (chỉ owner).
+
+Response: `PageResponse[]`
+
+## GET `/pages/{pageId}`
+
+Lấy chi tiết page theo id (chỉ owner).
+
+Response: `PageResponse`
+
 ## PATCH `/pages/{pageId}`
 
 Update page (chỉ owner).

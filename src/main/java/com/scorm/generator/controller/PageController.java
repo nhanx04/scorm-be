@@ -8,6 +8,8 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.Authentication;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 public class PageController {
 
@@ -25,6 +27,20 @@ public class PageController {
         return ResponseEntity.ok(pageService.create(sectionId, request, authentication));
     }
 
+    @GetMapping("/sections/{sectionId}/pages")
+    public ResponseEntity<List<PageResponse>> listBySectionId(
+            @PathVariable Long sectionId,
+            Authentication authentication) {
+        return ResponseEntity.ok(pageService.listBySectionId(sectionId, authentication));
+    }
+
+    @GetMapping("/pages/{pageId}")
+    public ResponseEntity<PageResponse> getById(
+            @PathVariable Long pageId,
+            Authentication authentication) {
+        return ResponseEntity.ok(pageService.getById(pageId, authentication));
+    }
+
     @PatchMapping("/pages/{pageId}")
     public ResponseEntity<PageResponse> update(
             @PathVariable Long pageId,
@@ -39,4 +55,3 @@ public class PageController {
         return ResponseEntity.ok().build();
     }
 }
-

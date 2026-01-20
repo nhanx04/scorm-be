@@ -8,6 +8,8 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.Authentication;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 public class SectionController {
 
@@ -25,6 +27,20 @@ public class SectionController {
         return ResponseEntity.ok(sectionService.create(courseId, request, authentication));
     }
 
+    @GetMapping("/courses/{courseId}/sections")
+    public ResponseEntity<List<SectionResponse>> listByCourseId(
+            @PathVariable Long courseId,
+            Authentication authentication) {
+        return ResponseEntity.ok(sectionService.listByCourseId(courseId, authentication));
+    }
+
+    @GetMapping("/sections/{sectionId}")
+    public ResponseEntity<SectionResponse> getById(
+            @PathVariable Long sectionId,
+            Authentication authentication) {
+        return ResponseEntity.ok(sectionService.getById(sectionId, authentication));
+    }
+
     @PatchMapping("/sections/{sectionId}")
     public ResponseEntity<SectionResponse> update(
             @PathVariable Long sectionId,
@@ -39,4 +55,3 @@ public class SectionController {
         return ResponseEntity.ok().build();
     }
 }
-

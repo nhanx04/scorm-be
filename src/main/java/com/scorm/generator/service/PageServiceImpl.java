@@ -65,6 +65,21 @@ public class PageServiceImpl implements PageService {
         pageRepository.delete(page);
     }
 
+    @Override
+    public java.util.List<PageResponse> listBySectionId(Long sectionId, Authentication authentication) {
+        getOwnedSectionOrThrow(sectionId, authentication);
+        return pageRepository.findBySection_SectionIdOrderByOrderIndexAsc(sectionId)
+                .stream()
+                .map(PageResponse::fromEntity)
+                .toList();
+    }
+
+    @Override
+    public PageResponse getById(Long pageId, Authentication authentication) {
+        Page page = getOwnedPageOrThrow(pageId, authentication);
+        return PageResponse.fromEntity(page);
+    }
+
     private Section getOwnedSectionOrThrow(Long sectionId, Authentication authentication) {
         if (sectionId == null) {
             throw new AppException(HttpStatus.BAD_REQUEST, "sectionId is required");
@@ -94,9 +109,10 @@ public class PageServiceImpl implements PageService {
                 .orElseThrow(() -> new AppException(HttpStatus.NOT_FOUND, "Page not found"));
 
         User currentUser = (User) authentication.getPrincipal();
-        Long ownerId = page.getSection() != null && page.getSection().getCourse() != null && page.getSection().getCourse().getUser() != null
-                ? page.getSection().getCourse().getUser().getUserId()
-                : null;
+        Long ownerId = page.getSection() != null && page.getSection().getCourse() != null
+                && page.getSection().getCourse().getUser() != null
+                        ? page.getSection().getCourse().getUser().getUserId()
+                        : null;
 
         if (ownerId == null || !ownerId.equals(currentUser.getUserId())) {
             throw new AppException(HttpStatus.FORBIDDEN, "You do not have permission to access this page");
@@ -105,4 +121,3 @@ public class PageServiceImpl implements PageService {
         return page;
     }
 }
-
