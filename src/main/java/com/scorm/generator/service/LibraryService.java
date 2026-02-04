@@ -1,6 +1,7 @@
 package com.scorm.generator.service;
 
 import com.scorm.generator.dto.LibraryDetailResponse;
+import com.scorm.generator.dto.LibraryListItemResponse;
 import com.scorm.generator.entity.MediaAsset;
 import com.scorm.generator.entity.MyLibrary;
 import com.scorm.generator.entity.User;
@@ -37,6 +38,41 @@ public class LibraryService {
                 .build();
 
         return myLibraryRepository.save(library);
+    }
+
+    public List<LibraryListItemResponse> getAllLibraries() {
+        return myLibraryRepository.findAll().stream()
+                .map(l -> LibraryListItemResponse.builder()
+                        .libraryId(l.getLibraryId())
+                        .libraryName(l.getLibraryName())
+                        .description(l.getDescription())
+                        .scopeType(l.getScopeType())
+                        .updatedAt(l.getUpdatedAt())
+                        .build())
+                .toList();
+    }
+
+    public List<LibraryDetailResponse.MediaAssetItem> getLibraryAssets(Long libraryId) {
+        if (libraryId == null) {
+            throw new RuntimeException("libraryId is required");
+        }
+
+        if (!myLibraryRepository.existsById(libraryId)) {
+            throw new RuntimeException("Library not found");
+        }
+
+        List<MediaAsset> assets = mediaAssetRepository.findByLibrary_LibraryIdOrderByUploadedAtDesc(libraryId);
+
+        return assets.stream().map(a -> LibraryDetailResponse.MediaAssetItem.builder()
+                .mediaId(a.getMediaId())
+                .title(a.getTitle())
+                .description(a.getDescription())
+                .originalFileName(a.getOriginalFileName())
+                .mediaType(a.getMediaType())
+                .uploadedAt(a.getUploadedAt())
+                .updatedAt(a.getUpdatedAt())
+                .metadata(a.getMetadata())
+                .build()).toList();
     }
 
     public LibraryDetailResponse getLibraryDetail(Long libraryId) {

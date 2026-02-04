@@ -58,6 +58,58 @@ Ví dụ metadata trả về:
 
 ---
 
+## 2) Get All Libraries
+
+- **URL**: `GET /libraries`
+
+### Response JSON (200)
+
+```json
+[
+  {
+    "libraryId": 1,
+    "libraryName": "My Library",
+    "description": "Library for assets",
+    "scopeType": "PRIVATE",
+    "updatedAt": "2026-01-18T10:00:00+07:00"
+  }
+]
+```
+
+---
+
+## 3) Get Assets of a Library
+
+- **URL**: `GET /libraries/{id}/assets`
+
+### Path params
+
+- `id`: number (libraryId)
+
+### Response JSON (200)
+
+```json
+[
+  {
+    "mediaId": 1,
+    "title": "Cover",
+    "description": "Course cover",
+    "originalFileName": "cover.png",
+    "mediaType": "IMAGE",
+    "uploadedAt": "2026-01-18T10:00:00+07:00",
+    "updatedAt": "2026-01-18T10:00:00+07:00",
+    "metadata": {
+      "provider": "CLOUDFLARE_R2",
+      "bucket": "scorm-generator",
+      "key": "images/<uuid>-cover.png",
+      "publicUrl": "https://pub-...r2.dev/images/<uuid>-cover.png"
+    }
+  }
+]
+```
+
+---
+
 ## 2) Upload Image
 
 - **URL**: `POST /media/images/upload`
