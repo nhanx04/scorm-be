@@ -28,9 +28,6 @@ public class User implements UserDetails {
     @Column(name = "fname")
     private String fname;
 
-    @Column(name = "minit")
-    private String minit;
-
     @Column(name = "lname")
     private String lname;
 
@@ -101,4 +98,3 @@ public class User implements UserDetails {
         return isActive;
     }
 }
-

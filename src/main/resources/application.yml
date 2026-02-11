@@ -1,8 +1,8 @@
 spring:
   datasource:
-    url: ${SPRING_DATASOURCE_URL:jdbc:postgresql://localhost:5432/scorm-v1}
-    username: ${SPRING_DATASOURCE_USERNAME:postgres}
-    password: ${SPRING_DATASOURCE_PASSWORD:pass123}
+    url: ${SPRING_DATASOURCE_URL}
+    username: ${SPRING_DATASOURCE_USERNAME}
+    password: ${SPRING_DATASOURCE_PASSWORD}
     driver-class-name: org.postgresql.Driver
   jpa:
     hibernate:
@@ -12,6 +12,16 @@ spring:
       hibernate:
         format_sql: true
         dialect: org.hibernate.dialect.PostgreSQLDialect
+
+  # --- PHẦN MỚI THÊM ĐỂ FIX LỖI REGION ---
+  cloud:
+    aws:
+      region:
+        static: ${AWS_REGION:auto} # Lấy từ .env, nếu không có thì mặc định là 'auto'
+      stack:
+        auto: false # Tắt tính năng CloudFormation (không cần thiết với R2) để boot nhanh hơn
+  # ---------------------------------------
+
   servlet:
     multipart:
       enabled: true

@@ -26,8 +26,7 @@ public class AuthService {
             UserRepository userRepository,
             PasswordEncoder passwordEncoder,
             JwtService jwtService,
-            AuthenticationManager authenticationManager
-    ) {
+            AuthenticationManager authenticationManager) {
         this.userRepository = userRepository;
         this.passwordEncoder = passwordEncoder;
         this.jwtService = jwtService;
@@ -47,7 +46,6 @@ public class AuthService {
 
         User user = User.builder()
                 .fname(request.getFname())
-                .minit(request.getMinit())
                 .lname(request.getLname())
                 .email(request.getEmail())
                 .password(passwordEncoder.encode(request.getPassword()))
@@ -65,8 +63,7 @@ public class AuthService {
 
     public AuthResponse login(AuthLoginRequest request) {
         Authentication authentication = authenticationManager.authenticate(
-                new UsernamePasswordAuthenticationToken(request.getEmail(), request.getPassword())
-        );
+                new UsernamePasswordAuthenticationToken(request.getEmail(), request.getPassword()));
 
         User user = (User) authentication.getPrincipal();
         user.setLastLoginAt(OffsetDateTime.now());
@@ -83,11 +80,9 @@ public class AuthService {
         return AuthResponse.UserDto.builder()
                 .userId(user.getUserId())
                 .fname(user.getFname())
-                .minit(user.getMinit())
                 .lname(user.getLname())
                 .email(user.getEmail())
                 .avatarUrl(user.getAvatarUrl())
                 .build();
     }
 }
-

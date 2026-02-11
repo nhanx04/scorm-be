@@ -6,7 +6,6 @@
 CREATE TABLE users (
     userid          BIGSERIAL,
     fname           VARCHAR(100),
-    minit           VARCHAR(10),
     lname           VARCHAR(255),
     email           VARCHAR(255) NOT NULL,
     password_hash   VARCHAR(255) NOT NULL,
