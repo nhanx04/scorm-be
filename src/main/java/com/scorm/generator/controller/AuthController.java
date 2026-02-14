@@ -3,6 +3,7 @@ package com.scorm.generator.controller;
 import com.scorm.generator.dto.AuthLoginRequest;
 import com.scorm.generator.dto.AuthRegisterRequest;
 import com.scorm.generator.dto.AuthResponse;
+import com.scorm.generator.dto.AuthGoogleLoginRequest;
 import com.scorm.generator.service.AuthService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -28,5 +29,11 @@ public class AuthController {
     @PostMapping("/login")
     public ResponseEntity<AuthResponse> login(@RequestBody AuthLoginRequest request) {
         return ResponseEntity.ok(authService.login(request));
+    }
+
+    @PostMapping("/google-login")
+    public ResponseEntity<AuthResponse> googleLogin(@RequestBody AuthGoogleLoginRequest request) {
+        // Bạn cần viết thêm hàm loginGoogle trong AuthService
+        return ResponseEntity.ok(authService.loginGoogle(request));
     }
 }
