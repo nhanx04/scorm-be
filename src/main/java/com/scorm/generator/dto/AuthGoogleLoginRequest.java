@@ -1,14 +1,9 @@
 package com.scorm.generator.dto;
 
+import lombok.Data;
+
+@Data
 public class AuthGoogleLoginRequest {
-    private String token; // Token ID nhận được từ Google ở phía Frontend
-
-    // Getters and Setters
-    public String getToken() {
-        return token;
-    }
-
-    public void setToken(String token) {
-        this.token = token;
-    }
+    // Access Token từ Google (Frontend gửi lên)
+    private String token;
 }

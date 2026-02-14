@@ -33,7 +33,7 @@ public class AuthController {
 
     @PostMapping("/google-login")
     public ResponseEntity<AuthResponse> googleLogin(@RequestBody AuthGoogleLoginRequest request) {
-        // Bạn cần viết thêm hàm loginGoogle trong AuthService
-        return ResponseEntity.ok(authService.loginGoogle(request));
+        // Sửa: Chỉ truyền chuỗi token (String) vào service
+        return ResponseEntity.ok(authService.loginGoogle(request.getToken()));
     }
 }
