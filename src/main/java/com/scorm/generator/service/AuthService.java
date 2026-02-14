@@ -7,6 +7,10 @@ import com.scorm.generator.dto.AuthGoogleLoginRequest;
 import com.scorm.generator.entity.User;
 import com.scorm.generator.repository.UserRepository;
 import com.scorm.generator.security.JwtService;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.HttpEntity;
+import org.springframework.http.HttpMethod;
+import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
@@ -91,58 +95,79 @@ public class AuthService {
     }
 
     public AuthResponse loginGoogle(AuthGoogleLoginRequest request) {
-        // 1. Gọi API của Google để kiểm tra xem Token gửi lên có hợp lệ không
-        // (Đây là cách nhanh nhất, không cần cài thêm thư viện Google API Client)
-        String url = "https://oauth2.googleapis.com/tokeninfo?id_token=" + request.getToken();
         RestTemplate restTemplate = new RestTemplate();
+        Map<String, Object> googleUser = null;
 
-        Map<String, Object> googleUser;
+        // 1. CÁCH 1: Thử kiểm tra như Access Token
         try {
-            googleUser = restTemplate.getForObject(url, Map.class);
+            String url = "https://www.googleapis.com/oauth2/v3/userinfo";
+            HttpHeaders headers = new HttpHeaders();
+            headers.setBearerAuth(request.getToken());
+            HttpEntity<String> entity = new HttpEntity<>(headers);
+
+            ResponseEntity<Map> response = restTemplate.exchange(url, HttpMethod.GET, entity, Map.class);
+            googleUser = response.getBody();
         } catch (Exception e) {
-            throw new RuntimeException("Google Token không hợp lệ hoặc đã hết hạn!");
+            // Ignored
+        }
+
+        // 2. CÁCH 2: Thử kiểm tra như ID Token
+        if (googleUser == null) {
+            try {
+                String url = "https://oauth2.googleapis.com/tokeninfo?id_token=" + request.getToken();
+                googleUser = restTemplate.getForObject(url, Map.class);
+            } catch (Exception e) {
+                throw new RuntimeException("Google Token không hợp lệ hoặc đã hết hạn!");
+            }
         }
 
         if (googleUser == null || googleUser.containsKey("error")) {
             throw new RuntimeException("Google Token không hợp lệ!");
         }
 
-        // 2. Lấy thông tin quan trọng từ Google
+        // 3. Lấy thông tin user
         String email = (String) googleUser.get("email");
-        String firstName = (String) googleUser.get("given_name");
-        String lastName = (String) googleUser.get("family_name");
         String picture = (String) googleUser.get("picture");
 
-        // 3. Logic "Find or Create" (Tìm hoặc Tạo mới)
+        String firstName = (String) googleUser.get("given_name");
+        String lastName = (String) googleUser.get("family_name");
+
+        if (firstName == null) {
+            String fullName = (String) googleUser.get("name");
+            if (fullName != null) {
+                String[] parts = fullName.split(" ", 2);
+                firstName = parts[0];
+                lastName = (parts.length > 1) ? parts[1] : "";
+            } else {
+                firstName = "Google";
+                lastName = "User";
+            }
+        }
+
+        final String fNameFinal = firstName;
+        final String lNameFinal = lastName;
+
+        // 4. Logic Find or Create
         User user = userRepository.findByEmail(email).orElseGet(() -> {
-            // Nếu chưa có email này trong DB -> Tạo user mới
             User newUser = new User();
             newUser.setEmail(email);
-            newUser.setFname(firstName != null ? firstName : "Google");
-            newUser.setLname(lastName != null ? lastName : "User");
+            newUser.setFname(fNameFinal);
+            newUser.setLname(lNameFinal != null ? lNameFinal : "");
             newUser.setAvatarUrl(picture);
-
-            // Set mật khẩu ngẫu nhiên (vì họ đăng nhập bằng Google nên không cần pass)
             newUser.setPassword(passwordEncoder.encode(UUID.randomUUID().toString()));
 
-            // Set các giá trị mặc định khác nếu cần (ví dụ: role, active...)
-            // newUser.setRole(Role.USER);
+            // --- SỬA LỖI TẠI ĐÂY (setIsActive -> setActive) ---
+            newUser.setActive(true);
 
             return userRepository.save(newUser);
         });
 
-        // 4. Sinh JWT Token của hệ thống mình (để frontend dùng cho các request sau)
+        // 5. Trả về kết quả
         String jwtToken = jwtService.generateToken(user);
 
-        // 5. Trả về kết quả (Lưu ý: Constructor AuthResponse có thể khác tùy code cũ
-        // của bạn)
-        // Nếu bạn dùng @Builder:
         return AuthResponse.builder()
                 .token(jwtToken)
-                // .user(user) // Nếu response có trả về cả user info
+                .user(toDto(user))
                 .build();
-
-        // Hoặc nếu dùng Constructor thường:
-        // return new AuthResponse(jwtToken);
     }
 }
