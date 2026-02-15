@@ -1,7 +1,7 @@
 package com.scorm.generator.controller;
 
-import com.scorm.generator.dto.ai.AiCourseOutline;
-import com.scorm.generator.dto.ai.GenerateCourseRequest;
+import com.scorm.generator.dto.AI.AiCourseOutline;
+import com.scorm.generator.dto.AI.GenerateCourseRequest;
 import com.scorm.generator.service.AiGeneratorService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;

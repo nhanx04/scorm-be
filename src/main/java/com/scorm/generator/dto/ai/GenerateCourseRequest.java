@@ -1,4 +1,4 @@
-package com.scorm.generator.dto.ai;
+package com.scorm.generator.dto.AI;
 
 import lombok.Data;
 
