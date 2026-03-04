@@ -4,6 +4,8 @@ import com.scorm.generator.dto.AI.AiCourseOutline;
 import com.scorm.generator.dto.AI.GenerateCourseRequest;
 import com.scorm.generator.dto.AI.AiPageContentResponse;
 import com.scorm.generator.dto.AI.GeneratePageContentRequest;
+import com.scorm.generator.dto.AI.AiQuizResponse;
+import com.scorm.generator.dto.AI.GenerateQuizRequest;
 import com.scorm.generator.service.AiGeneratorService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
@@ -41,5 +43,11 @@ public class AiFeatureController {
     public ResponseEntity<AiPageContentResponse> generatePageContent(@RequestBody GeneratePageContentRequest request) {
         AiPageContentResponse content = aiGeneratorService.generatePageContent(request);
         return ResponseEntity.ok(content);
+    }
+
+    @PostMapping("/generate-quiz")
+    public ResponseEntity<AiQuizResponse> generateQuiz(@RequestBody GenerateQuizRequest request) {
+        AiQuizResponse quizResponse = aiGeneratorService.generateQuizFromText(request);
+        return ResponseEntity.ok(quizResponse);
     }
 }
