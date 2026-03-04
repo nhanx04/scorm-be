@@ -6,6 +6,8 @@ import org.springframework.stereotype.Service;
 
 import com.scorm.generator.dto.AI.AiCourseOutline;
 import com.scorm.generator.dto.AI.GenerateCourseRequest;
+import com.scorm.generator.dto.AI.AiPageContentResponse;
+import com.scorm.generator.dto.AI.GeneratePageContentRequest;
 
 @Service
 public class AiGeneratorService {
@@ -67,6 +69,61 @@ public class AiGeneratorService {
                 String jsonContent = rawResponse.replace("```json", "").replace("```", "").trim();
 
                 // 5. Convert String sạch thành Object Java
+                return converter.convert(jsonContent);
+        }
+
+        public AiPageContentResponse generatePageContent(GeneratePageContentRequest request) {
+                // 1. Cấu hình Converter
+                BeanOutputConverter<AiPageContentResponse> converter = new BeanOutputConverter<>(
+                                AiPageContentResponse.class);
+                String formatInstructions = converter.getFormat();
+
+                // 2. Soạn Prompt
+                String userPrompt = """
+                                Bạn là một chuyên gia thiết kế nội dung e-learning (Instructional Designer).
+                                Hãy viết nội dung giảng dạy chi tiết cho một bài học (Page) dựa trên ngữ cảnh sau:
+                                - Tên toàn bộ khóa học: {courseTopic}
+                                - Thuộc chương (Section): {sectionTitle}
+                                - Chủ đề bài học này (Topic): {pageTopic}
+                                - Ngôn ngữ: {language}
+                                - Yêu cầu thêm: {additionalInstructions}
+
+                                YÊU CẦU VỀ NỘI DUNG (Trường htmlContent):
+                                1. Trình bày bài học một cách sư phạm: Có đoạn mở đầu dẫn dắt, giải thích chi tiết các khái niệm, đưa ra ví dụ minh họa và tóm tắt ngắn ở cuối bài.
+                                2. Giá trị của trường `htmlContent` PHẢI là chuỗi mã HTML hợp lệ để hiển thị trực tiếp trên trình duyệt.
+                                3. CHỈ SỬ DỤNG các thẻ HTML cơ bản để định dạng: <h2>, <h3>, <p>, <ul>, <ol>, <li>, <strong>, <em>, <blockquote>.
+                                4. TUYỆT ĐỐI KHÔNG sử dụng các thẻ <html>, <head>, <body>, <script>, <style>.
+
+                                YÊU CẦU VỀ ĐỊNH DẠNG ĐẦU RA:
+                                1. Trả về kết quả CHÍNH XÁC theo định dạng JSON được yêu cầu.
+                                2. KHÔNG thêm bất kỳ lời dẫn hay giải thích nào bên ngoài block JSON.
+
+                                {formatInstructions}
+                                """;
+
+                // 3. Gọi AI
+                String rawResponse = chatClient.prompt()
+                                .user(u -> u.text(userPrompt)
+                                                .param("courseTopic",
+                                                                request.getCourseTopic() != null
+                                                                                ? request.getCourseTopic()
+                                                                                : "Không xác định")
+                                                .param("sectionTitle",
+                                                                request.getSectionTitle() != null
+                                                                                ? request.getSectionTitle()
+                                                                                : "Không xác định")
+                                                .param("pageTopic", request.getPageTopic())
+                                                .param("language", request.getLanguage())
+                                                .param("additionalInstructions",
+                                                                request.getAdditionalInstructions() != null
+                                                                                ? request.getAdditionalInstructions()
+                                                                                : "Không có")
+                                                .param("formatInstructions", formatInstructions))
+                                .call()
+                                .content();
+
+                // 4. Xử lý chuỗi và Convert
+                String jsonContent = rawResponse.replace("```json", "").replace("```", "").trim();
                 return converter.convert(jsonContent);
         }
 }
