@@ -20,10 +20,8 @@ public class AuthResponse {
     public static class UserDto {
         private Long userId;
         private String fname;
-        private String minit;
         private String lname;
         private String email;
         private String avatarUrl;
     }
 }
-

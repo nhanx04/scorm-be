@@ -28,9 +28,6 @@ public class User implements UserDetails {
     @Column(name = "fname")
     private String fname;
 
-    @Column(name = "minit")
-    private String minit;
-
     @Column(name = "lname")
     private String lname;
 
@@ -43,6 +40,8 @@ public class User implements UserDetails {
     @Column(name = "avatar_url")
     private String avatarUrl;
 
+    // --- THÊM @Builder.Default VÀO ĐÂY ---
+    @Builder.Default
     @Column(name = "is_active")
     private boolean isActive = true;
 
@@ -68,7 +67,7 @@ public class User implements UserDetails {
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
-        return List.of(); // No roles defined for now
+        return List.of();
     }
 
     @Override
@@ -101,4 +100,3 @@ public class User implements UserDetails {
         return isActive;
     }
 }
-

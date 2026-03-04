@@ -197,7 +197,6 @@ public class OrganizationService {
                 .userId(u != null ? u.getUserId() : null)
                 .email(u != null ? u.getEmail() : null)
                 .fname(u != null ? u.getFname() : null)
-                .minit(u != null ? u.getMinit() : null)
                 .lname(u != null ? u.getLname() : null)
                 .role(membership.getOrgRole())
                 .status(membership.getStatus())
