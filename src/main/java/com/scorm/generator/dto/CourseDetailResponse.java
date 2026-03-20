@@ -21,9 +21,16 @@ public class CourseDetailResponse {
     private Integer attemptLimit;
     private Integer durationMin;
     private String status;
+    private String textHtml;
+    private JsonNode themeOverride;
+    private String layoutMode;
+    private JsonNode layoutMeta;
     private OffsetDateTime lastPublishedAt;
     private OffsetDateTime updatedAt;
     private JsonNode extraInfor;
+    private JsonNode editorState;
+    private String editorVersion;
+    private String editorStatus;
     private OffsetDateTime createdAt;
     private Long courseUserId;
 
@@ -41,7 +48,10 @@ public class CourseDetailResponse {
         private String description;
         private Integer orderIndex;
         private String learningObjective;
+        private String textHtml;
         private JsonNode themeOverride;
+        private String layoutMode;
+        private JsonNode layoutMeta;
 
         private List<PageDetailDto> pages;
     }
@@ -55,7 +65,11 @@ public class CourseDetailResponse {
         private String title;
         private Integer orderIndex;
         private String pageType;
+        private String textHtml;
         private JsonNode themeOverride;
+        private String layoutMode;
+        private String layoutType;
+        private JsonNode layoutMeta;
 
         private ContentPageDetailDto contentPage;
         private QuizPageResponse quizPage;
@@ -67,9 +81,10 @@ public class CourseDetailResponse {
     @AllArgsConstructor
     public static class ContentPageDetailDto {
         private Long pageId;
+        private String layoutMode;
         private String layoutType;
+        private JsonNode layoutMeta;
 
         private List<ContentBlockResponse> blocks;
     }
 }
-

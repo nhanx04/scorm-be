@@ -17,7 +17,10 @@ public class SectionResponse {
     private String description;
     private Integer orderIndex;
     private String learningObjective;
+    private String textHtml;
     private JsonNode themeOverride;
+    private String layoutMode;
+    private JsonNode layoutMeta;
     private Long courseId;
 
     public static SectionResponse fromEntity(Section section) {
@@ -27,9 +30,11 @@ public class SectionResponse {
                 .description(section.getDescription())
                 .orderIndex(section.getOrderIndex())
                 .learningObjective(section.getLearningObjective())
+                .textHtml(section.getTextHtml())
                 .themeOverride(section.getThemeOverride())
+                .layoutMode(section.getLayoutMode())
+                .layoutMeta(section.getLayoutMeta())
                 .courseId(section.getCourse() != null ? section.getCourse().getCourseId() : null)
                 .build();
     }
 }
-

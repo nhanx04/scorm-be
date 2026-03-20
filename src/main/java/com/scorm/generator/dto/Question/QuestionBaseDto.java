@@ -19,10 +19,14 @@ public class QuestionBaseDto {
     private String title;
     private String instruction;
     private String promptHtml;
+    private String textHtml;
     private String questionType;
+    private JsonNode themeOverride;
+    private String layoutMode;
+    private JsonNode layoutMeta;
+    private JsonNode templateData;
     private BigDecimal points;
     private Boolean shuffleOptions;
     private Boolean caseSensitive;
     private JsonNode extraConfig;
 }
-

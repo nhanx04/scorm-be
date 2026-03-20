@@ -8,5 +8,8 @@ import java.math.BigDecimal;
 public class QuizPageCreateRequest {
     private BigDecimal passingScore;
     private Integer attemptAllowed;
+    private com.fasterxml.jackson.databind.JsonNode themeOverride;
+    private String layoutMode;
+    private com.fasterxml.jackson.databind.JsonNode layoutMeta;
+    private com.fasterxml.jackson.databind.JsonNode templateData;
 }
-

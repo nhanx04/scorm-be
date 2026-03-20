@@ -9,6 +9,8 @@ public class SectionCreateRequest {
     private String description;
     private Integer orderIndex;
     private String learningObjective;
+    private String textHtml;
     private JsonNode themeOverride;
+    private String layoutMode;
+    private JsonNode layoutMeta;
 }
-
