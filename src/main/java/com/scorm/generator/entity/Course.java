@@ -1,5 +1,6 @@
 package com.scorm.generator.entity;
 
+import com.fasterxml.jackson.databind.JsonNode;
 import com.vladmihalcea.hibernate.type.json.JsonBinaryType;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -7,8 +8,10 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.JdbcTypeCode;
 import org.hibernate.annotations.Type;
 import org.hibernate.annotations.UpdateTimestamp;
+import org.hibernate.type.SqlTypes;
 
 import java.math.BigDecimal;
 import java.time.OffsetDateTime;
@@ -41,6 +44,20 @@ public class Course {
     @Column(name = "status")
     private String status;
 
+    @Column(name = "text_html", columnDefinition = "TEXT")
+    private String textHtml;
+
+    @JdbcTypeCode(SqlTypes.JSON)
+    @Column(name = "theme_override", columnDefinition = "jsonb")
+    private JsonNode themeOverride;
+
+    @Column(name = "layout_mode")
+    private String layoutMode;
+
+    @JdbcTypeCode(SqlTypes.JSON)
+    @Column(name = "layout_meta", columnDefinition = "jsonb")
+    private JsonNode layoutMeta;
+
     @Column(name = "last_published_at")
     private OffsetDateTime lastPublishedAt;
 
@@ -52,6 +69,16 @@ public class Course {
     @Column(name = "extra_infor", columnDefinition = "jsonb")
     private String extraInfor;
 
+    @JdbcTypeCode(SqlTypes.JSON)
+    @Column(name = "editor_state", columnDefinition = "jsonb")
+    private JsonNode editorState;
+
+    @Column(name = "editor_version")
+    private String editorVersion;
+
+    @Column(name = "editor_status")
+    private String editorStatus;
+
     @Column(name = "created_at", updatable = false)
     @CreationTimestamp
     private OffsetDateTime createdAt;
@@ -59,5 +86,7 @@ public class Course {
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "course_userid", nullable = false)
     private User user;
-}
 
+    @OneToMany(mappedBy = "course", cascade = CascadeType.ALL, orphanRemoval = true)
+    private java.util.List<Section> sections;
+}

@@ -32,7 +32,11 @@ public class PageServiceImpl implements PageService {
                 .title(request.getTitle())
                 .orderIndex(request.getOrderIndex())
                 .pageType(request.getPageType())
+                .textHtml(request.getTextHtml())
                 .themeOverride(request.getThemeOverride())
+                .layoutMode(request.getLayoutMode())
+                .layoutType(request.getLayoutType())
+                .layoutMeta(request.getLayoutMeta())
                 .section(section)
                 .build();
 
@@ -52,8 +56,20 @@ public class PageServiceImpl implements PageService {
         if (request.getPageType() != null) {
             page.setPageType(request.getPageType());
         }
+        if (request.getTextHtml() != null) {
+            page.setTextHtml(request.getTextHtml());
+        }
         if (request.getThemeOverride() != null) {
             page.setThemeOverride(request.getThemeOverride());
+        }
+        if (request.getLayoutMode() != null) {
+            page.setLayoutMode(request.getLayoutMode());
+        }
+        if (request.getLayoutType() != null) {
+            page.setLayoutType(request.getLayoutType());
+        }
+        if (request.getLayoutMeta() != null) {
+            page.setLayoutMeta(request.getLayoutMeta());
         }
 
         return PageResponse.fromEntity(pageRepository.save(page));

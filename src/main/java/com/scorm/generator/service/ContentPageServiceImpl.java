@@ -34,7 +34,9 @@ public class ContentPageServiceImpl implements ContentPageService {
 
         ContentPage contentPage = ContentPage.builder()
                 .page(page)
+                .layoutMode(request.getLayoutMode())
                 .layoutType(request.getLayoutType())
+                .layoutMeta(request.getLayoutMeta())
                 .build();
 
         return ContentPageResponse.fromEntity(contentPageRepository.save(contentPage));
@@ -47,8 +49,14 @@ public class ContentPageServiceImpl implements ContentPageService {
         ContentPage contentPage = contentPageRepository.findById(pageId)
                 .orElseThrow(() -> new AppException(HttpStatus.NOT_FOUND, "ContentPage not found"));
 
+        if (request.getLayoutMode() != null) {
+            contentPage.setLayoutMode(request.getLayoutMode());
+        }
         if (request.getLayoutType() != null) {
             contentPage.setLayoutType(request.getLayoutType());
+        }
+        if (request.getLayoutMeta() != null) {
+            contentPage.setLayoutMeta(request.getLayoutMeta());
         }
 
         return ContentPageResponse.fromEntity(contentPageRepository.save(contentPage));

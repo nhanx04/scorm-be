@@ -36,6 +36,10 @@ public class QuizPageServiceImpl implements QuizPageService {
                 .page(page)
                 .passingScore(request.getPassingScore())
                 .attemptAllowed(request.getAttemptAllowed())
+                .themeOverride(request.getThemeOverride())
+                .layoutMode(request.getLayoutMode())
+                .layoutMeta(request.getLayoutMeta())
+                .templateData(request.getTemplateData())
                 .build();
 
         return QuizPageResponse.fromEntity(quizPageRepository.save(quizPage));
@@ -53,6 +57,18 @@ public class QuizPageServiceImpl implements QuizPageService {
         }
         if (request.getAttemptAllowed() != null) {
             quizPage.setAttemptAllowed(request.getAttemptAllowed());
+        }
+        if (request.getThemeOverride() != null) {
+            quizPage.setThemeOverride(request.getThemeOverride());
+        }
+        if (request.getLayoutMode() != null) {
+            quizPage.setLayoutMode(request.getLayoutMode());
+        }
+        if (request.getLayoutMeta() != null) {
+            quizPage.setLayoutMeta(request.getLayoutMeta());
+        }
+        if (request.getTemplateData() != null) {
+            quizPage.setTemplateData(request.getTemplateData());
         }
 
         return QuizPageResponse.fromEntity(quizPageRepository.save(quizPage));

@@ -33,7 +33,10 @@ public class SectionServiceImpl implements SectionService {
                 .description(request.getDescription())
                 .orderIndex(request.getOrderIndex())
                 .learningObjective(request.getLearningObjective())
+                .textHtml(request.getTextHtml())
                 .themeOverride(request.getThemeOverride())
+                .layoutMode(request.getLayoutMode())
+                .layoutMeta(request.getLayoutMeta())
                 .course(course)
                 .build();
 
@@ -56,8 +59,17 @@ public class SectionServiceImpl implements SectionService {
         if (request.getLearningObjective() != null) {
             section.setLearningObjective(request.getLearningObjective());
         }
+        if (request.getTextHtml() != null) {
+            section.setTextHtml(request.getTextHtml());
+        }
         if (request.getThemeOverride() != null) {
             section.setThemeOverride(request.getThemeOverride());
+        }
+        if (request.getLayoutMode() != null) {
+            section.setLayoutMode(request.getLayoutMode());
+        }
+        if (request.getLayoutMeta() != null) {
+            section.setLayoutMeta(request.getLayoutMeta());
         }
 
         return SectionResponse.fromEntity(sectionRepository.save(section));

@@ -23,20 +23,24 @@ public class S3StorageService {
     }
 
     public String uploadFile(String keyPrefix, MultipartFile file) {
-        String key = buildKey(keyPrefix, file.getOriginalFilename());
+        String contentType = file.getContentType() == null ? "application/octet-stream" : file.getContentType();
+        try {
+            return uploadBytes(keyPrefix, file.getOriginalFilename(), file.getBytes(), contentType);
+        } catch (IOException e) {
+            throw new RuntimeException("Failed to read upload file", e);
+        }
+    }
+
+    public String uploadBytes(String keyPrefix, String originalFilename, byte[] content, String contentType) {
+        String key = buildKey(keyPrefix, originalFilename);
 
         PutObjectRequest request = PutObjectRequest.builder()
                 .bucket(bucketName)
                 .key(key)
-                .contentType(file.getContentType())
+                .contentType(contentType == null ? "application/octet-stream" : contentType)
                 .build();
 
-        try {
-            s3Client.putObject(request, RequestBody.fromBytes(file.getBytes()));
-        } catch (IOException e) {
-            throw new RuntimeException("Failed to read upload file", e);
-        }
-
+        s3Client.putObject(request, RequestBody.fromBytes(content));
         return key;
     }
 

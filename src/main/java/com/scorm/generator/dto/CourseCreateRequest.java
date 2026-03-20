@@ -12,6 +12,12 @@ public class CourseCreateRequest {
     private Integer attemptLimit;
     private Integer durationMin;
     private String status;
+    private String textHtml;
+    private JsonNode themeOverride;
+    private String layoutMode;
+    private JsonNode layoutMeta;
     private JsonNode extraInfor;
+    private JsonNode editorState;
+    private String editorVersion;
+    private String editorStatus;
 }
-

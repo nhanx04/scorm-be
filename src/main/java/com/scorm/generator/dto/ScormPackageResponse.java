@@ -12,6 +12,8 @@ public class ScormPackageResponse {
     private String packageName;
     private String packageType;
     private String zipFilePath;
+    private String cloudKey;
+    private String cloudUrl;
     private JsonNode themeSnapshot;
     private Long packageCourseId;
     private Long packageConfigId;
@@ -23,6 +25,8 @@ public class ScormPackageResponse {
                 .packageName(entity.getPackageName())
                 .packageType(entity.getPackageType())
                 .zipFilePath(entity.getZipFilePath())
+                .cloudKey(entity.getCloudKey())
+                .cloudUrl(entity.getCloudUrl())
                 .themeSnapshot(entity.getThemeSnapshot())
                 .packageCourseId(entity.getCourse() != null ? entity.getCourse().getCourseId() : null)
                 .packageConfigId(entity.getConfig() != null ? entity.getConfig().getScormConfigId() : null)
@@ -30,4 +34,3 @@ public class ScormPackageResponse {
                 .build();
     }
 }
-

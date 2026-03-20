@@ -34,12 +34,21 @@ public class Section {
     @Column(name = "learning_objective", columnDefinition = "TEXT")
     private String learningObjective;
 
+    @Column(name = "text_html", columnDefinition = "TEXT")
+    private String textHtml;
+
     @JdbcTypeCode(SqlTypes.JSON)
     @Column(name = "theme_override", columnDefinition = "jsonb")
     private JsonNode themeOverride;
+
+    @Column(name = "layout_mode")
+    private String layoutMode;
+
+    @JdbcTypeCode(SqlTypes.JSON)
+    @Column(name = "layout_meta", columnDefinition = "jsonb")
+    private JsonNode layoutMeta;
 
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "section_courseid", referencedColumnName = "courseid")
     private Course course;
 }
-
