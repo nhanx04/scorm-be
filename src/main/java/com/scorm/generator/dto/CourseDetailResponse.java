@@ -17,6 +17,8 @@ import java.util.List;
 public class CourseDetailResponse {
     private Long courseId;
     private String title;
+    private String description;
+    private String coverImageUrl;
     private BigDecimal passingScore;
     private Integer attemptLimit;
     private Integer durationMin;

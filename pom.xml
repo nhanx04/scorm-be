@@ -88,6 +88,12 @@
             <artifactId>postgresql</artifactId>
             <scope>runtime</scope>
         </dependency>
+
+        <!-- DB migration -->
+        <dependency>
+            <groupId>org.flywaydb</groupId>
+            <artifactId>flyway-core</artifactId>
+        </dependency>
 <!-- AWS SDK v2 (used for Cloudflare R2 - S3 compatible) -->
         <dependency>
             <groupId>software.amazon.awssdk</groupId>

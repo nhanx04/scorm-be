@@ -62,6 +62,9 @@ public class ScormPackageComposer {
 
             writeTextEntry(zos, "data/course.json",
                     objectMapper.writerWithDefaultPrettyPrinter().writeValueAsString(payload));
+            writeTextEntry(zos, "data/editor-state.json",
+                    objectMapper.writerWithDefaultPrettyPrinter().writeValueAsString(
+                            editorStateSnapshot == null ? objectMapper.createObjectNode() : editorStateSnapshot));
             writeTextEntry(zos, "data/theme.json",
                     objectMapper.writerWithDefaultPrettyPrinter()
                             .writeValueAsString(
@@ -109,6 +112,7 @@ public class ScormPackageComposer {
                     + launchFile + "\">\n"
                     + "      <file href=\"" + launchFile + "\"/>\n"
                     + "      <file href=\"data/course.json\"/>\n"
+                    + "      <file href=\"data/editor-state.json\"/>\n"
                     + "      <file href=\"data/theme.json\"/>\n"
                     + "      <file href=\"assets/css/base.css\"/>\n"
                     + "      <file href=\"assets/js/app.js\"/>\n"
@@ -148,6 +152,7 @@ public class ScormPackageComposer {
                 + "\">\n"
                 + "      <file href=\"" + launchFile + "\"/>\n"
                 + "      <file href=\"data/course.json\"/>\n"
+                + "      <file href=\"data/editor-state.json\"/>\n"
                 + "      <file href=\"data/theme.json\"/>\n"
                 + "      <file href=\"assets/css/base.css\"/>\n"
                 + "      <file href=\"assets/js/app.js\"/>\n"

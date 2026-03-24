@@ -17,6 +17,8 @@ import java.time.OffsetDateTime;
 public class CourseResponse {
     private Long courseId;
     private String title;
+    private String description;
+    private String coverImageUrl;
     private BigDecimal passingScore;
     private Integer attemptLimit;
     private Integer durationMin;
@@ -38,6 +40,8 @@ public class CourseResponse {
         return CourseResponse.builder()
                 .courseId(course.getCourseId())
                 .title(course.getTitle())
+                .description(course.getDescription())
+                .coverImageUrl(course.getCoverImageUrl())
                 .passingScore(course.getPassingScore())
                 .attemptLimit(course.getAttemptLimit())
                 .durationMin(course.getDurationMin())

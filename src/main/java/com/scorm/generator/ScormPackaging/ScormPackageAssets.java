@@ -12,6 +12,11 @@ public class ScormPackageAssets {
         h1,h2,h3,h4{margin:0 0 8px 0;font-weight:700}p{margin:0 0 8px 0}
         #app{max-width:1200px;margin:0 auto;padding:24px}
         .course-shell{background:var(--card);border-radius:16px;padding:20px;box-shadow:0 8px 24px rgba(15,23,42,.08)}
+        .course-header{margin-bottom:20px;display:flex;flex-direction:column;gap:12px;text-align:center}
+        .course-header h1{font-size:32px;letter-spacing:.06em;text-transform:uppercase}
+        .course-cover{border-radius:14px;border:1px dashed var(--border);overflow:hidden;background:#f1f5f9}
+        .course-cover img{display:block;width:100%;height:240px;object-fit:cover}
+        .course-objective{background:#f1f5f9;padding:12px 16px;border-radius:14px;text-align:left;font-size:14px;color:#374151}
         .section{margin-top:16px;padding:16px;border-radius:12px;border:1px solid var(--border);background:var(--card)}
         .page{margin-top:12px;padding:14px;border-radius:10px;border:1px solid var(--border);background:var(--card);position:relative}
         .content-area{display:grid;gap:12px;position:relative}
@@ -21,6 +26,11 @@ public class ScormPackageAssets {
         .q-head{padding:16px;border-bottom:1px solid var(--border)}
         .q-title{font-size:20px;font-weight:700;margin:0 0 8px 0}
         .q-body{padding:16px}
+        .q-feedback{margin-top:12px;padding:10px 12px;border-radius:10px;font-size:13px;font-weight:600}
+        .q-feedback.correct{background:#ecfdf5;color:#047857}
+        .q-feedback.incorrect{background:#fef2f2;color:#b91c1c}
+        .q-explain{margin-top:8px;font-size:13px;color:#475569;background:#f8fafc;border:1px solid #e2e8f0;border-radius:10px;padding:10px}
+        .q-actions{display:flex;justify-content:flex-end;margin-top:10px}
         .q-opt{display:flex;gap:8px;align-items:center;margin-top:8px;padding:12px;border-radius:12px;border:1px solid #cbd5e1;background:#fff;cursor:pointer;transition:.15s}
         .q-opt.selected{border-color:var(--accent);background:#eff6ff}
         .q-opt.dragging{opacity:.6}
@@ -81,7 +91,7 @@ public class ScormPackageAssets {
   public String stateJs() {
     return """
         export const initState = (course, scorm) => {
-          const initial = { currentPage: 0, answers: {}, score: 0 };
+          const initial = { currentPage: 0, answers: {}, score: 0, checked: {} };
           const suspend = scorm.getSuspendData();
           if (suspend) {
             try {
@@ -105,9 +115,13 @@ public class ScormPackageAssets {
               initial.currentPage = index;
               persist();
             },
-            setScore: (score) => {
+            setChecked: (id, value) => {
+              initial.checked[id] = value;
+              persist();
+            },
+            setScore: (score, passingScore) => {
               initial.score = score;
-              scorm.setScore(score);
+              scorm.setScore(score, passingScore);
               persist();
             }
           };
@@ -125,10 +139,42 @@ public class ScormPackageAssets {
           const safe = (fn) => {
             try { return fn(); } catch (_) { return ''; }
           };
+          const startTime = Date.now();
+
+          const toScorm12Time = (ms) => {
+            const total = Math.max(0, Math.floor(ms / 1000));
+            const h = String(Math.floor(total / 3600)).padStart(2, '0');
+            const m = String(Math.floor((total % 3600) / 60)).padStart(2, '0');
+            const s = String(total % 60).padStart(2, '0');
+            return `${h}:${m}:${s}`;
+          };
+
+          const toScorm2004Time = (ms) => {
+            const total = Math.max(0, Math.floor(ms / 1000));
+            const h = Math.floor(total / 3600);
+            const m = Math.floor((total % 3600) / 60);
+            const s = total % 60;
+            return `PT${h}H${m}M${s}S`;
+          };
 
           return {
-            initialize: () => api && safe(() => (is2004 ? api.Initialize('') : api.LMSInitialize(''))),
-            terminate: () => api && safe(() => (is2004 ? api.Terminate('') : api.LMSFinish(''))),
+            initialize: () => {
+              if (!api) return;
+              safe(() => (is2004 ? api.Initialize('') : api.LMSInitialize('')));
+              if (is2004) safe(() => api.SetValue('cmi.completion_status', 'incomplete'));
+              else safe(() => api.LMSSetValue('cmi.core.lesson_status', 'incomplete'));
+            },
+            terminate: () => {
+              if (!api) return;
+              const durationMs = Date.now() - startTime;
+              if (is2004) {
+                safe(() => api.SetValue('cmi.session_time', toScorm2004Time(durationMs)));
+                safe(() => api.Terminate(''));
+              } else {
+                safe(() => api.LMSSetValue('cmi.core.session_time', toScorm12Time(durationMs)));
+                safe(() => api.LMSFinish(''));
+              }
+            },
             commit: () => api && safe(() => (is2004 ? api.Commit('') : api.LMSCommit(''))),
             setValue: (key, value) => api && safe(() => (is2004 ? api.SetValue(key, value) : api.LMSSetValue(key, value))),
             getValue: (key) => api ? safe(() => (is2004 ? api.GetValue(key) : api.LMSGetValue(key))) : '',
@@ -136,15 +182,19 @@ public class ScormPackageAssets {
               if (!api) return;
               if (is2004) safe(() => api.SetValue('cmi.progress_measure', String(progress)));
             },
-            setScore: (score) => {
+            setScore: (score, passingScore = 80) => {
               if (!api) return;
+              const passed = Number(score) >= Number(passingScore);
               if (is2004) {
                 safe(() => api.SetValue('cmi.score.min', '0'));
                 safe(() => api.SetValue('cmi.score.max', '100'));
                 safe(() => api.SetValue('cmi.score.raw', String(score)));
-                safe(() => api.SetValue('cmi.success_status', score >= 80 ? 'passed' : 'failed'));
+                safe(() => api.SetValue('cmi.success_status', passed ? 'passed' : 'failed'));
               } else {
+                safe(() => api.LMSSetValue('cmi.core.score.min', '0'));
+                safe(() => api.LMSSetValue('cmi.core.score.max', '100'));
                 safe(() => api.LMSSetValue('cmi.core.score.raw', String(score)));
+                safe(() => api.LMSSetValue('cmi.core.lesson_status', passed ? 'passed' : 'failed'));
               }
             },
             setCompletion: (completed) => {
@@ -185,11 +235,18 @@ public class ScormPackageAssets {
           const evaluateQuestion = (q, answer) => {
             const td = q.templateData || {};
             if (q.questionType === 'MCQ_SINGLE') {
-              const correct = td.correctOption ?? td.correctAnswer ?? q.correctAnswer;
+              const options = q.options || td.options || [];
+              const correctByOptions = options.find((opt) => opt?.isCorrect);
+              const correct = correctByOptions?.id || correctByOptions?.value || correctByOptions?.label || td.correctOption || td.correctAnswer || q.correctAnswer;
               return normalize(answer || '') === normalize(correct || '');
             }
             if (q.questionType === 'MCQ_MULTIPLE' || q.questionType === 'MCQ_MULTI') {
-              const correct = (td.correctOptions || q.correctAnswers || []).map(normalize).sort();
+              const options = q.options || td.options || [];
+              const correctByOptions = options
+                .filter((opt) => opt?.isCorrect)
+                .map((opt) => opt?.id || opt?.value || opt?.label)
+                .filter(Boolean);
+              const correct = (correctByOptions.length ? correctByOptions : (td.correctOptions || q.correctAnswers || [])).map(normalize).sort();
               const got = (Array.isArray(answer) ? answer : []).map(normalize).sort();
               return arrEq(got, correct);
             }
@@ -198,11 +255,11 @@ public class ScormPackageAssets {
               return String(Boolean(answer)) === String(Boolean(correct));
             }
             if (q.questionType === 'SHORT_ANSWER') {
-              const accepted = (td.acceptedAnswers || [td.correctAnswer || q.correctAnswer || '']).map(normalize);
+              const accepted = (td.acceptedAnswers || q.acceptableAnswers || [td.correctAnswer || q.correctAnswer || '']).map(normalize);
               return accepted.includes(normalize(answer || ''));
             }
             if (q.questionType === 'FILL_IN_THE_BLANK' || q.questionType === 'FILL_BLANK') {
-              const correct = (td.correctAnswers || []).map(normalize);
+              const correct = (q.answers || td.correctAnswers || []).map(normalize);
               const got = (Array.isArray(answer) ? answer : []).map(normalize);
               if (!correct.length) return false;
               return correct.every((c, i) => c === (got[i] || ''));
@@ -219,12 +276,19 @@ public class ScormPackageAssets {
             return Math.round((correctCount / allQuestions.length) * 100);
           };
 
+          const resolvePassingScore = () => {
+            const current = pages[state.state.currentPage];
+            const pagePassing = current?.page?.quizPage?.passingScore ?? current?.page?.passingScore;
+            const coursePassing = course?.passingScore;
+            return Number(pagePassing ?? coursePassing ?? 80);
+          };
+
           const updateCompletion = () => {
             const progress = pages.length ? ((state.state.currentPage + 1) / pages.length) : 1;
             scorm.setProgress(progress);
             scorm.setCompletion(progress >= 1);
             const score = calculateScore();
-            state.setScore(score);
+            state.setScore(score, resolvePassingScore());
           };
 
           const renderNav = () => {
@@ -258,7 +322,7 @@ public class ScormPackageAssets {
           };
 
           const render = () => {
-            renderer.renderCourse(course, pages[state.state.currentPage]);
+            renderer.renderCourse(course, pages[state.state.currentPage], state.state.currentPage);
             renderer.attachNavigation(renderNav());
             updateCompletion();
           };
@@ -325,6 +389,42 @@ public class ScormPackageAssets {
           const globalTokens = theme?.tokens || {};
 
           const mergedTokens = (...locals) => locals.reduce((acc, tokens) => deepMerge(acc, tokens || {}), globalTokens);
+          const normalize = (v) => typeof v === 'string' ? v.trim().toLowerCase() : String(v).trim().toLowerCase();
+          const arrEq = (a, b) => a.length === b.length && a.every((x) => b.includes(x));
+          const evaluateQuestion = (q, answer) => {
+            const td = q.templateData || {};
+            if (q.questionType === 'MCQ_SINGLE') {
+              const options = q.options || td.options || [];
+              const correctByOptions = options.find((opt) => opt?.isCorrect);
+              const correct = correctByOptions?.id || correctByOptions?.value || correctByOptions?.label || td.correctOption || td.correctAnswer || q.correctAnswer;
+              return normalize(answer || '') === normalize(correct || '');
+            }
+            if (q.questionType === 'MCQ_MULTIPLE' || q.questionType === 'MCQ_MULTI') {
+              const options = q.options || td.options || [];
+              const correctByOptions = options
+                .filter((opt) => opt?.isCorrect)
+                .map((opt) => opt?.id || opt?.value || opt?.label)
+                .filter(Boolean);
+              const correct = (correctByOptions.length ? correctByOptions : (td.correctOptions || q.correctAnswers || [])).map(normalize).sort();
+              const got = (Array.isArray(answer) ? answer : []).map(normalize).sort();
+              return arrEq(got, correct);
+            }
+            if (q.questionType === 'TRUE_FALSE') {
+              const correct = td.correctAnswer ?? q.correctAnswer;
+              return String(Boolean(answer)) === String(Boolean(correct));
+            }
+            if (q.questionType === 'SHORT_ANSWER') {
+              const accepted = (td.acceptedAnswers || q.acceptableAnswers || [td.correctAnswer || q.correctAnswer || '']).map(normalize);
+              return accepted.includes(normalize(answer || ''));
+            }
+            if (q.questionType === 'FILL_IN_THE_BLANK' || q.questionType === 'FILL_BLANK') {
+              const correct = (q.answers || td.correctAnswers || []).map(normalize);
+              const got = (Array.isArray(answer) ? answer : []).map(normalize);
+              if (!correct.length) return false;
+              return correct.every((c, i) => c === (got[i] || ''));
+            }
+            return false;
+          };
 
           const renderQuestion = (q) => {
             const container = document.createElement('div');
@@ -345,6 +445,42 @@ public class ScormPackageAssets {
             else if (q.questionType === 'SHORT_ANSWER') body.appendChild(renderShortAnswer(q, state));
             else if (q.questionType === 'FILL_IN_THE_BLANK' || q.questionType === 'FILL_BLANK') body.appendChild(renderFillBlank(q, state));
             else body.appendChild(renderGrouping(q, state));
+
+            const actions = document.createElement('div');
+            actions.className = 'q-actions';
+            const checkBtn = document.createElement('button');
+            checkBtn.className = 'btn';
+            checkBtn.textContent = 'Check answer';
+            actions.appendChild(checkBtn);
+
+            const feedback = document.createElement('div');
+            const explanation = document.createElement('div');
+
+            const renderFeedback = () => {
+              const checked = Boolean(state.state.checked?.[q.id]);
+              if (!checked) {
+                feedback.remove();
+                explanation.remove();
+                return;
+              }
+              const isCorrect = evaluateQuestion(q, state.state.answers[q.id]);
+              feedback.className = `q-feedback ${isCorrect ? 'correct' : 'incorrect'}`;
+              feedback.textContent = isCorrect ? 'Correct' : 'Incorrect';
+              body.appendChild(feedback);
+              if (q.explanationHtml) {
+                explanation.className = 'q-explain';
+                explanation.innerHTML = q.explanationHtml;
+                body.appendChild(explanation);
+              }
+            };
+
+            checkBtn.onclick = () => {
+              state.setChecked(q.id, true);
+              renderFeedback();
+            };
+
+            body.appendChild(actions);
+            renderFeedback();
             container.appendChild(body);
             return container;
           };
@@ -386,12 +522,47 @@ public class ScormPackageAssets {
             return container;
           };
 
-          const renderPage = (payload) => {
+          const renderPage = (course, payload, currentPageIndex = 0) => {
             root.innerHTML = '';
             const shell = document.createElement('div');
             shell.className = 'course-shell';
             const sectionTokens = payload?.section?.themeOverride?.tokens;
             applyTokens(shell, mergedTokens(sectionTokens));
+
+            if (currentPageIndex === 0) {
+              const header = document.createElement('section');
+              header.className = 'course-header';
+
+              const headerTitle = document.createElement('h1');
+              headerTitle.textContent = course?.title || course?.courseTitle || 'Untitled Course';
+              header.appendChild(headerTitle);
+
+              const coverWrap = document.createElement('div');
+              coverWrap.className = 'course-cover';
+              if (course?.coverImageUrl) {
+                const img = document.createElement('img');
+                img.src = course.coverImageUrl;
+                img.alt = 'Course cover';
+                coverWrap.appendChild(img);
+              } else {
+                const noCover = document.createElement('div');
+                noCover.style.height = '240px';
+                noCover.style.display = 'flex';
+                noCover.style.alignItems = 'center';
+                noCover.style.justifyContent = 'center';
+                noCover.style.color = '#94a3b8';
+                noCover.textContent = 'No cover image';
+                coverWrap.appendChild(noCover);
+              }
+              header.appendChild(coverWrap);
+
+              const objective = document.createElement('div');
+              objective.className = 'course-objective';
+              objective.textContent = course?.description || 'Add learning objective...';
+              header.appendChild(objective);
+
+              shell.appendChild(header);
+            }
 
             const title = document.createElement('h1');
             title.textContent = payload?.section?.title || payload?.page?.title || '';
@@ -422,7 +593,7 @@ public class ScormPackageAssets {
           };
 
           return {
-            renderCourse: (course, payload) => renderPage(payload),
+            renderCourse: (course, payload, currentPageIndex) => renderPage(course, payload, currentPageIndex),
             renderPage,
             attachNavigation: (nav) => root.appendChild(nav)
           };
@@ -437,10 +608,10 @@ public class ScormPackageAssets {
           const options = q.templateData?.options || q.options || [];
           const selected = state.state.answers[q.id];
           options.forEach((opt) => {
-            const key = opt.value || opt.label;
+            const key = opt.id || opt.value || opt.label || opt.labelHtml;
             const row = document.createElement('div');
             row.className = 'q-opt';
-            row.textContent = opt.label || opt.value || '';
+            row.innerHTML = opt.labelHtml || opt.label || opt.value || '';
             if (selected === key) row.classList.add('selected');
             row.onclick = () => {
               state.setAnswer(q.id, key);
@@ -463,10 +634,10 @@ public class ScormPackageAssets {
           options.forEach((opt) => {
             const row = document.createElement('div');
             row.className = 'q-opt';
-            row.textContent = opt.label || opt.value || '';
-            if (selected.has(opt.value || opt.label)) row.classList.add('selected');
+            const key = opt.id || opt.value || opt.label || opt.labelHtml;
+            row.innerHTML = opt.labelHtml || opt.label || opt.value || '';
+            if (selected.has(key)) row.classList.add('selected');
             row.onclick = () => {
-              const key = opt.value || opt.label;
               if (selected.has(key)) {
                 selected.delete(key);
                 row.classList.remove('selected');
@@ -515,6 +686,7 @@ public class ScormPackageAssets {
           const input = document.createElement('input');
           input.className = 'q-input';
           input.placeholder = 'Type answer';
+          if (q.charLimit && Number.isFinite(q.charLimit)) input.maxLength = q.charLimit;
           input.value = state.state.answers[q.id] || '';
           input.oninput = (e) => state.setAnswer(q.id, e.target.value);
           container.appendChild(input);

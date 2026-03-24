@@ -32,6 +32,12 @@ public class Course {
     @Column(name = "title")
     private String title;
 
+    @Column(name = "description", columnDefinition = "TEXT")
+    private String description;
+
+    @Column(name = "cover_image_url", columnDefinition = "TEXT")
+    private String coverImageUrl;
+
     @Column(name = "passing_score", precision = 5, scale = 2)
     private BigDecimal passingScore;
 

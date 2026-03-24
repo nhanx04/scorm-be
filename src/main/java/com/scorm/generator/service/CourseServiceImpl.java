@@ -76,6 +76,8 @@ public class CourseServiceImpl implements CourseService {
 
         Course course = Course.builder()
                 .title(title)
+                .description(request.getDescription())
+                .coverImageUrl(request.getCoverImageUrl())
                 .passingScore(passingScore)
                 .attemptLimit(attemptLimit)
                 .durationMin(durationMin)
@@ -206,6 +208,8 @@ public class CourseServiceImpl implements CourseService {
         return CourseDetailResponse.builder()
                 .courseId(course.getCourseId())
                 .title(course.getTitle())
+                .description(course.getDescription())
+                .coverImageUrl(course.getCoverImageUrl())
                 .passingScore(course.getPassingScore())
                 .attemptLimit(course.getAttemptLimit())
                 .durationMin(course.getDurationMin())
@@ -233,6 +237,12 @@ public class CourseServiceImpl implements CourseService {
 
         if (request.getTitle() != null) {
             course.setTitle(request.getTitle());
+        }
+        if (request.getDescription() != null) {
+            course.setDescription(request.getDescription());
+        }
+        if (request.getCoverImageUrl() != null) {
+            course.setCoverImageUrl(request.getCoverImageUrl());
         }
         if (request.getPassingScore() != null) {
             course.setPassingScore(request.getPassingScore());
