@@ -18,6 +18,10 @@ public class QuizPageResponse {
     private Long pageId;
     private BigDecimal passingScore;
     private Integer attemptAllowed;
+    private com.fasterxml.jackson.databind.JsonNode themeOverride;
+    private String layoutMode;
+    private com.fasterxml.jackson.databind.JsonNode layoutMeta;
+    private com.fasterxml.jackson.databind.JsonNode templateData;
 
     private List<QuestionSummaryDto> questions;
 
@@ -26,6 +30,10 @@ public class QuizPageResponse {
                 .pageId(quizPage.getPageId())
                 .passingScore(quizPage.getPassingScore())
                 .attemptAllowed(quizPage.getAttemptAllowed())
+                .themeOverride(quizPage.getThemeOverride())
+                .layoutMode(quizPage.getLayoutMode())
+                .layoutMeta(quizPage.getLayoutMeta())
+                .templateData(quizPage.getTemplateData())
                 .questions(null)
                 .build();
     }

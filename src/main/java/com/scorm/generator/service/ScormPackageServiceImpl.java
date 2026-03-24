@@ -1,7 +1,8 @@
 package com.scorm.generator.service;
 
 import com.fasterxml.jackson.databind.JsonNode;
-import com.fasterxml.jackson.databind.ObjectMapper;
+import com.scorm.generator.ScormPackaging.ScormPackageComposer;
+import com.scorm.generator.ScormPackaging.ScormPackageStorageService;
 import com.scorm.generator.dto.ScormPackageCreateRequest;
 import com.scorm.generator.dto.ScormPackageResponse;
 import com.scorm.generator.entity.Course;
@@ -12,7 +13,6 @@ import com.scorm.generator.exception.AppException;
 import com.scorm.generator.repository.CourseRepository;
 import com.scorm.generator.repository.ScormExportConfigRepository;
 import com.scorm.generator.repository.ScormPackageRepository;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.core.io.FileSystemResource;
 import org.springframework.core.io.Resource;
 import org.springframework.http.HttpHeaders;
@@ -23,15 +23,10 @@ import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Service;
 
 import java.io.IOException;
-import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
-import java.time.OffsetDateTime;
 import java.util.List;
-import java.util.UUID;
-import java.util.zip.ZipEntry;
-import java.util.zip.ZipOutputStream;
 
 @Service
 public class ScormPackageServiceImpl implements ScormPackageService {
@@ -39,21 +34,22 @@ public class ScormPackageServiceImpl implements ScormPackageService {
     private final CourseRepository courseRepository;
     private final ScormExportConfigRepository scormExportConfigRepository;
     private final ScormPackageRepository scormPackageRepository;
-    private final ObjectMapper objectMapper;
+    private final ScormPackageComposer scormPackageComposer;
+    private final ScormPackageStorageService scormPackageStorageService;
+    private final EditorStateExportNormalizer editorStateExportNormalizer;
 
-    private final Path exportDir;
-
-    public ScormPackageServiceImpl(
-            CourseRepository courseRepository,
+    public ScormPackageServiceImpl(CourseRepository courseRepository,
             ScormExportConfigRepository scormExportConfigRepository,
             ScormPackageRepository scormPackageRepository,
-            ObjectMapper objectMapper,
-            @Value("${app.scorm.export-dir:scorm-exports}") String exportDir) {
+            ScormPackageComposer scormPackageComposer,
+            ScormPackageStorageService scormPackageStorageService,
+            EditorStateExportNormalizer editorStateExportNormalizer) {
         this.courseRepository = courseRepository;
         this.scormExportConfigRepository = scormExportConfigRepository;
         this.scormPackageRepository = scormPackageRepository;
-        this.objectMapper = objectMapper;
-        this.exportDir = Paths.get(exportDir);
+        this.scormPackageComposer = scormPackageComposer;
+        this.scormPackageStorageService = scormPackageStorageService;
+        this.editorStateExportNormalizer = editorStateExportNormalizer;
     }
 
     @Override
@@ -65,18 +61,33 @@ public class ScormPackageServiceImpl implements ScormPackageService {
         ScormExportConfig config = scormExportConfigRepository.findByCourse_CourseId(courseId)
                 .orElseGet(() -> scormExportConfigRepository.save(ScormExportConfig.builder().course(course).build()));
 
-        JsonNode themeSnapshot = config.getThemeConfig();
-
         String packageType = request.getPackageType() == null ? "SCORM_2004" : request.getPackageType();
-        String packageName = request.getPackageName() == null ? ("course-" + courseId + "-" + OffsetDateTime.now())
-                : request.getPackageName();
+        String packageName = request.getPackageName() == null ? "course-" + courseId : request.getPackageName();
 
-        Path zipPath = generateMinimalScormZip(courseId);
+        JsonNode rawEditorStateSnapshot = request.getEditorStateSnapshot() != null
+                ? request.getEditorStateSnapshot()
+                : course.getEditorState();
+        JsonNode editorStateSnapshot = editorStateExportNormalizer.normalizeForScorm(rawEditorStateSnapshot, course);
+        JsonNode themeSnapshot = request.getInterfaceSnapshot() != null
+                ? request.getInterfaceSnapshot()
+                : (config.getThemeConfig() != null ? config.getThemeConfig() : course.getThemeOverride());
+
+        byte[] zipPayload = scormPackageComposer.compose(
+                course.getCourseId(),
+                course.getTitle(),
+                packageType,
+                editorStateSnapshot,
+                themeSnapshot);
+
+        ScormPackageStorageService.StoredPackage stored = scormPackageStorageService
+                .storeZip(zipPayload, packageName, courseId);
 
         ScormPackage scormPackage = ScormPackage.builder()
                 .packageName(packageName)
                 .packageType(packageType)
-                .zipFilePath(zipPath.toAbsolutePath().toString())
+                .zipFilePath(stored.zipPath().toAbsolutePath().toString())
+                .cloudKey(stored.cloudKey())
+                .cloudUrl(stored.publicUrl())
                 .themeSnapshot(themeSnapshot)
                 .course(course)
                 .config(config)
@@ -97,8 +108,7 @@ public class ScormPackageServiceImpl implements ScormPackageService {
 
     @Override
     public ScormPackageResponse getPackageById(Long packageId, Authentication authentication) {
-        ScormPackage scormPackage = getOwnedPackageOrThrow(packageId, authentication);
-        return ScormPackageResponse.fromEntity(scormPackage);
+        return ScormPackageResponse.fromEntity(getOwnedPackageOrThrow(packageId, authentication));
     }
 
     @Override
@@ -115,7 +125,7 @@ public class ScormPackageServiceImpl implements ScormPackageService {
         }
 
         Resource resource = new FileSystemResource(zipPath);
-        String filename = (scormPackage.getPackageName() == null ? ("scorm-" + scormPackage.getScormPackageId())
+        String filename = (scormPackage.getPackageName() == null ? "scorm-" + scormPackage.getScormPackageId()
                 : scormPackage.getPackageName()) + ".zip";
 
         return ResponseEntity.ok()
@@ -171,64 +181,4 @@ public class ScormPackageServiceImpl implements ScormPackageService {
 
         return scormPackage;
     }
-
-    private Path generateMinimalScormZip(Long courseId) {
-        try {
-            Files.createDirectories(exportDir);
-        } catch (IOException e) {
-            throw new AppException(HttpStatus.INTERNAL_SERVER_ERROR, "Cannot create export directory");
-        }
-
-        String filename = "scorm-" + courseId + "-" + UUID.randomUUID() + ".zip";
-        Path zipPath = exportDir.resolve(filename);
-
-        try (ZipOutputStream zos = new ZipOutputStream(Files.newOutputStream(zipPath))) {
-            String manifest = buildMinimalManifest(courseId);
-            zos.putNextEntry(new ZipEntry("imsmanifest.xml"));
-            zos.write(manifest.getBytes(StandardCharsets.UTF_8));
-            zos.closeEntry();
-
-            String indexHtml = "<html><head><meta charset=\"utf-8\"/></head><body>SCORM package for course "
-                    + courseId + "</body></html>";
-            zos.putNextEntry(new ZipEntry("index.html"));
-            zos.write(indexHtml.getBytes(StandardCharsets.UTF_8));
-            zos.closeEntry();
-        } catch (IOException e) {
-            throw new AppException(HttpStatus.INTERNAL_SERVER_ERROR, "Failed to generate zip");
-        }
-
-        return zipPath;
-    }
-
-    private String buildMinimalManifest(Long courseId) {
-        return "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n" +
-                "<manifest identifier=\"manifest-" + courseId + "\" version=\"1.0\"\n" +
-                "  xmlns=\"http://www.imsglobal.org/xsd/imscp_v1p1\"\n" +
-                "  xmlns:adlcp=\"http://www.adlnet.org/xsd/adlcp_v1p3\"\n" +
-                "  xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"\n" +
-                "  xsi:schemaLocation=\"http://www.imsglobal.org/xsd/imscp_v1p1 imscp_v1p1.xsd\">\n" +
-                "  <organizations default=\"ORG-1\">\n" +
-                "    <organization identifier=\"ORG-1\">\n" +
-                "      <title>Course " + courseId + "</title>\n" +
-                "      <item identifier=\"ITEM-1\" identifierref=\"RES-1\">\n" +
-                "        <title>Index</title>\n" +
-                "      </item>\n" +
-                "    </organization>\n" +
-                "  </organizations>\n" +
-                "  <resources>\n" +
-                "    <resource identifier=\"RES-1\" type=\"webcontent\" adlcp:scormType=\"sco\" href=\"index.html\">\n"
-                +
-                "      <file href=\"index.html\"/>\n" +
-                "    </resource>\n" +
-                "  </resources>\n" +
-                "</manifest>\n";
-    }
-
-    private JsonNode toJsonNode(Object obj) {
-        if (obj == null) {
-            return null;
-        }
-        return objectMapper.valueToTree(obj);
-    }
 }
-

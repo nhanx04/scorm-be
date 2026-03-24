@@ -31,9 +31,22 @@ public class Page {
     @Column(name = "page_type")
     private String pageType;
 
+    @Column(name = "text_html", columnDefinition = "TEXT")
+    private String textHtml;
+
     @JdbcTypeCode(SqlTypes.JSON)
     @Column(name = "theme_override", columnDefinition = "jsonb")
     private JsonNode themeOverride;
+
+    @Column(name = "layout_mode")
+    private String layoutMode;
+
+    @Column(name = "layout_type")
+    private String layoutType;
+
+    @JdbcTypeCode(SqlTypes.JSON)
+    @Column(name = "layout_meta", columnDefinition = "jsonb")
+    private JsonNode layoutMeta;
 
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "sectionid", referencedColumnName = "sectionid")

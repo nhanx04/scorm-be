@@ -31,6 +31,12 @@ public class ScormPackage {
     @Column(name = "zip_file_path")
     private String zipFilePath;
 
+    @Column(name = "cloud_key")
+    private String cloudKey;
+
+    @Column(name = "cloud_url")
+    private String cloudUrl;
+
     @JdbcTypeCode(SqlTypes.JSON)
     @Column(name = "theme_snapshot", columnDefinition = "jsonb")
     private JsonNode themeSnapshot;
@@ -47,4 +53,3 @@ public class ScormPackage {
     @JoinColumn(name = "package_userid", referencedColumnName = "userid")
     private User user;
 }
-

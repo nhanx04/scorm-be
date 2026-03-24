@@ -36,6 +36,9 @@ public class ContentBlockServiceImpl implements ContentBlockService {
                 .contentPage(contentPage)
                 .orderIndex(request.getOrderIndex())
                 .textHtml(request.getTextHtml())
+                .blockType(request.getBlockType())
+                .themeOverride(request.getThemeOverride())
+                .layoutMeta(request.getLayoutMeta())
                 .build();
 
         return ContentBlockResponse.fromEntity(contentBlockRepository.save(block));
@@ -50,6 +53,15 @@ public class ContentBlockServiceImpl implements ContentBlockService {
         }
         if (request.getTextHtml() != null) {
             block.setTextHtml(request.getTextHtml());
+        }
+        if (request.getBlockType() != null) {
+            block.setBlockType(request.getBlockType());
+        }
+        if (request.getThemeOverride() != null) {
+            block.setThemeOverride(request.getThemeOverride());
+        }
+        if (request.getLayoutMeta() != null) {
+            block.setLayoutMeta(request.getLayoutMeta());
         }
 
         return ContentBlockResponse.fromEntity(contentBlockRepository.save(block));

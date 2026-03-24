@@ -39,7 +39,12 @@ public class QuestionServiceImpl implements QuestionService {
                 .title(request.getTitle())
                 .instruction(request.getInstruction())
                 .promptHtml(request.getPromptHtml())
+                .textHtml(request.getTextHtml())
                 .questionType(request.getQuestionType())
+                .themeOverride(request.getThemeOverride())
+                .layoutMode(request.getLayoutMode())
+                .layoutMeta(request.getLayoutMeta())
+                .templateData(request.getTemplateData())
                 .points(request.getPoints() != null ? request.getPoints() : BigDecimal.ONE)
                 .shuffleOptions(request.getShuffleOptions() != null ? request.getShuffleOptions() : false)
                 .caseSensitive(request.getCaseSensitive() != null ? request.getCaseSensitive() : false)
@@ -70,6 +75,16 @@ public class QuestionServiceImpl implements QuestionService {
             question.setInstruction(request.getInstruction());
         if (request.getPromptHtml() != null)
             question.setPromptHtml(request.getPromptHtml());
+        if (request.getTextHtml() != null)
+            question.setTextHtml(request.getTextHtml());
+        if (request.getThemeOverride() != null)
+            question.setThemeOverride(request.getThemeOverride());
+        if (request.getLayoutMode() != null)
+            question.setLayoutMode(request.getLayoutMode());
+        if (request.getLayoutMeta() != null)
+            question.setLayoutMeta(request.getLayoutMeta());
+        if (request.getTemplateData() != null)
+            question.setTemplateData(request.getTemplateData());
         if (request.getPoints() != null)
             question.setPoints(request.getPoints());
         if (request.getShuffleOptions() != null)
@@ -98,8 +113,18 @@ public class QuestionServiceImpl implements QuestionService {
                 question.setInstruction(updateRequest.getInstruction());
             if (updateRequest.getPromptHtml() != null)
                 question.setPromptHtml(updateRequest.getPromptHtml());
+            if (updateRequest.getTextHtml() != null)
+                question.setTextHtml(updateRequest.getTextHtml());
             if (updateRequest.getQuestionType() != null)
                 question.setQuestionType(updateRequest.getQuestionType());
+            if (updateRequest.getThemeOverride() != null)
+                question.setThemeOverride(updateRequest.getThemeOverride());
+            if (updateRequest.getLayoutMode() != null)
+                question.setLayoutMode(updateRequest.getLayoutMode());
+            if (updateRequest.getLayoutMeta() != null)
+                question.setLayoutMeta(updateRequest.getLayoutMeta());
+            if (updateRequest.getTemplateData() != null)
+                question.setTemplateData(updateRequest.getTemplateData());
             if (updateRequest.getPoints() != null)
                 question.setPoints(updateRequest.getPoints());
             if (updateRequest.getShuffleOptions() != null)
@@ -310,7 +335,12 @@ public class QuestionServiceImpl implements QuestionService {
                 .title(question.getTitle())
                 .instruction(question.getInstruction())
                 .promptHtml(question.getPromptHtml())
+                .textHtml(question.getTextHtml())
                 .questionType(question.getQuestionType())
+                .themeOverride(question.getThemeOverride())
+                .layoutMode(question.getLayoutMode())
+                .layoutMeta(question.getLayoutMeta())
+                .templateData(question.getTemplateData())
                 .points(question.getPoints())
                 .shuffleOptions(question.getShuffleOptions())
                 .caseSensitive(question.getCaseSensitive())

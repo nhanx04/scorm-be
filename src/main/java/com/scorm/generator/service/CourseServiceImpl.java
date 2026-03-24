@@ -24,6 +24,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Service;
 
+import java.math.BigDecimal;
 import java.util.List;
 
 @Service
@@ -61,13 +62,34 @@ public class CourseServiceImpl implements CourseService {
     public CourseResponse create(CourseCreateRequest request, Authentication authentication) {
         User currentUser = (User) authentication.getPrincipal();
 
+        String title = request.getTitle();
+        if (title == null || title.isBlank()) {
+            title = "Untitled Course";
+        }
+
+        BigDecimal passingScore = request.getPassingScore() != null ? request.getPassingScore() : BigDecimal.ZERO;
+        Integer attemptLimit = request.getAttemptLimit() != null ? request.getAttemptLimit() : 0;
+        Integer durationMin = request.getDurationMin() != null ? request.getDurationMin() : 0;
+        String status = request.getStatus() != null ? request.getStatus() : "DRAFT";
+        String editorVersion = request.getEditorVersion() != null ? request.getEditorVersion() : "course-editor-v1";
+        String editorStatus = request.getEditorStatus() != null ? request.getEditorStatus() : "DRAFT";
+
         Course course = Course.builder()
-                .title(request.getTitle())
-                .passingScore(request.getPassingScore())
-                .attemptLimit(request.getAttemptLimit())
-                .durationMin(request.getDurationMin())
-                .status(request.getStatus())
-                .extraInfor(request.getExtraInfor() != null ? request.getExtraInfor().toString() : null)
+                .title(title)
+                .description(request.getDescription())
+                .coverImageUrl(request.getCoverImageUrl())
+                .passingScore(passingScore)
+                .attemptLimit(attemptLimit)
+                .durationMin(durationMin)
+                .status(status)
+                .textHtml(request.getTextHtml())
+                .themeOverride(request.getThemeOverride())
+                .layoutMode(request.getLayoutMode())
+                .layoutMeta(request.getLayoutMeta())
+                .extraInfor(request.getExtraInfor() != null ? request.getExtraInfor().toString() : "{}")
+                .editorState(request.getEditorState())
+                .editorVersion(editorVersion)
+                .editorStatus(editorStatus)
                 .user(currentUser)
                 .build();
 
@@ -108,7 +130,9 @@ public class CourseServiceImpl implements CourseService {
 
                                     contentPageDetail = CourseDetailResponse.ContentPageDetailDto.builder()
                                             .pageId(page.getContentPage().getPageId())
+                                            .layoutMode(page.getContentPage().getLayoutMode())
                                             .layoutType(page.getContentPage().getLayoutType())
+                                            .layoutMeta(page.getContentPage().getLayoutMeta())
                                             .blocks(blocks)
                                             .build();
                                 }
@@ -123,8 +147,22 @@ public class CourseServiceImpl implements CourseService {
                                                 .toList();
                                         var summaries = questionRepository.findSummariesByIds(questionIds);
                                         var summaryDtos = summaries.stream()
-                                                .map(s -> new QuestionSummaryDto(s.getQuestionId(), s.getTitle(),
-                                                        s.getQuestionType()))
+                                                .map(s -> QuestionSummaryDto.builder()
+                                                        .questionId(s.getQuestionId())
+                                                        .title(s.getTitle())
+                                                        .instruction(s.getInstruction())
+                                                        .promptHtml(s.getPromptHtml())
+                                                        .textHtml(s.getTextHtml())
+                                                        .questionType(s.getQuestionType())
+                                                        .themeOverride(s.getThemeOverride())
+                                                        .layoutMode(s.getLayoutMode())
+                                                        .layoutMeta(s.getLayoutMeta())
+                                                        .templateData(s.getTemplateData())
+                                                        .points(s.getPoints())
+                                                        .shuffleOptions(s.getShuffleOptions())
+                                                        .caseSensitive(s.getCaseSensitive())
+                                                        .extraConfig(s.getExtraConfig())
+                                                        .build())
                                                 .toList();
                                         quizPageResponse.setQuestions(summaryDtos);
                                     }
@@ -135,7 +173,11 @@ public class CourseServiceImpl implements CourseService {
                                         .title(page.getTitle())
                                         .orderIndex(page.getOrderIndex())
                                         .pageType(page.getPageType())
+                                        .textHtml(page.getTextHtml())
                                         .themeOverride(page.getThemeOverride())
+                                        .layoutMode(page.getLayoutMode())
+                                        .layoutType(page.getLayoutType())
+                                        .layoutMeta(page.getLayoutMeta())
                                         .contentPage(contentPageDetail)
                                         .quizPage(quizPageResponse)
                                         .build();
@@ -148,7 +190,10 @@ public class CourseServiceImpl implements CourseService {
                             .description(section.getDescription())
                             .orderIndex(section.getOrderIndex())
                             .learningObjective(section.getLearningObjective())
+                            .textHtml(section.getTextHtml())
                             .themeOverride(section.getThemeOverride())
+                            .layoutMode(section.getLayoutMode())
+                            .layoutMeta(section.getLayoutMeta())
                             .pages(pages)
                             .build();
                 })
@@ -163,13 +208,22 @@ public class CourseServiceImpl implements CourseService {
         return CourseDetailResponse.builder()
                 .courseId(course.getCourseId())
                 .title(course.getTitle())
+                .description(course.getDescription())
+                .coverImageUrl(course.getCoverImageUrl())
                 .passingScore(course.getPassingScore())
                 .attemptLimit(course.getAttemptLimit())
                 .durationMin(course.getDurationMin())
                 .status(course.getStatus())
+                .textHtml(course.getTextHtml())
+                .themeOverride(course.getThemeOverride())
+                .layoutMode(course.getLayoutMode())
+                .layoutMeta(course.getLayoutMeta())
                 .lastPublishedAt(course.getLastPublishedAt())
                 .updatedAt(course.getUpdatedAt())
                 .extraInfor(extraInfor)
+                .editorState(course.getEditorState())
+                .editorVersion(course.getEditorVersion())
+                .editorStatus(course.getEditorStatus())
                 .createdAt(course.getCreatedAt())
                 .courseUserId(course.getUser() != null ? course.getUser().getUserId() : null)
                 .thumbnail(thumbnail)
@@ -184,6 +238,12 @@ public class CourseServiceImpl implements CourseService {
         if (request.getTitle() != null) {
             course.setTitle(request.getTitle());
         }
+        if (request.getDescription() != null) {
+            course.setDescription(request.getDescription());
+        }
+        if (request.getCoverImageUrl() != null) {
+            course.setCoverImageUrl(request.getCoverImageUrl());
+        }
         if (request.getPassingScore() != null) {
             course.setPassingScore(request.getPassingScore());
         }
@@ -196,8 +256,29 @@ public class CourseServiceImpl implements CourseService {
         if (request.getStatus() != null) {
             course.setStatus(request.getStatus());
         }
+        if (request.getTextHtml() != null) {
+            course.setTextHtml(request.getTextHtml());
+        }
+        if (request.getThemeOverride() != null) {
+            course.setThemeOverride(request.getThemeOverride());
+        }
+        if (request.getLayoutMode() != null) {
+            course.setLayoutMode(request.getLayoutMode());
+        }
+        if (request.getLayoutMeta() != null) {
+            course.setLayoutMeta(request.getLayoutMeta());
+        }
         if (request.getExtraInfor() != null) {
             course.setExtraInfor(request.getExtraInfor().toString());
+        }
+        if (request.getEditorState() != null) {
+            course.setEditorState(request.getEditorState());
+        }
+        if (request.getEditorVersion() != null) {
+            course.setEditorVersion(request.getEditorVersion());
+        }
+        if (request.getEditorStatus() != null) {
+            course.setEditorStatus(request.getEditorStatus());
         }
 
         Course saved = courseRepository.save(course);
