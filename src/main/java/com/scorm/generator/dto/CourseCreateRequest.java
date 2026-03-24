@@ -8,6 +8,8 @@ import java.math.BigDecimal;
 @Data
 public class CourseCreateRequest {
     private String title;
+    private String description;
+    private String coverImageUrl;
     private BigDecimal passingScore;
     private Integer attemptLimit;
     private Integer durationMin;

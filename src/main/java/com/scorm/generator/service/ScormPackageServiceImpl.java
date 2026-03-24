@@ -36,17 +36,20 @@ public class ScormPackageServiceImpl implements ScormPackageService {
     private final ScormPackageRepository scormPackageRepository;
     private final ScormPackageComposer scormPackageComposer;
     private final ScormPackageStorageService scormPackageStorageService;
+    private final EditorStateExportNormalizer editorStateExportNormalizer;
 
     public ScormPackageServiceImpl(CourseRepository courseRepository,
             ScormExportConfigRepository scormExportConfigRepository,
             ScormPackageRepository scormPackageRepository,
             ScormPackageComposer scormPackageComposer,
-            ScormPackageStorageService scormPackageStorageService) {
+            ScormPackageStorageService scormPackageStorageService,
+            EditorStateExportNormalizer editorStateExportNormalizer) {
         this.courseRepository = courseRepository;
         this.scormExportConfigRepository = scormExportConfigRepository;
         this.scormPackageRepository = scormPackageRepository;
         this.scormPackageComposer = scormPackageComposer;
         this.scormPackageStorageService = scormPackageStorageService;
+        this.editorStateExportNormalizer = editorStateExportNormalizer;
     }
 
     @Override
@@ -61,9 +64,10 @@ public class ScormPackageServiceImpl implements ScormPackageService {
         String packageType = request.getPackageType() == null ? "SCORM_2004" : request.getPackageType();
         String packageName = request.getPackageName() == null ? "course-" + courseId : request.getPackageName();
 
-        JsonNode editorStateSnapshot = request.getEditorStateSnapshot() != null
+        JsonNode rawEditorStateSnapshot = request.getEditorStateSnapshot() != null
                 ? request.getEditorStateSnapshot()
                 : course.getEditorState();
+        JsonNode editorStateSnapshot = editorStateExportNormalizer.normalizeForScorm(rawEditorStateSnapshot, course);
         JsonNode themeSnapshot = request.getInterfaceSnapshot() != null
                 ? request.getInterfaceSnapshot()
                 : (config.getThemeConfig() != null ? config.getThemeConfig() : course.getThemeOverride());
