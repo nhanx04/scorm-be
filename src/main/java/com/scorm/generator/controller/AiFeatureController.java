@@ -6,9 +6,12 @@ import com.scorm.generator.dto.AI.AiPageContentResponse;
 import com.scorm.generator.dto.AI.GeneratePageContentRequest;
 import com.scorm.generator.dto.AI.AiQuizResponse;
 import com.scorm.generator.dto.AI.GenerateQuizRequest;
+import com.scorm.generator.dto.CourseResponse; // <-- Bổ sung import này
 import com.scorm.generator.service.AiGeneratorService;
+import com.scorm.generator.service.CourseService; // <-- Bổ sung import này
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.core.Authentication; // <-- Bổ sung import này
 import org.springframework.web.bind.annotation.*;
 
 @RestController
@@ -19,6 +22,7 @@ import org.springframework.web.bind.annotation.*;
 public class AiFeatureController {
 
     private final AiGeneratorService aiGeneratorService;
+    private final CourseService courseService; // <-- Inject thêm CourseService vào Controller
 
     /**
      * API tạo dàn ý khóa học tự động
@@ -32,6 +36,22 @@ public class AiFeatureController {
 
         // Trả về JSON kết quả
         return ResponseEntity.ok(outline);
+    }
+
+    /**
+     * API lưu dàn ý khóa học (do AI sinh ra) vào Database
+     * Method: POST
+     * URL: /api/ai/save-outline
+     */
+    @PostMapping("/save-outline")
+    public ResponseEntity<CourseResponse> saveOutlineToDatabase(
+            @RequestBody AiCourseOutline outline,
+            Authentication authentication) {
+
+        // Gọi Service để lưu Outline và trả về thông tin Course vừa tạo
+        CourseResponse savedCourse = courseService.saveAiCourseOutline(outline, authentication);
+
+        return ResponseEntity.ok(savedCourse);
     }
 
     /**
