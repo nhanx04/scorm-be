@@ -3,6 +3,10 @@ package com.scorm.generator.service;
 import org.springframework.ai.chat.client.ChatClient;
 import org.springframework.ai.converter.BeanOutputConverter;
 import org.springframework.stereotype.Service;
+import org.springframework.web.multipart.MultipartFile;
+import org.springframework.core.io.InputStreamResource;
+import org.springframework.ai.document.Document;
+import org.springframework.ai.reader.tika.TikaDocumentReader;
 
 import com.scorm.generator.dto.ai.AiCourseOutline;
 import com.scorm.generator.dto.ai.GenerateCourseRequest;
@@ -13,6 +17,10 @@ import com.scorm.generator.dto.ai.AiQuizResponse;
 import com.scorm.generator.dto.ai.AskKnowledgeRequest;
 import com.scorm.generator.dto.ai.GenerateCourseQuizRequest;
 import com.scorm.generator.dto.ai.GenerateQuizRequest;
+
+import java.io.InputStream;
+import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 public class AiGeneratorService {
@@ -28,6 +36,92 @@ public class AiGeneratorService {
         }
 
         /**
+         * Trích xuất văn bản từ File (PDF/Word) và tạo Dàn ý khóa học
+         */
+        public AiCourseOutline generateCourseOutlineFromFile(MultipartFile file, GenerateCourseRequest request)
+                        throws Exception {
+                // 1. GIAI ĐOẠN ĐỌC FILE VÀ TRÍCH XUẤT TEXT
+                InputStream inputStream = file.getInputStream();
+                InputStreamResource resource = new InputStreamResource(inputStream);
+
+                // Khởi tạo TikaDocumentReader để đọc nội dung file
+                TikaDocumentReader documentReader = new TikaDocumentReader(resource);
+                List<Document> documents = documentReader.get();
+
+                // Ghép tất cả văn bản lấy được thành một chuỗi context
+                String documentContext = documents.stream()
+                                .map(Document::getText)
+                                .collect(Collectors.joining("\n"));
+
+                // 2. Cấu hình Converter để hướng dẫn AI trả về đúng định dạng JSON
+                BeanOutputConverter<AiCourseOutline> converter = new BeanOutputConverter<>(AiCourseOutline.class);
+                String formatInstructions = converter.getFormat();
+
+                // 3. Soạn Prompt dành riêng cho bài toán bám sát nội dung từ tài liệu
+                String userPrompt = """
+                                Hãy đọc, phân tích toàn bộ tài liệu chuyên môn dưới đây và biến nó thành một dàn ý khóa học e-learning chi tiết, có cấu trúc tốt.
+
+                                NỘI DUNG TÀI LIỆU GỐC (Dùng làm nguồn kiến thức chính):
+                                =================================
+                                {documentContext}
+                                =================================
+
+                                THÔNG TIN CẤU HÌNH KHÓA HỌC:
+                                - Tên khóa học mong muốn (Title): {courseTitle}
+                                - Đối tượng học viên (Target Audience): {targetAudience}
+                                - Trình độ hiện tại (Proficiency Level): {audienceProficiencyLevel}
+                                - Thời lượng dự kiến (Duration): {duration}
+                                - Ngôn ngữ đầu ra (Language): {language}
+                                - Yêu cầu thêm: {additionalInstructions}
+
+                                YÊU CẦU CHUYÊN MÔN:
+                                1. Dựa trên nội dung tài liệu gốc, hãy tự động phân bổ số lượng chương (sections) và các bài học (topics) sao cho bao quát hết kiến thức, logic và khoa học.
+                                2. Các ý chính, khái niệm quan trọng trong tài liệu phải được tách thành các bài học riêng biệt.
+                                3. Đảm bảo luồng kiến thức đi từ cơ bản đến nâng cao.
+
+                                YÊU CẦU ĐỊNH DẠNG:
+                                1. Trả về kết quả CHÍNH XÁC theo định dạng JSON được yêu cầu.
+                                2. KHÔNG thêm bất kỳ lời dẫn hay giải thích nào bên ngoài JSON.
+
+                                {formatInstructions}
+                                """;
+
+                // 4. Gọi AI và truyền Data vào Prompt
+                String rawResponse = chatClient.prompt()
+                                .user(u -> u.text(userPrompt)
+                                                .param("documentContext", documentContext)
+                                                .param("courseTitle",
+                                                                request.getCourseTitle() != null
+                                                                                ? request.getCourseTitle()
+                                                                                : "Tự động trích xuất từ tài liệu")
+                                                .param("duration",
+                                                                request.getDuration() != null ? request.getDuration()
+                                                                                : "Tự động phân bổ")
+                                                .param("language",
+                                                                request.getLanguage() != null ? request.getLanguage()
+                                                                                : "Vietnamese")
+                                                .param("targetAudience",
+                                                                request.getTargetAudience() != null
+                                                                                ? request.getTargetAudience()
+                                                                                : "Mọi đối tượng")
+                                                .param("audienceProficiencyLevel",
+                                                                request.getAudienceProficiencyLevel() != null
+                                                                                ? request.getAudienceProficiencyLevel()
+                                                                                : "Không xác định")
+                                                .param("additionalInstructions",
+                                                                request.getAdditionalInstructions() != null
+                                                                                ? request.getAdditionalInstructions()
+                                                                                : "Bám sát tài liệu gốc")
+                                                .param("formatInstructions", formatInstructions))
+                                .call()
+                                .content();
+
+                // 5. Xử lý chuỗi và Convert thành Object
+                String jsonContent = rawResponse.replace("```json", "").replace("```", "").trim();
+                return converter.convert(jsonContent);
+        }
+
+        /**
          * Gửi yêu cầu sang Gemini và nhận về Object Java (AiCourseOutline)
          */
         public AiCourseOutline generateCourseOutline(GenerateCourseRequest request) {
@@ -36,16 +130,28 @@ public class AiGeneratorService {
                 BeanOutputConverter<AiCourseOutline> converter = new BeanOutputConverter<>(AiCourseOutline.class);
                 String formatInstructions = converter.getFormat();
 
-                // 2. Soạn Prompt (kịch bản nhắc)
+                // 2. Soạn Prompt (kịch bản nhắc) cập nhật theo cấu trúc mới
                 String userPrompt = """
-                                Hãy tạo một dàn ý khóa học chi tiết dựa trên các thông tin sau:
-                                - Chủ đề: {topic}
-                                - Đối tượng học viên: {targetAudience}
-                                - Ngôn ngữ đầu ra: {language}
-                                - Số lượng chương (sections) mong muốn: khoảng {numberOfSections}
-                                - Yêu cầu thêm: {additionalInstructions}
+                                Hãy tạo một dàn ý khóa học chi tiết dựa trên các thông tin và ngữ cảnh sau:
 
-                                Yêu cầu quan trọng về định dạng:
+                                THÔNG TIN KHÓA HỌC:
+                                - Tên khóa học (Title): {courseTitle}
+                                - Mô tả tổng quan (Description): {courseDescription}
+                                - Thời lượng dự kiến (Duration): {duration}
+                                - Ngôn ngữ đầu ra (Language): {language}
+
+                                ĐỐI TƯỢNG & MỤC TIÊU:
+                                - Đối tượng học viên (Target Audience): {targetAudience}
+                                - Trình độ hiện tại (Proficiency Level): {audienceProficiencyLevel}
+                                - Yêu cầu đầu vào (Prerequisites): {prerequisites}
+                                - Mục tiêu đầu ra (Learning Outcomes): {learningOutcomes}
+
+                                Yêu cầu thêm: {additionalInstructions}
+
+                                YÊU CẦU CHUYÊN MÔN:
+                                Dựa vào thời lượng dự kiến là "{duration}", hãy tự động phân bổ số lượng chương (sections) và nội dung bài học sao cho logic, khoa học và đáp ứng đúng mục tiêu đầu ra. Các chương cần phải liên kết chặt chẽ với nhau.
+
+                                YÊU CẦU QUAN TRỌNG VỀ ĐỊNH DẠNG:
                                 1. Trả về kết quả CHÍNH XÁC theo định dạng JSON được yêu cầu dưới đây.
                                 2. KHÔNG thêm bất kỳ lời dẫn hay giải thích nào bên ngoài JSON.
 
@@ -55,10 +161,36 @@ public class AiGeneratorService {
                 // 3. Gọi AI và lấy về chuỗi String thô (raw content)
                 String rawResponse = chatClient.prompt()
                                 .user(u -> u.text(userPrompt)
-                                                .param("topic", request.getTopic())
-                                                .param("targetAudience", request.getTargetAudience())
-                                                .param("language", request.getLanguage())
-                                                .param("numberOfSections", request.getNumberOfSections())
+                                                .param("courseTitle",
+                                                                request.getCourseTitle() != null
+                                                                                ? request.getCourseTitle()
+                                                                                : "Chưa xác định")
+                                                .param("courseDescription",
+                                                                request.getCourseDescription() != null
+                                                                                ? request.getCourseDescription()
+                                                                                : "Chưa xác định")
+                                                .param("duration",
+                                                                request.getDuration() != null ? request.getDuration()
+                                                                                : "Tự động phân bổ")
+                                                .param("language",
+                                                                request.getLanguage() != null ? request.getLanguage()
+                                                                                : "Vietnamese")
+                                                .param("targetAudience",
+                                                                request.getTargetAudience() != null
+                                                                                ? request.getTargetAudience()
+                                                                                : "Chưa xác định")
+                                                .param("audienceProficiencyLevel",
+                                                                request.getAudienceProficiencyLevel() != null
+                                                                                ? request.getAudienceProficiencyLevel()
+                                                                                : "Chưa xác định")
+                                                .param("prerequisites",
+                                                                request.getPrerequisites() != null
+                                                                                ? request.getPrerequisites()
+                                                                                : "Không có")
+                                                .param("learningOutcomes",
+                                                                request.getLearningOutcomes() != null
+                                                                                ? request.getLearningOutcomes()
+                                                                                : "Nắm vững kiến thức cơ bản")
                                                 .param("additionalInstructions",
                                                                 request.getAdditionalInstructions() != null
                                                                                 ? request.getAdditionalInstructions()
@@ -96,7 +228,7 @@ public class AiGeneratorService {
                                 YÊU CẦU VỀ NỘI DUNG (Trường htmlContent):
                                 1. Trình bày bài học một cách sư phạm: Có đoạn mở đầu dẫn dắt, giải thích chi tiết các khái niệm, đưa ra ví dụ minh họa và tóm tắt ngắn ở cuối bài.
                                 2. Giá trị của trường `htmlContent` PHẢI là chuỗi mã HTML hợp lệ để hiển thị trực tiếp trên trình duyệt.
-                                3. CHỈ SỬ DỤNG các thẻ HTML cơ bản để định dạng: <h2>, <h3>, <p>, <ul>, <ol>, <li>, <strong>, <em>, <blockquote>.
+                                3. CHỈ SỬ DỤNG các thẻ HTML cơ bản để định dạng: <h2>, <h3>, <p>, <ul>, <ol>, <li>, <strong>, <em>, blockquote.
                                 4. TUYỆT ĐỐI KHÔNG sử dụng các thẻ <html>, <head>, <body>, <script>, <style>.
 
                                 YÊU CẦU VỀ ĐỊNH DẠNG ĐẦU RA:
