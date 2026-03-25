@@ -12,7 +12,10 @@ import com.scorm.generator.dto.ai.AiCourseOutline;
 import com.scorm.generator.dto.ai.GenerateCourseRequest;
 import com.scorm.generator.dto.ai.AiPageContentResponse;
 import com.scorm.generator.dto.ai.GeneratePageContentRequest;
+import com.scorm.generator.dto.ai.AiKnowledgeAnswerResponse;
 import com.scorm.generator.dto.ai.AiQuizResponse;
+import com.scorm.generator.dto.ai.AskKnowledgeRequest;
+import com.scorm.generator.dto.ai.GenerateCourseQuizRequest;
 import com.scorm.generator.dto.ai.GenerateQuizRequest;
 
 import java.io.InputStream;
@@ -262,35 +265,37 @@ public class AiGeneratorService {
         }
 
         /**
-         * API tạo bộ câu hỏi trắc nghiệm từ văn bản (Quiz Generation)
+         * API tạo bộ câu hỏi từ ngữ cảnh khóa học (đủ 6 loại câu hỏi)
          */
         public AiQuizResponse generateQuizFromText(GenerateQuizRequest request) {
-                // 1. Cấu hình Converter
                 BeanOutputConverter<AiQuizResponse> converter = new BeanOutputConverter<>(AiQuizResponse.class);
                 String formatInstructions = converter.getFormat();
 
-                // 2. Soạn Prompt
                 String userPrompt = """
-                                Bạn là một chuyên gia giáo dục đánh giá năng lực học viên.
-                                Dựa vào đoạn tài liệu học tập dưới đây, hãy tạo ra {numberOfQuestions} câu hỏi trắc nghiệm (Multiple Choice) ở mức độ {difficulty}.
+                                Bạn là chuyên gia thiết kế kiểm tra đánh giá e-learning.
+                                Dựa hoàn toàn vào tài liệu học tập dưới đây, hãy tạo đúng {numberOfQuestions} câu hỏi với độ khó {difficulty}.
 
                                 TÀI LIỆU GỐC:
                                 "{sourceText}"
 
-                                YÊU CẦU:
-                                1. Mỗi câu hỏi phải có chính xác 4 đáp án lựa chọn (options).
-                                2. Chỉ có 1 đáp án đúng duy nhất (correctAnswer) và đáp án này phải nằm chính xác trong danh sách options.
-                                3. Cung cấp lời giải thích ngắn gọn, dễ hiểu cho đáp án đúng (explanation) dựa vào tài liệu gốc.
-                                4. Viết bằng ngôn ngữ: {language}.
+                                BẮT BUỘC:
+                                1. Mọi câu hỏi phải bám sát tài liệu gốc, không thêm kiến thức ngoài tài liệu.
+                                2. Sử dụng đầy đủ 6 loại câu hỏi: MCQ_SINGLE, MCQ_MULTIPLE, TRUE_FALSE, SHORT_ANSWER, FILL_IN_THE_BLANK, MATCHING.
+                                3. Nếu {numberOfQuestions} >= 6, phải có ít nhất 1 câu cho mỗi loại.
+                                4. Ngôn ngữ đầu ra: {language}.
 
-                                ĐỊNH DẠNG TRẢ VỀ:
-                                1. Trả về đúng cấu trúc JSON được yêu cầu.
-                                2. Không giải thích gì thêm ngoài block JSON.
+                                QUY ƯỚC DỮ LIỆU:
+                                - MCQ_SINGLE/MCQ_MULTIPLE: có options và correctAnswer tương ứng (string hoặc mảng string).
+                                - TRUE_FALSE: correctAnswer là boolean.
+                                - SHORT_ANSWER: correctAnswer là mảng câu trả lời ngắn chấp nhận được.
+                                - FILL_IN_THE_BLANK: có sentenceHtml và correctAnswer là mảng đáp án theo thứ tự chỗ trống.
+                                - MATCHING: có pairs (left-right), correctAnswer có thể để null.
+                                - explanation ngắn gọn, nêu căn cứ từ tài liệu gốc.
 
+                                CHỈ trả về JSON đúng schema sau:
                                 {formatInstructions}
                                 """;
 
-                // 3. Gọi AI
                 String rawResponse = chatClient.prompt()
                                 .user(u -> u.text(userPrompt)
                                                 .param("sourceText", request.getSourceText())
@@ -306,7 +311,132 @@ public class AiGeneratorService {
                                 .call()
                                 .content();
 
-                // 4. Xử lý chuỗi và Convert
+                String jsonContent = rawResponse.replace("```json", "").replace("```", "").trim();
+                return converter.convert(jsonContent);
+        }
+
+        public AiQuizResponse generateCourseAwareQuiz(GenerateCourseQuizRequest request) {
+                BeanOutputConverter<AiQuizResponse> converter = new BeanOutputConverter<>(AiQuizResponse.class);
+                String formatInstructions = converter.getFormat();
+
+                String userPrompt = """
+                                Bạn là trợ lý học tập cho khóa học dưới đây. Hãy tạo câu hỏi kiểm tra chỉ dựa trên ngữ cảnh được cung cấp.
+
+                                THÔNG TIN KHÓA HỌC:
+                                - courseTitle: {courseTitle}
+                                - courseDescription: {courseDescription}
+                                - sectionTitle: {sectionTitle}
+                                - pageTitle: {pageTitle}
+
+                                NGUỒN NỘI DUNG BÀI HỌC:
+                                "{sourceText}"
+
+                                YÊU CẦU:
+                                1. Tạo đúng {numberOfQuestions} câu, độ khó {difficulty}, ngôn ngữ {language}.
+                                2. Bao phủ đầy đủ 6 loại câu hỏi: MCQ_SINGLE, MCQ_MULTIPLE, TRUE_FALSE, SHORT_ANSWER, FILL_IN_THE_BLANK, MATCHING.
+                                3. Không dùng kiến thức ngoài nội dung bài học và ngữ cảnh khóa học.
+                                4. explanation phải nêu lý do đúng dựa vào nội dung bài học.
+
+                                Chỉ trả về JSON hợp lệ theo schema:
+                                {formatInstructions}
+                                """;
+
+                String rawResponse = chatClient.prompt()
+                                .user(u -> u.text(userPrompt)
+                                                .param("courseTitle",
+                                                                request.getCourseTitle() != null
+                                                                                ? request.getCourseTitle()
+                                                                                : "")
+                                                .param("courseDescription",
+                                                                request.getCourseDescription() != null
+                                                                                ? request.getCourseDescription()
+                                                                                : "")
+                                                .param("sectionTitle",
+                                                                request.getSectionTitle() != null
+                                                                                ? request.getSectionTitle()
+                                                                                : "")
+                                                .param("pageTitle",
+                                                                request.getPageTitle() != null ? request.getPageTitle()
+                                                                                : "")
+                                                .param("sourceText",
+                                                                request.getSourceText() != null
+                                                                                ? request.getSourceText()
+                                                                                : "")
+                                                .param("numberOfQuestions", request.getNumberOfQuestions())
+                                                .param("difficulty",
+                                                                request.getDifficulty() != null
+                                                                                ? request.getDifficulty()
+                                                                                : "Trung bình")
+                                                .param("language",
+                                                                request.getLanguage() != null ? request.getLanguage()
+                                                                                : "Vietnamese")
+                                                .param("formatInstructions", formatInstructions))
+                                .call()
+                                .content();
+
+                String jsonContent = rawResponse.replace("```json", "").replace("```", "").trim();
+                return converter.convert(jsonContent);
+        }
+
+        public AiKnowledgeAnswerResponse askCourseKnowledge(AskKnowledgeRequest request) {
+                BeanOutputConverter<AiKnowledgeAnswerResponse> converter = new BeanOutputConverter<>(
+                                AiKnowledgeAnswerResponse.class);
+                String formatInstructions = converter.getFormat();
+
+                String userPrompt = """
+                                Bạn là trợ giảng AI cho khóa học. Chỉ được trả lời dựa trên ngữ cảnh khóa học và nội dung bài học cung cấp.
+
+                                NGỮ CẢNH:
+                                - courseTitle: {courseTitle}
+                                - courseDescription: {courseDescription}
+                                - sectionTitle: {sectionTitle}
+                                - pageTitle: {pageTitle}
+                                - pageContent: {pageContent}
+
+                                CÂU HỎI NGƯỜI HỌC:
+                                {question}
+
+                                QUY TẮC:
+                                1. Nếu đủ dữ liệu trong ngữ cảnh, trả lời ngắn gọn, rõ ràng, đúng trọng tâm.
+                                2. Nếu không đủ dữ liệu, trả lời rằng chưa đủ thông tin trong nội dung khóa học hiện tại và gợi ý người dùng bổ sung nội dung.
+                                3. Không bịa thông tin ngoài nội dung đã cung cấp.
+                                4. Ngôn ngữ trả lời: {language}.
+
+                                Trả về đúng JSON theo schema:
+                                {formatInstructions}
+                                """;
+
+                String rawResponse = chatClient.prompt()
+                                .user(u -> u.text(userPrompt)
+                                                .param("courseTitle",
+                                                                request.getCourseTitle() != null
+                                                                                ? request.getCourseTitle()
+                                                                                : "")
+                                                .param("courseDescription",
+                                                                request.getCourseDescription() != null
+                                                                                ? request.getCourseDescription()
+                                                                                : "")
+                                                .param("sectionTitle",
+                                                                request.getSectionTitle() != null
+                                                                                ? request.getSectionTitle()
+                                                                                : "")
+                                                .param("pageTitle",
+                                                                request.getPageTitle() != null ? request.getPageTitle()
+                                                                                : "")
+                                                .param("pageContent",
+                                                                request.getPageContent() != null
+                                                                                ? request.getPageContent()
+                                                                                : "")
+                                                .param("question",
+                                                                request.getQuestion() != null ? request.getQuestion()
+                                                                                : "")
+                                                .param("language",
+                                                                request.getLanguage() != null ? request.getLanguage()
+                                                                                : "Vietnamese")
+                                                .param("formatInstructions", formatInstructions))
+                                .call()
+                                .content();
+
                 String jsonContent = rawResponse.replace("```json", "").replace("```", "").trim();
                 return converter.convert(jsonContent);
         }

@@ -1,21 +1,24 @@
 package com.scorm.generator.controller;
 
-import com.fasterxml.jackson.databind.ObjectMapper; // <-- Import ObjectMapper
-import com.scorm.generator.dto.ai.AiCourseOutline;
-import com.scorm.generator.dto.ai.GenerateCourseRequest;
-import com.scorm.generator.dto.ai.AiPageContentResponse;
-import com.scorm.generator.dto.ai.GeneratePageContentRequest;
-import com.scorm.generator.dto.ai.AiQuizResponse;
-import com.scorm.generator.dto.ai.GenerateQuizRequest;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.scorm.generator.dto.CourseResponse;
+import com.scorm.generator.dto.ai.AiCourseOutline;
+import com.scorm.generator.dto.ai.AiKnowledgeAnswerResponse;
+import com.scorm.generator.dto.ai.AiPageContentResponse;
+import com.scorm.generator.dto.ai.AiQuizResponse;
+import com.scorm.generator.dto.ai.AskKnowledgeRequest;
+import com.scorm.generator.dto.ai.GenerateCourseQuizRequest;
+import com.scorm.generator.dto.ai.GenerateCourseRequest;
+import com.scorm.generator.dto.ai.GeneratePageContentRequest;
+import com.scorm.generator.dto.ai.GenerateQuizRequest;
 import com.scorm.generator.service.AiGeneratorService;
 import com.scorm.generator.service.CourseService;
 import lombok.RequiredArgsConstructor;
-import org.springframework.http.MediaType; // <-- Import MediaType
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.Authentication;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.multipart.MultipartFile; // <-- Import MultipartFile
+import org.springframework.web.multipart.MultipartFile;
 
 @RestController
 @RequestMapping("/ai")
@@ -110,5 +113,17 @@ public class AiFeatureController {
     public ResponseEntity<AiQuizResponse> generateQuiz(@RequestBody GenerateQuizRequest request) {
         AiQuizResponse quizResponse = aiGeneratorService.generateQuizFromText(request);
         return ResponseEntity.ok(quizResponse);
+    }
+
+    @PostMapping("/generate-course-quiz")
+    public ResponseEntity<AiQuizResponse> generateCourseQuiz(@RequestBody GenerateCourseQuizRequest request) {
+        AiQuizResponse quizResponse = aiGeneratorService.generateCourseAwareQuiz(request);
+        return ResponseEntity.ok(quizResponse);
+    }
+
+    @PostMapping("/ask-knowledge")
+    public ResponseEntity<AiKnowledgeAnswerResponse> askKnowledge(@RequestBody AskKnowledgeRequest request) {
+        AiKnowledgeAnswerResponse answer = aiGeneratorService.askCourseKnowledge(request);
+        return ResponseEntity.ok(answer);
     }
 }
