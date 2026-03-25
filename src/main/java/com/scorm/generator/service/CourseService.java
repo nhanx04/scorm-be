@@ -4,7 +4,7 @@ import com.scorm.generator.dto.CourseCreateRequest;
 import com.scorm.generator.dto.CourseDetailResponse;
 import com.scorm.generator.dto.CourseResponse;
 import com.scorm.generator.dto.CourseUpdateRequest;
-import com.scorm.generator.dto.AI.AiCourseOutline;
+import com.scorm.generator.dto.ai.AiCourseOutline;
 import org.springframework.security.core.Authentication;
 
 import java.util.List;

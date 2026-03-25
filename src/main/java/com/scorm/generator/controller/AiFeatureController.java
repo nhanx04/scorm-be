@@ -1,18 +1,21 @@
 package com.scorm.generator.controller;
 
-import com.scorm.generator.dto.AI.AiCourseOutline;
-import com.scorm.generator.dto.AI.GenerateCourseRequest;
-import com.scorm.generator.dto.AI.AiPageContentResponse;
-import com.scorm.generator.dto.AI.GeneratePageContentRequest;
-import com.scorm.generator.dto.AI.AiQuizResponse;
-import com.scorm.generator.dto.AI.GenerateQuizRequest;
-import com.scorm.generator.dto.CourseResponse; // <-- Bổ sung import này
+import com.fasterxml.jackson.databind.ObjectMapper; // <-- Import ObjectMapper
+import com.scorm.generator.dto.ai.AiCourseOutline;
+import com.scorm.generator.dto.ai.GenerateCourseRequest;
+import com.scorm.generator.dto.ai.AiPageContentResponse;
+import com.scorm.generator.dto.ai.GeneratePageContentRequest;
+import com.scorm.generator.dto.ai.AiQuizResponse;
+import com.scorm.generator.dto.ai.GenerateQuizRequest;
+import com.scorm.generator.dto.CourseResponse;
 import com.scorm.generator.service.AiGeneratorService;
-import com.scorm.generator.service.CourseService; // <-- Bổ sung import này
+import com.scorm.generator.service.CourseService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.MediaType; // <-- Import MediaType
 import org.springframework.http.ResponseEntity;
-import org.springframework.security.core.Authentication; // <-- Bổ sung import này
+import org.springframework.security.core.Authentication;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile; // <-- Import MultipartFile
 
 @RestController
 @RequestMapping("/ai")
@@ -22,12 +25,45 @@ import org.springframework.web.bind.annotation.*;
 public class AiFeatureController {
 
     private final AiGeneratorService aiGeneratorService;
-    private final CourseService courseService; // <-- Inject thêm CourseService vào Controller
+    private final CourseService courseService;
+    private final ObjectMapper objectMapper; // <-- Inject ObjectMapper để parse JSON từ form-data
+
+    /**
+     * API tạo dàn ý khóa học từ file (PDF, DOCX)
+     * Method: POST
+     * URL: /ai/generate-outline-from-file
+     */
+    @PostMapping(value = "/generate-outline-from-file", consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
+    public ResponseEntity<AiCourseOutline> generateOutlineFromFile(
+            @RequestPart("file") MultipartFile file,
+            @RequestPart(value = "request", required = false) String requestJsonString) {
+
+        try {
+            // 1. Nếu user không gửi kèm cấu hình (chỉ upload file không thôi), tạo một
+            // request rỗng
+            GenerateCourseRequest requestConfig = new GenerateCourseRequest();
+
+            // 2. Nếu user có gửi kèm cấu hình (JSON string), parse nó ra Object
+            if (requestJsonString != null && !requestJsonString.trim().isEmpty()) {
+                requestConfig = objectMapper.readValue(requestJsonString, GenerateCourseRequest.class);
+            }
+
+            // 3. Gọi service để trích xuất text từ file và gọi AI
+            AiCourseOutline outline = aiGeneratorService.generateCourseOutlineFromFile(file, requestConfig);
+
+            return ResponseEntity.ok(outline);
+
+        } catch (Exception e) {
+            e.printStackTrace();
+            // Tạm thời trả về 500 kèm message lỗi để dễ debug
+            return ResponseEntity.internalServerError().build();
+        }
+    }
 
     /**
      * API tạo dàn ý khóa học tự động
      * Method: POST
-     * URL: /api/ai/generate-outline
+     * URL: /ai/generate-outline
      */
     @PostMapping("/generate-outline")
     public ResponseEntity<AiCourseOutline> generateOutline(@RequestBody GenerateCourseRequest request) {
@@ -41,7 +77,7 @@ public class AiFeatureController {
     /**
      * API lưu dàn ý khóa học (do AI sinh ra) vào Database
      * Method: POST
-     * URL: /api/ai/save-outline
+     * URL: /ai/save-outline
      */
     @PostMapping("/save-outline")
     public ResponseEntity<CourseResponse> saveOutlineToDatabase(
@@ -57,7 +93,7 @@ public class AiFeatureController {
     /**
      * API tạo nội dung chi tiết cho một Page
      * Method: POST
-     * URL: /api/ai/generate-page-content
+     * URL: /ai/generate-page-content
      */
     @PostMapping("/generate-page-content")
     public ResponseEntity<AiPageContentResponse> generatePageContent(@RequestBody GeneratePageContentRequest request) {
@@ -65,6 +101,11 @@ public class AiFeatureController {
         return ResponseEntity.ok(content);
     }
 
+    /**
+     * API tạo bộ câu hỏi trắc nghiệm
+     * Method: POST
+     * URL: /ai/generate-quiz
+     */
     @PostMapping("/generate-quiz")
     public ResponseEntity<AiQuizResponse> generateQuiz(@RequestBody GenerateQuizRequest request) {
         AiQuizResponse quizResponse = aiGeneratorService.generateQuizFromText(request);

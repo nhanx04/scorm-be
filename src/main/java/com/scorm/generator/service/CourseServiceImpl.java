@@ -10,7 +10,7 @@ import com.scorm.generator.dto.CourseUpdateRequest;
 import com.scorm.generator.dto.QuizPageResponse;
 import com.scorm.generator.dto.ThumbnailOfCourseResponse;
 import com.scorm.generator.dto.Question.QuestionSummaryDto;
-import com.scorm.generator.dto.AI.AiCourseOutline;
+import com.scorm.generator.dto.ai.AiCourseOutline;
 import com.scorm.generator.entity.Course;
 import com.scorm.generator.entity.ContentPage;
 import com.scorm.generator.entity.Page;
