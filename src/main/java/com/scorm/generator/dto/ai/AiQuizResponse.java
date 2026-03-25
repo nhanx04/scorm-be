@@ -1,14 +1,21 @@
-package com.scorm.generator.dto.AI;
+package com.scorm.generator.dto.ai;
 
 import java.util.List;
 
 public record AiQuizResponse(
-        List<AiQuestion> questions) {
-    public record AiQuestion(
-            String questionText, // Nội dung câu hỏi
-            List<String> options, // Danh sách 4 đáp án
-            String correctAnswer, // Đáp án đúng (phải khớp exatcly với 1 item trong options)
-            String explanation // Giải thích vì sao đáp án này đúng
-    ) {
-    }
+                List<AiQuestion> questions) {
+        public record AiQuestion(
+                        String type,
+                        String prompt,
+                        List<String> options,
+                        Object correctAnswer,
+                        String explanation,
+                        String sentenceHtml,
+                        List<MatchingPair> pairs) {
+        }
+
+        public record MatchingPair(
+                        String left,
+                        String right) {
+        }
 }

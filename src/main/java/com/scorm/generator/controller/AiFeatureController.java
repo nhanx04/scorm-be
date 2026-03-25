@@ -1,11 +1,14 @@
 package com.scorm.generator.controller;
 
-import com.scorm.generator.dto.AI.AiCourseOutline;
-import com.scorm.generator.dto.AI.GenerateCourseRequest;
-import com.scorm.generator.dto.AI.AiPageContentResponse;
-import com.scorm.generator.dto.AI.GeneratePageContentRequest;
-import com.scorm.generator.dto.AI.AiQuizResponse;
-import com.scorm.generator.dto.AI.GenerateQuizRequest;
+import com.scorm.generator.dto.ai.AiCourseOutline;
+import com.scorm.generator.dto.ai.GenerateCourseRequest;
+import com.scorm.generator.dto.ai.AiKnowledgeAnswerResponse;
+import com.scorm.generator.dto.ai.AiPageContentResponse;
+import com.scorm.generator.dto.ai.AiQuizResponse;
+import com.scorm.generator.dto.ai.AskKnowledgeRequest;
+import com.scorm.generator.dto.ai.GenerateCourseQuizRequest;
+import com.scorm.generator.dto.ai.GeneratePageContentRequest;
+import com.scorm.generator.dto.ai.GenerateQuizRequest;
 import com.scorm.generator.service.AiGeneratorService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
@@ -49,5 +52,17 @@ public class AiFeatureController {
     public ResponseEntity<AiQuizResponse> generateQuiz(@RequestBody GenerateQuizRequest request) {
         AiQuizResponse quizResponse = aiGeneratorService.generateQuizFromText(request);
         return ResponseEntity.ok(quizResponse);
+    }
+
+    @PostMapping("/generate-course-quiz")
+    public ResponseEntity<AiQuizResponse> generateCourseQuiz(@RequestBody GenerateCourseQuizRequest request) {
+        AiQuizResponse quizResponse = aiGeneratorService.generateCourseAwareQuiz(request);
+        return ResponseEntity.ok(quizResponse);
+    }
+
+    @PostMapping("/ask-knowledge")
+    public ResponseEntity<AiKnowledgeAnswerResponse> askKnowledge(@RequestBody AskKnowledgeRequest request) {
+        AiKnowledgeAnswerResponse answer = aiGeneratorService.askCourseKnowledge(request);
+        return ResponseEntity.ok(answer);
     }
 }
