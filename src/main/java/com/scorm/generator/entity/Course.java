@@ -15,6 +15,7 @@ import org.hibernate.type.SqlTypes;
 
 import java.math.BigDecimal;
 import java.time.OffsetDateTime;
+import java.util.List;
 
 @Data
 @Builder
@@ -94,5 +95,8 @@ public class Course {
     private User user;
 
     @OneToMany(mappedBy = "course", cascade = CascadeType.ALL, orphanRemoval = true)
-    private java.util.List<Section> sections;
+    private List<Section> sections;
+
+    @OneToMany(mappedBy = "course", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<ScormExportConfig> scormExportConfigs;
 }

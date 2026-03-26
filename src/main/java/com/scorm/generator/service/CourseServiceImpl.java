@@ -16,6 +16,8 @@ import com.scorm.generator.exception.AppException;
 import com.scorm.generator.repository.ContentBlockRepository;
 import com.scorm.generator.repository.CourseRepository;
 import com.scorm.generator.repository.PageRepository;
+import com.scorm.generator.repository.ScormExportConfigRepository;
+import com.scorm.generator.repository.ScormPackageRepository;
 import com.scorm.generator.repository.SectionRepository;
 import com.scorm.generator.repository.ThumbnailOfCourseRepository;
 import com.scorm.generator.repository.Question.QuestionOfQuizRepository;
@@ -23,6 +25,7 @@ import com.scorm.generator.repository.Question.QuestionRepository;
 import org.springframework.http.HttpStatus;
 import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.math.BigDecimal;
 import java.util.List;
@@ -37,6 +40,8 @@ public class CourseServiceImpl implements CourseService {
     private final ThumbnailOfCourseRepository thumbnailOfCourseRepository;
     private final QuestionOfQuizRepository questionOfQuizRepository;
     private final QuestionRepository questionRepository;
+    private final ScormExportConfigRepository scormExportConfigRepository;
+    private final ScormPackageRepository scormPackageRepository;
     private final ObjectMapper objectMapper;
 
     public CourseServiceImpl(
@@ -47,6 +52,8 @@ public class CourseServiceImpl implements CourseService {
             ThumbnailOfCourseRepository thumbnailOfCourseRepository,
             QuestionOfQuizRepository questionOfQuizRepository,
             QuestionRepository questionRepository,
+            ScormExportConfigRepository scormExportConfigRepository,
+            ScormPackageRepository scormPackageRepository,
             ObjectMapper objectMapper) {
         this.courseRepository = courseRepository;
         this.sectionRepository = sectionRepository;
@@ -55,6 +62,8 @@ public class CourseServiceImpl implements CourseService {
         this.thumbnailOfCourseRepository = thumbnailOfCourseRepository;
         this.questionOfQuizRepository = questionOfQuizRepository;
         this.questionRepository = questionRepository;
+        this.scormExportConfigRepository = scormExportConfigRepository;
+        this.scormPackageRepository = scormPackageRepository;
         this.objectMapper = objectMapper;
     }
 
@@ -286,8 +295,11 @@ public class CourseServiceImpl implements CourseService {
     }
 
     @Override
+    @Transactional
     public void delete(Long courseId, Authentication authentication) {
         Course course = getOwnedCourseOrThrow(courseId, authentication);
+        scormPackageRepository.deleteByCourse_CourseId(courseId);
+        scormExportConfigRepository.deleteByCourse_CourseId(courseId);
         courseRepository.delete(course);
     }
 
