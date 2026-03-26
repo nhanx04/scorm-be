@@ -4,6 +4,7 @@ import com.scorm.generator.dto.CourseCreateRequest;
 import com.scorm.generator.dto.CourseDetailResponse;
 import com.scorm.generator.dto.CourseResponse;
 import com.scorm.generator.dto.CourseUpdateRequest;
+import com.scorm.generator.dto.ai.AiCourseOutline;
 import org.springframework.security.core.Authentication;
 
 import java.util.List;
@@ -18,4 +19,6 @@ public interface CourseService {
     CourseResponse update(Long courseId, CourseUpdateRequest request, Authentication authentication);
 
     void delete(Long courseId, Authentication authentication);
+
+    CourseResponse saveAiCourseOutline(AiCourseOutline outline, Authentication authentication);
 }

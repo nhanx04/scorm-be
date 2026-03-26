@@ -10,7 +10,11 @@ import com.scorm.generator.dto.CourseUpdateRequest;
 import com.scorm.generator.dto.QuizPageResponse;
 import com.scorm.generator.dto.ThumbnailOfCourseResponse;
 import com.scorm.generator.dto.Question.QuestionSummaryDto;
+import com.scorm.generator.dto.ai.AiCourseOutline;
 import com.scorm.generator.entity.Course;
+import com.scorm.generator.entity.ContentPage;
+import com.scorm.generator.entity.Page;
+import com.scorm.generator.entity.Section;
 import com.scorm.generator.entity.User;
 import com.scorm.generator.exception.AppException;
 import com.scorm.generator.repository.ContentBlockRepository;
@@ -303,6 +307,75 @@ public class CourseServiceImpl implements CourseService {
         courseRepository.delete(course);
     }
 
+    // =========================================================================
+    // HÀM BỔ SUNG: Lưu cấu trúc khóa học do AI sinh ra
+    // =========================================================================
+    @Override
+    @Transactional
+    public CourseResponse saveAiCourseOutline(AiCourseOutline outline, Authentication authentication) {
+        User currentUser = (User) authentication.getPrincipal();
+
+        // 1. Tạo và lưu Course base
+        Course course = Course.builder()
+                .title(outline.title())
+                .description(outline.description())
+                .status("DRAFT") // Trạng thái nháp ban đầu
+                .user(currentUser)
+                .build();
+        Course savedCourse = courseRepository.save(course);
+
+        // 2. Xử lý lưu các Section và Page
+        if (outline.sections() != null) {
+            int sectionOrder = 1;
+            for (AiCourseOutline.AiSection aiSection : outline.sections()) {
+
+                // Tạo và lưu Section
+                Section section = Section.builder()
+                        .title(aiSection.title())
+                        .orderIndex(sectionOrder++)
+                        .course(savedCourse)
+                        .build();
+                Section savedSection = sectionRepository.save(section);
+
+                // Tạo các bài học (Page) bên trong Section
+                if (aiSection.topics() != null) {
+                    int pageOrder = 1;
+                    for (String topicTitle : aiSection.topics()) {
+
+                        // Bước 2.1: KHỞI TẠO Page gốc (Chưa lưu vội)
+                        Page page = Page.builder()
+                                .title(topicTitle)
+                                .orderIndex(pageOrder++)
+                                .section(savedSection)
+                                .pageType("CONTENT_PAGE") // Mặc định khóa học sẽ là trang nội dung
+                                .build();
+
+                        // Bước 2.2: KHỞI TẠO ContentPage ánh xạ với Page gốc
+                        // Lưu ý: Không tự gán pageId(id) nữa!
+                        ContentPage contentPage = ContentPage.builder()
+                                .page(page)
+                                .layoutType("DEFAULT") // Layout mặc định
+                                .build();
+
+                        // Bước 2.3: Liên kết 2 chiều để Cascade JPA hoạt động chuẩn xác
+                        page.setContentPage(contentPage);
+
+                        // Bước 2.4: Chỉ gọi save trên đối tượng Page.
+                        // Hibernate sẽ tự động map ID chung và Insert thêm dữ liệu vào bảng
+                        // content_page.
+                        pageRepository.save(page);
+                    }
+                }
+            }
+        }
+
+        // Trả về response chứa thông tin khoá học vừa được tạo
+        return CourseResponse.fromEntity(savedCourse, parseJson(savedCourse.getExtraInfor()));
+    }
+
+    // =========================================================================
+    // CÁC HÀM PRIVATE
+    // =========================================================================
     private Course getOwnedCourseOrThrow(Long courseId, Authentication authentication) {
         if (courseId == null) {
             throw new AppException(HttpStatus.BAD_REQUEST, "courseId is required");
