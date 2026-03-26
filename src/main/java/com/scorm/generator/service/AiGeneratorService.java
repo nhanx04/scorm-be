@@ -57,27 +57,21 @@ public class AiGeneratorService {
                 BeanOutputConverter<AiCourseOutline> converter = new BeanOutputConverter<>(AiCourseOutline.class);
                 String formatInstructions = converter.getFormat();
 
-                // 3. Soạn Prompt dành riêng cho bài toán bám sát nội dung từ tài liệu
+                // 3. Soạn Prompt dành riêng cho bài toán TỰ ĐỘNG hoàn toàn từ file
                 String userPrompt = """
                                 Hãy đọc, phân tích toàn bộ tài liệu chuyên môn dưới đây và biến nó thành một dàn ý khóa học e-learning chi tiết, có cấu trúc tốt.
 
-                                NỘI DUNG TÀI LIỆU GỐC (Dùng làm nguồn kiến thức chính):
+                                NỘI DUNG TÀI LIỆU GỐC (Dùng làm nguồn kiến thức duy nhất):
                                 =================================
                                 {documentContext}
                                 =================================
 
-                                THÔNG TIN CẤU HÌNH KHÓA HỌC:
-                                - Tên khóa học mong muốn (Title): {courseTitle}
-                                - Đối tượng học viên (Target Audience): {targetAudience}
-                                - Trình độ hiện tại (Proficiency Level): {audienceProficiencyLevel}
-                                - Thời lượng dự kiến (Duration): {duration}
-                                - Ngôn ngữ đầu ra (Language): {language}
-                                - Yêu cầu thêm: {additionalInstructions}
-
                                 YÊU CẦU CHUYÊN MÔN:
-                                1. Dựa trên nội dung tài liệu gốc, hãy tự động phân bổ số lượng chương (sections) và các bài học (topics) sao cho bao quát hết kiến thức, logic và khoa học.
-                                2. Các ý chính, khái niệm quan trọng trong tài liệu phải được tách thành các bài học riêng biệt.
-                                3. Đảm bảo luồng kiến thức đi từ cơ bản đến nâng cao.
+                                1. Dựa trên nội dung tài liệu, hãy TỰ ĐỘNG tóm tắt và đặt Tên khóa học (Title) cũng như Mô tả tổng quan (Description) thật hấp dẫn và phù hợp.
+                                2. Tự động phân bổ số lượng chương (sections) và các bài học (topics) sao cho bao quát hết kiến thức, logic và khoa học.
+                                3. Các ý chính, khái niệm quan trọng trong tài liệu phải được tách thành các bài học riêng biệt.
+                                4. Đảm bảo luồng kiến thức đi từ cơ bản đến nâng cao.
+                                5. Ngôn ngữ đầu ra (Bắt buộc): {language}
 
                                 YÊU CẦU ĐỊNH DẠNG:
                                 1. Trả về kết quả CHÍNH XÁC theo định dạng JSON được yêu cầu.
@@ -86,32 +80,15 @@ public class AiGeneratorService {
                                 {formatInstructions}
                                 """;
 
-                // 4. Gọi AI và truyền Data vào Prompt
+                // 4. Gọi AI và truyền Data vào Prompt (Lược bỏ các param không còn gửi lên từ
+                // frontend)
                 String rawResponse = chatClient.prompt()
                                 .user(u -> u.text(userPrompt)
                                                 .param("documentContext", documentContext)
-                                                .param("courseTitle",
-                                                                request.getCourseTitle() != null
-                                                                                ? request.getCourseTitle()
-                                                                                : "Tự động trích xuất từ tài liệu")
-                                                .param("duration",
-                                                                request.getDuration() != null ? request.getDuration()
-                                                                                : "Tự động phân bổ")
-                                                .param("language",
-                                                                request.getLanguage() != null ? request.getLanguage()
+                                                .param("language", request.getLanguage() != null
+                                                                && !request.getLanguage().trim().isEmpty()
+                                                                                ? request.getLanguage()
                                                                                 : "Vietnamese")
-                                                .param("targetAudience",
-                                                                request.getTargetAudience() != null
-                                                                                ? request.getTargetAudience()
-                                                                                : "Mọi đối tượng")
-                                                .param("audienceProficiencyLevel",
-                                                                request.getAudienceProficiencyLevel() != null
-                                                                                ? request.getAudienceProficiencyLevel()
-                                                                                : "Không xác định")
-                                                .param("additionalInstructions",
-                                                                request.getAdditionalInstructions() != null
-                                                                                ? request.getAdditionalInstructions()
-                                                                                : "Bám sát tài liệu gốc")
                                                 .param("formatInstructions", formatInstructions))
                                 .call()
                                 .content();
@@ -149,7 +126,7 @@ public class AiGeneratorService {
                                 Yêu cầu thêm: {additionalInstructions}
 
                                 YÊU CẦU CHUYÊN MÔN:
-                                Dựa vào thời lượng dự kiến là "{duration}", hãy tự động phân bổ số lượng chương (sections) và nội dung bài học sao cho logic, khoa học và đáp ứng đúng mục tiêu đầu ra. Các chương cần phải liên kết chặt chẽ với nhau.
+                                Dựa vào thời lượng dự kiến là "{duration}", hãy tự động phân bổ số lượng chương (sections) và nội dung bài học sao cho logic, khoa học và đáp ứng đúng mục tiêu đầu ra. Các chương cần phải liên kết chặt đưa nhau.
 
                                 YÊU CẦU QUAN TRỌNG VỀ ĐỊNH DẠNG:
                                 1. Trả về kết quả CHÍNH XÁC theo định dạng JSON được yêu cầu dưới đây.
