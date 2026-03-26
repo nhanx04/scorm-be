@@ -7,5 +7,6 @@ import java.util.List;
 
 public interface ScormPackageRepository extends JpaRepository<ScormPackage, Long> {
     List<ScormPackage> findByUser_UserIdOrderByScormPackageIdDesc(Long userId);
-}
 
+    void deleteByCourse_CourseId(Long courseId);
+}

@@ -7,5 +7,6 @@ import java.util.Optional;
 
 public interface ScormExportConfigRepository extends JpaRepository<ScormExportConfig, Long> {
     Optional<ScormExportConfig> findByCourse_CourseId(Long courseId);
-}
 
+    void deleteByCourse_CourseId(Long courseId);
+}
