@@ -7,59 +7,38 @@ import org.springframework.stereotype.Service;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
-import java.nio.file.Paths;
-import java.util.UUID;
 
 @Service
 public class ScormPackageStorageService {
 
-    private final Path exportDir;
-    private final S3StorageService s3StorageService;
+    public record StoredPackage(Path zipPath, String cloudKey, String publicUrl) {
+    }
+
+    private final S3StorageService storageService;
     private final String publicBaseUrl;
 
-    public ScormPackageStorageService(S3StorageService s3StorageService,
-            @Value("${app.scorm.export-dir:scorm-exports}") String exportDir,
-            @Value("${app.r2.public-base-url:}") String publicBaseUrl) {
-        this.s3StorageService = s3StorageService;
-        this.exportDir = Paths.get(exportDir);
+    public ScormPackageStorageService(S3StorageService storageService,
+            @Value("${app.r2.public-base-url}") String publicBaseUrl) {
+        this.storageService = storageService;
         this.publicBaseUrl = publicBaseUrl;
     }
 
     public StoredPackage storeZip(byte[] zipPayload, String packageName, Long courseId) {
         try {
-            Files.createDirectories(exportDir);
-        } catch (IOException e) {
-            throw new IllegalStateException("Cannot create export directory", e);
-        }
-
-        String safeName = packageName == null ? "scorm" : packageName.replaceAll("[^a-zA-Z0-9._-]", "_");
-        String fileName = safeName + "-" + UUID.randomUUID() + ".zip";
-        Path zipPath = exportDir.resolve(fileName);
-
-        try {
+            Path tempDir = Files.createTempDirectory("scorm-packages-");
+            String safeName = packageName == null ? "package" : packageName.replaceAll("[^a-zA-Z0-9._-]", "_");
+            Path zipPath = tempDir.resolve(safeName + ".zip");
             Files.write(zipPath, zipPayload);
+
+            String cloudKey = storageService.uploadBytes("scorm-packages/" + (courseId == null ? "unknown" : courseId),
+                    safeName + ".zip",
+                    zipPayload,
+                    "application/zip");
+            String publicUrl = publicBaseUrl + "/" + cloudKey;
+            return new StoredPackage(zipPath, cloudKey, publicUrl);
         } catch (IOException e) {
-            throw new IllegalStateException("Failed to write SCORM zip", e);
+            throw new RuntimeException("Failed to store SCORM package", e);
         }
-
-        String cloudKey = s3StorageService.uploadBytes(buildCloudPrefix(courseId), fileName, zipPayload,
-                "application/zip");
-        String publicUrl = buildPublicUrl(cloudKey);
-
-        return new StoredPackage(zipPath, cloudKey, publicUrl);
-    }
-
-    private String buildCloudPrefix(Long courseId) {
-        return "scorm-packages/" + (courseId == null ? "unknown" : courseId);
-    }
-
-    private String buildPublicUrl(String key) {
-        if (publicBaseUrl == null || publicBaseUrl.isBlank()) {
-            return null;
-        }
-        return publicBaseUrl.endsWith("/") ? publicBaseUrl + key : publicBaseUrl + "/" + key;
-    }
-
-    public record StoredPackage(Path zipPath, String cloudKey, String publicUrl) {
     }
 }
+
