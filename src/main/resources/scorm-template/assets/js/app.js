@@ -14,13 +14,25 @@ window.ScormApp = {
     };
     state.editorState = editorState;
     state.theme = theme || {};
-    this.buildNavigation();
+    state.sessionStartMs = Date.now();
+    state.attemptsUsed = 0;
+    state.isFinalized = false;
+    state.timeLimitReached = false;
 
+    this.buildNavigation();
     state.scormInitialized = window.ScormApi.init();
     this.restoreProgress();
     this.recomputeCorrectness();
+    this.syncLearnerState();
     window.ScormPlayer.render();
-    window.addEventListener('beforeunload', () => window.ScormApi.terminate());
+
+    window.addEventListener('beforeunload', () => {
+      this.persistProgress();
+      if (state.scormInitialized) {
+        window.ScormApi.setValue('cmi.exit', 'suspend');
+        window.ScormApi.terminate('suspend');
+      }
+    });
   },
 
   buildNavigation() {
@@ -38,7 +50,9 @@ window.ScormApp = {
   getCurrentQuestionIds(page) { return (page.quizPage?.questions || []).map((q) => q.id); },
 
   setAnswer(questionId, value) {
-    window.ScormState.answers[questionId] = value;
+    const state = window.ScormState;
+    if (this.checkDurationLimit()) return;
+    state.answers[questionId] = value;
     this.recomputeCorrectness();
     this.persistProgress();
   },
@@ -68,40 +82,130 @@ window.ScormApp = {
       (page.quizPage?.questions || []).forEach((q) => { correctness[q.id] = state.checked[q.id] ? this.checkAnswer(q, state.answers[q.id]) : null; });
     }));
     state.correctness = correctness;
-    this.syncScormScore();
+    this.syncLearnerState();
+  },
+
+  calculateScore() {
+    const values = Object.values(window.ScormState.correctness || {}).filter((v) => v !== null && v !== undefined);
+    const correctCount = values.filter(Boolean).length;
+    const totalChecked = values.length;
+    const raw = totalChecked ? Math.round((correctCount / totalChecked) * 100) : 0;
+    return { raw, scaled: totalChecked ? Number((raw / 100).toFixed(2)) : 0, totalChecked };
+  },
+
+  computeCompletionStatus() {
+    const state = window.ScormState;
+    if (state.orderedPages.length === 0) return 'not attempted';
+    if (state.cursor >= state.orderedPages.length - 1) return 'completed';
+    if (state.cursor > 0 || Object.keys(state.answers).length > 0) return 'incomplete';
+    return 'not attempted';
+  },
+
+  computeSessionSeconds() {
+    const state = window.ScormState;
+    if (!state.sessionStartMs) return state.accumulatedSessionSeconds || 0;
+    return Math.floor((Date.now() - state.sessionStartMs) / 1000) + (state.accumulatedSessionSeconds || 0);
+  },
+
+  getCoursePassingScore() {
+    const score = Number(window.ScormState.editorState?.passingScore ?? 80);
+    if (!Number.isFinite(score)) return 80;
+    return Math.min(100, Math.max(0, score));
+  },
+
+  getAttemptLimit() {
+    const limit = Number(window.ScormState.editorState?.attemptLimit ?? 0);
+    if (!Number.isFinite(limit)) return 0;
+    return Math.max(0, Math.floor(limit));
+  },
+
+  getDurationLimitSeconds() {
+    const mins = Number(window.ScormState.editorState?.durationMin ?? 0);
+    if (!Number.isFinite(mins)) return 0;
+    return Math.max(0, Math.floor(mins)) * 60;
+  },
+
+  isAttemptLimitReached() {
+    const limit = this.getAttemptLimit();
+    return limit > 0 && (window.ScormState.attemptsUsed || 0) >= limit;
+  },
+
+  checkDurationLimit() {
+    const state = window.ScormState;
+    if (state.timeLimitReached) return true;
+    const limitSeconds = this.getDurationLimitSeconds();
+    if (limitSeconds <= 0) return false;
+    const elapsed = this.computeSessionSeconds();
+    if (elapsed >= limitSeconds) {
+      state.timeLimitReached = true;
+      this.finalizeAttempt();
+      return true;
+    }
+    return false;
+  },
+
+  finalizeAttempt() {
+    const state = window.ScormState;
+    state.isFinalized = true;
+    this.recomputeCorrectness();
+    this.persistProgress();
+  },
+
+  syncLearnerState() {
+    const state = window.ScormState;
+    if (!state.scormInitialized) return;
+    const { raw, scaled } = this.calculateScore();
+    const hasAnyAttempt = Object.keys(state.checked || {}).length > 0 || Object.keys(state.answers || {}).length > 0;
+    const completionStatus = hasAnyAttempt ? 'incomplete' : this.computeCompletionStatus();
+    const passScore = this.getCoursePassingScore();
+    const successStatus = completionStatus === 'not attempted' ? 'unknown' : raw >= passScore ? 'passed' : 'failed';
+
+    window.ScormApi.setValue('cmi.score.raw', String(raw));
+    window.ScormApi.setValue('cmi.score.scaled', scaled.toFixed(2));
+    window.ScormApi.setValue('cmi.score.min', '0');
+    window.ScormApi.setValue('cmi.score.max', '100');
+    window.ScormApi.setValue('cmi.success_status', successStatus);
+    window.ScormApi.setValue('cmi.completion_status', completionStatus);
   },
 
   persistProgress() {
     const state = window.ScormState;
     if (!state.scormInitialized) return;
-    const suspendData = JSON.stringify({ cursor: state.cursor, answers: state.answers, checked: state.checked });
-    window.ScormApi.setValue('cmi.location', String(state.cursor));
+
+    const suspendData = JSON.stringify({
+      cursor: state.cursor,
+      answers: state.answers,
+      checked: state.checked,
+      attemptsUsed: state.attemptsUsed || 0,
+      isFinalized: !!state.isFinalized,
+      timeLimitReached: !!state.timeLimitReached,
+      accumulatedSessionSeconds: this.computeSessionSeconds()
+    });
+
+    const currentPageId = state.orderedPages[state.cursor] || 'start';
+    window.ScormApi.setValue('cmi.location', `slide:${currentPageId}`);
     window.ScormApi.setValue('cmi.suspend_data', suspendData);
-    window.ScormApi.setValue('cmi.completion_status', state.cursor >= state.orderedPages.length - 1 ? 'completed' : 'incomplete');
+    window.ScormApi.setValue('cmi.session_time', window.ScormApi.formatSessionTime(this.computeSessionSeconds()));
+    this.syncLearnerState();
     window.ScormApi.commit();
   },
 
   restoreProgress() {
     const state = window.ScormState;
+    if (!state.scormInitialized) return;
     const raw = window.ScormApi.getValue('cmi.suspend_data');
     if (!raw) return;
+
     try {
       const parsed = JSON.parse(raw);
       state.cursor = Number.isFinite(parsed.cursor) ? parsed.cursor : 0;
       state.answers = parsed.answers || {};
       state.checked = parsed.checked || {};
+      state.accumulatedSessionSeconds = Number(parsed.accumulatedSessionSeconds || 0);
+      state.attemptsUsed = Number(parsed.attemptsUsed || 0);
+      state.isFinalized = !!parsed.isFinalized;
+      state.timeLimitReached = !!parsed.timeLimitReached;
     } catch (_) {}
-  },
-
-  syncScormScore() {
-    const state = window.ScormState;
-    const values = Object.values(state.correctness || {}).filter((v) => v !== null && v !== undefined);
-    const raw = values.length ? Math.round((values.filter(Boolean).length / values.length) * 100) : 0;
-    if (!state.scormInitialized) return;
-    window.ScormApi.setValue('cmi.score.raw', raw);
-    window.ScormApi.setValue('cmi.score.scaled', (raw / 100).toFixed(2));
-    window.ScormApi.setValue('cmi.success_status', raw >= Number(state.editorState.passingScore || 80) ? 'passed' : 'failed');
-    window.ScormApi.commit();
   }
 };
 

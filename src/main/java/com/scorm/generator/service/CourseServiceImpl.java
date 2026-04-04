@@ -80,9 +80,9 @@ public class CourseServiceImpl implements CourseService {
             title = "Untitled Course";
         }
 
-        BigDecimal passingScore = request.getPassingScore() != null ? request.getPassingScore() : BigDecimal.ZERO;
-        Integer attemptLimit = request.getAttemptLimit() != null ? request.getAttemptLimit() : 0;
-        Integer durationMin = request.getDurationMin() != null ? request.getDurationMin() : 0;
+        BigDecimal passingScore = sanitizePassingScore(request.getPassingScore());
+        Integer attemptLimit = sanitizeNonNegativeInt(request.getAttemptLimit());
+        Integer durationMin = sanitizeNonNegativeInt(request.getDurationMin());
         String status = request.getStatus() != null ? request.getStatus() : "DRAFT";
         String editorVersion = request.getEditorVersion() != null ? request.getEditorVersion() : "course-editor-v1";
         String editorStatus = request.getEditorStatus() != null ? request.getEditorStatus() : "DRAFT";
@@ -258,13 +258,13 @@ public class CourseServiceImpl implements CourseService {
             course.setCoverImageUrl(request.getCoverImageUrl());
         }
         if (request.getPassingScore() != null) {
-            course.setPassingScore(request.getPassingScore());
+            course.setPassingScore(sanitizePassingScore(request.getPassingScore()));
         }
         if (request.getAttemptLimit() != null) {
-            course.setAttemptLimit(request.getAttemptLimit());
+            course.setAttemptLimit(sanitizeNonNegativeInt(request.getAttemptLimit()));
         }
         if (request.getDurationMin() != null) {
-            course.setDurationMin(request.getDurationMin());
+            course.setDurationMin(sanitizeNonNegativeInt(request.getDurationMin()));
         }
         if (request.getStatus() != null) {
             course.setStatus(request.getStatus());
@@ -376,6 +376,26 @@ public class CourseServiceImpl implements CourseService {
     // =========================================================================
     // CÁC HÀM PRIVATE
     // =========================================================================
+    private BigDecimal sanitizePassingScore(BigDecimal passingScore) {
+        if (passingScore == null) {
+            return BigDecimal.ZERO;
+        }
+        if (passingScore.compareTo(BigDecimal.ZERO) < 0) {
+            return BigDecimal.ZERO;
+        }
+        if (passingScore.compareTo(new BigDecimal("100")) > 0) {
+            return new BigDecimal("100");
+        }
+        return passingScore;
+    }
+
+    private Integer sanitizeNonNegativeInt(Integer value) {
+        if (value == null || value < 0) {
+            return 0;
+        }
+        return value;
+    }
+
     private Course getOwnedCourseOrThrow(Long courseId, Authentication authentication) {
         if (courseId == null) {
             throw new AppException(HttpStatus.BAD_REQUEST, "courseId is required");

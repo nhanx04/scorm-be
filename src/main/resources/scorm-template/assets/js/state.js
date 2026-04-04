@@ -7,7 +7,13 @@ window.ScormState = {
   cursor: 0,
   answers: {},
   checked: {},
-  scormInitialized: false
+  correctness: {},
+  scormInitialized: false,
+  sessionStartMs: 0,
+  accumulatedSessionSeconds: 0,
+  attemptsUsed: 0,
+  isFinalized: false,
+  timeLimitReached: false
 };
 
 window.ScormState.getCurrentPage = function () {

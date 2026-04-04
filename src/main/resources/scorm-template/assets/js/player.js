@@ -29,14 +29,32 @@ window.ScormPlayer = {
 
 function bindNav(root, state, totalPages, page) {
   root.querySelector('[data-action="prev"]')?.addEventListener('click', () => {
+    if (window.ScormApp.checkDurationLimit()) {
+      window.ScormPlayer.render();
+      return;
+    }
     state.cursor = Math.max(0, state.cursor - 1); window.ScormPlayer.render(); window.ScormApp.persistProgress();
   });
   root.querySelector('[data-action="next"]')?.addEventListener('click', () => {
+    if (window.ScormApp.checkDurationLimit()) {
+      window.ScormPlayer.render();
+      return;
+    }
     state.cursor = Math.min(totalPages - 1, state.cursor + 1); window.ScormPlayer.render(); window.ScormApp.persistProgress();
   });
   root.querySelector('[data-action="check-answers"]')?.addEventListener('click', () => {
+    if (window.ScormApp.checkDurationLimit()) {
+      window.ScormPlayer.render();
+      return;
+    }
+    if (window.ScormApp.isAttemptLimitReached()) {
+      window.ScormPlayer.render();
+      return;
+    }
     (window.ScormApp.getCurrentQuestionIds(page) || []).forEach((id) => (state.checked[id] = true));
-    window.ScormApp.recomputeCorrectness(); window.ScormPlayer.render(); window.ScormApp.persistProgress();
+    state.attemptsUsed = Number(state.attemptsUsed || 0) + 1;
+    window.ScormApp.finalizeAttempt();
+    window.ScormPlayer.render();
   });
 }
 
@@ -62,5 +80,17 @@ function renderQuizFooter(state, page) {
   const ids = window.ScormApp.getCurrentQuestionIds(page); const checkedIds = ids.filter((id) => state.checked[id]);
   const score = checkedIds.filter((id) => state.correctness[id] === true).length;
   const completion = ids.length === 0 ? 0 : Math.round((checkedIds.length / ids.length) * 100);
-  return `<section class="scorm-quiz"><p class="font">Progress: ${completion}%</p><p>Score: ${score}/${ids.length}</p><button class="scorm-nav-btn" data-action="check-answers">Check Answers</button></section>`;
+  const attemptLimit = window.ScormApp.getAttemptLimit();
+  const attemptsUsed = Number(state.attemptsUsed || 0);
+  const isLockedByAttempts = window.ScormApp.isAttemptLimitReached();
+  const isLockedByTime = !!state.timeLimitReached;
+  const disabled = isLockedByAttempts || isLockedByTime;
+
+  const status = isLockedByTime
+    ? `<p class="scorm-muted">Time limit reached. Attempt auto-submitted.</p>`
+    : isLockedByAttempts
+      ? `<p class="scorm-muted">Attempt limit reached (${attemptsUsed}/${attemptLimit}).</p>`
+      : `<p class="scorm-muted">Attempts: ${attemptLimit > 0 ? `${attemptsUsed}/${attemptLimit}` : `${attemptsUsed}/∞`}</p>`;
+
+  return `<section class="scorm-quiz"><p class="font">Progress: ${completion}%</p><p>Score: ${score}/${ids.length}</p>${status}<button class="scorm-nav-btn" data-action="check-answers" ${disabled ? 'disabled' : ''}>Check Answers</button></section>`;
 }
