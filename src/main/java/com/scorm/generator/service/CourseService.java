@@ -6,6 +6,7 @@ import com.scorm.generator.dto.CourseResponse;
 import com.scorm.generator.dto.CourseUpdateRequest;
 import com.scorm.generator.dto.ai.AiCourseOutline;
 import org.springframework.security.core.Authentication;
+import org.springframework.web.multipart.MultipartFile;
 
 import java.util.List;
 
@@ -21,4 +22,6 @@ public interface CourseService {
     void delete(Long courseId, Authentication authentication);
 
     CourseResponse saveAiCourseOutline(AiCourseOutline outline, Authentication authentication);
+
+    CourseResponse importScormPackage(MultipartFile file, Authentication authentication);
 }

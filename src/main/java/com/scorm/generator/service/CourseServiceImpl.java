@@ -30,9 +30,15 @@ import org.springframework.http.HttpStatus;
 import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.web.multipart.MultipartFile;
 
+import java.io.ByteArrayOutputStream;
+import java.io.IOException;
 import java.math.BigDecimal;
+import java.nio.charset.StandardCharsets;
 import java.util.List;
+import java.util.zip.ZipEntry;
+import java.util.zip.ZipInputStream;
 
 @Service
 public class CourseServiceImpl implements CourseService {
@@ -373,6 +379,61 @@ public class CourseServiceImpl implements CourseService {
         return CourseResponse.fromEntity(savedCourse, parseJson(savedCourse.getExtraInfor()));
     }
 
+    @Override
+    public CourseResponse importScormPackage(MultipartFile file, Authentication authentication) {
+        if (file == null || file.isEmpty()) {
+            throw new AppException(HttpStatus.BAD_REQUEST, "SCORM zip file is required");
+        }
+
+        User currentUser = (User) authentication.getPrincipal();
+
+        try {
+            JsonNode editorState = extractEditorStateFromZip(file);
+            if (editorState == null || editorState.isMissingNode() || editorState.isNull()) {
+                throw new AppException(HttpStatus.BAD_REQUEST,
+                        "Invalid SCORM package: missing data/editor-state.json");
+            }
+
+            String title = editorState.path("title").asText(null);
+            if (title == null || title.isBlank()) {
+                title = "Imported SCORM Course";
+            }
+
+            String description = editorState.path("description").asText(null);
+            String coverImageUrl = editorState.path("coverImageUrl").asText(null);
+
+            BigDecimal passingScore = sanitizePassingScore(
+                    editorState.hasNonNull("passingScore")
+                            ? new BigDecimal(editorState.path("passingScore").asText("0"))
+                            : BigDecimal.ZERO);
+            Integer attemptLimit = sanitizeNonNegativeInt(
+                    editorState.hasNonNull("attemptLimit") ? editorState.path("attemptLimit").asInt(0) : 0);
+            Integer durationMin = sanitizeNonNegativeInt(
+                    editorState.hasNonNull("durationMin") ? editorState.path("durationMin").asInt(0) : 0);
+
+            Course course = Course.builder()
+                    .title(title)
+                    .description(description)
+                    .coverImageUrl(coverImageUrl)
+                    .passingScore(passingScore)
+                    .attemptLimit(attemptLimit)
+                    .durationMin(durationMin)
+                    .status("DRAFT")
+                    .editorVersion("course-editor-v1")
+                    .editorStatus("DRAFT")
+                    .editorState(editorState)
+                    .user(currentUser)
+                    .build();
+
+            Course saved = courseRepository.save(course);
+            return CourseResponse.fromEntity(saved, parseJson(saved.getExtraInfor()));
+        } catch (AppException ex) {
+            throw ex;
+        } catch (Exception ex) {
+            throw new AppException(HttpStatus.BAD_REQUEST, "Failed to import SCORM package: " + ex.getMessage());
+        }
+    }
+
     // =========================================================================
     // CÁC HÀM PRIVATE
     // =========================================================================
@@ -394,6 +455,37 @@ public class CourseServiceImpl implements CourseService {
             return 0;
         }
         return value;
+    }
+
+    private JsonNode extractEditorStateFromZip(MultipartFile file) {
+        try (ZipInputStream zis = new ZipInputStream(file.getInputStream())) {
+            ZipEntry entry;
+            while ((entry = zis.getNextEntry()) != null) {
+                if (entry.isDirectory()) {
+                    continue;
+                }
+                String name = entry.getName();
+                if ("data/editor-state.json".equalsIgnoreCase(name)
+                        || name.endsWith("/data/editor-state.json")
+                        || name.endsWith("\\data\\editor-state.json")) {
+                    String json = readZipEntryAsString(zis);
+                    return objectMapper.readTree(json);
+                }
+            }
+            return null;
+        } catch (IOException ex) {
+            throw new AppException(HttpStatus.BAD_REQUEST, "Failed to read SCORM zip: " + ex.getMessage());
+        }
+    }
+
+    private String readZipEntryAsString(ZipInputStream zis) throws IOException {
+        ByteArrayOutputStream baos = new ByteArrayOutputStream();
+        byte[] buffer = new byte[4096];
+        int len;
+        while ((len = zis.read(buffer)) != -1) {
+            baos.write(buffer, 0, len);
+        }
+        return baos.toString(StandardCharsets.UTF_8);
     }
 
     private Course getOwnedCourseOrThrow(Long courseId, Authentication authentication) {

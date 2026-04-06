@@ -7,6 +7,7 @@ import com.scorm.generator.service.CourseService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.Authentication;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
 import javax.validation.Valid;
 
@@ -52,5 +53,12 @@ public class CourseController {
     public ResponseEntity<Void> delete(@PathVariable Long courseId, Authentication authentication) {
         courseService.delete(courseId, authentication);
         return ResponseEntity.ok().build();
+    }
+
+    @PostMapping(value = "/import-scorm", consumes = "multipart/form-data")
+    public ResponseEntity<CourseResponse> importScorm(
+            @RequestPart("file") MultipartFile file,
+            Authentication authentication) {
+        return ResponseEntity.ok(courseService.importScormPackage(file, authentication));
     }
 }
