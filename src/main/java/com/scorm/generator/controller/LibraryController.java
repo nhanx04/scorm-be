@@ -44,9 +44,26 @@ public class LibraryController {
         return ResponseEntity.ok(libraryService.getLibraryAssets(id));
     }
 
+    @DeleteMapping("/{id}")
+    public ResponseEntity<Void> deleteLibrary(@PathVariable("id") Long id, Authentication authentication) {
+        libraryService.deleteLibrary(id, authentication);
+        return ResponseEntity.noContent().build();
+    }
+
+    @DeleteMapping
+    public ResponseEntity<Void> bulkDeleteLibraries(@RequestBody BulkDeleteLibrariesRequest request,
+            Authentication authentication) {
+        libraryService.bulkDeleteLibraries(request.libraryIds, authentication);
+        return ResponseEntity.noContent().build();
+    }
+
     public static class CreateLibraryRequest {
         public String libraryName;
         public String description;
         public String scopeType;
+    }
+
+    public static class BulkDeleteLibrariesRequest {
+        public List<Long> libraryIds;
     }
 }

@@ -9,8 +9,10 @@ import com.scorm.generator.repository.*;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.multipart.MultipartFile;
 
+import java.util.List;
 import java.util.Map;
 
 @Service
@@ -100,6 +102,90 @@ public class MediaAssetService {
         videoAssetRepository.save(videoAsset);
 
         return toResponse(saved);
+    }
+
+    @Transactional
+    public void deleteMediaAsset(Long mediaId, Authentication authentication) {
+        User currentUser = (User) authentication.getPrincipal();
+        if (mediaId == null) {
+            throw new RuntimeException("mediaId is required");
+        }
+
+        MediaAsset media = mediaAssetRepository.findById(mediaId)
+                .orElseThrow(() -> new RuntimeException("Media asset not found"));
+
+        if (!media.getUser().getUserId().equals(currentUser.getUserId())) {
+            throw new RuntimeException("You do not have permission to delete this media asset");
+        }
+
+        deleteAssetsInternal(List.of(media));
+    }
+
+    @Transactional
+    public void bulkDeleteMediaAssets(List<Long> mediaIds, Long libraryId, Authentication authentication) {
+        User currentUser = (User) authentication.getPrincipal();
+        if (mediaIds == null || mediaIds.isEmpty()) {
+            throw new RuntimeException("mediaIds is required");
+        }
+        if (libraryId == null) {
+            throw new RuntimeException("libraryId is required");
+        }
+
+        MyLibrary library = myLibraryRepository.findById(libraryId)
+                .orElseThrow(() -> new RuntimeException("Library not found"));
+
+        if (!library.getOwner().getUserId().equals(currentUser.getUserId())) {
+            throw new RuntimeException("You do not have permission to delete assets from this library");
+        }
+
+        List<MediaAsset> assets = mediaAssetRepository.findByMediaIdInAndLibrary_LibraryId(mediaIds, libraryId);
+        if (assets.size() != mediaIds.size()) {
+            throw new RuntimeException("Some media assets were not found in this library");
+        }
+
+        deleteAssetsInternal(assets);
+    }
+
+    @Transactional
+    public void deleteAssetsInternal(List<MediaAsset> assets) {
+        for (MediaAsset asset : assets) {
+            deleteSingleAsset(asset);
+        }
+    }
+
+    private void deleteSingleAsset(MediaAsset media) {
+        String mediaType = media.getMediaType();
+        Long mediaId = media.getMediaId();
+
+        if ("IMAGE".equals(mediaType)) {
+            imageAssetRepository.deleteById(mediaId);
+        } else if ("AUDIO".equals(mediaType)) {
+            audioAssetRepository.deleteById(mediaId);
+        } else if ("DOCUMENT".equals(mediaType)) {
+            documentAssetRepository.deleteById(mediaId);
+        } else if ("VIDEO".equals(mediaType)) {
+            videoAssetRepository.deleteById(mediaId);
+        }
+
+        String key = extractStorageKey(media.getMetadata());
+        mediaAssetRepository.delete(media);
+
+        if (key != null && !key.isBlank()) {
+            storageService.deleteByKey(key);
+        }
+    }
+
+    private String extractStorageKey(JsonNode metadata) {
+        if (metadata == null || !metadata.has("key")) {
+            return null;
+        }
+
+        JsonNode keyNode = metadata.get("key");
+        if (keyNode == null || keyNode.isNull()) {
+            return null;
+        }
+
+        return keyNode.asText(null);
     }
 
     private MediaUploadResponse uploadFileAsset(

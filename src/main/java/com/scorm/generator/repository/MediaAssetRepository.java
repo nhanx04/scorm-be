@@ -7,4 +7,6 @@ import java.util.List;
 
 public interface MediaAssetRepository extends JpaRepository<MediaAsset, Long> {
     List<MediaAsset> findByLibrary_LibraryIdOrderByUploadedAtDesc(Long libraryId);
+
+    List<MediaAsset> findByMediaIdInAndLibrary_LibraryId(List<Long> mediaIds, Long libraryId);
 }
