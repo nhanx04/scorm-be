@@ -1,6 +1,8 @@
 package com.scorm.generator.service;
 
+import com.scorm.generator.dto.LibraryDetailResponse;
 import com.scorm.generator.dto.OrganizationActivityResponse;
+import com.scorm.generator.dto.OrganizationFolderAssetsResponse;
 import com.scorm.generator.dto.ResourceResponse;
 import com.scorm.generator.dto.ShareResourceRequest;
 import com.scorm.generator.entity.Course;
@@ -125,6 +127,55 @@ public class OrganizationResourceService {
         logActivity(organization, currentUser, OrganizationActivityAction.DELETE_RESOURCE, resourceId);
     }
 
+    @Transactional(readOnly = true)
+    public ResourceResponse getResourceDetail(Long orgId, Long resourceId, Authentication authentication) {
+        User currentUser = (User) authentication.getPrincipal();
+        requireOrganization(orgId);
+        assertMember(orgId, currentUser.getUserId());
+
+        OrganizationResource resource = organizationResourceRepository.findByIdAndOrganization_OrgId(resourceId, orgId)
+                .orElseThrow(() -> new AppException(HttpStatus.NOT_FOUND, "Organization resource not found"));
+
+        return toResponse(resource);
+    }
+
+    @Transactional(readOnly = true)
+    public OrganizationFolderAssetsResponse getSharedFolderAssets(Long orgId, Long folderId,
+            Authentication authentication) {
+        User currentUser = (User) authentication.getPrincipal();
+        requireOrganization(orgId);
+        assertMember(orgId, currentUser.getUserId());
+
+        OrganizationResource folderResource = organizationResourceRepository
+                .findByOrganization_OrgIdAndTypeAndFolder_LibraryId(orgId, OrganizationResourceType.FOLDER, folderId)
+                .orElseThrow(() -> new AppException(HttpStatus.NOT_FOUND,
+                        "Folder is not shared in this organization"));
+
+        MyLibrary folder = folderResource.getFolder();
+        List<LibraryDetailResponse.MediaAssetItem> items = mediaAssetRepository
+                .findByLibrary_LibraryIdOrderByUploadedAtDesc(folderId)
+                .stream()
+                .map(a -> LibraryDetailResponse.MediaAssetItem.builder()
+                        .mediaId(a.getMediaId())
+                        .title(a.getTitle())
+                        .description(a.getDescription())
+                        .originalFileName(a.getOriginalFileName())
+                        .mediaType(a.getMediaType())
+                        .uploadedAt(a.getUploadedAt())
+                        .updatedAt(a.getUpdatedAt())
+                        .metadata(a.getMetadata())
+                        .build())
+                .toList();
+
+        return OrganizationFolderAssetsResponse.builder()
+                .orgId(orgId)
+                .resourceId(folderResource.getId())
+                .folderId(folderId)
+                .folderName(folder == null ? null : folder.getLibraryName())
+                .items(items)
+                .build();
+    }
+
     private ResourceResponse toResponse(OrganizationResource resource) {
         String name = null;
         String thumbnail = null;
@@ -154,6 +205,9 @@ public class OrganizationResourceService {
                 .thumbnail(thumbnail)
                 .instructor(instructor)
                 .folderItemCount(folderItemCount)
+                .mediaAssetId(resource.getMediaAsset() == null ? null : resource.getMediaAsset().getMediaId())
+                .courseId(resource.getCourse() == null ? null : resource.getCourse().getCourseId())
+                .folderId(resource.getFolder() == null ? null : resource.getFolder().getLibraryId())
                 .sharedBy(sharedBy == null ? null : sharedBy.getUserId())
                 .sharedByName(sharedByName)
                 .createdAt(resource.getCreatedAt())

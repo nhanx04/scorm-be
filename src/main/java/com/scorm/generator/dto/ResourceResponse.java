@@ -15,8 +15,10 @@ public class ResourceResponse {
     private String thumbnail;
     private String instructor;
     private Integer folderItemCount;
+    private Long mediaAssetId;
+    private Long courseId;
+    private Long folderId;
     private Long sharedBy;
     private String sharedByName;
     private OffsetDateTime createdAt;
 }
-

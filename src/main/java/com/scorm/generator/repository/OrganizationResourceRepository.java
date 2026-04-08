@@ -11,8 +11,13 @@ public interface OrganizationResourceRepository extends JpaRepository<Organizati
 
     List<OrganizationResource> findByOrganization_OrgIdOrderByCreatedAtDesc(Long orgId);
 
-    List<OrganizationResource> findByOrganization_OrgIdAndTypeOrderByCreatedAtDesc(Long orgId, OrganizationResourceType type);
+    List<OrganizationResource> findByOrganization_OrgIdAndTypeOrderByCreatedAtDesc(Long orgId,
+            OrganizationResourceType type);
 
     Optional<OrganizationResource> findByIdAndOrganization_OrgId(Long id, Long orgId);
-}
 
+    Optional<OrganizationResource> findByOrganization_OrgIdAndTypeAndFolder_LibraryId(
+            Long orgId,
+            OrganizationResourceType type,
+            Long libraryId);
+}

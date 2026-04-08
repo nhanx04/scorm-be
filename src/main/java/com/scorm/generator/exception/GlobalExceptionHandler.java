@@ -50,16 +50,6 @@ public class GlobalExceptionHandler {
         return ResponseEntity.status(HttpStatus.UNSUPPORTED_MEDIA_TYPE).body(response);
     }
 
-    @ExceptionHandler(AppException.class)
-    public ResponseEntity<Map<String, Object>> handleAppException(AppException ex) {
-        Map<String, Object> response = new HashMap<>();
-        response.put("timestamp", LocalDateTime.now());
-        response.put("status", ex.getStatus().value());
-        response.put("error", ex.getStatus().getReasonPhrase());
-        response.put("message", ex.getMessage());
-        return ResponseEntity.status(ex.getStatus()).body(response);
-    }
-
     @ExceptionHandler(RuntimeException.class)
     public ResponseEntity<Map<String, Object>> handleRuntimeException(RuntimeException ex) {
         Map<String, Object> response = new HashMap<>();

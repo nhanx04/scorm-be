@@ -1,6 +1,7 @@
 package com.scorm.generator.controller;
 
 import com.scorm.generator.dto.OrganizationCreateRequest;
+import com.scorm.generator.dto.OrganizationFolderAssetsResponse;
 import com.scorm.generator.dto.OrganizationInviteDecisionRequest;
 import com.scorm.generator.dto.OrganizationInviteRequest;
 import com.scorm.generator.dto.OrganizationMemberDto;
@@ -82,6 +83,22 @@ public class OrganizationController {
             @RequestParam(required = false) OrganizationResourceType type,
             Authentication authentication) {
         return ResponseEntity.ok(organizationResourceService.getResources(orgId, type, authentication));
+    }
+
+    @GetMapping("/{orgId}/resources/{resourceId}")
+    public ResponseEntity<ResourceResponse> getResourceDetail(
+            @PathVariable Long orgId,
+            @PathVariable Long resourceId,
+            Authentication authentication) {
+        return ResponseEntity.ok(organizationResourceService.getResourceDetail(orgId, resourceId, authentication));
+    }
+
+    @GetMapping("/{orgId}/folders/{folderId}/assets")
+    public ResponseEntity<OrganizationFolderAssetsResponse> getSharedFolderAssets(
+            @PathVariable Long orgId,
+            @PathVariable Long folderId,
+            Authentication authentication) {
+        return ResponseEntity.ok(organizationResourceService.getSharedFolderAssets(orgId, folderId, authentication));
     }
 
     @GetMapping("/{orgId}/activities")
