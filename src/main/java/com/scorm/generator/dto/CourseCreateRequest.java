@@ -1,6 +1,9 @@
 package com.scorm.generator.dto;
 
 import com.fasterxml.jackson.databind.JsonNode;
+import javax.validation.constraints.DecimalMax;
+import javax.validation.constraints.DecimalMin;
+import javax.validation.constraints.Min;
 import lombok.Data;
 
 import java.math.BigDecimal;
@@ -11,8 +14,12 @@ public class CourseCreateRequest {
     private String title;
     private String description;
     private String coverImageUrl;
+    @DecimalMin(value = "0.0", message = "passingScore must be >= 0")
+    @DecimalMax(value = "100.0", message = "passingScore must be <= 100")
     private BigDecimal passingScore;
+    @Min(value = 0, message = "attemptLimit must be >= 0")
     private Integer attemptLimit;
+    @Min(value = 0, message = "durationMin must be >= 0")
     private Integer durationMin;
     private String status;
 

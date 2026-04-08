@@ -77,4 +77,28 @@ public class OrganizationController {
         organizationService.removeMember(orgId, userId, authentication);
         return ResponseEntity.ok().build();
     }
+
+    @PatchMapping("/{orgId}")
+    public ResponseEntity<OrganizationResponse> updateOrganization(
+            @PathVariable Long orgId,
+            @RequestBody OrganizationCreateRequest request,
+            Authentication authentication) {
+        return ResponseEntity.ok(organizationService.updateOrganization(orgId, request, authentication));
+    }
+
+    @DeleteMapping({ "/{orgId}", "/{orgId}/" })
+    public ResponseEntity<Void> deleteOrganization(
+            @PathVariable Long orgId,
+            Authentication authentication) {
+        organizationService.deleteOrganization(orgId, authentication);
+        return ResponseEntity.ok().build();
+    }
+
+    @PostMapping("/{orgId}/delete")
+    public ResponseEntity<Void> deleteOrganizationByPost(
+            @PathVariable Long orgId,
+            Authentication authentication) {
+        organizationService.deleteOrganization(orgId, authentication);
+        return ResponseEntity.ok().build();
+    }
 }

@@ -13,6 +13,7 @@ import com.scorm.generator.repository.OrganizationRepository;
 import com.scorm.generator.repository.UserRepository;
 import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.time.OffsetDateTime;
 import java.util.List;
@@ -183,6 +184,46 @@ public class OrganizationService {
         }
 
         membershipRepository.delete(membership);
+    }
+
+    @Transactional
+    public OrganizationResponse updateOrganization(Long orgId, OrganizationCreateRequest request,
+            Authentication authentication) {
+        User currentUser = (User) authentication.getPrincipal();
+
+        Organization org = organizationRepository.findById(orgId)
+                .orElseThrow(() -> new RuntimeException("Organization not found"));
+
+        assertOwner(org, currentUser);
+
+        if (request.getOrgName() != null && !request.getOrgName().isBlank()) {
+            org.setOrgName(request.getOrgName().trim());
+        }
+        if (request.getDescription() != null) {
+            org.setDescription(request.getDescription().trim());
+        }
+        if (request.getMaxAuthors() != null) {
+            org.setMaxAuthors(request.getMaxAuthors());
+        }
+        if (request.getLogoMediaId() != null) {
+            org.setLogoMediaId(request.getLogoMediaId());
+        }
+
+        Organization saved = organizationRepository.save(org);
+        return toResponse(saved);
+    }
+
+    @Transactional
+    public void deleteOrganization(Long orgId, Authentication authentication) {
+        User currentUser = (User) authentication.getPrincipal();
+
+        Organization org = organizationRepository.findById(orgId)
+                .orElseThrow(() -> new RuntimeException("Organization not found"));
+
+        assertOwner(org, currentUser);
+
+        membershipRepository.deleteByOrganization_OrgId(orgId);
+        organizationRepository.delete(org);
     }
 
     private void assertOwner(Organization org, User currentUser) {

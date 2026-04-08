@@ -73,10 +73,29 @@ public class MediaAssetController {
                 authentication));
     }
 
+    @DeleteMapping("/{mediaId}")
+    public ResponseEntity<Void> deleteMedia(@PathVariable("mediaId") Long mediaId,
+            Authentication authentication) {
+        mediaAssetService.deleteMediaAsset(mediaId, authentication);
+        return ResponseEntity.noContent().build();
+    }
+
+    @DeleteMapping
+    public ResponseEntity<Void> bulkDeleteMedia(@RequestBody BulkDeleteMediaRequest request,
+            Authentication authentication) {
+        mediaAssetService.bulkDeleteMediaAssets(request.mediaIds, request.libraryId, authentication);
+        return ResponseEntity.noContent().build();
+    }
+
     public static class VideoCreateRequest {
         public String title;
         public String description;
         public Long libraryId;
         public String youtubeUrl;
+    }
+
+    public static class BulkDeleteMediaRequest {
+        public Long libraryId;
+        public java.util.List<Long> mediaIds;
     }
 }

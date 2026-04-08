@@ -9,6 +9,7 @@ import com.scorm.generator.repository.MediaAssetRepository;
 import com.scorm.generator.repository.MyLibraryRepository;
 import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
@@ -17,10 +18,14 @@ public class LibraryService {
 
     private final MyLibraryRepository myLibraryRepository;
     private final MediaAssetRepository mediaAssetRepository;
+    private final MediaAssetService mediaAssetService;
 
-    public LibraryService(MyLibraryRepository myLibraryRepository, MediaAssetRepository mediaAssetRepository) {
+    public LibraryService(MyLibraryRepository myLibraryRepository,
+            MediaAssetRepository mediaAssetRepository,
+            MediaAssetService mediaAssetService) {
         this.myLibraryRepository = myLibraryRepository;
         this.mediaAssetRepository = mediaAssetRepository;
+        this.mediaAssetService = mediaAssetService;
     }
 
     public MyLibrary create(String name, String description, String scopeType, Authentication authentication) {
@@ -50,6 +55,30 @@ public class LibraryService {
                         .updatedAt(l.getUpdatedAt())
                         .build())
                 .toList();
+    }
+
+    @Transactional
+    public void deleteLibrary(Long libraryId, Authentication authentication) {
+        User currentUser = (User) authentication.getPrincipal();
+        MyLibrary library = getOwnedLibraryOrThrow(libraryId, currentUser);
+
+        List<MediaAsset> assets = mediaAssetRepository.findByLibrary_LibraryIdOrderByUploadedAtDesc(libraryId);
+        if (!assets.isEmpty()) {
+            mediaAssetService.deleteAssetsInternal(assets);
+        }
+
+        myLibraryRepository.delete(library);
+    }
+
+    @Transactional
+    public void bulkDeleteLibraries(List<Long> libraryIds, Authentication authentication) {
+        if (libraryIds == null || libraryIds.isEmpty()) {
+            throw new RuntimeException("libraryIds is required");
+        }
+
+        for (Long libraryId : libraryIds) {
+            deleteLibrary(libraryId, authentication);
+        }
     }
 
     public List<LibraryDetailResponse.MediaAssetItem> getLibraryAssets(Long libraryId) {
@@ -102,5 +131,20 @@ public class LibraryService {
                         .metadata(a.getMetadata())
                         .build()).toList())
                 .build();
+    }
+
+    private MyLibrary getOwnedLibraryOrThrow(Long libraryId, User currentUser) {
+        if (libraryId == null) {
+            throw new RuntimeException("libraryId is required");
+        }
+
+        MyLibrary library = myLibraryRepository.findById(libraryId)
+                .orElseThrow(() -> new RuntimeException("Library not found"));
+
+        if (!library.getOwner().getUserId().equals(currentUser.getUserId())) {
+            throw new RuntimeException("You do not have permission to delete this library");
+        }
+
+        return library;
     }
 }
