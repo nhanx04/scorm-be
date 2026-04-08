@@ -15,7 +15,11 @@ public class CorsConfig {
             public void addCorsMappings(CorsRegistry registry) {
                 registry.addMapping("/**")
                         // Must NOT be "*" when allowCredentials(true)
-                        .allowedOriginPatterns("http://localhost:*", "http://127.0.0.1:*")
+                        .allowedOriginPatterns(
+                                "http://localhost:*",
+                                "http://127.0.0.1:*",
+                                "https://*.vercel.app",
+                                "https://*.code.run")
                         .allowedMethods("GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS")
                         .allowedHeaders("*")
                         .allowCredentials(true)
