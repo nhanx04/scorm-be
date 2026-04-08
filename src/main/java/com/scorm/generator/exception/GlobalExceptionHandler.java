@@ -13,6 +13,20 @@ import org.springframework.web.HttpMediaTypeNotSupportedException;
 @RestControllerAdvice
 public class GlobalExceptionHandler {
 
+    // THÊM MỚI: Handler xử lý riêng cho AppException
+    // Spring sẽ ưu tiên match Exception cụ thể nhất trước khi rơi xuống
+    // RuntimeException
+    @ExceptionHandler(AppException.class)
+    public ResponseEntity<Map<String, Object>> handleAppException(AppException ex) {
+        Map<String, Object> response = new HashMap<>();
+        response.put("timestamp", LocalDateTime.now());
+        response.put("status", ex.getStatus().value()); // Lấy chính xác HTTP Status code bạn truyền vào
+        response.put("error", ex.getStatus().getReasonPhrase()); // Ví dụ: "Not Found", "Forbidden"...
+        response.put("message", ex.getMessage());
+
+        return ResponseEntity.status(ex.getStatus()).body(response);
+    }
+
     @ExceptionHandler(AuthenticationException.class)
     public ResponseEntity<Map<String, Object>> handleAuthenticationException(AuthenticationException ex) {
         Map<String, Object> response = new HashMap<>();

@@ -51,6 +51,13 @@ public class Course {
     @Column(name = "status")
     private String status;
 
+    @JdbcTypeCode(SqlTypes.ARRAY)
+    @Column(name = "tags", columnDefinition = "varchar(50)[]")
+    private List<String> tags;
+
+    @Column(name = "is_favorite")
+    private Boolean isFavorite;
+
     @Column(name = "text_html", columnDefinition = "TEXT")
     private String textHtml;
 

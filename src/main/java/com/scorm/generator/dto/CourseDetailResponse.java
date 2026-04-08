@@ -23,6 +23,8 @@ public class CourseDetailResponse {
     private Integer attemptLimit;
     private Integer durationMin;
     private String status;
+    private List<String> tags;
+    private Boolean isFavorite;
     private String textHtml;
     private JsonNode themeOverride;
     private String layoutMode;

@@ -7,6 +7,7 @@ import javax.validation.constraints.Min;
 import lombok.Data;
 
 import java.math.BigDecimal;
+import java.util.List;
 
 @Data
 public class CourseCreateRequest {
@@ -21,6 +22,10 @@ public class CourseCreateRequest {
     @Min(value = 0, message = "durationMin must be >= 0")
     private Integer durationMin;
     private String status;
+
+    // Thêm thuộc tính tags
+    private List<String> tags;
+
     private String textHtml;
     private JsonNode themeOverride;
     private String layoutMode;

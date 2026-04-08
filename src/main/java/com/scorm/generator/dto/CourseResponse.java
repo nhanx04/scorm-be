@@ -9,6 +9,7 @@ import lombok.NoArgsConstructor;
 
 import java.math.BigDecimal;
 import java.time.OffsetDateTime;
+import java.util.List;
 
 @Data
 @Builder
@@ -23,6 +24,13 @@ public class CourseResponse {
     private Integer attemptLimit;
     private Integer durationMin;
     private String status;
+
+    // Thêm thuộc tính tags
+    private List<String> tags;
+
+    // Thêm thuộc tính isFavorite
+    private Boolean isFavorite;
+
     private String textHtml;
     private JsonNode themeOverride;
     private String layoutMode;
@@ -46,6 +54,8 @@ public class CourseResponse {
                 .attemptLimit(course.getAttemptLimit())
                 .durationMin(course.getDurationMin())
                 .status(course.getStatus())
+                .tags(course.getTags())
+                .isFavorite(course.getIsFavorite())
                 .textHtml(course.getTextHtml())
                 .themeOverride(course.getThemeOverride())
                 .layoutMode(course.getLayoutMode())

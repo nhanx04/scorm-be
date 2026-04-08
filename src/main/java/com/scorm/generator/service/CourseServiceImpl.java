@@ -101,6 +101,8 @@ public class CourseServiceImpl implements CourseService {
                 .attemptLimit(attemptLimit)
                 .durationMin(durationMin)
                 .status(status)
+                .tags(request.getTags())
+                .isFavorite(false) // Khởi tạo mặc định là false
                 .textHtml(request.getTextHtml())
                 .themeOverride(request.getThemeOverride())
                 .layoutMode(request.getLayoutMode())
@@ -233,6 +235,8 @@ public class CourseServiceImpl implements CourseService {
                 .attemptLimit(course.getAttemptLimit())
                 .durationMin(course.getDurationMin())
                 .status(course.getStatus())
+                .tags(course.getTags())
+                .isFavorite(course.getIsFavorite()) // Map dữ liệu isFavorite
                 .textHtml(course.getTextHtml())
                 .themeOverride(course.getThemeOverride())
                 .layoutMode(course.getLayoutMode())
@@ -274,6 +278,13 @@ public class CourseServiceImpl implements CourseService {
         }
         if (request.getStatus() != null) {
             course.setStatus(request.getStatus());
+        }
+        if (request.getTags() != null) {
+            course.setTags(request.getTags());
+        }
+        // Xử lý cập nhật isFavorite
+        if (request.getIsFavorite() != null) {
+            course.setIsFavorite(request.getIsFavorite());
         }
         if (request.getTextHtml() != null) {
             course.setTextHtml(request.getTextHtml());
@@ -326,6 +337,7 @@ public class CourseServiceImpl implements CourseService {
                 .title(outline.title())
                 .description(outline.description())
                 .status("DRAFT") // Trạng thái nháp ban đầu
+                .isFavorite(false) // Khởi tạo mặc định là false cho khóa học AI sinh
                 .user(currentUser)
                 .build();
         Course savedCourse = courseRepository.save(course);

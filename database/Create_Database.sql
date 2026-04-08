@@ -69,7 +69,9 @@ CREATE TABLE course (
     passing_score       NUMERIC(5,2),
     attempt_limit       INT,
     duration_min        INT,
-    status              VARCHAR(50),
+    status              VARCHAR(50) NOT NULL DEFAULT 'Draft',
+    tags                VARCHAR(50)[],
+    is_favorite         BOOLEAN DEFAULT FALSE,
     last_published_at   TIMESTAMPTZ,
     updated_at          TIMESTAMPTZ DEFAULT NOW(),
     extra_infor         JSONB,
@@ -614,3 +616,42 @@ CREATE TABLE content_block (
     CONSTRAINT fk_content_block_content_page
         FOREIGN KEY (content_pageid) REFERENCES content_page(pageid)
 );
+
+-- ============================================
+-- 26. NOTIFICATION
+-- Lưu trữ các thông báo gửi đến người dùng
+-- ============================================
+CREATE TABLE notification (
+    notificationid  BIGSERIAL,
+    
+    -- Người nhận thông báo
+    userid          BIGINT NOT NULL,
+    
+    -- Nội dung thông báo
+    title           VARCHAR(255) NOT NULL,
+    message         TEXT,
+    
+    -- Loại thông báo để frontend hiển thị icon/màu sắc tương ứng 
+    -- (VD: 'SYSTEM', 'COURSE_INVITE', 'ORG_UPDATE', 'WARNING')
+    type            VARCHAR(50) NOT NULL,
+    
+    -- Trạng thái đã đọc/chưa đọc
+    is_read         BOOLEAN DEFAULT FALSE,
+    
+    -- [Tùy chọn] Lưu ID và Loại của Entity liên quan để khi user click vào thông báo sẽ chuyển hướng (redirect) đúng chỗ
+    -- VD: reference_id = 15, reference_type = 'COURSE' -> Chuyển hướng đến khóa học có ID 15
+    reference_id    BIGINT,
+    reference_type  VARCHAR(50),
+    
+    created_at      TIMESTAMPTZ DEFAULT NOW(),
+    updated_at      TIMESTAMPTZ DEFAULT NOW(),
+    
+    CONSTRAINT pk_notification PRIMARY KEY (notificationid),
+    CONSTRAINT fk_notification_user
+        FOREIGN KEY (userid) REFERENCES users(userid) ON DELETE CASCADE
+);
+
+-- Tạo Index để tăng tốc độ truy vấn do sau này hệ thống sẽ liên tục query: 
+-- "Lấy danh sách thông báo của user A" hoặc "Đếm số thông báo CHƯA ĐỌC của user A"
+CREATE INDEX idx_notification_userid ON notification(userid);
+CREATE INDEX idx_notification_userid_is_read ON notification(userid, is_read);

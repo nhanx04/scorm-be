@@ -7,6 +7,7 @@ import javax.validation.constraints.Min;
 import lombok.Data;
 
 import java.math.BigDecimal;
+import java.util.List;
 
 @Data
 public class CourseUpdateRequest {
@@ -21,6 +22,8 @@ public class CourseUpdateRequest {
     @Min(value = 0, message = "durationMin must be >= 0")
     private Integer durationMin;
     private String status;
+    private List<String> tags;
+    private Boolean isFavorite;
     private String textHtml;
     private JsonNode themeOverride;
     private String layoutMode;
