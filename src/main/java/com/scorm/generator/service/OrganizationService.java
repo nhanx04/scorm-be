@@ -7,8 +7,11 @@ import com.scorm.generator.dto.OrganizationResponse;
 import com.scorm.generator.entity.Membership;
 import com.scorm.generator.entity.MembershipId;
 import com.scorm.generator.entity.Organization;
+import com.scorm.generator.entity.OrganizationMember;
+import com.scorm.generator.entity.OrganizationMemberRole;
 import com.scorm.generator.entity.User;
 import com.scorm.generator.repository.MembershipRepository;
+import com.scorm.generator.repository.OrganizationMemberRepository;
 import com.scorm.generator.repository.OrganizationRepository;
 import com.scorm.generator.repository.UserRepository;
 import org.springframework.security.core.Authentication;
@@ -23,14 +26,17 @@ public class OrganizationService {
 
     private final OrganizationRepository organizationRepository;
     private final MembershipRepository membershipRepository;
+    private final OrganizationMemberRepository organizationMemberRepository;
     private final UserRepository userRepository;
 
     public OrganizationService(
             OrganizationRepository organizationRepository,
             MembershipRepository membershipRepository,
+            OrganizationMemberRepository organizationMemberRepository,
             UserRepository userRepository) {
         this.organizationRepository = organizationRepository;
         this.membershipRepository = membershipRepository;
+        this.organizationMemberRepository = organizationMemberRepository;
         this.userRepository = userRepository;
     }
 
@@ -62,6 +68,14 @@ public class OrganizationService {
                 .status("ACTIVE")
                 .build();
         membershipRepository.save(ownerMembership);
+
+        OrganizationMember organizationMember = OrganizationMember.builder()
+                .organization(saved)
+                .user(currentUser)
+                .role(OrganizationMemberRole.OWNER)
+                .joinedAt(OffsetDateTime.now())
+                .build();
+        organizationMemberRepository.save(organizationMember);
 
         return toResponse(saved);
     }
@@ -113,6 +127,17 @@ public class OrganizationService {
         if (accept) {
             membership.setStatus("ACTIVE");
             membership.setJoinedAt(OffsetDateTime.now());
+
+            if (!organizationMemberRepository.existsByOrganization_OrgIdAndUser_UserId(orgId,
+                    currentUser.getUserId())) {
+                OrganizationMember organizationMember = OrganizationMember.builder()
+                        .organization(membership.getOrganization())
+                        .user(currentUser)
+                        .role(OrganizationMemberRole.MEMBER)
+                        .joinedAt(OffsetDateTime.now())
+                        .build();
+                organizationMemberRepository.save(organizationMember);
+            }
         } else {
             membership.setStatus("REJECTED");
         }
@@ -162,6 +187,7 @@ public class OrganizationService {
         }
 
         membershipRepository.delete(membership);
+        organizationMemberRepository.deleteByOrganization_OrgIdAndUser_UserId(orgId, userId);
     }
 
     public void removeMember(Long orgId, Long userId, Authentication authentication) {
@@ -184,6 +210,7 @@ public class OrganizationService {
         }
 
         membershipRepository.delete(membership);
+        organizationMemberRepository.deleteByOrganization_OrgIdAndUser_UserId(orgId, userId);
     }
 
     @Transactional
@@ -223,6 +250,7 @@ public class OrganizationService {
         assertOwner(org, currentUser);
 
         membershipRepository.deleteByOrganization_OrgId(orgId);
+        organizationMemberRepository.deleteByOrganization_OrgId(orgId);
         organizationRepository.delete(org);
     }
 

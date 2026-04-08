@@ -104,6 +104,15 @@ public class MediaAssetService {
         return toResponse(saved);
     }
 
+    @Transactional(readOnly = true)
+    public List<MediaUploadResponse> getMyMediaAssets(Authentication authentication) {
+        User currentUser = (User) authentication.getPrincipal();
+        return mediaAssetRepository.findByUser_UserIdOrderByUploadedAtDesc(currentUser.getUserId())
+                .stream()
+                .map(this::toResponse)
+                .toList();
+    }
+
     @Transactional
     public void deleteMediaAsset(Long mediaId, Authentication authentication) {
         User currentUser = (User) authentication.getPrincipal();

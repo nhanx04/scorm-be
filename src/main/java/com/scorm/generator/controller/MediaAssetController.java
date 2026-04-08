@@ -11,7 +11,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 @Slf4j
 @RestController
-@RequestMapping("/media")
+@RequestMapping({ "/media", "/media-assets" })
 public class MediaAssetController {
 
     private final MediaAssetService mediaAssetService;
@@ -71,6 +71,11 @@ public class MediaAssetController {
                 request.libraryId,
                 request.youtubeUrl,
                 authentication));
+    }
+
+    @GetMapping({ "/me", "/assets/me" })
+    public ResponseEntity<java.util.List<MediaUploadResponse>> getMyMediaAssets(Authentication authentication) {
+        return ResponseEntity.ok(mediaAssetService.getMyMediaAssets(authentication));
     }
 
     @DeleteMapping("/{mediaId}")
