@@ -1,0 +1,8 @@
+ALTER TABLE content_page
+ADD COLUMN IF NOT EXISTS layout_mode VARCHAR(100);
+
+ALTER TABLE content_page
+ADD COLUMN IF NOT EXISTS layout_type VARCHAR(100);
+
+ALTER TABLE content_page
+ADD COLUMN IF NOT EXISTS layout_meta JSONB;
