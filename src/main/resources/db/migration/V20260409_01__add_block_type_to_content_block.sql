@@ -1,0 +1,2 @@
+ALTER TABLE content_block
+ADD COLUMN IF NOT EXISTS block_type VARCHAR(50);
