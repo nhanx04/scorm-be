@@ -89,9 +89,9 @@ public class CourseServiceImpl implements CourseService {
         BigDecimal passingScore = sanitizePassingScore(request.getPassingScore());
         Integer attemptLimit = sanitizeNonNegativeInt(request.getAttemptLimit());
         Integer durationMin = sanitizeNonNegativeInt(request.getDurationMin());
-        String status = request.getStatus() != null ? request.getStatus() : "DRAFT";
+        String status = request.getStatus() != null ? request.getStatus() : "Draft";
         String editorVersion = request.getEditorVersion() != null ? request.getEditorVersion() : "course-editor-v1";
-        String editorStatus = request.getEditorStatus() != null ? request.getEditorStatus() : "DRAFT";
+        String editorStatus = request.getEditorStatus() != null ? request.getEditorStatus() : "Draft";
 
         Course course = Course.builder()
                 .title(title)
@@ -336,7 +336,7 @@ public class CourseServiceImpl implements CourseService {
         Course course = Course.builder()
                 .title(outline.title())
                 .description(outline.description())
-                .status("DRAFT") // Trạng thái nháp ban đầu
+                .status("Draft") // Trạng thái nháp ban đầu
                 .isFavorite(false) // Khởi tạo mặc định là false cho khóa học AI sinh
                 .user(currentUser)
                 .build();
@@ -430,9 +430,9 @@ public class CourseServiceImpl implements CourseService {
                     .passingScore(passingScore)
                     .attemptLimit(attemptLimit)
                     .durationMin(durationMin)
-                    .status("DRAFT")
+                    .status("Draft")
                     .editorVersion("course-editor-v1")
-                    .editorStatus("DRAFT")
+                    .editorStatus("Draft")
                     .editorState(editorState)
                     .user(currentUser)
                     .build();
