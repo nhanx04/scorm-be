@@ -1,8 +1,15 @@
 package com.scorm.generator.dto;
 
+import jakarta.validation.constraints.NotBlank;
+
 public class UpdateProfileRequest {
+
+    @NotBlank(message = "Tên không được để trống")
     private String fname;
+
+    @NotBlank(message = "Họ không được để trống")
     private String lname;
+
     private String avatarUrl;
 
     // Getters and Setters
