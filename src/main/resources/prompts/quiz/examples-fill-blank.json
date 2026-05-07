@@ -1,0 +1,13 @@
+{
+  "type": "FILL_IN_THE_BLANK",
+  "description": "Câu hỏi điền chỗ trống. sentenceHtml chứa câu với marker '___' (ba dấu gạch dưới) cho mỗi chỗ trống. correctAnswer là MẢNG chuỗi theo ĐÚNG THỨ TỰ xuất hiện của các chỗ trống trong câu. Có thể có nhiều chỗ trống trong cùng một câu.",
+  "sourceContext": "Mô hình OSI có 7 tầng. Tầng thứ nhất là tầng Vật lý (Physical), tầng thứ hai là tầng Liên kết dữ liệu (Data Link), tầng thứ ba là tầng Mạng (Network), và tầng thứ tư là tầng Giao vận (Transport).",
+  "expectedOutput": {
+    "type": "FILL_IN_THE_BLANK",
+    "prompt": "Điền vào chỗ trống tên các tầng trong mô hình OSI.",
+    "options": null,
+    "sentenceHtml": "<p>Tầng thứ hai trong mô hình OSI là tầng <strong>___</strong>, còn tầng thứ tư là tầng <strong>___</strong>.</p>",
+    "correctAnswer": ["Liên kết dữ liệu", "Giao vận"],
+    "explanation": "Theo tài liệu, tầng 2 là Liên kết dữ liệu (Data Link) và tầng 4 là Giao vận (Transport). Thứ tự trong mảng correctAnswer phải tương ứng đúng với thứ tự xuất hiện của chỗ trống trong câu."
+  }
+}

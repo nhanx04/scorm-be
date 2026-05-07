@@ -1,0 +1,44 @@
+{
+  "label": "NEGATIVE_EXAMPLE",
+  "description": "Mẫu nội dung SAI — TUYỆT ĐỐI KHÔNG được trả về theo dạng này. Liệt kê các anti-pattern thường gặp và lý do bị cấm.",
+  "wrongOutput": {
+    "pageTitle": "Biến trong Python",
+    "htmlContent": "<!DOCTYPE html><html><head><style>.lesson { color: red; }</style></head><body><div class=\"lesson\" style=\"padding: 20px\"><h1>Biến trong Python</h1><script>console.log('loaded');</script><pre><code>name = 'An'</code></pre><p>Đây là biến.</p><img src=\"variable.png\" /><a href=\"https://example.com\" onclick=\"track()\">Xem thêm</a></div></body></html>",
+    "estimatedReadingTime": 1,
+    "shortSummary": "Bài học về biến."
+  },
+  "violations": [
+    {
+      "issue": "Có thẻ <html>, <head>, <body>",
+      "reason": "Nội dung sẽ được nhúng vào template SCORM đã có sẵn các thẻ này — nhồi thêm sẽ làm hỏng cấu trúc HTML."
+    },
+    {
+      "issue": "Có thẻ <script>",
+      "reason": "Bị block bởi Content Security Policy của LMS (Moodle, TalentLMS, Canvas...) và là rủi ro XSS."
+    },
+    {
+      "issue": "Có thẻ <style> và inline style attribute",
+      "reason": "Conflict với theme của LMS, không nằm trong whitelist."
+    },
+    {
+      "issue": "Dùng <h1>",
+      "reason": "<h1> dành cho tiêu đề trang ngoài. Bài học phải bắt đầu từ <h2>."
+    },
+    {
+      "issue": "Dùng <div>, <pre>, <code>, <img>, <a>",
+      "reason": "Không nằm trong whitelist (h2, h3, p, ul, ol, li, strong, em, blockquote). Code mẫu nên dùng <blockquote>."
+    },
+    {
+      "issue": "Có sự kiện DOM như onclick",
+      "reason": "Inline JS bị block bởi CSP, là rủi ro XSS."
+    },
+    {
+      "issue": "Nội dung quá ngắn, không có cấu trúc sư phạm",
+      "reason": "Bài học cần đủ phần mở đầu, giải thích, ví dụ và tóm tắt. estimatedReadingTime 1 phút quá ngắn."
+    },
+    {
+      "issue": "shortSummary chỉ có 1 cụm từ",
+      "reason": "Phải là 1-2 câu mô tả đầy đủ để dùng làm meta description."
+    }
+  ]
+}

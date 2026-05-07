@@ -2,6 +2,7 @@ package com.scorm.generator.service;
 
 import org.springframework.ai.chat.client.ChatClient;
 import org.springframework.ai.converter.BeanOutputConverter;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.core.io.InputStreamResource;
@@ -17,6 +18,8 @@ import com.scorm.generator.dto.ai.AiQuizResponse;
 import com.scorm.generator.dto.ai.AskKnowledgeRequest;
 import com.scorm.generator.dto.ai.GenerateCourseQuizRequest;
 import com.scorm.generator.dto.ai.GenerateQuizRequest;
+import com.scorm.generator.service.ai.PageContentExampleLoader;
+import com.scorm.generator.service.ai.QuizExampleLoader;
 
 import java.io.InputStream;
 import java.util.List;
@@ -26,13 +29,30 @@ import java.util.stream.Collectors;
 public class AiGeneratorService {
 
         private final ChatClient chatClient;
+        private final QuizExampleLoader quizExampleLoader;
+        private final PageContentExampleLoader pageContentExampleLoader;
+        private final boolean quizFewShotEnabled;
+        private final boolean pageContentFewShotEnabled;
 
-        public AiGeneratorService(ChatClient.Builder chatClientBuilder) {
+        public AiGeneratorService(
+                        ChatClient.Builder chatClientBuilder,
+                        QuizExampleLoader quizExampleLoader,
+                        PageContentExampleLoader pageContentExampleLoader,
+                        @Value("${app.ai.quiz.few-shot-enabled:true}") boolean quizFewShotEnabled,
+                        @Value("${app.ai.page-content.few-shot-enabled:true}") boolean pageContentFewShotEnabled) {
                 this.chatClient = chatClientBuilder
                                 .defaultSystem(
                                                 "Bạn là một chuyên gia thiết kế giáo trình e-learning (Instructional Designer) với 10 năm kinh nghiệm. "
                                                                 + "Nhiệm vụ của bạn là xây dựng cấu trúc khóa học chi tiết, logic và hấp dẫn.")
                                 .build();
+                this.quizExampleLoader = quizExampleLoader;
+                this.pageContentExampleLoader = pageContentExampleLoader;
+                this.quizFewShotEnabled = quizFewShotEnabled;
+                this.pageContentFewShotEnabled = pageContentFewShotEnabled;
+        }
+
+        private static String stripJsonFence(String raw) {
+                return raw.replace("```json", "").replace("```", "").trim();
         }
 
         /**
@@ -117,7 +137,7 @@ public class AiGeneratorService {
                                 .content();
 
                 // 5. Xử lý chuỗi và Convert thành Object
-                String jsonContent = rawResponse.replace("```json", "").replace("```", "").trim();
+                String jsonContent = stripJsonFence(rawResponse);
                 return converter.convert(jsonContent);
         }
 
@@ -200,7 +220,7 @@ public class AiGeneratorService {
                                 .content();
 
                 // 4. Xử lý chuỗi JSON (Làm sạch Markdown nếu có)
-                String jsonContent = rawResponse.replace("```json", "").replace("```", "").trim();
+                String jsonContent = stripJsonFence(rawResponse);
 
                 // 5. Convert String sạch thành Object Java
                 return converter.convert(jsonContent);
@@ -231,6 +251,8 @@ public class AiGeneratorService {
                                 3. CHỈ SỬ DỤNG các thẻ HTML cơ bản để định dạng: <h2>, <h3>, <p>, <ul>, <ol>, <li>, <strong>, <em>, blockquote.
                                 4. TUYỆT ĐỐI KHÔNG sử dụng các thẻ <html>, <head>, <body>, <script>, <style>.
 
+                                {fewShotExamples}
+
                                 YÊU CẦU VỀ ĐỊNH DẠNG ĐẦU RA:
                                 1. Trả về kết quả CHÍNH XÁC theo định dạng JSON được yêu cầu.
                                 2. KHÔNG thêm bất kỳ lời dẫn hay giải thích nào bên ngoài block JSON.
@@ -255,13 +277,33 @@ public class AiGeneratorService {
                                                                 request.getAdditionalInstructions() != null
                                                                                 ? request.getAdditionalInstructions()
                                                                                 : "Không có")
+                                                .param("fewShotExamples", buildPageContentFewShotBlock())
                                                 .param("formatInstructions", formatInstructions))
                                 .call()
                                 .content();
 
                 // 4. Xử lý chuỗi và Convert
-                String jsonContent = rawResponse.replace("```json", "").replace("```", "").trim();
+                String jsonContent = stripJsonFence(rawResponse);
                 return converter.convert(jsonContent);
+        }
+
+        private String buildPageContentFewShotBlock() {
+                if (!pageContentFewShotEnabled) {
+                        return "";
+                }
+                String positive = pageContentExampleLoader.getPositiveExample();
+                String negative = pageContentExampleLoader.getNegativeExample();
+                if ((positive == null || positive.isBlank()) && (negative == null || negative.isBlank())) {
+                        return "";
+                }
+                return """
+                                VÍ DỤ THAM KHẢO (FEW-SHOT):
+                                ----------------------------------------
+                                %s
+                                ----------------------------------------
+                                %s
+                                ----------------------------------------
+                                """.formatted(positive == null ? "" : positive, negative == null ? "" : negative);
         }
 
         /**
@@ -292,6 +334,8 @@ public class AiGeneratorService {
                                 - MATCHING: có pairs (left-right), correctAnswer có thể để null.
                                 - explanation ngắn gọn, nêu căn cứ từ tài liệu gốc.
 
+                                {fewShotExamples}
+
                                 CHỈ trả về JSON đúng schema sau:
                                 {formatInstructions}
                                 """;
@@ -307,12 +351,29 @@ public class AiGeneratorService {
                                                 .param("language",
                                                                 request.getLanguage() != null ? request.getLanguage()
                                                                                 : "Vietnamese")
+                                                .param("fewShotExamples", buildQuizFewShotBlock())
                                                 .param("formatInstructions", formatInstructions))
                                 .call()
                                 .content();
 
-                String jsonContent = rawResponse.replace("```json", "").replace("```", "").trim();
+                String jsonContent = stripJsonFence(rawResponse);
                 return converter.convert(jsonContent);
+        }
+
+        private String buildQuizFewShotBlock() {
+                if (!quizFewShotEnabled) {
+                        return "";
+                }
+                String all = quizExampleLoader.formatAllExamples();
+                if (all == null || all.isBlank()) {
+                        return "";
+                }
+                return """
+                                DƯỚI ĐÂY LÀ CÁC VÍ DỤ MẪU CHO TỪNG LOẠI CÂU HỎI (FEW-SHOT). HÃY HỌC ĐÚNG SHAPE CỦA correctAnswer THEO TỪNG LOẠI:
+                                ========================================================
+                                %s
+                                ========================================================
+                                """.formatted(all);
         }
 
         public AiQuizResponse generateCourseAwareQuiz(GenerateCourseQuizRequest request) {
@@ -336,6 +397,8 @@ public class AiGeneratorService {
                                 2. Bao phủ đầy đủ 6 loại câu hỏi: MCQ_SINGLE, MCQ_MULTIPLE, TRUE_FALSE, SHORT_ANSWER, FILL_IN_THE_BLANK, MATCHING.
                                 3. Không dùng kiến thức ngoài nội dung bài học và ngữ cảnh khóa học.
                                 4. explanation phải nêu lý do đúng dựa vào nội dung bài học.
+
+                                {fewShotExamples}
 
                                 Chỉ trả về JSON hợp lệ theo schema:
                                 {formatInstructions}
@@ -370,11 +433,12 @@ public class AiGeneratorService {
                                                 .param("language",
                                                                 request.getLanguage() != null ? request.getLanguage()
                                                                                 : "Vietnamese")
+                                                .param("fewShotExamples", buildQuizFewShotBlock())
                                                 .param("formatInstructions", formatInstructions))
                                 .call()
                                 .content();
 
-                String jsonContent = rawResponse.replace("```json", "").replace("```", "").trim();
+                String jsonContent = stripJsonFence(rawResponse);
                 return converter.convert(jsonContent);
         }
 
@@ -437,7 +501,7 @@ public class AiGeneratorService {
                                 .call()
                                 .content();
 
-                String jsonContent = rawResponse.replace("```json", "").replace("```", "").trim();
+                String jsonContent = stripJsonFence(rawResponse);
                 return converter.convert(jsonContent);
         }
 }

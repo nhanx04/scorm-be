@@ -1,0 +1,23 @@
+{
+  "label": "POSITIVE_EXAMPLE",
+  "description": "Mẫu nội dung ĐÚNG cho một bài học. HTML chỉ dùng các thẻ trong whitelist (h2, h3, p, ul, ol, li, strong, em, blockquote). Cấu trúc sư phạm: mở đầu dẫn dắt → định nghĩa → ví dụ → tóm tắt.",
+  "input": {
+    "courseTopic": "Lập trình Python cơ bản",
+    "sectionTitle": "Các kiểu dữ liệu cơ bản",
+    "pageTopic": "Khái niệm biến trong Python"
+  },
+  "expectedOutput": {
+    "pageTitle": "Biến trong Python: Khái niệm và Cách sử dụng",
+    "htmlContent": "<h2>Mở đầu</h2><p>Khi bắt đầu viết bất kỳ chương trình nào, chúng ta đều cần một nơi để <strong>lưu trữ và thao tác với dữ liệu</strong>. Trong Python, nơi đó được gọi là <em>biến</em> (variable).</p><h3>Định nghĩa</h3><p>Biến là một <strong>tên gọi tham chiếu</strong> đến một vùng nhớ chứa giá trị. Khác với nhiều ngôn ngữ khác, Python không yêu cầu khai báo kiểu dữ liệu trước khi gán giá trị cho biến.</p><h3>Quy tắc đặt tên biến</h3><ul><li>Bắt đầu bằng chữ cái hoặc dấu gạch dưới <em>_</em></li><li>Không được bắt đầu bằng chữ số</li><li>Chỉ chứa chữ cái, chữ số và dấu gạch dưới</li><li>Phân biệt chữ hoa và chữ thường</li></ul><h3>Ví dụ minh họa</h3><blockquote><p>name = \"An\"<br>age = 20<br>is_student = True</p></blockquote><p>Trong ví dụ trên, ba biến được tạo với ba kiểu dữ liệu khác nhau (chuỗi, số nguyên, boolean) mà không cần khai báo kiểu.</p><h3>Tóm tắt</h3><p><strong>Biến trong Python</strong> là tên tham chiếu tới giá trị, được tạo ngay khi gán giá trị lần đầu. Cần tuân thủ quy tắc đặt tên để code rõ ràng và dễ bảo trì.</p>",
+    "estimatedReadingTime": 4,
+    "shortSummary": "Bài học giới thiệu khái niệm biến trong Python: định nghĩa, quy tắc đặt tên và ví dụ minh họa cách khai báo biến với các kiểu dữ liệu khác nhau."
+  },
+  "rationale": [
+    "Bắt đầu bằng <h2> (không phải <h1>) vì <h1> dành cho tiêu đề trang ngoài",
+    "Có đủ các phần: mở đầu → định nghĩa → quy tắc → ví dụ → tóm tắt",
+    "Dùng <strong> và <em> để nhấn mạnh, không dùng inline style",
+    "Dùng <blockquote> để hiển thị code/ví dụ, không dùng <pre> hay <code> (ngoài whitelist)",
+    "estimatedReadingTime hợp lý với độ dài nội dung",
+    "shortSummary ngắn gọn 1-2 câu, có thể dùng làm meta description"
+  ]
+}

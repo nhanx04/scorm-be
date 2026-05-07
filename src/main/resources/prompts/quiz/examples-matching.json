@@ -1,0 +1,18 @@
+{
+  "type": "MATCHING",
+  "description": "Câu hỏi nối chéo. Trường pairs là MẢNG các cặp left-right đúng (đáp án mẫu). correctAnswer LUÔN là null vì pairs đã chứa luôn đáp án đúng. Nên có 3-5 cặp để câu hỏi đủ thử thách.",
+  "sourceContext": "Trong hệ điều hành, các cấu trúc dữ liệu cơ bản bao gồm: Stack hoạt động theo nguyên tắc LIFO (Last In First Out), Queue theo nguyên tắc FIFO (First In First Out), Tree là cấu trúc phân cấp có gốc, và Graph là tập hợp các đỉnh nối với nhau bằng cạnh.",
+  "expectedOutput": {
+    "type": "MATCHING",
+    "prompt": "Hãy nối mỗi cấu trúc dữ liệu với đặc điểm tương ứng.",
+    "options": null,
+    "correctAnswer": null,
+    "pairs": [
+      { "left": "Stack", "right": "Hoạt động theo nguyên tắc LIFO" },
+      { "left": "Queue", "right": "Hoạt động theo nguyên tắc FIFO" },
+      { "left": "Tree", "right": "Cấu trúc phân cấp có gốc" },
+      { "left": "Graph", "right": "Tập hợp đỉnh nối với nhau bằng cạnh" }
+    ],
+    "explanation": "Theo tài liệu, mỗi cấu trúc dữ liệu có đặc điểm hoạt động riêng: Stack-LIFO, Queue-FIFO, Tree-phân cấp, Graph-đỉnh và cạnh."
+  }
+}
