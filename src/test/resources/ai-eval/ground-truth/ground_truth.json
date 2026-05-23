@@ -1,0 +1,152 @@
+{
+  "schema_version": "1.0",
+  "description": "Ground truth cho 10 tài liệu test - mỗi tài liệu có 5 'key facts' không thể sai. Dùng để đo hallucination khi đối chiếu với output của AI. Em phải đọc tài liệu thật và bóc tay các fact này trước khi chạy eval.",
+  "guidelines_for_filling": [
+    "1. KEY FACT là sự kiện/định nghĩa/công thức chắc chắn đúng theo tài liệu nguồn.",
+    "2. Tránh fact mơ hồ kiểu 'tài liệu nói về X' — phải cụ thể, có thể kiểm chứng yes/no.",
+    "3. Ưu tiên fact mà nếu sinh ra sai sẽ là hallucination rõ ràng (định nghĩa khái niệm, năm, tên tác giả, công thức, số liệu).",
+    "4. Tránh fact dạng quan điểm chủ quan.",
+    "5. Mỗi fact viết 1 câu (≤ 30 từ) bằng ngôn ngữ của tài liệu."
+  ],
+  "examples_good": [
+    "Trong mô hình OSI, tầng 4 là tầng Transport, chịu trách nhiệm phân đoạn dữ liệu và đảm bảo truyền tin cậy giữa hai đầu cuối.",
+    "Newton's second law states that F = m * a, where F is the net force, m is mass, and a is acceleration."
+  ],
+  "examples_bad": [
+    "Tài liệu này nói về OOP.",
+    "Mạng máy tính rất quan trọng trong thời đại số."
+  ],
+
+  "documents": [
+    {
+      "doc_id": "D01",
+      "file": "cs-oop.pdf",
+      "title": "Lập trình hướng đối tượng",
+      "language": "vi",
+      "key_facts": [
+        { "id": "D01-F1", "fact": "TODO: ví dụ - Kế thừa (inheritance) là cơ chế cho phép một lớp con thừa kế thuộc tính và phương thức từ lớp cha." },
+        { "id": "D01-F2", "fact": "TODO" },
+        { "id": "D01-F3", "fact": "TODO" },
+        { "id": "D01-F4", "fact": "TODO" },
+        { "id": "D01-F5", "fact": "TODO" }
+      ]
+    },
+    {
+      "doc_id": "D02",
+      "file": "cs-database.pdf",
+      "title": "Cơ sở dữ liệu - Mô hình thực thể quan hệ",
+      "language": "vi",
+      "key_facts": [
+        { "id": "D02-F1", "fact": "TODO" },
+        { "id": "D02-F2", "fact": "TODO" },
+        { "id": "D02-F3", "fact": "TODO" },
+        { "id": "D02-F4", "fact": "TODO" },
+        { "id": "D02-F5", "fact": "TODO" }
+      ]
+    },
+    {
+      "doc_id": "D03",
+      "file": "cs-network.pdf",
+      "title": "Mạng máy tính - Mô hình OSI",
+      "language": "vi",
+      "key_facts": [
+        { "id": "D03-F1", "fact": "TODO" },
+        { "id": "D03-F2", "fact": "TODO" },
+        { "id": "D03-F3", "fact": "TODO" },
+        { "id": "D03-F4", "fact": "TODO" },
+        { "id": "D03-F5", "fact": "TODO" }
+      ]
+    },
+    {
+      "doc_id": "D04",
+      "file": "math-calculus.pdf",
+      "title": "Giải tích - Đạo hàm và vi phân",
+      "language": "vi",
+      "key_facts": [
+        { "id": "D04-F1", "fact": "TODO" },
+        { "id": "D04-F2", "fact": "TODO" },
+        { "id": "D04-F3", "fact": "TODO" },
+        { "id": "D04-F4", "fact": "TODO" },
+        { "id": "D04-F5", "fact": "TODO" }
+      ]
+    },
+    {
+      "doc_id": "D05",
+      "file": "physics-general.pdf",
+      "title": "Vật lý đại cương - Cơ học Newton",
+      "language": "vi",
+      "key_facts": [
+        { "id": "D05-F1", "fact": "TODO" },
+        { "id": "D05-F2", "fact": "TODO" },
+        { "id": "D05-F3", "fact": "TODO" },
+        { "id": "D05-F4", "fact": "TODO" },
+        { "id": "D05-F5", "fact": "TODO" }
+      ]
+    },
+    {
+      "doc_id": "D06",
+      "file": "philosophy-marxism.pdf",
+      "title": "Triết học Mác - Lênin - Phép biện chứng duy vật",
+      "language": "vi",
+      "key_facts": [
+        { "id": "D06-F1", "fact": "TODO" },
+        { "id": "D06-F2", "fact": "TODO" },
+        { "id": "D06-F3", "fact": "TODO" },
+        { "id": "D06-F4", "fact": "TODO" },
+        { "id": "D06-F5", "fact": "TODO" }
+      ]
+    },
+    {
+      "doc_id": "D07",
+      "file": "econ-microeconomics.pdf",
+      "title": "Kinh tế vi mô - Cung cầu và giá cả",
+      "language": "vi",
+      "key_facts": [
+        { "id": "D07-F1", "fact": "TODO" },
+        { "id": "D07-F2", "fact": "TODO" },
+        { "id": "D07-F3", "fact": "TODO" },
+        { "id": "D07-F4", "fact": "TODO" },
+        { "id": "D07-F5", "fact": "TODO" }
+      ]
+    },
+    {
+      "doc_id": "D08",
+      "file": "history-vietnam.pdf",
+      "title": "Lịch sử Việt Nam cận đại",
+      "language": "vi",
+      "key_facts": [
+        { "id": "D08-F1", "fact": "TODO" },
+        { "id": "D08-F2", "fact": "TODO" },
+        { "id": "D08-F3", "fact": "TODO" },
+        { "id": "D08-F4", "fact": "TODO" },
+        { "id": "D08-F5", "fact": "TODO" }
+      ]
+    },
+    {
+      "doc_id": "D09",
+      "file": "en-ml-intro.pdf",
+      "title": "Introduction to Machine Learning",
+      "language": "en",
+      "key_facts": [
+        { "id": "D09-F1", "fact": "TODO" },
+        { "id": "D09-F2", "fact": "TODO" },
+        { "id": "D09-F3", "fact": "TODO" },
+        { "id": "D09-F4", "fact": "TODO" },
+        { "id": "D09-F5", "fact": "TODO" }
+      ]
+    },
+    {
+      "doc_id": "D10",
+      "file": "en-software-eng.pdf",
+      "title": "Software Engineering Fundamentals",
+      "language": "en",
+      "key_facts": [
+        { "id": "D10-F1", "fact": "TODO" },
+        { "id": "D10-F2", "fact": "TODO" },
+        { "id": "D10-F3", "fact": "TODO" },
+        { "id": "D10-F4", "fact": "TODO" },
+        { "id": "D10-F5", "fact": "TODO" }
+      ]
+    }
+  ]
+}

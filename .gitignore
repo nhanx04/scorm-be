@@ -62,3 +62,13 @@ yarn-error.log
 .env.local
 .env.*.local
 
+# AI Evaluation — Không commit tài liệu test (bản quyền) và file CSV kết quả raw
+src/test/resources/ai-eval/documents/*.pdf
+src/test/resources/ai-eval/documents/*.docx
+src/test/resources/ai-eval/documents/*.doc
+src/test/resources/ai-eval/results/*.csv
+src/test/resources/ai-eval/results/*.json
+# Giữ .gitkeep để bảo toàn cấu trúc thư mục
+!src/test/resources/ai-eval/documents/.gitkeep
+!src/test/resources/ai-eval/results/.gitkeep
+

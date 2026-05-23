@@ -1,0 +1,212 @@
+# =====================================================================
+# AI Evaluation Configuration
+# =====================================================================
+# Cấu hình toàn bộ thí nghiệm đánh giá định lượng module AI.
+# Mục tiêu: đảm bảo tính reproducibility — bất kỳ ai chạy lại cũng
+# phải dùng đúng tài liệu, đúng version model, đúng tham số.
+#
+# Tham chiếu: báo cáo đồ án, mục 5.4 "Đánh giá module AI".
+# =====================================================================
+
+experiment:
+  id: "ai-eval-2026-05"
+  description: "Đánh giá định lượng module AI sinh outline, page content và quiz"
+  started_at: "2026-05-23"
+  authors:
+    - "2213813"
+    - "2212370"
+
+# ---------------------------------------------------------------------
+# Model — PIN cứng version để reproducible
+# ---------------------------------------------------------------------
+# Lưu ý: production app dùng spring.ai.google.genai.chat.options.temperature=0.7
+# Eval cần determinism cao hơn → đặt temperature thấp.
+model:
+  provider: "google-genai"
+  name: "gemini-2.5-pro"
+  # Snapshot version cụ thể (cập nhật khi chạy thực tế dựa trên response metadata)
+  version_pinned: "gemini-2.5-pro-preview-05-06"
+  temperature: 0.2
+  top_p: 0.95
+  max_output_tokens: 8192
+  # Tham số bổ sung cho LLM-as-judge (nhóm C) — dùng Flash để tiết kiệm
+  judge:
+    name: "gemini-2.5-flash"
+    temperature: 0.0
+    max_output_tokens: 1024
+
+# ---------------------------------------------------------------------
+# Số lần lặp — để đo độ ổn định (variance) giữa các lần gọi cùng input
+# ---------------------------------------------------------------------
+runs:
+  per_document_per_feature: 2
+  # Tổng calls = 10 docs × 3 features × 2 runs = 60 calls
+
+# ---------------------------------------------------------------------
+# Tập tài liệu test
+# ---------------------------------------------------------------------
+# 10 tài liệu, chia 4 nhóm để test đa lĩnh vực + đa ngôn ngữ.
+# Trường `expected_pages` chỉ là gợi ý để chọn tài liệu (5–20 trang).
+# Trường `language` quyết định LLM được prompt bằng ngôn ngữ tương ứng.
+documents:
+  - id: "D01"
+    file: "cs-oop.pdf"
+    domain: "cs"
+    title: "Lập trình hướng đối tượng"
+    language: "vi"
+    expected_pages: 10
+    source_hint: "Slide/giáo trình môn CO2003 HCMUT"
+
+  - id: "D02"
+    file: "cs-database.pdf"
+    domain: "cs"
+    title: "Cơ sở dữ liệu - Mô hình thực thể quan hệ"
+    language: "vi"
+    expected_pages: 12
+    source_hint: "Slide/giáo trình môn CO2013 HCMUT"
+
+  - id: "D03"
+    file: "cs-network.pdf"
+    domain: "cs"
+    title: "Mạng máy tính - Mô hình OSI"
+    language: "vi"
+    expected_pages: 10
+    source_hint: "Slide/giáo trình môn CO3093 HCMUT"
+
+  - id: "D04"
+    file: "math-calculus.pdf"
+    domain: "math"
+    title: "Giải tích - Đạo hàm và vi phân"
+    language: "vi"
+    expected_pages: 8
+    source_hint: "Giáo trình Toán cao cấp"
+
+  - id: "D05"
+    file: "physics-general.pdf"
+    domain: "physics"
+    title: "Vật lý đại cương - Cơ học Newton"
+    language: "vi"
+    expected_pages: 10
+    source_hint: "Giáo trình Vật lý đại cương"
+
+  - id: "D06"
+    file: "philosophy-marxism.pdf"
+    domain: "philosophy"
+    title: "Triết học Mác - Lênin - Phép biện chứng duy vật"
+    language: "vi"
+    expected_pages: 10
+    source_hint: "Giáo trình Triết học Mác-Lênin"
+
+  - id: "D07"
+    file: "econ-microeconomics.pdf"
+    domain: "econ"
+    title: "Kinh tế vi mô - Cung cầu và giá cả"
+    language: "vi"
+    expected_pages: 12
+    source_hint: "Giáo trình Kinh tế vi mô"
+
+  - id: "D08"
+    file: "history-vietnam.pdf"
+    domain: "history"
+    title: "Lịch sử Việt Nam cận đại"
+    language: "vi"
+    expected_pages: 10
+    source_hint: "Giáo trình Lịch sử Việt Nam"
+
+  - id: "D09"
+    file: "en-ml-intro.pdf"
+    domain: "cs"
+    title: "Introduction to Machine Learning"
+    language: "en"
+    expected_pages: 12
+    source_hint: "Stanford CS229 lecture notes hoặc tương đương"
+
+  - id: "D10"
+    file: "en-software-eng.pdf"
+    domain: "cs"
+    title: "Software Engineering Fundamentals"
+    language: "en"
+    expected_pages: 10
+    source_hint: "MIT OCW 6.005 hoặc giáo trình SE tiếng Anh"
+
+# ---------------------------------------------------------------------
+# Các tính năng AI được test
+# ---------------------------------------------------------------------
+features:
+  - id: "outline"
+    endpoint: "/api/v1/ai/generate-outline-from-file"
+    request_params:
+      targetAudience: "Sinh viên đại học năm 2-3"
+      audienceProficiencyLevel: "Trung cấp"
+      duration: "8 tuần"
+      additionalInstructions: ""
+    dto_class: "com.scorm.generator.dto.ai.AiCourseOutline"
+
+  - id: "page-content"
+    endpoint: "/api/v1/ai/generate-page-content"
+    request_params:
+      pageTitle: "Sẽ lấy động từ outline đã sinh ở feature outline"
+      additionalContext: ""
+    dto_class: "com.scorm.generator.dto.ai.AiPageContentResponse"
+    few_shot_enabled: true
+
+  - id: "quiz"
+    endpoint: "/api/v1/ai/generate-quiz"
+    request_params:
+      numberOfQuestions: 5
+      questionTypes: ["SINGLE_CHOICE", "TRUE_FALSE"]
+      difficulty: "MEDIUM"
+    dto_class: "com.scorm.generator.dto.ai.AiQuizResponse"
+    few_shot_enabled: true
+
+# ---------------------------------------------------------------------
+# Tham số đo và mục tiêu (target) — tham chiếu mục 5.4
+# ---------------------------------------------------------------------
+metrics:
+  reliability:
+    json_parse_success_rate_target: 0.95
+    schema_validation_pass_target: 0.95
+    empty_field_rate_target: 0.02
+
+  latency:
+    p95_target_seconds: 30.0
+    max_acceptable_seconds: 60.0
+
+  cost:
+    # Đơn giá USD/1M token (Gemini 2.5 Pro công bố tháng 5/2026)
+    input_price_per_million: 3.50
+    output_price_per_million: 10.50
+    total_budget_usd: 10.00
+
+  faithfulness:
+    auto_score_target: 4.0   # trên thang 1-5
+    hallucination_rate_target: 0.10   # < 10%
+
+  pedagogical:
+    all_criteria_pass_target: 0.70   # ≥ 70% câu hỏi đạt cả 4 tiêu chí
+
+  iwf:
+    flaw_free_rate_target: 0.50      # ≥ 50% câu hỏi không mắc flaw nào
+    severely_flawed_rate_target: 0.20  # ≤ 20% câu hỏi mắc ≥ 2 flaw
+    kappa_target: 0.60               # κ inter-rater ≥ 0.6
+
+# ---------------------------------------------------------------------
+# Output paths
+# ---------------------------------------------------------------------
+output:
+  base_dir: "src/test/resources/ai-eval/results"
+  reliability_csv: "reliability_{timestamp}.csv"
+  latency_cost_csv: "latency_cost_{timestamp}.csv"
+  faithfulness_auto_csv: "faithfulness_auto_{timestamp}.csv"
+  human_scoring_template: "human_scoring_template.csv"
+  iwf_scoring_template: "iwf_scoring_template.csv"
+
+# ---------------------------------------------------------------------
+# Sample size cho human evaluation (Nhóm C & D & IWF)
+# ---------------------------------------------------------------------
+human_eval:
+  faithfulness_sample_size: 30      # random 30 từ 60 outputs
+  reviewers: 2
+  quiz_sample_size: 50              # 10 docs × 5 câu hỏi/quiz
+  rubric_pedagogical: "rubrics/pedagogical-rubric.md"
+  rubric_iwf: "rubrics/iwf-checklist.md"
