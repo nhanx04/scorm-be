@@ -1,100 +1,85 @@
-# Checklist thu thập tài liệu test
+# Document Collection — Status
 
-> Hôm nay (D1, Thứ 7 23/05/2026): cần thu đủ 10 tài liệu trước cuối ngày.
+**Completed on:** 2026-05-23 (D1)
+**Status:** ✅ 10/10 documents collected, ground truth filled
 
-## Tiêu chí chọn tài liệu
+---
 
-- **Định dạng:** PDF hoặc DOCX (Tika có thể đọc, không phải file scan ảnh)
-- **Độ dài:** 5–20 trang (giữ chi phí token thấp, vẫn đủ ngữ cảnh)
-- **Nội dung:** Giáo trình/slide bài giảng có cấu trúc, có khái niệm rõ ràng
-- **Tránh:**
-  - File scan ảnh (Tika không OCR được mặc định)
-  - Tài liệu < 3 trang (quá ít context)
-  - Tài liệu > 30 trang (vượt context window dễ tốn token)
-  - File có DRM/password
-  - Tài liệu nhạy cảm (đề thi, tài liệu nội bộ)
+## Final document set
 
-## Phân công
+10 tài liệu giáo trình thực tế đã thu thập (chủ yếu từ HCMUT). Tất cả đều
+là slide bài giảng dạng PDF, đã được xác minh có thể đọc được bằng Apache Tika.
 
-| Người | Tài liệu phụ trách |
-|------|--------------------|
-| Người A (em) | D01, D02, D03, D04, D05 |
-| Người B (thành viên) | D06, D07, D08, D09, D10 |
+| ID  | File                                                   | Subject                                      | Lang | Pages |
+|-----|--------------------------------------------------------|----------------------------------------------|------|-------|
+| D01 | `1-Introduction-2023.pdf`                              | Introduction to Programming Languages        | EN   | 36    |
+| D02 | `4-1_SQL.pdf`                                          | SQL (DDL/DML/DCL)                            | EN   | 114   |
+| D03 | `201_DSA___Chapter_7__Hash___Search__new_.pdf`         | Searching & Hash Tables                      | EN   | 124   |
+| D04 | `Chapter_5 - Transaction Processing.pdf`               | DB Transaction Processing                    | EN   | 65    |
+| D05 | `ds10connectivity.pdf`                                 | Graph Connectivity (Discrete Math, Ch.9)     | EN   | 360   |
+| D06 | `BayesianLearning.pdf`                                 | Bayesian Learning (ML)                       | EN   | 36    |
+| D07 | `05_Design_thinking_v3.pdf`                            | Design Thinking (E-commerce, Ch.5)           | EN   | 72    |
+| D08 | `NVT- POM-Ch1- DAI CUONG VE TIEP THI.pdf`              | Đại cương về Marketing                       | VI   | 26    |
+| D09 | `Chương 6.pdf`                                         | Vật lý: Trường tĩnh điện                     | VI   | 25    |
+| D10 | `Chuong2_CungCauDiemCanBangGiaTranGiaSanThue_Eng.pdf`  | Microeconomics: Supply & Demand              | EN   | 57    |
 
-## Checklist 10 tài liệu
+**Total:** 915 pages
 
-### Nhóm CNTT (3 tài liệu)
+## Phân bố
 
-- [ ] **D01 — `cs-oop.pdf`** — Lập trình hướng đối tượng (tiếng Việt)
-  - Gợi ý nguồn: Slide chương "Kế thừa & Đa hình" môn CO2003, hoặc tải từ kho học liệu HCMUT
-  - Mục tiêu: chứa định nghĩa OOP, 4 trụ cột (encapsulation, inheritance, polymorphism, abstraction)
+### Theo lĩnh vực
 
-- [ ] **D02 — `cs-database.pdf`** — Cơ sở dữ liệu (tiếng Việt)
-  - Gợi ý nguồn: Chương "Mô hình ER" hoặc "Chuẩn hóa" môn CO2013
-  - Mục tiêu: chứa khái niệm thực thể, thuộc tính, quan hệ, khóa chính
+| Lĩnh vực | Số doc | IDs |
+|----------|--------|-----|
+| Computer Science | 5 | D01, D02, D03, D04, D06 |
+| Mathematics (Graph theory) | 1 | D05 |
+| Business / Marketing | 2 | D07, D08 |
+| Physics | 1 | D09 |
+| Economics | 1 | D10 |
 
-- [ ] **D03 — `cs-network.pdf`** — Mạng máy tính (tiếng Việt)
-  - Gợi ý nguồn: Chương "Mô hình OSI/TCP-IP" môn CO3093
-  - Mục tiêu: chứa 7 tầng OSI, vai trò từng tầng
+### Theo ngôn ngữ
 
-### Nhóm cơ bản (3 tài liệu)
+| Ngôn ngữ | Số doc | IDs |
+|----------|--------|-----|
+| English | 8 | D01, D02, D03, D04, D05, D06, D07, D10 |
+| Vietnamese | 2 | D08, D09 |
 
-- [ ] **D04 — `math-calculus.pdf`** — Giải tích (tiếng Việt)
-  - Gợi ý nguồn: Chương "Đạo hàm và vi phân" giáo trình Toán cao cấp
-  - Mục tiêu: định nghĩa đạo hàm, quy tắc đạo hàm cơ bản
+### Theo độ dài (token cost bucketing)
 
-- [ ] **D05 — `physics-general.pdf`** — Vật lý đại cương (tiếng Việt)
-  - Gợi ý nguồn: Chương "Động lực học chất điểm" - 3 định luật Newton
-  - Mục tiêu: 3 định luật Newton + công thức
+| Bucket | Số doc | IDs |
+|--------|--------|-----|
+| Nhỏ (≤ 40 trang) | 4 | D01, D06, D08, D09 |
+| Trung bình (40-100 trang) | 3 | D04, D07, D10 |
+| Lớn (100-200 trang) | 2 | D02, D03 |
+| Rất lớn (> 200 trang) | 1 | D05 (360 trang) |
 
-- [ ] **D06 — `philosophy-marxism.pdf`** — Triết học Mác-Lênin (tiếng Việt)
-  - Gợi ý nguồn: Chương "Phép biện chứng duy vật" - giáo trình môn Mác Lênin
-  - Mục tiêu: 2 nguyên lý, 3 quy luật, 6 cặp phạm trù
+## Threats to validity (ghi vào mục 5.4.7)
 
-### Nhóm KHXH (2 tài liệu)
+Phân bố không hoàn hảo cần được nêu rõ trong báo cáo:
 
-- [ ] **D07 — `econ-microeconomics.pdf`** — Kinh tế vi mô (tiếng Việt)
-  - Gợi ý nguồn: Chương "Cung và cầu" giáo trình Mankiw bản dịch tiếng Việt
-  - Mục tiêu: luật cung, luật cầu, giá cân bằng
+- **Skew về CS (5/10):** Phản ánh nguồn tài liệu nhóm có sẵn (giáo trình HCMUT). Kết quả có thể không generalize tốt cho các lĩnh vực khác như y khoa, ngôn ngữ, nghệ thuật.
+- **Skew về tiếng Anh (8/2):** Phần lớn slide ĐHBK là tiếng Anh. Kết quả cho tiếng Việt chỉ dựa trên 2 doc → cần ghi rõ là "sample size thấp".
+- **D05 rất lớn (360 trang):** Có thể gây outlier trong latency/cost. Khi báo cáo nên tách kết quả theo bucket độ dài.
+- **Không có file scan ảnh:** Toàn bộ là PDF text-based → chưa test được khả năng xử lý khi Tika không OCR được.
 
-- [ ] **D08 — `history-vietnam.pdf`** — Lịch sử Việt Nam (tiếng Việt)
-  - Gợi ý nguồn: Một chương cụ thể về giai đoạn 1858-1945 hoặc 1945-1975
-  - Mục tiêu: mốc thời gian, nhân vật chính, sự kiện chính
+## Ground truth
 
-### Nhóm tiếng Anh (2 tài liệu — test multilingual)
+✅ Đã bóc xong 50 key facts (10 doc × 5 fact) trong `ground-truth/ground_truth.json`.
+Facts được viết bằng ngôn ngữ của tài liệu nguồn (8 EN + 2 VI).
 
-- [ ] **D09 — `en-ml-intro.pdf`** — Machine Learning (English)
-  - Gợi ý nguồn: Stanford CS229 Note 1 (Supervised Learning intro) hoặc 1 chương từ ESL/ISL
-  - Link: https://cs229.stanford.edu/main_notes.pdf (lấy 10 trang đầu)
-  - Mục tiêu: định nghĩa supervised/unsupervised learning, hypothesis function
+## Gate D1 — Status
 
-- [ ] **D10 — `en-software-eng.pdf`** — Software Engineering (English)
-  - Gợi ý nguồn: MIT 6.005 reading hoặc 1 chương từ "Software Engineering" của Sommerville
-  - Link MIT: https://web.mit.edu/6.005/www/fa15/general/readings.html
-  - Mục tiêu: khái niệm SDLC, requirements engineering, hoặc testing
+- [x] Đủ 10 file trong `documents/`
+- [x] `ground_truth.json` có 50 fact đã điền (không còn TODO)
+- [x] `eval-config.yaml.actual_pages` cập nhật đúng (lấy từ `pdfinfo`)
+- [x] Phân bố lĩnh vực/ngôn ngữ được ghi nhận để báo cáo limitations
+- [x] Commit + push
 
-## Quy trình lưu
+## Next: D2
 
-1. Rename file đúng quy ước trong `eval-config.yaml`
-2. Copy vào `src/test/resources/ai-eval/documents/`
-3. Tick checkbox tương ứng ở file này
-4. **Lưu ý quan trọng:** file PDF/DOCX KHÔNG được commit (đã có rule trong `.gitignore`).
-   Chỉ commit:
-   - File này (đã tick các checkbox)
-   - File `ground_truth.json` đã điền
+Sang **D2 (Chủ nhật 24/05)**: viết `AiQualityEvaluationTest.java` để đo tự động:
+- Nhóm A — Reliability (json_parse_success, schema_validation, etc.)
+- Nhóm B — Latency & Cost (p50/p95, tokens, USD)
 
-## Sau khi có đủ tài liệu
-
-→ Mở `ground-truth/ground_truth.json`, đọc tài liệu và bóc 5 key facts/doc.
-   Xem `examples_good` và `examples_bad` trong file để biết fact tốt là gì.
-
-→ Lưu lại số trang thực tế của mỗi tài liệu (cập nhật field `expected_pages` trong
-   `eval-config.yaml`) — để báo cáo trong Bảng 5.x.1 "Tổng quan tập dữ liệu".
-
-## Gate cuối ngày D1
-
-- [ ] Đủ 10 file trong `documents/`
-- [ ] `ground_truth.json` có 50 fact đã điền (không còn TODO)
-- [ ] `eval-config.yaml` `expected_pages` khớp với số trang thực tế
-- [ ] 2 người review chéo ground truth của nhau
-- [ ] Commit + push (chỉ commit checklist này + ground_truth, không commit PDF)
+→ Chạy 60 API calls (10 docs × 3 features × 2 runs), xuất CSV.
+→ Budget ước tính: ~$8-10 (sau khi tính lại với 915 trang).

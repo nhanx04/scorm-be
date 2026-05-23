@@ -43,91 +43,110 @@ runs:
   # Tổng calls = 10 docs × 3 features × 2 runs = 60 calls
 
 # ---------------------------------------------------------------------
-# Tập tài liệu test
+# Tập tài liệu test (collected on 2026-05-23)
 # ---------------------------------------------------------------------
-# 10 tài liệu, chia 4 nhóm để test đa lĩnh vực + đa ngôn ngữ.
-# Trường `expected_pages` chỉ là gợi ý để chọn tài liệu (5–20 trang).
-# Trường `language` quyết định LLM được prompt bằng ngôn ngữ tương ứng.
+# 10 tài liệu giáo trình/slide thực tế thu thập được.
+#
+# Phân bố theo lĩnh vực:
+#   - CS (5):    D01 (PL), D02 (SQL), D03 (DSA), D04 (DB transaction), D06 (ML)
+#   - Math (1):  D05 (Graph theory)
+#   - Business (2): D07 (Design thinking), D08 (Marketing)
+#   - Physics (1):  D09 (Trường tĩnh điện)
+#   - Econ (1):  D10 (Microeconomics)
+#
+# Phân bố theo ngôn ngữ:
+#   - English (8):  D01–D07, D10
+#   - Vietnamese (2): D08, D09
+#
+# LIMITATION (cần ghi vào mục 5.4.7 Threats to Validity):
+#   - Tập tài liệu lệch về CS (5/10) — phản ánh bias của chuyên ngành nhóm,
+#     có thể không generalize tốt cho lĩnh vực khác.
+#   - Tỷ lệ EN/VI = 8/2 chưa cân bằng — kết quả cho tiếng Việt có sample size nhỏ.
+#   - Độ dài tài liệu chênh lệch lớn (25–360 trang) — cần phân tách kết quả
+#     theo bucket độ dài khi báo cáo.
+#
+# Trường `actual_pages` lấy từ `pdfinfo` ngày D1.
 documents:
   - id: "D01"
-    file: "cs-oop.pdf"
+    file: "1-Introduction-2023.pdf"
     domain: "cs"
-    title: "Lập trình hướng đối tượng"
-    language: "vi"
-    expected_pages: 10
-    source_hint: "Slide/giáo trình môn CO2003 HCMUT"
+    title: "Introduction to Programming Languages and Compilers"
+    language: "en"
+    actual_pages: 36
+    source_hint: "Slide môn Principles of Programming Languages (HCMUT, Dr. Nguyen Hua Phung)"
 
   - id: "D02"
-    file: "cs-database.pdf"
+    file: "4-1_SQL.pdf"
     domain: "cs"
-    title: "Cơ sở dữ liệu - Mô hình thực thể quan hệ"
-    language: "vi"
-    expected_pages: 12
-    source_hint: "Slide/giáo trình môn CO2013 HCMUT"
+    title: "Structured Query Language (DDL/DML/DCL)"
+    language: "en"
+    actual_pages: 114
+    source_hint: "Slide chương 4 môn Cơ sở dữ liệu (HCMUT)"
 
   - id: "D03"
-    file: "cs-network.pdf"
+    file: "201_DSA___Chapter_7__Hash___Search__new_.pdf"
     domain: "cs"
-    title: "Mạng máy tính - Mô hình OSI"
-    language: "vi"
-    expected_pages: 10
-    source_hint: "Slide/giáo trình môn CO3093 HCMUT"
+    title: "Searching Algorithms and Hash Tables"
+    language: "en"
+    actual_pages: 124
+    source_hint: "Slide chương 7 môn Data Structures and Algorithms (HCMUT, Tran Ngoc Bao Duy)"
 
   - id: "D04"
-    file: "math-calculus.pdf"
-    domain: "math"
-    title: "Giải tích - Đạo hàm và vi phân"
-    language: "vi"
-    expected_pages: 8
-    source_hint: "Giáo trình Toán cao cấp"
+    file: "Chapter_5 - Transaction Processing.pdf"
+    domain: "cs"
+    title: "Introduction to Transaction Processing Concepts and Theory"
+    language: "en"
+    actual_pages: 65
+    source_hint: "Slide chương 5 môn Cơ sở dữ liệu nâng cao"
 
   - id: "D05"
-    file: "physics-general.pdf"
-    domain: "physics"
-    title: "Vật lý đại cương - Cơ học Newton"
-    language: "vi"
-    expected_pages: 10
-    source_hint: "Giáo trình Vật lý đại cương"
+    file: "ds10connectivity.pdf"
+    domain: "math"
+    title: "Graph Connectivity (Discrete Structures - Chapter 9)"
+    language: "en"
+    actual_pages: 360
+    source_hint: "Slide chương 9 môn Discrete Structures for Computing (HCMUT)"
+    notes: "Tài liệu lớn nhất - cần monitor token cost khi sinh outline"
 
   - id: "D06"
-    file: "philosophy-marxism.pdf"
-    domain: "philosophy"
-    title: "Triết học Mác - Lênin - Phép biện chứng duy vật"
-    language: "vi"
-    expected_pages: 10
-    source_hint: "Giáo trình Triết học Mác-Lênin"
+    file: "BayesianLearning.pdf"
+    domain: "cs"
+    title: "Bayesian Learning"
+    language: "en"
+    actual_pages: 36
+    source_hint: "Slide bài giảng Bayesian Learning (HCMUT, Thanh-Sach LE)"
 
   - id: "D07"
-    file: "econ-microeconomics.pdf"
-    domain: "econ"
-    title: "Kinh tế vi mô - Cung cầu và giá cả"
-    language: "vi"
-    expected_pages: 12
-    source_hint: "Giáo trình Kinh tế vi mô"
+    file: "05_Design_thinking_v3.pdf"
+    domain: "business"
+    title: "Design Thinking & Design Principles (Electronic Commerce)"
+    language: "en"
+    actual_pages: 72
+    source_hint: "Slide chương 5 môn Electronic Commerce"
 
   - id: "D08"
-    file: "history-vietnam.pdf"
-    domain: "history"
-    title: "Lịch sử Việt Nam cận đại"
+    file: "NVT- POM-Ch1- DAI CUONG VE TIEP THI.pdf"
+    domain: "business"
+    title: "Đại cương về Marketing"
     language: "vi"
-    expected_pages: 10
-    source_hint: "Giáo trình Lịch sử Việt Nam"
+    actual_pages: 26
+    source_hint: "Slide chương 1 môn Marketing căn bản (TS. Nguyễn Văn Tuấn)"
 
   - id: "D09"
-    file: "en-ml-intro.pdf"
-    domain: "cs"
-    title: "Introduction to Machine Learning"
-    language: "en"
-    expected_pages: 12
-    source_hint: "Stanford CS229 lecture notes hoặc tương đương"
+    file: "Chương 6.pdf"
+    domain: "physics"
+    title: "Trường tĩnh điện trong chân không"
+    language: "vi"
+    actual_pages: 25
+    source_hint: "Slide chương 6 môn Vật lý đại cương (Điện trường)"
 
   - id: "D10"
-    file: "en-software-eng.pdf"
-    domain: "cs"
-    title: "Software Engineering Fundamentals"
+    file: "Chuong2_CungCauDiemCanBangGiaTranGiaSanThue_Eng.pdf"
+    domain: "econ"
+    title: "Supply, Demand and Market Equilibrium"
     language: "en"
-    expected_pages: 10
-    source_hint: "MIT OCW 6.005 hoặc giáo trình SE tiếng Anh"
+    actual_pages: 57
+    source_hint: "Slide chương 2 môn Microeconomics"
 
 # ---------------------------------------------------------------------
 # Các tính năng AI được test
@@ -176,7 +195,9 @@ metrics:
     # Đơn giá USD/1M token (Gemini 2.5 Pro công bố tháng 5/2026)
     input_price_per_million: 3.50
     output_price_per_million: 10.50
-    total_budget_usd: 10.00
+    # Bump lên $15 vì tổng 915 trang tài liệu (D05 lên tới 360 trang)
+    # khiến token outline lớn hơn dự kiến ban đầu
+    total_budget_usd: 15.00
 
   faithfulness:
     auto_score_target: 4.0   # trên thang 1-5
