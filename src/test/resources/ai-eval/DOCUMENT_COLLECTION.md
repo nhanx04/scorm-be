@@ -64,7 +64,10 @@ Phân bố không hoàn hảo cần được nêu rõ trong báo cáo:
 
 ## Ground truth
 
-✅ Đã bóc xong 50 key facts (10 doc × 5 fact) trong `ground-truth/ground_truth.json`.
+✅ Đã bóc xong **55 key facts** trong `ground-truth/ground_truth.json`:
+- 9 doc × 5 fact = 45 fact
+- D05 × 10 fact = 10 fact (mở rộng vì doc dài 360 trang để giữ tỉ lệ phủ ngữ cảnh tương đương các doc khác — ghi rõ trong limitations)
+
 Facts được viết bằng ngôn ngữ của tài liệu nguồn (8 EN + 2 VI).
 
 ## Gate D1 — Status
