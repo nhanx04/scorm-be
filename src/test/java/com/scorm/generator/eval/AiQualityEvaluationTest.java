@@ -8,6 +8,10 @@ import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.List;
 import java.util.Map;
+import java.util.TreeMap;
+
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.SerializationFeature;
 
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.DisplayName;
@@ -60,11 +64,15 @@ import com.scorm.generator.dto.ai.AiQuizResponse;
 class AiQualityEvaluationTest {
 
     private static final Path RESULTS_DIR = Paths.get("src/test/resources/ai-eval/results");
+    private static final Path OUTPUTS_DIR = RESULTS_DIR.resolve("outputs");
     private static final Path DOCS_DIR = Paths.get("src/test/resources/ai-eval/documents");
 
     private EvalConfig config;
     private ChatClient chatClient;
     private double cumulativeCostUsd = 0.0;
+    private final ObjectMapper jsonMapper = new ObjectMapper()
+            .enable(SerializationFeature.INDENT_OUTPUT);
+    private boolean saveOutputs = false;
 
     @BeforeAll
     void setup() throws Exception {
@@ -119,6 +127,52 @@ class AiQualityEvaluationTest {
 
             runOutline(doc, text, 1, reliability, latencyCost);
             System.out.println("[ai-eval] smoke OK. Cumulative cost = $"
+                    + String.format("%.4f", cumulativeCostUsd));
+        }
+    }
+
+    @Test
+    @DisplayName("Save-outputs pass - 10 docs × 3 features × 1 run, persist parsed JSON")
+    void saveOutputsPass() throws Exception {
+        saveOutputs = true;
+        String timestamp = nowStamp();
+        try (CsvReporter reliability = openReliabilityCsv("save_reliability_" + timestamp);
+             CsvReporter latencyCost = openLatencyCostCsv("save_latency_cost_" + timestamp)) {
+
+            int totalCalls = config.documents().size() * 3;
+            System.out.println("[ai-eval] save-outputs pass: " + totalCalls + " calls planned");
+            System.out.println("[ai-eval] outputs will be written to " + OUTPUTS_DIR);
+
+            int callIdx = 0;
+            for (EvalConfig.DocumentCfg doc : config.documents()) {
+                System.out.println("\n[ai-eval] ----- " + doc.id() + " " + doc.file()
+                        + " (" + doc.actualPages() + " pages, " + doc.language() + ") -----");
+                String text;
+                try {
+                    text = readPdfText(doc);
+                } catch (Exception e) {
+                    System.out.println("[ai-eval] FAILED to read PDF: " + e.getMessage());
+                    continue;
+                }
+
+                callIdx = trackCall(callIdx, totalCalls,
+                        () -> runOutline(doc, text, 1, reliability, latencyCost));
+                if (overBudget()) {
+                    return;
+                }
+                callIdx = trackCall(callIdx, totalCalls,
+                        () -> runPageContent(doc, text, 1, reliability, latencyCost));
+                if (overBudget()) {
+                    return;
+                }
+                callIdx = trackCall(callIdx, totalCalls,
+                        () -> runQuiz(doc, text, 1, reliability, latencyCost));
+                if (overBudget()) {
+                    return;
+                }
+            }
+
+            System.out.println("\n[ai-eval] save-outputs DONE. " + callIdx + " calls, cost=$"
                     + String.format("%.4f", cumulativeCostUsd));
         }
     }
@@ -230,7 +284,7 @@ class AiQualityEvaluationTest {
                                     || s.title().isBlank()
                                     || s.topics() == null
                                     || s.topics().isEmpty());
-                    return new ParseOutcome(true, schemaOk, emptyField, null);
+                    return ParseOutcome.of(true, schemaOk, emptyField, outline);
                 });
     }
 
@@ -289,7 +343,7 @@ class AiQualityEvaluationTest {
                             || content.pageTitle().isBlank()
                             || content.shortSummary() == null
                             || content.shortSummary().isBlank();
-                    return new ParseOutcome(true, schemaOk, emptyField, null);
+                    return ParseOutcome.of(true, schemaOk, emptyField, content);
                 });
     }
 
@@ -344,7 +398,7 @@ class AiQualityEvaluationTest {
                                     || q.prompt().isBlank()
                                     || q.type() == null
                                     || q.type().isBlank());
-                    return new ParseOutcome(true, schemaOk, emptyField, null);
+                    return ParseOutcome.of(true, schemaOk, emptyField, quiz);
                 });
     }
 
@@ -359,8 +413,9 @@ class AiQualityEvaluationTest {
         String timestamp = LocalDateTime.now().toString();
         ChatResponse response = null;
         String raw = null;
+        String cleaned = "";
         boolean usedFence = false;
-        ParseOutcome outcome = new ParseOutcome(false, false, false, null);
+        ParseOutcome outcome = ParseOutcome.of(false, false, false, null);
         String errorMessage = null;
         String errorType = null;
 
@@ -368,13 +423,13 @@ class AiQualityEvaluationTest {
             response = supplier.get();
             raw = response.getResult().getOutput().getText();
             usedFence = raw != null && raw.contains("```");
-            String cleaned = stripJsonFence(raw == null ? "" : raw);
+            cleaned = stripJsonFence(raw == null ? "" : raw);
             try {
                 outcome = parseStrategy.parse(cleaned);
             } catch (Exception parseEx) {
                 errorMessage = parseEx.getMessage();
                 errorType = parseEx.getClass().getSimpleName();
-                outcome = new ParseOutcome(false, false, false, parseEx);
+                outcome = ParseOutcome.failure(parseEx);
             }
         } catch (Exception apiEx) {
             errorMessage = apiEx.getMessage();
@@ -396,6 +451,11 @@ class AiQualityEvaluationTest {
         }
         double costUsd = config.cost().computeUsd(promptTokens, completionTokens);
         cumulativeCostUsd += costUsd;
+
+        if (saveOutputs) {
+            saveOutputJson(doc, feature, run, timestamp, raw, cleaned, outcome,
+                    errorType, errorMessage, promptTokens, completionTokens, latencyMs);
+        }
 
         try {
             Map<String, Object> r = CsvReporter.row();
@@ -443,6 +503,49 @@ class AiQualityEvaluationTest {
     // ---------------------------------------------------------------------
     // Helpers
     // ---------------------------------------------------------------------
+
+    /**
+     * Write a per-call JSON file with the full raw response, the cleaned JSON,
+     * and the parsed object — used downstream by LlmJudge (D3) and IWF scoring
+     * (D4) which both need the actual generated content, not just metrics.
+     */
+    private void saveOutputJson(EvalConfig.DocumentCfg doc, String feature, int run,
+                                 String timestamp, String raw, String cleaned,
+                                 ParseOutcome outcome, String errorType, String errorMessage,
+                                 int promptTokens, int completionTokens, long latencyMs) {
+        Map<String, Object> payload = new TreeMap<>();
+        payload.put("doc_id", doc.id());
+        payload.put("doc_file", doc.file());
+        payload.put("doc_pages", doc.actualPages());
+        payload.put("doc_language", doc.language());
+        payload.put("doc_title", doc.title());
+        payload.put("feature", feature);
+        payload.put("run", run);
+        payload.put("timestamp", timestamp);
+        payload.put("model", config.model().name());
+        payload.put("temperature", config.model().temperature());
+        payload.put("prompt_tokens", promptTokens);
+        payload.put("completion_tokens", completionTokens);
+        payload.put("latency_ms", latencyMs);
+        payload.put("json_parse_ok", outcome.parseOk());
+        payload.put("schema_ok", outcome.schemaOk());
+        payload.put("empty_field", outcome.emptyField());
+        payload.put("error_type", errorType);
+        payload.put("error_message", errorMessage);
+        payload.put("raw", raw);
+        payload.put("cleaned", cleaned);
+        payload.put("parsed", outcome.parsed());
+
+        try {
+            Files.createDirectories(OUTPUTS_DIR);
+            String filename = String.format("%s_%s_run%d.json", doc.id(), feature, run);
+            Path target = OUTPUTS_DIR.resolve(filename);
+            jsonMapper.writeValue(target.toFile(), payload);
+        } catch (Exception e) {
+            System.err.println("[ai-eval] save-output FAILED for "
+                    + doc.id() + "/" + feature + "/" + run + ": " + e.getMessage());
+        }
+    }
 
     private CsvReporter openReliabilityCsv(String stem) throws Exception {
         return new CsvReporter(RESULTS_DIR.resolve(stem + ".csv"),
@@ -547,6 +650,14 @@ class AiQualityEvaluationTest {
     }
 
     private record ParseOutcome(boolean parseOk, boolean schemaOk, boolean emptyField,
-                                Exception error) {
+                                Exception error, Object parsed) {
+
+        static ParseOutcome of(boolean parseOk, boolean schemaOk, boolean emptyField, Object parsed) {
+            return new ParseOutcome(parseOk, schemaOk, emptyField, null, parsed);
+        }
+
+        static ParseOutcome failure(Exception e) {
+            return new ParseOutcome(false, false, false, e, null);
+        }
     }
 }

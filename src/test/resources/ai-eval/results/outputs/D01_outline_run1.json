@@ -1,0 +1,42 @@
+{
+  "cleaned" : "{\n  \"title\": \"Introduction to Programming Languages and Compilers\",\n  \"description\": \"An 8-week course for undergraduate students covering the fundamental principles of programming languages, design paradigms, implementation methods, and the internal structure of compilers.\",\n  \"sections\": [\n    {\n      \"title\": \"Section 1: Foundations of Programming Languages\",\n      \"topics\": [\n        \"Topic 1.1: What is a Programming Language?\",\n        \"Topic 1.2: Programming Domains: From Scientific Applications to Web Software\",\n        \"Topic 1.3: Key Characteristics of a Good Language: Clarity, Orthogonality, Abstraction, and Safety\",\n        \"Topic 1.4: Criteria for Language Evaluation: Readability, Writability, Reliability, and Cost\"\n      ]\n    },\n    {\n      \"title\": \"Section 2: Language Design Principles and Paradigms\",\n      \"topics\": [\n        \"Topic 2.1: Influence of Computer Architecture: The von Neumann Model\",\n        \"Topic 2.2: Influence of Programming Methodologies: A Historical Perspective\",\n        \"Topic 2.3: The Declarative Paradigm: Functional, Logic, and Query-based Languages\",\n        \"Topic 2.4: The Imperative Paradigm: Procedural and Object-Oriented Programming\",\n        \"Topic 2.5: The Art of Compromise: Common Language Design Trade-Offs\"\n      ]\n    },\n    {\n      \"title\": \"Section 3: How Programs Run: Language Implementation Methods\",\n      \"topics\": [\n        \"Topic 3.1: Introduction to Translators\",\n        \"Topic 3.2: Compilation: Translating a Program All at Once\",\n        \"Topic 3.3: Pure Interpretation: Executing Line-by-Line\",\n        \"Topic 3.4: Hybrid Systems: The Best of Both Worlds\",\n        \"Topic 3.5: Just-In-Time (JIT) Compilation: A Modern Approach\"\n      ]\n    },\n    {\n      \"title\": \"Section 4: Inside the Black Box: The Structure of a Compiler\",\n      \"topics\": [\n        \"Topic 4.1: Overview of the Compilation Process: Front-end and Back-end\",\n        \"Topic 4.2: Phase 1: Lexical Analysis (Scanning)\",\n        \"Topic 4.3: Phase 2: Syntax Analysis (Parsing) and Parse Trees\",\n        \"Topic 4.4: Phase 3: Abstract Syntax Tree (AST) Generation\",\n        \"Topic 4.5: Phase 4: Semantic Analysis (Static and Type Checking)\",\n        \"Topic 4.6: Phase 5: Intermediate Code Generation\",\n        \"Topic 4.7: Optional Phases: Code Optimization\"\n      ]\n    },\n    {\n      \"title\": \"Section 5: The Compiler's Ecosystem and Applications\",\n      \"topics\": [\n        \"Topic 5.1: Real-World Applications of Compiler Technology\",\n        \"Topic 5.2: Related Tools: Preprocessors, Assemblers, Linkers, and Loaders\"\n      ]\n    }\n  ]\n}",
+  "completion_tokens" : 702,
+  "doc_file" : "1-Introduction-2023.pdf",
+  "doc_id" : "D01",
+  "doc_language" : "en",
+  "doc_pages" : 36,
+  "doc_title" : "Introduction to Programming Languages and Compilers",
+  "empty_field" : false,
+  "error_message" : null,
+  "error_type" : null,
+  "feature" : "outline",
+  "json_parse_ok" : true,
+  "latency_ms" : 19827,
+  "model" : "gemini-2.5-pro",
+  "parsed" : {
+    "title" : "Introduction to Programming Languages and Compilers",
+    "description" : "An 8-week course for undergraduate students covering the fundamental principles of programming languages, design paradigms, implementation methods, and the internal structure of compilers.",
+    "sections" : [ {
+      "title" : "Section 1: Foundations of Programming Languages",
+      "topics" : [ "Topic 1.1: What is a Programming Language?", "Topic 1.2: Programming Domains: From Scientific Applications to Web Software", "Topic 1.3: Key Characteristics of a Good Language: Clarity, Orthogonality, Abstraction, and Safety", "Topic 1.4: Criteria for Language Evaluation: Readability, Writability, Reliability, and Cost" ]
+    }, {
+      "title" : "Section 2: Language Design Principles and Paradigms",
+      "topics" : [ "Topic 2.1: Influence of Computer Architecture: The von Neumann Model", "Topic 2.2: Influence of Programming Methodologies: A Historical Perspective", "Topic 2.3: The Declarative Paradigm: Functional, Logic, and Query-based Languages", "Topic 2.4: The Imperative Paradigm: Procedural and Object-Oriented Programming", "Topic 2.5: The Art of Compromise: Common Language Design Trade-Offs" ]
+    }, {
+      "title" : "Section 3: How Programs Run: Language Implementation Methods",
+      "topics" : [ "Topic 3.1: Introduction to Translators", "Topic 3.2: Compilation: Translating a Program All at Once", "Topic 3.3: Pure Interpretation: Executing Line-by-Line", "Topic 3.4: Hybrid Systems: The Best of Both Worlds", "Topic 3.5: Just-In-Time (JIT) Compilation: A Modern Approach" ]
+    }, {
+      "title" : "Section 4: Inside the Black Box: The Structure of a Compiler",
+      "topics" : [ "Topic 4.1: Overview of the Compilation Process: Front-end and Back-end", "Topic 4.2: Phase 1: Lexical Analysis (Scanning)", "Topic 4.3: Phase 2: Syntax Analysis (Parsing) and Parse Trees", "Topic 4.4: Phase 3: Abstract Syntax Tree (AST) Generation", "Topic 4.5: Phase 4: Semantic Analysis (Static and Type Checking)", "Topic 4.6: Phase 5: Intermediate Code Generation", "Topic 4.7: Optional Phases: Code Optimization" ]
+    }, {
+      "title" : "Section 5: The Compiler's Ecosystem and Applications",
+      "topics" : [ "Topic 5.1: Real-World Applications of Compiler Technology", "Topic 5.2: Related Tools: Preprocessors, Assemblers, Linkers, and Loaders" ]
+    } ]
+  },
+  "prompt_tokens" : 5286,
+  "raw" : "```json\n{\n  \"title\": \"Introduction to Programming Languages and Compilers\",\n  \"description\": \"An 8-week course for undergraduate students covering the fundamental principles of programming languages, design paradigms, implementation methods, and the internal structure of compilers.\",\n  \"sections\": [\n    {\n      \"title\": \"Section 1: Foundations of Programming Languages\",\n      \"topics\": [\n        \"Topic 1.1: What is a Programming Language?\",\n        \"Topic 1.2: Programming Domains: From Scientific Applications to Web Software\",\n        \"Topic 1.3: Key Characteristics of a Good Language: Clarity, Orthogonality, Abstraction, and Safety\",\n        \"Topic 1.4: Criteria for Language Evaluation: Readability, Writability, Reliability, and Cost\"\n      ]\n    },\n    {\n      \"title\": \"Section 2: Language Design Principles and Paradigms\",\n      \"topics\": [\n        \"Topic 2.1: Influence of Computer Architecture: The von Neumann Model\",\n        \"Topic 2.2: Influence of Programming Methodologies: A Historical Perspective\",\n        \"Topic 2.3: The Declarative Paradigm: Functional, Logic, and Query-based Languages\",\n        \"Topic 2.4: The Imperative Paradigm: Procedural and Object-Oriented Programming\",\n        \"Topic 2.5: The Art of Compromise: Common Language Design Trade-Offs\"\n      ]\n    },\n    {\n      \"title\": \"Section 3: How Programs Run: Language Implementation Methods\",\n      \"topics\": [\n        \"Topic 3.1: Introduction to Translators\",\n        \"Topic 3.2: Compilation: Translating a Program All at Once\",\n        \"Topic 3.3: Pure Interpretation: Executing Line-by-Line\",\n        \"Topic 3.4: Hybrid Systems: The Best of Both Worlds\",\n        \"Topic 3.5: Just-In-Time (JIT) Compilation: A Modern Approach\"\n      ]\n    },\n    {\n      \"title\": \"Section 4: Inside the Black Box: The Structure of a Compiler\",\n      \"topics\": [\n        \"Topic 4.1: Overview of the Compilation Process: Front-end and Back-end\",\n        \"Topic 4.2: Phase 1: Lexical Analysis (Scanning)\",\n        \"Topic 4.3: Phase 2: Syntax Analysis (Parsing) and Parse Trees\",\n        \"Topic 4.4: Phase 3: Abstract Syntax Tree (AST) Generation\",\n        \"Topic 4.5: Phase 4: Semantic Analysis (Static and Type Checking)\",\n        \"Topic 4.6: Phase 5: Intermediate Code Generation\",\n        \"Topic 4.7: Optional Phases: Code Optimization\"\n      ]\n    },\n    {\n      \"title\": \"Section 5: The Compiler's Ecosystem and Applications\",\n      \"topics\": [\n        \"Topic 5.1: Real-World Applications of Compiler Technology\",\n        \"Topic 5.2: Related Tools: Preprocessors, Assemblers, Linkers, and Loaders\"\n      ]\n    }\n  ]\n}\n```",
+  "run" : 1,
+  "schema_ok" : true,
+  "temperature" : 0.2,
+  "timestamp" : "2026-05-24T10:32:51.677395"
+}

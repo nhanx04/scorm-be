@@ -1,0 +1,65 @@
+{
+  "cleaned" : "{\n  \"questions\": [\n    {\n      \"type\": \"MCQ_SINGLE\",\n      \"prompt\": \"According to the 'Contents' section, which of the following is a main topic that contains sub-topics like 'Dijkstra's Algorithm' and 'Bellman-Ford Algorithm'?\",\n      \"options\": [\n        \"Euler and Hamilton Paths\",\n        \"Shortest Path Problem\",\n        \"Graph Coloring\",\n        \"Connectivity\"\n      ],\n      \"correctAnswer\": \"Shortest Path Problem\",\n      \"explanation\": \"The 'Contents' slide (9.4) lists 'Shortest Path Problem' as a main topic with 'Dijkstra's Algorithm', 'Bellman-Ford Algorithm', etc., listed as sub-topics under it.\"\n    },\n    {\n      \"type\": \"MCQ_MULTIPLE\",\n      \"prompt\": \"Based on the information provided on slide 9.1, which of the following statements are true about the authors of this material? (Select all that apply)\",\n      \"options\": [\n        \"They are from the Faculty of Computer Science and Engineering.\",\n        \"One of the authors is named Le Hong Trang.\",\n        \"They are affiliated with KAIST.\",\n        \"Their work is part of the 'Discrete Structures for Computing' course.\"\n      ],\n      \"correctAnswer\": [\n        \"They are from the Faculty of Computer Science and Engineering.\",\n        \"One of the authors is named Le Hong Trang.\",\n        \"Their work is part of the 'Discrete Structures for Computing' course.\"\n      ],\n      \"explanation\": \"Slide 9.1 lists the authors' names, their faculty, and the course name. The acknowledgement slide (9.2) mentions that some slides are from KAIST, not that the authors themselves are affiliated with KAIST.\"\n    },\n    {\n      \"type\": \"TRUE_FALSE\",\n      \"prompt\": \"True or False: According to the 'Course outcomes' slide, a learning outcome of this course is to 'Explain problem modeling using discrete structures'.\",\n      \"correctAnswer\": true,\n      \"explanation\": \"Slide 9.3, under 'Course learning outcomes', lists L.O.2.3 as 'Explain problem modeling using discrete structures'.\"\n    },\n    {\n      \"type\": \"SHORT_ANSWER\",\n      \"prompt\": \"As depicted on slide 9.5, what is the length of the simple path shown?\",\n      \"correctAnswer\": [\n        \"4\",\n        \"four\"\n      ],\n      \"explanation\": \"Slide 9.5 contains an image explicitly labeled 'Simple path of length 4'.\"\n    },\n    {\n      \"type\": \"FILL_IN_THE_BLANK\",\n      \"prompt\": \"Fill in the blanks: The acknowledgement slide states that some slides about _____ and _____ circuits are created by researchers from KAIST.\",\n      \"sentenceHtml\": \"The acknowledgement slide states that some slides about _____ and _____ circuits are created by researchers from KAIST.\",\n      \"correctAnswer\": [\n        \"Euler\",\n        \"Hamilton\"\n      ],\n      \"explanation\": \"Slide 9.2, the 'Acknowledgement' slide, explicitly mentions: 'Some slides about Euler and Hamilton circuits are created by Chung Ki-hong and Hur Joon-seok from KAIST.'\"\n    }\n  ]\n}",
+  "completion_tokens" : 731,
+  "doc_file" : "ds10connectivity.pdf",
+  "doc_id" : "D05",
+  "doc_language" : "en",
+  "doc_pages" : 360,
+  "doc_title" : "Graph Connectivity (Discrete Structures - Chapter 9)",
+  "empty_field" : false,
+  "error_message" : null,
+  "error_type" : null,
+  "feature" : "quiz",
+  "json_parse_ok" : true,
+  "latency_ms" : 18417,
+  "model" : "gemini-2.5-pro",
+  "parsed" : {
+    "questions" : [ {
+      "type" : "MCQ_SINGLE",
+      "prompt" : "According to the 'Contents' section, which of the following is a main topic that contains sub-topics like 'Dijkstra's Algorithm' and 'Bellman-Ford Algorithm'?",
+      "options" : [ "Euler and Hamilton Paths", "Shortest Path Problem", "Graph Coloring", "Connectivity" ],
+      "correctAnswer" : "Shortest Path Problem",
+      "explanation" : "The 'Contents' slide (9.4) lists 'Shortest Path Problem' as a main topic with 'Dijkstra's Algorithm', 'Bellman-Ford Algorithm', etc., listed as sub-topics under it.",
+      "sentenceHtml" : null,
+      "pairs" : null
+    }, {
+      "type" : "MCQ_MULTIPLE",
+      "prompt" : "Based on the information provided on slide 9.1, which of the following statements are true about the authors of this material? (Select all that apply)",
+      "options" : [ "They are from the Faculty of Computer Science and Engineering.", "One of the authors is named Le Hong Trang.", "They are affiliated with KAIST.", "Their work is part of the 'Discrete Structures for Computing' course." ],
+      "correctAnswer" : [ "They are from the Faculty of Computer Science and Engineering.", "One of the authors is named Le Hong Trang.", "Their work is part of the 'Discrete Structures for Computing' course." ],
+      "explanation" : "Slide 9.1 lists the authors' names, their faculty, and the course name. The acknowledgement slide (9.2) mentions that some slides are from KAIST, not that the authors themselves are affiliated with KAIST.",
+      "sentenceHtml" : null,
+      "pairs" : null
+    }, {
+      "type" : "TRUE_FALSE",
+      "prompt" : "True or False: According to the 'Course outcomes' slide, a learning outcome of this course is to 'Explain problem modeling using discrete structures'.",
+      "options" : null,
+      "correctAnswer" : true,
+      "explanation" : "Slide 9.3, under 'Course learning outcomes', lists L.O.2.3 as 'Explain problem modeling using discrete structures'.",
+      "sentenceHtml" : null,
+      "pairs" : null
+    }, {
+      "type" : "SHORT_ANSWER",
+      "prompt" : "As depicted on slide 9.5, what is the length of the simple path shown?",
+      "options" : null,
+      "correctAnswer" : [ "4", "four" ],
+      "explanation" : "Slide 9.5 contains an image explicitly labeled 'Simple path of length 4'.",
+      "sentenceHtml" : null,
+      "pairs" : null
+    }, {
+      "type" : "FILL_IN_THE_BLANK",
+      "prompt" : "Fill in the blanks: The acknowledgement slide states that some slides about _____ and _____ circuits are created by researchers from KAIST.",
+      "options" : null,
+      "correctAnswer" : [ "Euler", "Hamilton" ],
+      "explanation" : "Slide 9.2, the 'Acknowledgement' slide, explicitly mentions: 'Some slides about Euler and Hamilton circuits are created by Chung Ki-hong and Hur Joon-seok from KAIST.'",
+      "sentenceHtml" : "The acknowledgement slide states that some slides about _____ and _____ circuits are created by researchers from KAIST.",
+      "pairs" : null
+    } ]
+  },
+  "prompt_tokens" : 2329,
+  "raw" : "```json\n{\n  \"questions\": [\n    {\n      \"type\": \"MCQ_SINGLE\",\n      \"prompt\": \"According to the 'Contents' section, which of the following is a main topic that contains sub-topics like 'Dijkstra's Algorithm' and 'Bellman-Ford Algorithm'?\",\n      \"options\": [\n        \"Euler and Hamilton Paths\",\n        \"Shortest Path Problem\",\n        \"Graph Coloring\",\n        \"Connectivity\"\n      ],\n      \"correctAnswer\": \"Shortest Path Problem\",\n      \"explanation\": \"The 'Contents' slide (9.4) lists 'Shortest Path Problem' as a main topic with 'Dijkstra's Algorithm', 'Bellman-Ford Algorithm', etc., listed as sub-topics under it.\"\n    },\n    {\n      \"type\": \"MCQ_MULTIPLE\",\n      \"prompt\": \"Based on the information provided on slide 9.1, which of the following statements are true about the authors of this material? (Select all that apply)\",\n      \"options\": [\n        \"They are from the Faculty of Computer Science and Engineering.\",\n        \"One of the authors is named Le Hong Trang.\",\n        \"They are affiliated with KAIST.\",\n        \"Their work is part of the 'Discrete Structures for Computing' course.\"\n      ],\n      \"correctAnswer\": [\n        \"They are from the Faculty of Computer Science and Engineering.\",\n        \"One of the authors is named Le Hong Trang.\",\n        \"Their work is part of the 'Discrete Structures for Computing' course.\"\n      ],\n      \"explanation\": \"Slide 9.1 lists the authors' names, their faculty, and the course name. The acknowledgement slide (9.2) mentions that some slides are from KAIST, not that the authors themselves are affiliated with KAIST.\"\n    },\n    {\n      \"type\": \"TRUE_FALSE\",\n      \"prompt\": \"True or False: According to the 'Course outcomes' slide, a learning outcome of this course is to 'Explain problem modeling using discrete structures'.\",\n      \"correctAnswer\": true,\n      \"explanation\": \"Slide 9.3, under 'Course learning outcomes', lists L.O.2.3 as 'Explain problem modeling using discrete structures'.\"\n    },\n    {\n      \"type\": \"SHORT_ANSWER\",\n      \"prompt\": \"As depicted on slide 9.5, what is the length of the simple path shown?\",\n      \"correctAnswer\": [\n        \"4\",\n        \"four\"\n      ],\n      \"explanation\": \"Slide 9.5 contains an image explicitly labeled 'Simple path of length 4'.\"\n    },\n    {\n      \"type\": \"FILL_IN_THE_BLANK\",\n      \"prompt\": \"Fill in the blanks: The acknowledgement slide states that some slides about _____ and _____ circuits are created by researchers from KAIST.\",\n      \"sentenceHtml\": \"The acknowledgement slide states that some slides about _____ and _____ circuits are created by researchers from KAIST.\",\n      \"correctAnswer\": [\n        \"Euler\",\n        \"Hamilton\"\n      ],\n      \"explanation\": \"Slide 9.2, the 'Acknowledgement' slide, explicitly mentions: 'Some slides about Euler and Hamilton circuits are created by Chung Ki-hong and Hur Joon-seok from KAIST.'\"\n    }\n  ]\n}\n```",
+  "run" : 1,
+  "schema_ok" : true,
+  "temperature" : 0.2,
+  "timestamp" : "2026-05-24T10:38:04.974983"
+}

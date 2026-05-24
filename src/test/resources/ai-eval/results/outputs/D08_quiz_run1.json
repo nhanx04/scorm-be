@@ -1,0 +1,74 @@
+{
+  "cleaned" : "{\n  \"questions\": [\n    {\n      \"type\": \"MCQ_SINGLE\",\n      \"prompt\": \"Một công ty tin rằng khách hàng sẽ ưa chuộng những sản phẩm có chất lượng cao, tính năng vượt trội và kiểu dáng độc đáo. Do đó, công ty không ngừng cải tiến sản phẩm của mình. Quan điểm quản trị Marketing mà công ty này đang theo đuổi là gì?\",\n      \"options\": [\n        \"Quan điểm trọng Sản xuất\",\n        \"Quan điểm trọng Sản phẩm\",\n        \"Quan điểm trọng Bán hàng\",\n        \"Quan điểm trọng Tiếp thị xã hội\"\n      ],\n      \"correctAnswer\": \"Quan điểm trọng Sản phẩm\",\n      \"explanation\": \"Dựa vào slide 13 và 15, quan điểm 'Trọng Sản phẩm' cho rằng người tiêu dùng thích sản phẩm tốt, kiểu dáng độc đáo và doanh nghiệp cần tập trung vào chất lượng sản phẩm.\"\n    },\n    {\n      \"type\": \"TRUE_FALSE\",\n      \"prompt\": \"Theo tài liệu, 'Nhu cầu' (Needs) là một trạng thái thiếu hụt được hình thành bởi các yếu tố văn hóa và tính cách cá nhân.\",\n      \"correctAnswer\": false,\n      \"explanation\": \"Sai. Theo slide 3, 'Nhu cầu (Needs)' là trạng thái thiếu hụt cơ bản cần được thỏa mãn. 'Mong muốn (Wants)' mới là hình thái của nhu cầu được định hình bởi văn hóa, tính cách.\"\n    },\n    {\n      \"type\": \"SHORT_ANSWER\",\n      \"prompt\": \"Theo sơ đồ ở slide 22, Marketing đóng vai trò trung gian để làm giảm thiểu sự khác biệt giữa nhà sản xuất và người tiêu dùng. Hãy kể ra 3 trong 7 khía cạnh khác biệt mà Marketing giúp kết nối.\",\n      \"correctAnswer\": [\n        \"Không gian, Thời gian, Thông tin\",\n        \"Giá trị, Sở hữu, Số lượng\",\n        \"Thông tin, Giá trị, Chủng loại\"\n      ],\n      \"explanation\": \"Slide 22 liệt kê 7 khía cạnh khác biệt mà Marketing giúp làm giảm thiểu, bao gồm: Không gian, Thời gian, Thông tin, Giá trị, Sở hữu, Số lượng, và Chủng loại. Bất kỳ 3 trong 7 yếu tố này đều là câu trả lời đúng.\"\n    },\n    {\n      \"type\": \"FILL_IN_THE_BLANK\",\n      \"sentenceHtml\": \"Theo slide 20, quan điểm bán hàng tập trung vào việc tối đa hóa doanh thu thông qua bán hàng để tạo ra lợi nhuận, trong khi quan điểm marketing tập trung vào việc <input type='text' /> cao nhất nhu cầu để tạo ra lợi nhuận.\",\n      \"correctAnswer\": [\n        \"Thỏa mãn\"\n      ],\n      \"explanation\": \"Slide 20 so sánh hai quan điểm, trong đó 'Quan điểm marketing' có mục tiêu cuối cùng là 'Thỏa mãn cao nhất nhu cầu -> Lợi nhuận'.\"\n    },\n    {\n      \"type\": \"MATCHING\",\n      \"prompt\": \"Hãy ghép nối các khái niệm cơ bản của Marketing ở cột trái với định nghĩa phù hợp ở cột phải.\",\n      \"pairs\": [\n        {\n          \"left\": \"Nhu cầu (Needs)\",\n          \"right\": \"Mong muốn có khả năng và sẵn lòng mua.\"\n        },\n        {\n          \"left\": \"Mong muốn (Wants)\",\n          \"right\": \"Trạng thái thiếu hụt thứ gì đó cần được thỏa mãn.\"\n        },\n        {\n          \"left\": \"Đòi hỏi (Demands)\",\n          \"right\": \"Hình thái cụ thể của nhu cầu, bị ảnh hưởng bởi văn hóa, tính cách.\"\n        }\n      ],\n      \"correctAnswer\": null,\n      \"explanation\": \"Các định nghĩa được lấy trực tiếp từ slide 3. Nhu cầu là trạng thái thiếu hụt. Mong muốn là hình thái cụ thể của nhu cầu. Đòi hỏi là mong muốn đi kèm khả năng mua.\"\n    }\n  ]\n}",
+  "completion_tokens" : 893,
+  "doc_file" : "NVT- POM-Ch1- DAI CUONG VE TIEP THI.pdf",
+  "doc_id" : "D08",
+  "doc_language" : "vi",
+  "doc_pages" : 26,
+  "doc_title" : "Đại cương về Marketing",
+  "empty_field" : true,
+  "error_message" : null,
+  "error_type" : null,
+  "feature" : "quiz",
+  "json_parse_ok" : true,
+  "latency_ms" : 20784,
+  "model" : "gemini-2.5-pro",
+  "parsed" : {
+    "questions" : [ {
+      "type" : "MCQ_SINGLE",
+      "prompt" : "Một công ty tin rằng khách hàng sẽ ưa chuộng những sản phẩm có chất lượng cao, tính năng vượt trội và kiểu dáng độc đáo. Do đó, công ty không ngừng cải tiến sản phẩm của mình. Quan điểm quản trị Marketing mà công ty này đang theo đuổi là gì?",
+      "options" : [ "Quan điểm trọng Sản xuất", "Quan điểm trọng Sản phẩm", "Quan điểm trọng Bán hàng", "Quan điểm trọng Tiếp thị xã hội" ],
+      "correctAnswer" : "Quan điểm trọng Sản phẩm",
+      "explanation" : "Dựa vào slide 13 và 15, quan điểm 'Trọng Sản phẩm' cho rằng người tiêu dùng thích sản phẩm tốt, kiểu dáng độc đáo và doanh nghiệp cần tập trung vào chất lượng sản phẩm.",
+      "sentenceHtml" : null,
+      "pairs" : null
+    }, {
+      "type" : "TRUE_FALSE",
+      "prompt" : "Theo tài liệu, 'Nhu cầu' (Needs) là một trạng thái thiếu hụt được hình thành bởi các yếu tố văn hóa và tính cách cá nhân.",
+      "options" : null,
+      "correctAnswer" : false,
+      "explanation" : "Sai. Theo slide 3, 'Nhu cầu (Needs)' là trạng thái thiếu hụt cơ bản cần được thỏa mãn. 'Mong muốn (Wants)' mới là hình thái của nhu cầu được định hình bởi văn hóa, tính cách.",
+      "sentenceHtml" : null,
+      "pairs" : null
+    }, {
+      "type" : "SHORT_ANSWER",
+      "prompt" : "Theo sơ đồ ở slide 22, Marketing đóng vai trò trung gian để làm giảm thiểu sự khác biệt giữa nhà sản xuất và người tiêu dùng. Hãy kể ra 3 trong 7 khía cạnh khác biệt mà Marketing giúp kết nối.",
+      "options" : null,
+      "correctAnswer" : [ "Không gian, Thời gian, Thông tin", "Giá trị, Sở hữu, Số lượng", "Thông tin, Giá trị, Chủng loại" ],
+      "explanation" : "Slide 22 liệt kê 7 khía cạnh khác biệt mà Marketing giúp làm giảm thiểu, bao gồm: Không gian, Thời gian, Thông tin, Giá trị, Sở hữu, Số lượng, và Chủng loại. Bất kỳ 3 trong 7 yếu tố này đều là câu trả lời đúng.",
+      "sentenceHtml" : null,
+      "pairs" : null
+    }, {
+      "type" : "FILL_IN_THE_BLANK",
+      "prompt" : null,
+      "options" : null,
+      "correctAnswer" : [ "Thỏa mãn" ],
+      "explanation" : "Slide 20 so sánh hai quan điểm, trong đó 'Quan điểm marketing' có mục tiêu cuối cùng là 'Thỏa mãn cao nhất nhu cầu -> Lợi nhuận'.",
+      "sentenceHtml" : "Theo slide 20, quan điểm bán hàng tập trung vào việc tối đa hóa doanh thu thông qua bán hàng để tạo ra lợi nhuận, trong khi quan điểm marketing tập trung vào việc <input type='text' /> cao nhất nhu cầu để tạo ra lợi nhuận.",
+      "pairs" : null
+    }, {
+      "type" : "MATCHING",
+      "prompt" : "Hãy ghép nối các khái niệm cơ bản của Marketing ở cột trái với định nghĩa phù hợp ở cột phải.",
+      "options" : null,
+      "correctAnswer" : null,
+      "explanation" : "Các định nghĩa được lấy trực tiếp từ slide 3. Nhu cầu là trạng thái thiếu hụt. Mong muốn là hình thái cụ thể của nhu cầu. Đòi hỏi là mong muốn đi kèm khả năng mua.",
+      "sentenceHtml" : null,
+      "pairs" : [ {
+        "left" : "Nhu cầu (Needs)",
+        "right" : "Mong muốn có khả năng và sẵn lòng mua."
+      }, {
+        "left" : "Mong muốn (Wants)",
+        "right" : "Trạng thái thiếu hụt thứ gì đó cần được thỏa mãn."
+      }, {
+        "left" : "Đòi hỏi (Demands)",
+        "right" : "Hình thái cụ thể của nhu cầu, bị ảnh hưởng bởi văn hóa, tính cách."
+      } ]
+    } ]
+  },
+  "prompt_tokens" : 3113,
+  "raw" : "```json\n{\n  \"questions\": [\n    {\n      \"type\": \"MCQ_SINGLE\",\n      \"prompt\": \"Một công ty tin rằng khách hàng sẽ ưa chuộng những sản phẩm có chất lượng cao, tính năng vượt trội và kiểu dáng độc đáo. Do đó, công ty không ngừng cải tiến sản phẩm của mình. Quan điểm quản trị Marketing mà công ty này đang theo đuổi là gì?\",\n      \"options\": [\n        \"Quan điểm trọng Sản xuất\",\n        \"Quan điểm trọng Sản phẩm\",\n        \"Quan điểm trọng Bán hàng\",\n        \"Quan điểm trọng Tiếp thị xã hội\"\n      ],\n      \"correctAnswer\": \"Quan điểm trọng Sản phẩm\",\n      \"explanation\": \"Dựa vào slide 13 và 15, quan điểm 'Trọng Sản phẩm' cho rằng người tiêu dùng thích sản phẩm tốt, kiểu dáng độc đáo và doanh nghiệp cần tập trung vào chất lượng sản phẩm.\"\n    },\n    {\n      \"type\": \"TRUE_FALSE\",\n      \"prompt\": \"Theo tài liệu, 'Nhu cầu' (Needs) là một trạng thái thiếu hụt được hình thành bởi các yếu tố văn hóa và tính cách cá nhân.\",\n      \"correctAnswer\": false,\n      \"explanation\": \"Sai. Theo slide 3, 'Nhu cầu (Needs)' là trạng thái thiếu hụt cơ bản cần được thỏa mãn. 'Mong muốn (Wants)' mới là hình thái của nhu cầu được định hình bởi văn hóa, tính cách.\"\n    },\n    {\n      \"type\": \"SHORT_ANSWER\",\n      \"prompt\": \"Theo sơ đồ ở slide 22, Marketing đóng vai trò trung gian để làm giảm thiểu sự khác biệt giữa nhà sản xuất và người tiêu dùng. Hãy kể ra 3 trong 7 khía cạnh khác biệt mà Marketing giúp kết nối.\",\n      \"correctAnswer\": [\n        \"Không gian, Thời gian, Thông tin\",\n        \"Giá trị, Sở hữu, Số lượng\",\n        \"Thông tin, Giá trị, Chủng loại\"\n      ],\n      \"explanation\": \"Slide 22 liệt kê 7 khía cạnh khác biệt mà Marketing giúp làm giảm thiểu, bao gồm: Không gian, Thời gian, Thông tin, Giá trị, Sở hữu, Số lượng, và Chủng loại. Bất kỳ 3 trong 7 yếu tố này đều là câu trả lời đúng.\"\n    },\n    {\n      \"type\": \"FILL_IN_THE_BLANK\",\n      \"sentenceHtml\": \"Theo slide 20, quan điểm bán hàng tập trung vào việc tối đa hóa doanh thu thông qua bán hàng để tạo ra lợi nhuận, trong khi quan điểm marketing tập trung vào việc <input type='text' /> cao nhất nhu cầu để tạo ra lợi nhuận.\",\n      \"correctAnswer\": [\n        \"Thỏa mãn\"\n      ],\n      \"explanation\": \"Slide 20 so sánh hai quan điểm, trong đó 'Quan điểm marketing' có mục tiêu cuối cùng là 'Thỏa mãn cao nhất nhu cầu -> Lợi nhuận'.\"\n    },\n    {\n      \"type\": \"MATCHING\",\n      \"prompt\": \"Hãy ghép nối các khái niệm cơ bản của Marketing ở cột trái với định nghĩa phù hợp ở cột phải.\",\n      \"pairs\": [\n        {\n          \"left\": \"Nhu cầu (Needs)\",\n          \"right\": \"Mong muốn có khả năng và sẵn lòng mua.\"\n        },\n        {\n          \"left\": \"Mong muốn (Wants)\",\n          \"right\": \"Trạng thái thiếu hụt thứ gì đó cần được thỏa mãn.\"\n        },\n        {\n          \"left\": \"Đòi hỏi (Demands)\",\n          \"right\": \"Hình thái cụ thể của nhu cầu, bị ảnh hưởng bởi văn hóa, tính cách.\"\n        }\n      ],\n      \"correctAnswer\": null,\n      \"explanation\": \"Các định nghĩa được lấy trực tiếp từ slide 3. Nhu cầu là trạng thái thiếu hụt. Mong muốn là hình thái cụ thể của nhu cầu. Đòi hỏi là mong muốn đi kèm khả năng mua.\"\n    }\n  ]\n}\n```",
+  "run" : 1,
+  "schema_ok" : true,
+  "temperature" : 0.2,
+  "timestamp" : "2026-05-24T10:41:15.491790"
+}
