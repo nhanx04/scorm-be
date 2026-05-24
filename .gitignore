@@ -72,3 +72,4 @@ src/test/resources/ai-eval/results/*.json
 !src/test/resources/ai-eval/documents/.gitkeep
 !src/test/resources/ai-eval/results/.gitkeep
 
+__pycache__/
