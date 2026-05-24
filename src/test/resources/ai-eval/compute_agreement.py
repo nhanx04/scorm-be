@@ -77,6 +77,22 @@ def kappa_interp(k: float) -> str:
     return "almost perfect"
 
 
+def pabak(a: list[int], b: list[int]) -> float:
+    """Prevalence-Adjusted Bias-Adjusted Kappa.
+
+    Fixes Cohen's kappa "paradox": when the base rate is extreme (e.g. a
+    flag fires in 1/50 questions), κ collapses to 0 even when raw agreement
+    is 98%. PABAK = 2·Po − 1 ignores prevalence and reports the linear
+    rescaling of observed agreement to the [-1, 1] kappa scale.
+
+    Reported alongside κ so the reader can see both.
+    """
+    if not a:
+        return float("nan")
+    po = sum(1 for x, y in zip(a, b) if x == y) / len(a)
+    return 2 * po - 1
+
+
 def pearson(a: list[float], b: list[float]) -> float:
     if len(a) != len(b) or len(a) < 2:
         return float("nan")
@@ -151,15 +167,16 @@ def iwf_agreement() -> None:
     # Index by qid for safety
     by_qid_b = {r["qid"]: r for r in b}
 
-    print("\n" + "=" * 92)
+    print("\n" + "=" * 100)
     print("BẢNG 5.x.8 — Cohen's κ giữa 2 reviewer trên 12 IWF + 4 pedagogical")
-    print("=" * 92)
-    fmt = "{:<32} {:>6} {:>6} {:>8} {:>8} {:>10} {:<18}"
-    print(fmt.format("Flag", "N", "A=1", "B=1", "Po", "κ", "Interp"))
-    print("-" * 92)
+    print("=" * 100)
+    fmt = "{:<32} {:>4} {:>5} {:>5} {:>7} {:>8} {:>8} {:<18}"
+    print(fmt.format("Flag", "N", "A=1", "B=1", "Po", "κ", "PABAK", "κ Interp"))
+    print("-" * 100)
 
     consensus_targets: list[tuple[str, str, int, int]] = []
     kappas: list[float] = []
+    pabaks: list[float] = []
 
     for col in IWF_FLAGS + PED_FLAGS:
         avals, bvals = [], []
@@ -181,30 +198,47 @@ def iwf_agreement() -> None:
                 consensus_targets.append((row_a["qid"], col, va, vb))
 
         if not avals:
-            print(fmt.format(col, 0, "-", "-", "-", "-", "no data"))
+            print(fmt.format(col, 0, "-", "-", "-", "-", "-", "no data"))
             continue
         k = cohens_kappa(avals, bvals)
+        p = pabak(avals, bvals)
         po = sum(1 for x, y in zip(avals, bvals) if x == y) / len(avals)
         kappas.append(k)
+        pabaks.append(p)
         print(fmt.format(col, len(avals), sum(avals), sum(bvals),
-                         f"{po:.2f}", f"{k:.3f}", kappa_interp(k)))
+                         f"{po:.2f}", f"{k:.3f}", f"{p:.3f}",
+                         kappa_interp(k)))
 
     if kappas:
         mean_k = statistics.mean(kappas)
-        print("-" * 92)
-        print(f"Mean κ across all flags: {mean_k:.3f} ({kappa_interp(mean_k)})")
+        mean_pabak = statistics.mean(pabaks)
+        print("-" * 100)
+        print(f"Mean κ across all flags:     {mean_k:.3f} ({kappa_interp(mean_k)})")
+        print(f"Mean PABAK across all flags: {mean_pabak:.3f} ({kappa_interp(mean_pabak)})")
         target_met = sum(1 for k in kappas if k >= 0.60)
-        print(f"Flags meeting κ ≥ 0.60 target: {target_met}/{len(kappas)}")
+        target_met_pabak = sum(1 for p in pabaks if p >= 0.60)
+        print(f"Flags meeting κ ≥ 0.60:     {target_met}/{len(kappas)}")
+        print(f"Flags meeting PABAK ≥ 0.60: {target_met_pabak}/{len(pabaks)}")
+        print("\nNote: Cohen's κ collapses to 0 when base rate is extreme (kappa paradox).")
+        print("PABAK = 2·Po − 1 corrects for this — use it for low-prevalence flags.")
 
     if consensus_targets:
         out = SCORING_DIR / "consensus_targets.csv"
+        # Preserve existing consensus values across reruns — only overwrite
+        # the (qid, flag) → consensus mapping for new disagreements.
+        existing: dict[tuple[str, str], str] = {}
+        if out.exists():
+            for r in load_csv(out):
+                existing[(r["qid"], r["flag"])] = r.get("consensus", "")
         with out.open("w", encoding="utf-8", newline="") as f:
             w = csv.writer(f, quoting=csv.QUOTE_MINIMAL)
             w.writerow(["qid", "flag", "reviewer_A", "reviewer_B", "consensus"])
             for qid, col, va, vb in consensus_targets:
-                w.writerow([qid, col, va, vb, ""])
-        print(f"\n{len(consensus_targets)} disagreements → {out.relative_to(ROOT)}")
-        print("(reviewers fill `consensus` column during the consensus meeting)")
+                prev = existing.get((qid, col), "")
+                w.writerow([qid, col, va, vb, prev])
+        resolved = sum(1 for v in existing.values() if v in ("0", "1"))
+        print(f"\n{len(consensus_targets)} disagreements → {out.relative_to(ROOT)} "
+              f"(resolved: {resolved}/{len(consensus_targets)})")
 
 
 def iwf_aggregate() -> None:
