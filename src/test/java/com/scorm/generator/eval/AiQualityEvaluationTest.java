@@ -33,6 +33,7 @@ import com.google.genai.Client;
 import com.scorm.generator.dto.ai.AiCourseOutline;
 import com.scorm.generator.dto.ai.AiPageContentResponse;
 import com.scorm.generator.dto.ai.AiQuizResponse;
+import com.scorm.generator.service.QuizPrompts;
 
 /**
  * Quantitative AI evaluation harness for thesis section 5.4.
@@ -64,7 +65,10 @@ import com.scorm.generator.dto.ai.AiQuizResponse;
 class AiQualityEvaluationTest {
 
     private static final Path RESULTS_DIR = Paths.get("src/test/resources/ai-eval/results");
-    private static final Path OUTPUTS_DIR = RESULTS_DIR.resolve("outputs");
+    // Outputs subdir can be overridden so post-fix re-runs don't overwrite the
+    // baseline JSONs that the IWF scoring and LLM-judge results were built on.
+    private static final Path OUTPUTS_DIR = RESULTS_DIR.resolve(
+            System.getProperty("ai-eval.outputs-subdir", "outputs"));
     private static final Path DOCS_DIR = Paths.get("src/test/resources/ai-eval/documents");
 
     private EvalConfig config;
@@ -132,15 +136,32 @@ class AiQualityEvaluationTest {
     }
 
     @Test
+    @DisplayName("Quiz-only post-fix verification - 10 docs × quiz × 1 run, persist parsed JSON")
+    void quizOnlyPostFixPass() throws Exception {
+        runSavePass("postfix_quiz", List.of(this::runQuiz));
+    }
+
+    @Test
     @DisplayName("Save-outputs pass - 10 docs × 3 features × 1 run, persist parsed JSON")
     void saveOutputsPass() throws Exception {
+        runSavePass("save", List.of(this::runOutline, this::runPageContent, this::runQuiz));
+    }
+
+    /**
+     * Drive one save-pass over the test set: iterate docs, run each requested
+     * feature once per doc with run=1, persist parsed JSON, write CSVs whose
+     * names start with {@code stemPrefix}, and stop early when the cost budget
+     * is exhausted.
+     */
+    private void runSavePass(String stemPrefix, List<FeatureRunner> features) throws Exception {
         saveOutputs = true;
         String timestamp = nowStamp();
-        try (CsvReporter reliability = openReliabilityCsv("save_reliability_" + timestamp);
-             CsvReporter latencyCost = openLatencyCostCsv("save_latency_cost_" + timestamp)) {
+        try (CsvReporter reliability = openReliabilityCsv(stemPrefix + "_reliability_" + timestamp);
+             CsvReporter latencyCost = openLatencyCostCsv(stemPrefix + "_latency_cost_" + timestamp)) {
 
-            int totalCalls = config.documents().size() * 3;
-            System.out.println("[ai-eval] save-outputs pass: " + totalCalls + " calls planned");
+            int totalCalls = config.documents().size() * features.size();
+            System.out.println("[ai-eval] " + stemPrefix + " pass: "
+                    + totalCalls + " calls planned");
             System.out.println("[ai-eval] outputs will be written to " + OUTPUTS_DIR);
 
             int callIdx = 0;
@@ -154,27 +175,24 @@ class AiQualityEvaluationTest {
                     System.out.println("[ai-eval] FAILED to read PDF: " + e.getMessage());
                     continue;
                 }
-
-                callIdx = trackCall(callIdx, totalCalls,
-                        () -> runOutline(doc, text, 1, reliability, latencyCost));
-                if (overBudget()) {
-                    return;
-                }
-                callIdx = trackCall(callIdx, totalCalls,
-                        () -> runPageContent(doc, text, 1, reliability, latencyCost));
-                if (overBudget()) {
-                    return;
-                }
-                callIdx = trackCall(callIdx, totalCalls,
-                        () -> runQuiz(doc, text, 1, reliability, latencyCost));
-                if (overBudget()) {
-                    return;
+                for (FeatureRunner feature : features) {
+                    callIdx = trackCall(callIdx, totalCalls,
+                            () -> feature.run(doc, text, 1, reliability, latencyCost));
+                    if (overBudget()) {
+                        return;
+                    }
                 }
             }
 
-            System.out.println("\n[ai-eval] save-outputs DONE. " + callIdx + " calls, cost=$"
-                    + String.format("%.4f", cumulativeCostUsd));
+            System.out.println("\n[ai-eval] " + stemPrefix + " DONE. " + callIdx
+                    + " calls, cost=$" + String.format("%.4f", cumulativeCostUsd));
         }
+    }
+
+    @FunctionalInterface
+    private interface FeatureRunner {
+        void run(EvalConfig.DocumentCfg doc, String text, int run,
+                 CsvReporter reliability, CsvReporter latencyCost);
     }
 
     @Test
@@ -350,41 +368,17 @@ class AiQualityEvaluationTest {
     private void runQuiz(EvalConfig.DocumentCfg doc, String docContext, int run,
                          CsvReporter reliability, CsvReporter latencyCost) {
         String trimmed = truncate(docContext, 6000);
-
-        String userPrompt = """
-                Bạn là chuyên gia thiết kế kiểm tra đánh giá e-learning.
-                Dựa hoàn toàn vào tài liệu học tập dưới đây, hãy tạo đúng {numberOfQuestions} câu hỏi với độ khó {difficulty}.
-
-                TÀI LIỆU GỐC:
-                "{sourceText}"
-
-                BẮT BUỘC:
-                1. Mọi câu hỏi phải bám sát tài liệu gốc, không thêm kiến thức ngoài tài liệu.
-                2. Sử dụng đầy đủ 6 loại câu hỏi: MCQ_SINGLE, MCQ_MULTIPLE, TRUE_FALSE, SHORT_ANSWER, FILL_IN_THE_BLANK, MATCHING.
-                3. Nếu {numberOfQuestions} >= 6, phải có ít nhất 1 câu cho mỗi loại.
-                4. Ngôn ngữ đầu ra: {language}.
-
-                QUY ƯỚC DỮ LIỆU:
-                - MCQ_SINGLE/MCQ_MULTIPLE: có options và correctAnswer tương ứng (string hoặc mảng string).
-                - TRUE_FALSE: correctAnswer là boolean.
-                - SHORT_ANSWER: correctAnswer là mảng câu trả lời ngắn chấp nhận được.
-                - FILL_IN_THE_BLANK: có sentenceHtml và correctAnswer là mảng đáp án theo thứ tự chỗ trống.
-                - MATCHING: có pairs (left-right), correctAnswer có thể để null.
-                - explanation ngắn gọn, nêu căn cứ từ tài liệu gốc.
-
-                CHỈ trả về JSON đúng schema sau:
-                {formatInstructions}
-                """;
-
         BeanOutputConverter<AiQuizResponse> converter = new BeanOutputConverter<>(AiQuizResponse.class);
 
+        // Reuse the production template so the eval can't drift from prod.
         executeCall(doc, "quiz", run, reliability, latencyCost,
                 () -> chatClient.prompt()
-                        .user(u -> u.text(userPrompt)
+                        .user(u -> u.text(QuizPrompts.FROM_TEXT)
                                 .param("sourceText", trimmed)
                                 .param("numberOfQuestions", 5)
                                 .param("difficulty", "Trung bình")
                                 .param("language", languageFullName(doc.language()))
+                                .param("fewShotExamples", "")
                                 .param("formatInstructions", converter.getFormat()))
                         .call()
                         .chatResponse(),

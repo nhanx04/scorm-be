@@ -17,15 +17,17 @@ from __future__ import annotations
 
 import json
 import os
+import sys
 from collections import defaultdict, Counter
 from pathlib import Path
 
-OUTPUTS_DIR = Path(__file__).parent / "results" / "outputs"
+# Default is the baseline outputs dir; pass a subdir arg for post-fix analysis.
+DEFAULT_OUTPUTS_DIR = Path(__file__).parent / "results" / "outputs"
 
 
-def load_quiz_files() -> list[dict]:
-    files = sorted(OUTPUTS_DIR.glob("*_quiz_run*.json"))
-    print(f"Found {len(files)} quiz output files")
+def load_quiz_files(outputs_dir: Path) -> list[dict]:
+    files = sorted(outputs_dir.glob("*_quiz_run*.json"))
+    print(f"Found {len(files)} quiz output files in {outputs_dir}")
     return [json.loads(f.read_text(encoding="utf-8")) for f in files]
 
 
@@ -68,9 +70,13 @@ def check_field_emptiness(question: dict) -> list[str]:
 
 
 def main() -> int:
-    quizzes = load_quiz_files()
+    outputs_dir = Path(sys.argv[1]) if len(sys.argv) > 1 else DEFAULT_OUTPUTS_DIR
+    if not outputs_dir.is_absolute():
+        outputs_dir = Path(__file__).parent / outputs_dir
+    quizzes = load_quiz_files(outputs_dir)
     if not quizzes:
-        print("ERROR: no quiz JSON files found - run saveOutputsPass first.")
+        print(f"ERROR: no quiz JSON files in {outputs_dir}. "
+              f"Run saveOutputsPass or quizOnlyPostFixPass first.")
         return 1
 
     total_questions = 0

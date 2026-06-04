@@ -1,0 +1,74 @@
+{
+  "cleaned" : "{\n  \"questions\": [\n    {\n      \"type\": \"MCQ_SINGLE\",\n      \"options\": [\n        \"Bằng 0.\",\n        \"Tỉ lệ nghịch với bình phương khoảng cách đến tâm quả cầu.\",\n        \"Không đổi và bằng giá trị trên bề mặt quả cầu.\",\n        \"Tỉ lệ thuận với khoảng cách đến tâm quả cầu.\"\n      ],\n      \"correctAnswer\": \"Bằng 0.\",\n      \"explanation\": \"Theo tài liệu (Slide 8, Bài tập ví dụ 2): Đối với quả cầu tích điện đều trên bề mặt, khi xét điện trường ở bên trong quả cầu (r < R), tổng điện tích chứa bên trong mặt Gauss bằng 0 (Σqi = 0), do đó cường độ điện trường E = 0.\"\n    },\n    {\n      \"type\": \"TRUE_FALSE\",\n      \"prompt\": \"Đường sức của điện trường tĩnh là những đường cong khép kín.\",\n      \"correctAnswer\": false,\n      \"explanation\": \"Theo tài liệu (Slide 4): 'Đường sức điện trường tĩnh không khép kín.' Chúng bắt đầu từ điện tích dương (hoặc vô cực) và kết thúc ở điện tích âm (hoặc vô cực).\"\n    },\n    {\n      \"type\": \"SHORT_ANSWER\",\n      \"prompt\": \"Theo định lý Gauss trong chân không, thông lượng của vectơ cường độ điện trường gửi qua một mặt kín S bằng tổng đại số điện tích chứa bên trong mặt kín đó chia cho đại lượng nào?\",\n      \"correctAnswer\": [\n        \"ε₀\",\n        \"epsilon không\",\n        \"hằng số điện\"\n      ],\n      \"explanation\": \"Theo tài liệu (Slide 7, Định lý Gauss): 'Trong chân không, thông lượng của vectơ cường độ điện trường gửi qua mặt kín S thì bằng tổng đại số điện tích chứa bên trong mặt kín chia cho ε₀.'\"\n    },\n    {\n      \"type\": \"FILL_IN_THE_BLANK\",\n      \"prompt\": \"Điền vào chỗ trống để hoàn thành các công thức tính mật độ điện tích.\",\n      \"sentenceHtml\": \"Nếu vật tích điện một chiều thì nó có mật độ điện dài λ = dq/dl. Nếu vật tích điện hai chiều thì nó có mật độ điện mặt σ = ___(1)___. Nếu vật tích điện ba chiều thì nó có mật độ điện khối ρ = ___(2)___.\",\n      \"correctAnswer\": [\n        \"dq/dS\",\n        \"dq/dV\"\n      ],\n      \"explanation\": \"Theo tài liệu (Slide 2): 'Nếu vật tích điện hai chiều thì nó có mật độ điện mặt σ=dq/dS. Nếu vật tích điện ba chiều thì nó có mật độ điện khối ρ=dq/dV.'\"\n    },\n    {\n      \"type\": \"MATCHING\",\n      \"prompt\": \"Ghép nối loại vật tích điện với công thức tính cường độ điện trường tương ứng tại một điểm bên ngoài vật (r ≥ R).\",\n      \"pairs\": [\n        {\n          \"left\": \"Mặt cầu bán kính R, tích điện mặt σ\",\n          \"right\": \"E = (σR² / ε₀ε) * (1/r²)\"\n        },\n        {\n          \"left\": \"Quả cầu bán kính R, tích điện khối ρ\",\n          \"right\": \"E = (ρR³ / 3ε₀ε) * (1/r²)\"\n        },\n        {\n          \"left\": \"Mặt trụ dài bán kính R, tích điện dài λ\",\n          \"right\": \"E = (λ / 2πε₀ε) * (1/r)\"\n        }\n      ],\n      \"correctAnswer\": null,\n      \"explanation\": \"Theo tài liệu (Slide 11 và 12): Các công thức cường độ điện trường cho các vật tích điện được liệt kê:\\n- Mặt cầu (r ≥ R): E = (σR²/ε₀ε) * (1/r²) (có thể viết lại từ công thức E = k * q/r² với q = σ * 4πR²).\\n- Quả cầu (r ≥ R): E = (ρR³/3ε₀ε) * (1/r²) (có thể viết lại từ công thức E = k * q/r² với q = ρ * 4/3πR³).\\n- Mặt trụ (r ≥ R): E = 2kλ/r = λ/(2πε₀εr).\"\n    }\n  ]\n}",
+  "completion_tokens" : 998,
+  "doc_file" : "Chương 6.pdf",
+  "doc_id" : "D09",
+  "doc_language" : "vi",
+  "doc_pages" : 25,
+  "doc_title" : "Trường tĩnh điện trong chân không",
+  "empty_field" : true,
+  "error_message" : null,
+  "error_type" : null,
+  "feature" : "quiz",
+  "json_parse_ok" : true,
+  "latency_ms" : 17515,
+  "model" : "gemini-2.5-pro",
+  "parsed" : {
+    "questions" : [ {
+      "type" : "MCQ_SINGLE",
+      "prompt" : null,
+      "options" : [ "Bằng 0.", "Tỉ lệ nghịch với bình phương khoảng cách đến tâm quả cầu.", "Không đổi và bằng giá trị trên bề mặt quả cầu.", "Tỉ lệ thuận với khoảng cách đến tâm quả cầu." ],
+      "correctAnswer" : "Bằng 0.",
+      "explanation" : "Theo tài liệu (Slide 8, Bài tập ví dụ 2): Đối với quả cầu tích điện đều trên bề mặt, khi xét điện trường ở bên trong quả cầu (r < R), tổng điện tích chứa bên trong mặt Gauss bằng 0 (Σqi = 0), do đó cường độ điện trường E = 0.",
+      "sentenceHtml" : null,
+      "pairs" : null
+    }, {
+      "type" : "TRUE_FALSE",
+      "prompt" : "Đường sức của điện trường tĩnh là những đường cong khép kín.",
+      "options" : null,
+      "correctAnswer" : false,
+      "explanation" : "Theo tài liệu (Slide 4): 'Đường sức điện trường tĩnh không khép kín.' Chúng bắt đầu từ điện tích dương (hoặc vô cực) và kết thúc ở điện tích âm (hoặc vô cực).",
+      "sentenceHtml" : null,
+      "pairs" : null
+    }, {
+      "type" : "SHORT_ANSWER",
+      "prompt" : "Theo định lý Gauss trong chân không, thông lượng của vectơ cường độ điện trường gửi qua một mặt kín S bằng tổng đại số điện tích chứa bên trong mặt kín đó chia cho đại lượng nào?",
+      "options" : null,
+      "correctAnswer" : [ "ε₀", "epsilon không", "hằng số điện" ],
+      "explanation" : "Theo tài liệu (Slide 7, Định lý Gauss): 'Trong chân không, thông lượng của vectơ cường độ điện trường gửi qua mặt kín S thì bằng tổng đại số điện tích chứa bên trong mặt kín chia cho ε₀.'",
+      "sentenceHtml" : null,
+      "pairs" : null
+    }, {
+      "type" : "FILL_IN_THE_BLANK",
+      "prompt" : "Điền vào chỗ trống để hoàn thành các công thức tính mật độ điện tích.",
+      "options" : null,
+      "correctAnswer" : [ "dq/dS", "dq/dV" ],
+      "explanation" : "Theo tài liệu (Slide 2): 'Nếu vật tích điện hai chiều thì nó có mật độ điện mặt σ=dq/dS. Nếu vật tích điện ba chiều thì nó có mật độ điện khối ρ=dq/dV.'",
+      "sentenceHtml" : "Nếu vật tích điện một chiều thì nó có mật độ điện dài λ = dq/dl. Nếu vật tích điện hai chiều thì nó có mật độ điện mặt σ = ___(1)___. Nếu vật tích điện ba chiều thì nó có mật độ điện khối ρ = ___(2)___.",
+      "pairs" : null
+    }, {
+      "type" : "MATCHING",
+      "prompt" : "Ghép nối loại vật tích điện với công thức tính cường độ điện trường tương ứng tại một điểm bên ngoài vật (r ≥ R).",
+      "options" : null,
+      "correctAnswer" : null,
+      "explanation" : "Theo tài liệu (Slide 11 và 12): Các công thức cường độ điện trường cho các vật tích điện được liệt kê:\n- Mặt cầu (r ≥ R): E = (σR²/ε₀ε) * (1/r²) (có thể viết lại từ công thức E = k * q/r² với q = σ * 4πR²).\n- Quả cầu (r ≥ R): E = (ρR³/3ε₀ε) * (1/r²) (có thể viết lại từ công thức E = k * q/r² với q = ρ * 4/3πR³).\n- Mặt trụ (r ≥ R): E = 2kλ/r = λ/(2πε₀εr).",
+      "sentenceHtml" : null,
+      "pairs" : [ {
+        "left" : "Mặt cầu bán kính R, tích điện mặt σ",
+        "right" : "E = (σR² / ε₀ε) * (1/r²)"
+      }, {
+        "left" : "Quả cầu bán kính R, tích điện khối ρ",
+        "right" : "E = (ρR³ / 3ε₀ε) * (1/r²)"
+      }, {
+        "left" : "Mặt trụ dài bán kính R, tích điện dài λ",
+        "right" : "E = (λ / 2πε₀ε) * (1/r)"
+      } ]
+    } ]
+  },
+  "prompt_tokens" : 3735,
+  "raw" : "```json\n{\n  \"questions\": [\n    {\n      \"type\": \"MCQ_SINGLE\",\n      \"options\": [\n        \"Bằng 0.\",\n        \"Tỉ lệ nghịch với bình phương khoảng cách đến tâm quả cầu.\",\n        \"Không đổi và bằng giá trị trên bề mặt quả cầu.\",\n        \"Tỉ lệ thuận với khoảng cách đến tâm quả cầu.\"\n      ],\n      \"correctAnswer\": \"Bằng 0.\",\n      \"explanation\": \"Theo tài liệu (Slide 8, Bài tập ví dụ 2): Đối với quả cầu tích điện đều trên bề mặt, khi xét điện trường ở bên trong quả cầu (r < R), tổng điện tích chứa bên trong mặt Gauss bằng 0 (Σqi = 0), do đó cường độ điện trường E = 0.\"\n    },\n    {\n      \"type\": \"TRUE_FALSE\",\n      \"prompt\": \"Đường sức của điện trường tĩnh là những đường cong khép kín.\",\n      \"correctAnswer\": false,\n      \"explanation\": \"Theo tài liệu (Slide 4): 'Đường sức điện trường tĩnh không khép kín.' Chúng bắt đầu từ điện tích dương (hoặc vô cực) và kết thúc ở điện tích âm (hoặc vô cực).\"\n    },\n    {\n      \"type\": \"SHORT_ANSWER\",\n      \"prompt\": \"Theo định lý Gauss trong chân không, thông lượng của vectơ cường độ điện trường gửi qua một mặt kín S bằng tổng đại số điện tích chứa bên trong mặt kín đó chia cho đại lượng nào?\",\n      \"correctAnswer\": [\n        \"ε₀\",\n        \"epsilon không\",\n        \"hằng số điện\"\n      ],\n      \"explanation\": \"Theo tài liệu (Slide 7, Định lý Gauss): 'Trong chân không, thông lượng của vectơ cường độ điện trường gửi qua mặt kín S thì bằng tổng đại số điện tích chứa bên trong mặt kín chia cho ε₀.'\"\n    },\n    {\n      \"type\": \"FILL_IN_THE_BLANK\",\n      \"prompt\": \"Điền vào chỗ trống để hoàn thành các công thức tính mật độ điện tích.\",\n      \"sentenceHtml\": \"Nếu vật tích điện một chiều thì nó có mật độ điện dài λ = dq/dl. Nếu vật tích điện hai chiều thì nó có mật độ điện mặt σ = ___(1)___. Nếu vật tích điện ba chiều thì nó có mật độ điện khối ρ = ___(2)___.\",\n      \"correctAnswer\": [\n        \"dq/dS\",\n        \"dq/dV\"\n      ],\n      \"explanation\": \"Theo tài liệu (Slide 2): 'Nếu vật tích điện hai chiều thì nó có mật độ điện mặt σ=dq/dS. Nếu vật tích điện ba chiều thì nó có mật độ điện khối ρ=dq/dV.'\"\n    },\n    {\n      \"type\": \"MATCHING\",\n      \"prompt\": \"Ghép nối loại vật tích điện với công thức tính cường độ điện trường tương ứng tại một điểm bên ngoài vật (r ≥ R).\",\n      \"pairs\": [\n        {\n          \"left\": \"Mặt cầu bán kính R, tích điện mặt σ\",\n          \"right\": \"E = (σR² / ε₀ε) * (1/r²)\"\n        },\n        {\n          \"left\": \"Quả cầu bán kính R, tích điện khối ρ\",\n          \"right\": \"E = (ρR³ / 3ε₀ε) * (1/r²)\"\n        },\n        {\n          \"left\": \"Mặt trụ dài bán kính R, tích điện dài λ\",\n          \"right\": \"E = (λ / 2πε₀ε) * (1/r)\"\n        }\n      ],\n      \"correctAnswer\": null,\n      \"explanation\": \"Theo tài liệu (Slide 11 và 12): Các công thức cường độ điện trường cho các vật tích điện được liệt kê:\\n- Mặt cầu (r ≥ R): E = (σR²/ε₀ε) * (1/r²) (có thể viết lại từ công thức E = k * q/r² với q = σ * 4πR²).\\n- Quả cầu (r ≥ R): E = (ρR³/3ε₀ε) * (1/r²) (có thể viết lại từ công thức E = k * q/r² với q = ρ * 4/3πR³).\\n- Mặt trụ (r ≥ R): E = 2kλ/r = λ/(2πε₀εr).\"\n    }\n  ]\n}\n```",
+  "run" : 1,
+  "schema_ok" : true,
+  "temperature" : 0.2,
+  "timestamp" : "2026-06-04T22:17:09.297752"
+}

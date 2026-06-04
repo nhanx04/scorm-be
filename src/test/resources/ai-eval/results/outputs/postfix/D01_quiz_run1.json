@@ -1,0 +1,77 @@
+{
+  "cleaned" : "{\n  \"questions\": [\n    {\n      \"type\": \"MCQ_SINGLE\",\n      \"options\": [\n        \"Harvard Architecture\",\n        \"von Neumann Architecture\",\n        \"Turing Machine\",\n        \"Quantum Architecture\"\n      ],\n      \"correctAnswer\": \"von Neumann Architecture\",\n      \"explanation\": \"Slide 8: The document states, 'Well-known computer architecture: von Neumann. Imperative languages, most dominant, because of von Neumann computers.'\"\n    },\n    {\n      \"type\": \"TRUE_FALSE\",\n      \"prompt\": \"Based on the provided material, is the following statement true or false?\\n\\nThe document classifies the Lisp programming language as belonging to the imperative programming methodology.\",\n      \"correctAnswer\": false,\n      \"explanation\": \"Slide 7: The document lists Lisp under the 'Declarative' programming methodology, specifically as a 'Functional' language, not under the 'Imperative' category.\"\n    },\n    {\n      \"type\": \"SHORT_ANSWER\",\n      \"prompt\": \"According to the 'Evaluation' slide, what are the four criteria for evaluating a programming language?\",\n      \"correctAnswer\": [\n        \"Readability, Writability, Reliability, Cost\"\n      ],\n      \"explanation\": \"Slide 6: The 'Evaluation' slide explicitly lists four criteria: 1 Readability, 2 Writability, 3 Reliability, and 4 Cost.\"\n    },\n    {\n      \"type\": \"FILL_IN_THE_BLANK\",\n      \"prompt\": \"Complete the definition of a key language characteristic based on the provided material.\",\n      \"sentenceHtml\": \"According to the language characteristics slide, ___(1)___ means that every combination of features is meaningful, and independent functions should be controlled by ___(2)___ mechanisms.\",\n      \"correctAnswer\": [\n        \"Orthogonality\",\n        \"independent\"\n      ],\n      \"explanation\": \"Slide 5: The definition for 'Orthogonality' is given as: 'every combination of features is meaningful. Independent functions should be controlled by independent mechanisms.'\"\n    },\n    {\n      \"type\": \"MATCHING\",\n      \"prompt\": \"Match each programming language to its primary domain as listed in the document.\",\n      \"pairs\": [\n        {\n          \"left\": \"Fortran\",\n          \"right\": \"Scientific Applications\"\n        },\n        {\n          \"left\": \"COBOL\",\n          \"right\": \"Business Applications\"\n        },\n        {\n          \"left\": \"Prolog\",\n          \"right\": \"Artificial Intelligence\"\n        },\n        {\n          \"left\": \"PHP\",\n          \"right\": \"Web Software\"\n        }\n      ],\n      \"correctAnswer\": null,\n      \"explanation\": \"Slide 4: The 'Programming domains' section lists examples for each category. It shows Fortran for Scientific Applications, COBOL for Business Applications, Prolog for Artificial Intelligence, and PHP for Web Software.\"\n    }\n  ]\n}",
+  "completion_tokens" : 661,
+  "doc_file" : "1-Introduction-2023.pdf",
+  "doc_id" : "D01",
+  "doc_language" : "en",
+  "doc_pages" : 36,
+  "doc_title" : "Introduction to Programming Languages and Compilers",
+  "empty_field" : true,
+  "error_message" : null,
+  "error_type" : null,
+  "feature" : "quiz",
+  "json_parse_ok" : true,
+  "latency_ms" : 20456,
+  "model" : "gemini-2.5-pro",
+  "parsed" : {
+    "questions" : [ {
+      "type" : "MCQ_SINGLE",
+      "prompt" : null,
+      "options" : [ "Harvard Architecture", "von Neumann Architecture", "Turing Machine", "Quantum Architecture" ],
+      "correctAnswer" : "von Neumann Architecture",
+      "explanation" : "Slide 8: The document states, 'Well-known computer architecture: von Neumann. Imperative languages, most dominant, because of von Neumann computers.'",
+      "sentenceHtml" : null,
+      "pairs" : null
+    }, {
+      "type" : "TRUE_FALSE",
+      "prompt" : "Based on the provided material, is the following statement true or false?\n\nThe document classifies the Lisp programming language as belonging to the imperative programming methodology.",
+      "options" : null,
+      "correctAnswer" : false,
+      "explanation" : "Slide 7: The document lists Lisp under the 'Declarative' programming methodology, specifically as a 'Functional' language, not under the 'Imperative' category.",
+      "sentenceHtml" : null,
+      "pairs" : null
+    }, {
+      "type" : "SHORT_ANSWER",
+      "prompt" : "According to the 'Evaluation' slide, what are the four criteria for evaluating a programming language?",
+      "options" : null,
+      "correctAnswer" : [ "Readability, Writability, Reliability, Cost" ],
+      "explanation" : "Slide 6: The 'Evaluation' slide explicitly lists four criteria: 1 Readability, 2 Writability, 3 Reliability, and 4 Cost.",
+      "sentenceHtml" : null,
+      "pairs" : null
+    }, {
+      "type" : "FILL_IN_THE_BLANK",
+      "prompt" : "Complete the definition of a key language characteristic based on the provided material.",
+      "options" : null,
+      "correctAnswer" : [ "Orthogonality", "independent" ],
+      "explanation" : "Slide 5: The definition for 'Orthogonality' is given as: 'every combination of features is meaningful. Independent functions should be controlled by independent mechanisms.'",
+      "sentenceHtml" : "According to the language characteristics slide, ___(1)___ means that every combination of features is meaningful, and independent functions should be controlled by ___(2)___ mechanisms.",
+      "pairs" : null
+    }, {
+      "type" : "MATCHING",
+      "prompt" : "Match each programming language to its primary domain as listed in the document.",
+      "options" : null,
+      "correctAnswer" : null,
+      "explanation" : "Slide 4: The 'Programming domains' section lists examples for each category. It shows Fortran for Scientific Applications, COBOL for Business Applications, Prolog for Artificial Intelligence, and PHP for Web Software.",
+      "sentenceHtml" : null,
+      "pairs" : [ {
+        "left" : "Fortran",
+        "right" : "Scientific Applications"
+      }, {
+        "left" : "COBOL",
+        "right" : "Business Applications"
+      }, {
+        "left" : "Prolog",
+        "right" : "Artificial Intelligence"
+      }, {
+        "left" : "PHP",
+        "right" : "Web Software"
+      } ]
+    } ]
+  },
+  "prompt_tokens" : 2438,
+  "raw" : "```json\n{\n  \"questions\": [\n    {\n      \"type\": \"MCQ_SINGLE\",\n      \"options\": [\n        \"Harvard Architecture\",\n        \"von Neumann Architecture\",\n        \"Turing Machine\",\n        \"Quantum Architecture\"\n      ],\n      \"correctAnswer\": \"von Neumann Architecture\",\n      \"explanation\": \"Slide 8: The document states, 'Well-known computer architecture: von Neumann. Imperative languages, most dominant, because of von Neumann computers.'\"\n    },\n    {\n      \"type\": \"TRUE_FALSE\",\n      \"prompt\": \"Based on the provided material, is the following statement true or false?\\n\\nThe document classifies the Lisp programming language as belonging to the imperative programming methodology.\",\n      \"correctAnswer\": false,\n      \"explanation\": \"Slide 7: The document lists Lisp under the 'Declarative' programming methodology, specifically as a 'Functional' language, not under the 'Imperative' category.\"\n    },\n    {\n      \"type\": \"SHORT_ANSWER\",\n      \"prompt\": \"According to the 'Evaluation' slide, what are the four criteria for evaluating a programming language?\",\n      \"correctAnswer\": [\n        \"Readability, Writability, Reliability, Cost\"\n      ],\n      \"explanation\": \"Slide 6: The 'Evaluation' slide explicitly lists four criteria: 1 Readability, 2 Writability, 3 Reliability, and 4 Cost.\"\n    },\n    {\n      \"type\": \"FILL_IN_THE_BLANK\",\n      \"prompt\": \"Complete the definition of a key language characteristic based on the provided material.\",\n      \"sentenceHtml\": \"According to the language characteristics slide, ___(1)___ means that every combination of features is meaningful, and independent functions should be controlled by ___(2)___ mechanisms.\",\n      \"correctAnswer\": [\n        \"Orthogonality\",\n        \"independent\"\n      ],\n      \"explanation\": \"Slide 5: The definition for 'Orthogonality' is given as: 'every combination of features is meaningful. Independent functions should be controlled by independent mechanisms.'\"\n    },\n    {\n      \"type\": \"MATCHING\",\n      \"prompt\": \"Match each programming language to its primary domain as listed in the document.\",\n      \"pairs\": [\n        {\n          \"left\": \"Fortran\",\n          \"right\": \"Scientific Applications\"\n        },\n        {\n          \"left\": \"COBOL\",\n          \"right\": \"Business Applications\"\n        },\n        {\n          \"left\": \"Prolog\",\n          \"right\": \"Artificial Intelligence\"\n        },\n        {\n          \"left\": \"PHP\",\n          \"right\": \"Web Software\"\n        }\n      ],\n      \"correctAnswer\": null,\n      \"explanation\": \"Slide 4: The 'Programming domains' section lists examples for each category. It shows Fortran for Scientific Applications, COBOL for Business Applications, Prolog for Artificial Intelligence, and PHP for Web Software.\"\n    }\n  ]\n}\n```",
+  "run" : 1,
+  "schema_ok" : true,
+  "temperature" : 0.2,
+  "timestamp" : "2026-06-04T22:13:57.977672"
+}

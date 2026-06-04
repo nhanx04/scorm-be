@@ -313,35 +313,8 @@ public class AiGeneratorService {
                 BeanOutputConverter<AiQuizResponse> converter = new BeanOutputConverter<>(AiQuizResponse.class);
                 String formatInstructions = converter.getFormat();
 
-                String userPrompt = """
-                                Bạn là chuyên gia thiết kế kiểm tra đánh giá e-learning.
-                                Dựa hoàn toàn vào tài liệu học tập dưới đây, hãy tạo đúng {numberOfQuestions} câu hỏi với độ khó {difficulty}.
-
-                                TÀI LIỆU GỐC:
-                                "{sourceText}"
-
-                                BẮT BUỘC:
-                                1. Mọi câu hỏi phải bám sát tài liệu gốc, không thêm kiến thức ngoài tài liệu.
-                                2. Sử dụng đầy đủ 6 loại câu hỏi: MCQ_SINGLE, MCQ_MULTIPLE, TRUE_FALSE, SHORT_ANSWER, FILL_IN_THE_BLANK, MATCHING.
-                                3. Nếu {numberOfQuestions} >= 6, phải có ít nhất 1 câu cho mỗi loại.
-                                4. Ngôn ngữ đầu ra: {language}.
-
-                                QUY ƯỚC DỮ LIỆU:
-                                - MCQ_SINGLE/MCQ_MULTIPLE: có options và correctAnswer tương ứng (string hoặc mảng string).
-                                - TRUE_FALSE: correctAnswer là boolean.
-                                - SHORT_ANSWER: correctAnswer là mảng câu trả lời ngắn chấp nhận được.
-                                - FILL_IN_THE_BLANK: có sentenceHtml và correctAnswer là mảng đáp án theo thứ tự chỗ trống.
-                                - MATCHING: có pairs (left-right), correctAnswer có thể để null.
-                                - explanation ngắn gọn, nêu căn cứ từ tài liệu gốc.
-
-                                {fewShotExamples}
-
-                                CHỈ trả về JSON đúng schema sau:
-                                {formatInstructions}
-                                """;
-
                 String rawResponse = chatClient.prompt()
-                                .user(u -> u.text(userPrompt)
+                                .user(u -> u.text(QuizPrompts.FROM_TEXT)
                                                 .param("sourceText", request.getSourceText())
                                                 .param("numberOfQuestions", request.getNumberOfQuestions())
                                                 .param("difficulty",
@@ -392,11 +365,17 @@ public class AiGeneratorService {
                                 NGUỒN NỘI DUNG BÀI HỌC:
                                 "{sourceText}"
 
+                                RÀNG BUỘC NGHIÊM NGẶT VỀ NGUỒN (anti-hallucination):
+                                1. MỌI câu hỏi PHẢI có thể trả lời được CHỈ bằng "NGUỒN NỘI DUNG BÀI HỌC" ở trên.
+                                2. TUYỆT ĐỐI KHÔNG sử dụng kiến thức chung từ training data nằm ngoài nội dung bài học.
+                                3. Trước khi tạo mỗi câu, tự kiểm tra: "Đáp án đúng có trích dẫn được TRỰC TIẾP từ nội dung bài học không?" Nếu không → loại bỏ.
+                                4. Nếu nội dung bài học quá ngắn để có đủ {numberOfQuestions} câu, tạo ít câu hơn thay vì bịa.
+
                                 YÊU CẦU:
                                 1. Tạo đúng {numberOfQuestions} câu, độ khó {difficulty}, ngôn ngữ {language}.
                                 2. Bao phủ đầy đủ 6 loại câu hỏi: MCQ_SINGLE, MCQ_MULTIPLE, TRUE_FALSE, SHORT_ANSWER, FILL_IN_THE_BLANK, MATCHING.
-                                3. Không dùng kiến thức ngoài nội dung bài học và ngữ cảnh khóa học.
-                                4. explanation phải nêu lý do đúng dựa vào nội dung bài học.
+                                3. FILL_IN_THE_BLANK BẮT BUỘC có cả 3 trường: prompt (chỉ dẫn ngắn cho học viên, không được để trống), sentenceHtml (câu có chỗ trống), correctAnswer (mảng đáp án).
+                                4. explanation BẮT BUỘC mở đầu bằng "Theo tài liệu:" hoặc "Slide X:" và trích ngữ cảnh từ nội dung bài học (không phải kiến thức chung).
 
                                 {fewShotExamples}
 

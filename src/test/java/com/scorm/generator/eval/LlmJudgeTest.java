@@ -54,10 +54,13 @@ class LlmJudgeTest {
 
     private static final Path GROUND_TRUTH_PATH =
             Paths.get("src/test/resources/ai-eval/ground-truth/ground_truth.json");
-    private static final Path OUTPUTS_DIR =
-            Paths.get("src/test/resources/ai-eval/results/outputs");
     private static final Path RESULTS_DIR =
             Paths.get("src/test/resources/ai-eval/results");
+    // Allow judging post-fix outputs without overwriting baseline judge CSV.
+    private static final Path OUTPUTS_DIR =
+            RESULTS_DIR.resolve(System.getProperty("ai-eval.outputs-subdir", "outputs"));
+    private static final String CSV_SUFFIX =
+            System.getProperty("ai-eval.csv-suffix", "");
 
     private final ObjectMapper jsonMapper = new ObjectMapper();
     private EvalConfig config;
@@ -115,7 +118,10 @@ class LlmJudgeTest {
         System.out.println("[ai-eval] Judging " + outputFiles.size() + " outputs");
 
         String timestamp = LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyyMMdd_HHmmss"));
-        Path csvPath = RESULTS_DIR.resolve("faithfulness_auto_" + timestamp + ".csv");
+        String stem = "faithfulness_auto"
+                + (CSV_SUFFIX.isEmpty() ? "" : "_" + CSV_SUFFIX)
+                + "_" + timestamp;
+        Path csvPath = RESULTS_DIR.resolve(stem + ".csv");
 
         try (CsvReporter csv = new CsvReporter(csvPath,
                 "timestamp", "doc_id", "feature", "run", "judge_model",
