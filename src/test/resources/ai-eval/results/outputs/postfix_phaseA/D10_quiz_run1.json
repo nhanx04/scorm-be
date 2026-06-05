@@ -1,0 +1,77 @@
+{
+  "cleaned" : "{\n  \"questions\": [\n    {\n      \"type\": \"MCQ_SINGLE\",\n      \"prompt\": \"Which of the following factors would cause a movement along the demand curve for a product?\",\n      \"options\": [\n        \"A change in consumer income\",\n        \"A change in the product's price\",\n        \"A shift in consumer tastes\",\n        \"A change in the number of buyers\"\n      ],\n      \"correctAnswer\": \"A change in the product's price\",\n      \"explanation\": \"Slide 9: '[Image showing movement along a curve from P1 to P2]'. This image illustrates that a price change causes a movement along the existing demand curve.\"\n    },\n    {\n      \"type\": \"TRUE_FALSE\",\n      \"prompt\": \"True or False: According to the law of supply, if the price of a good decreases, the quantity supplied will also decrease, ceteris paribus.\",\n      \"correctAnswer\": true,\n      \"explanation\": \"Slide 12: 'The quantity of a good supplied in a given time period increases as its price increases, ceteris paribus.'. This directly implies that a decrease in price leads to a decrease in quantity supplied.\"\n    },\n    {\n      \"type\": \"SHORT_ANSWER\",\n      \"prompt\": \"What is the economic term for a market situation where the quantity supplied exceeds the quantity demanded?\",\n      \"correctAnswer\": [\n        \"Surplus\",\n        \"Excess supply\"\n      ],\n      \"explanation\": \"Slide 19: 'Surplus (excess supply): quantity supplied is greater than quantity demanded'. The slide explicitly defines this situation using both acceptable terms.\"\n    },\n    {\n      \"type\": \"FILL_IN_THE_BLANK\",\n      \"prompt\": \"Fill in the blank:\",\n      \"sentenceHtml\": \"Factors such as input prices, technology, and the number of sellers are considered determinants of <input>.\",\n      \"correctAnswer\": [\n        \"supply\"\n      ],\n      \"explanation\": \"Slide 15: 'Changes in supply: Shifts due to some change in a determinant of supply • input prices, • technology, • expectations, • number of sellers'. These factors are listed as determinants of supply.\"\n    },\n    {\n      \"type\": \"MATCHING\",\n      \"prompt\": \"Match each economic term with its correct definition.\",\n      \"pairs\": [\n        {\n          \"left\": \"Law of demand\",\n          \"right\": \"The quantity of a good demanded in a given time period increases as its price falls, ceteris paribus.\"\n        },\n        {\n          \"left\": \"Equilibrium price\",\n          \"right\": \"The price where quantity supplied equals quantity demanded.\"\n        },\n        {\n          \"left\": \"Demand\",\n          \"right\": \"The ability and willingness to buy specific quantities of a good at alternative prices in a given time period.\"\n        },\n        {\n          \"left\": \"Supply\",\n          \"right\": \"The ability and willingness to sell specific quantities of a good at alternative prices in a given time period.\"\n        }\n      ],\n      \"correctAnswer\": null,\n      \"explanation\": \"Slide 3, 5, 18: 'Demand: The ability and willingness to buy...'; 'Law of demand... increases as its price falls...'; 'Equilibrium price: price where Q supplied = Q demanded'. Each term is explicitly defined on the referenced slides.\"\n    }\n  ]\n}",
+  "completion_tokens" : 767,
+  "doc_file" : "Chuong2_CungCauDiemCanBangGiaTranGiaSanThue_Eng.pdf",
+  "doc_id" : "D10",
+  "doc_language" : "en",
+  "doc_pages" : 57,
+  "doc_title" : "Supply, Demand and Market Equilibrium",
+  "empty_field" : false,
+  "error_message" : null,
+  "error_type" : null,
+  "feature" : "quiz",
+  "json_parse_ok" : true,
+  "latency_ms" : 28212,
+  "model" : "gemini-2.5-pro",
+  "parsed" : {
+    "questions" : [ {
+      "type" : "MCQ_SINGLE",
+      "prompt" : "Which of the following factors would cause a movement along the demand curve for a product?",
+      "options" : [ "A change in consumer income", "A change in the product's price", "A shift in consumer tastes", "A change in the number of buyers" ],
+      "correctAnswer" : "A change in the product's price",
+      "explanation" : "Slide 9: '[Image showing movement along a curve from P1 to P2]'. This image illustrates that a price change causes a movement along the existing demand curve.",
+      "sentenceHtml" : null,
+      "pairs" : null
+    }, {
+      "type" : "TRUE_FALSE",
+      "prompt" : "True or False: According to the law of supply, if the price of a good decreases, the quantity supplied will also decrease, ceteris paribus.",
+      "options" : null,
+      "correctAnswer" : true,
+      "explanation" : "Slide 12: 'The quantity of a good supplied in a given time period increases as its price increases, ceteris paribus.'. This directly implies that a decrease in price leads to a decrease in quantity supplied.",
+      "sentenceHtml" : null,
+      "pairs" : null
+    }, {
+      "type" : "SHORT_ANSWER",
+      "prompt" : "What is the economic term for a market situation where the quantity supplied exceeds the quantity demanded?",
+      "options" : null,
+      "correctAnswer" : [ "Surplus", "Excess supply" ],
+      "explanation" : "Slide 19: 'Surplus (excess supply): quantity supplied is greater than quantity demanded'. The slide explicitly defines this situation using both acceptable terms.",
+      "sentenceHtml" : null,
+      "pairs" : null
+    }, {
+      "type" : "FILL_IN_THE_BLANK",
+      "prompt" : "Fill in the blank:",
+      "options" : null,
+      "correctAnswer" : [ "supply" ],
+      "explanation" : "Slide 15: 'Changes in supply: Shifts due to some change in a determinant of supply • input prices, • technology, • expectations, • number of sellers'. These factors are listed as determinants of supply.",
+      "sentenceHtml" : "Factors such as input prices, technology, and the number of sellers are considered determinants of <input>.",
+      "pairs" : null
+    }, {
+      "type" : "MATCHING",
+      "prompt" : "Match each economic term with its correct definition.",
+      "options" : null,
+      "correctAnswer" : null,
+      "explanation" : "Slide 3, 5, 18: 'Demand: The ability and willingness to buy...'; 'Law of demand... increases as its price falls...'; 'Equilibrium price: price where Q supplied = Q demanded'. Each term is explicitly defined on the referenced slides.",
+      "sentenceHtml" : null,
+      "pairs" : [ {
+        "left" : "Law of demand",
+        "right" : "The quantity of a good demanded in a given time period increases as its price falls, ceteris paribus."
+      }, {
+        "left" : "Equilibrium price",
+        "right" : "The price where quantity supplied equals quantity demanded."
+      }, {
+        "left" : "Demand",
+        "right" : "The ability and willingness to buy specific quantities of a good at alternative prices in a given time period."
+      }, {
+        "left" : "Supply",
+        "right" : "The ability and willingness to sell specific quantities of a good at alternative prices in a given time period."
+      } ]
+    } ]
+  },
+  "prompt_tokens" : 3399,
+  "raw" : "```json\n{\n  \"questions\": [\n    {\n      \"type\": \"MCQ_SINGLE\",\n      \"prompt\": \"Which of the following factors would cause a movement along the demand curve for a product?\",\n      \"options\": [\n        \"A change in consumer income\",\n        \"A change in the product's price\",\n        \"A shift in consumer tastes\",\n        \"A change in the number of buyers\"\n      ],\n      \"correctAnswer\": \"A change in the product's price\",\n      \"explanation\": \"Slide 9: '[Image showing movement along a curve from P1 to P2]'. This image illustrates that a price change causes a movement along the existing demand curve.\"\n    },\n    {\n      \"type\": \"TRUE_FALSE\",\n      \"prompt\": \"True or False: According to the law of supply, if the price of a good decreases, the quantity supplied will also decrease, ceteris paribus.\",\n      \"correctAnswer\": true,\n      \"explanation\": \"Slide 12: 'The quantity of a good supplied in a given time period increases as its price increases, ceteris paribus.'. This directly implies that a decrease in price leads to a decrease in quantity supplied.\"\n    },\n    {\n      \"type\": \"SHORT_ANSWER\",\n      \"prompt\": \"What is the economic term for a market situation where the quantity supplied exceeds the quantity demanded?\",\n      \"correctAnswer\": [\n        \"Surplus\",\n        \"Excess supply\"\n      ],\n      \"explanation\": \"Slide 19: 'Surplus (excess supply): quantity supplied is greater than quantity demanded'. The slide explicitly defines this situation using both acceptable terms.\"\n    },\n    {\n      \"type\": \"FILL_IN_THE_BLANK\",\n      \"prompt\": \"Fill in the blank:\",\n      \"sentenceHtml\": \"Factors such as input prices, technology, and the number of sellers are considered determinants of <input>.\",\n      \"correctAnswer\": [\n        \"supply\"\n      ],\n      \"explanation\": \"Slide 15: 'Changes in supply: Shifts due to some change in a determinant of supply • input prices, • technology, • expectations, • number of sellers'. These factors are listed as determinants of supply.\"\n    },\n    {\n      \"type\": \"MATCHING\",\n      \"prompt\": \"Match each economic term with its correct definition.\",\n      \"pairs\": [\n        {\n          \"left\": \"Law of demand\",\n          \"right\": \"The quantity of a good demanded in a given time period increases as its price falls, ceteris paribus.\"\n        },\n        {\n          \"left\": \"Equilibrium price\",\n          \"right\": \"The price where quantity supplied equals quantity demanded.\"\n        },\n        {\n          \"left\": \"Demand\",\n          \"right\": \"The ability and willingness to buy specific quantities of a good at alternative prices in a given time period.\"\n        },\n        {\n          \"left\": \"Supply\",\n          \"right\": \"The ability and willingness to sell specific quantities of a good at alternative prices in a given time period.\"\n        }\n      ],\n      \"correctAnswer\": null,\n      \"explanation\": \"Slide 3, 5, 18: 'Demand: The ability and willingness to buy...'; 'Law of demand... increases as its price falls...'; 'Equilibrium price: price where Q supplied = Q demanded'. Each term is explicitly defined on the referenced slides.\"\n    }\n  ]\n}\n```",
+  "run" : 1,
+  "schema_ok" : true,
+  "temperature" : 0.2,
+  "timestamp" : "2026-06-05T12:54:20.819392"
+}

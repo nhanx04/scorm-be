@@ -1,0 +1,77 @@
+{
+  "cleaned" : "{\n  \"questions\": [\n    {\n      \"type\": \"MCQ_SINGLE\",\n      \"prompt\": \"According to the provided model, what is the final step in a `write_item(X)` command?\",\n      \"options\": [\n        \"Copy item X from the buffer to the program variable named X.\",\n        \"Find the address of the disk block that contains item X.\",\n        \"Copy the disk block into a buffer in main memory.\",\n        \"Store the updated block from the buffer back to disk.\"\n      ],\n      \"correctAnswer\": \"Store the updated block from the buffer back to disk.\",\n      \"explanation\": \"Slide 7: 'Store the updated block from the buffer back to disk (either immediately or at some later point in time).'. This is explicitly listed as the final step of the write_item command.\"\n    },\n    {\n      \"type\": \"MATCHING\",\n      \"prompt\": \"Match each concurrency problem with its correct description.\",\n      \"pairs\": [\n        {\n          \"left\": \"Lost Update Problem\",\n          \"right\": \"Two transactions access the same items, and their operations interleave in a way that makes an item's value incorrect.\"\n        },\n        {\n          \"left\": \"Temporary Update Problem\",\n          \"right\": \"One transaction accesses an item that was updated by another transaction which subsequently fails.\"\n        },\n        {\n          \"left\": \"Incorrect Summary Problem\",\n          \"right\": \"An aggregate function calculates some values before they are updated and others after they are updated.\"\n        },\n        {\n          \"left\": \"Unrepeatable Read Problem\",\n          \"right\": \"A transaction reads the same item twice, but the item is changed by another transaction between the reads.\"\n        }\n      ],\n      \"correctAnswer\": null,\n      \"explanation\": \"Slide 9, 12: 'The Lost Update Problem. This occurs when two transactions that access the same database items have their operations interleaved...'. The definitions on these slides provide the correct matches.\"\n    },\n    {\n      \"type\": \"TRUE_FALSE\",\n      \"prompt\": \"True or False: In interleaved processing, processes are concurrently executed across multiple CPUs.\",\n      \"correctAnswer\": false,\n      \"explanation\": \"Slide 3: 'Interleaved processing: concurrent execution of processes is interleaved in a single CPU'. The statement describes parallel processing, not interleaved processing.\"\n    },\n    {\n      \"type\": \"MCQ_MULTIPLE\",\n      \"prompt\": \"Which of the following are listed as causes for a transaction to fail? Select all that apply.\",\n      \"options\": [\n        \"A computer failure, such as a system crash.\",\n        \"Concurrency control enforcement aborting the transaction.\",\n        \"A logical programming error within the transaction.\",\n        \"Successful completion of all database access operations.\"\n      ],\n      \"correctAnswer\": [\n        \"A computer failure, such as a system crash.\",\n        \"Concurrency control enforcement aborting the transaction.\",\n        \"A logical programming error within the transaction.\"\n      ],\n      \"explanation\": \"Slide 14, 15: 'A computer failure (system crash):...', 'A transaction or system error : ...logical programming error.', 'Concurrency control enforcement: The concurrency control method may decide to abort the transaction...'. These are all cited as reasons for failure.\"\n    },\n    {\n      \"type\": \"FILL_IN_THE_BLANK\",\n      \"prompt\": \"Fill in the blanks to complete the definition of a transaction.\",\n      \"sentenceHtml\": \"A transaction is a <input> unit of database processing that includes one or more <input> operations.\",\n      \"correctAnswer\": [\n        \"logical\",\n        \"access\"\n      ],\n      \"explanation\": \"Slide 4: 'A Transaction: logical unit of database processing that includes one or more access operations...'. The definition directly provides these key terms.\"\n    }\n  ]\n}",
+  "completion_tokens" : 866,
+  "doc_file" : "Chapter_5 - Transaction Processing.pdf",
+  "doc_id" : "D04",
+  "doc_language" : "en",
+  "doc_pages" : 65,
+  "doc_title" : "Introduction to Transaction Processing Concepts and Theory",
+  "empty_field" : false,
+  "error_message" : null,
+  "error_type" : null,
+  "feature" : "quiz",
+  "json_parse_ok" : true,
+  "latency_ms" : 25321,
+  "model" : "gemini-2.5-pro",
+  "parsed" : {
+    "questions" : [ {
+      "type" : "MCQ_SINGLE",
+      "prompt" : "According to the provided model, what is the final step in a `write_item(X)` command?",
+      "options" : [ "Copy item X from the buffer to the program variable named X.", "Find the address of the disk block that contains item X.", "Copy the disk block into a buffer in main memory.", "Store the updated block from the buffer back to disk." ],
+      "correctAnswer" : "Store the updated block from the buffer back to disk.",
+      "explanation" : "Slide 7: 'Store the updated block from the buffer back to disk (either immediately or at some later point in time).'. This is explicitly listed as the final step of the write_item command.",
+      "sentenceHtml" : null,
+      "pairs" : null
+    }, {
+      "type" : "MATCHING",
+      "prompt" : "Match each concurrency problem with its correct description.",
+      "options" : null,
+      "correctAnswer" : null,
+      "explanation" : "Slide 9, 12: 'The Lost Update Problem. This occurs when two transactions that access the same database items have their operations interleaved...'. The definitions on these slides provide the correct matches.",
+      "sentenceHtml" : null,
+      "pairs" : [ {
+        "left" : "Lost Update Problem",
+        "right" : "Two transactions access the same items, and their operations interleave in a way that makes an item's value incorrect."
+      }, {
+        "left" : "Temporary Update Problem",
+        "right" : "One transaction accesses an item that was updated by another transaction which subsequently fails."
+      }, {
+        "left" : "Incorrect Summary Problem",
+        "right" : "An aggregate function calculates some values before they are updated and others after they are updated."
+      }, {
+        "left" : "Unrepeatable Read Problem",
+        "right" : "A transaction reads the same item twice, but the item is changed by another transaction between the reads."
+      } ]
+    }, {
+      "type" : "TRUE_FALSE",
+      "prompt" : "True or False: In interleaved processing, processes are concurrently executed across multiple CPUs.",
+      "options" : null,
+      "correctAnswer" : false,
+      "explanation" : "Slide 3: 'Interleaved processing: concurrent execution of processes is interleaved in a single CPU'. The statement describes parallel processing, not interleaved processing.",
+      "sentenceHtml" : null,
+      "pairs" : null
+    }, {
+      "type" : "MCQ_MULTIPLE",
+      "prompt" : "Which of the following are listed as causes for a transaction to fail? Select all that apply.",
+      "options" : [ "A computer failure, such as a system crash.", "Concurrency control enforcement aborting the transaction.", "A logical programming error within the transaction.", "Successful completion of all database access operations." ],
+      "correctAnswer" : [ "A computer failure, such as a system crash.", "Concurrency control enforcement aborting the transaction.", "A logical programming error within the transaction." ],
+      "explanation" : "Slide 14, 15: 'A computer failure (system crash):...', 'A transaction or system error : ...logical programming error.', 'Concurrency control enforcement: The concurrency control method may decide to abort the transaction...'. These are all cited as reasons for failure.",
+      "sentenceHtml" : null,
+      "pairs" : null
+    }, {
+      "type" : "FILL_IN_THE_BLANK",
+      "prompt" : "Fill in the blanks to complete the definition of a transaction.",
+      "options" : null,
+      "correctAnswer" : [ "logical", "access" ],
+      "explanation" : "Slide 4: 'A Transaction: logical unit of database processing that includes one or more access operations...'. The definition directly provides these key terms.",
+      "sentenceHtml" : "A transaction is a <input> unit of database processing that includes one or more <input> operations.",
+      "pairs" : null
+    } ]
+  },
+  "prompt_tokens" : 2771,
+  "raw" : "```json\n{\n  \"questions\": [\n    {\n      \"type\": \"MCQ_SINGLE\",\n      \"prompt\": \"According to the provided model, what is the final step in a `write_item(X)` command?\",\n      \"options\": [\n        \"Copy item X from the buffer to the program variable named X.\",\n        \"Find the address of the disk block that contains item X.\",\n        \"Copy the disk block into a buffer in main memory.\",\n        \"Store the updated block from the buffer back to disk.\"\n      ],\n      \"correctAnswer\": \"Store the updated block from the buffer back to disk.\",\n      \"explanation\": \"Slide 7: 'Store the updated block from the buffer back to disk (either immediately or at some later point in time).'. This is explicitly listed as the final step of the write_item command.\"\n    },\n    {\n      \"type\": \"MATCHING\",\n      \"prompt\": \"Match each concurrency problem with its correct description.\",\n      \"pairs\": [\n        {\n          \"left\": \"Lost Update Problem\",\n          \"right\": \"Two transactions access the same items, and their operations interleave in a way that makes an item's value incorrect.\"\n        },\n        {\n          \"left\": \"Temporary Update Problem\",\n          \"right\": \"One transaction accesses an item that was updated by another transaction which subsequently fails.\"\n        },\n        {\n          \"left\": \"Incorrect Summary Problem\",\n          \"right\": \"An aggregate function calculates some values before they are updated and others after they are updated.\"\n        },\n        {\n          \"left\": \"Unrepeatable Read Problem\",\n          \"right\": \"A transaction reads the same item twice, but the item is changed by another transaction between the reads.\"\n        }\n      ],\n      \"correctAnswer\": null,\n      \"explanation\": \"Slide 9, 12: 'The Lost Update Problem. This occurs when two transactions that access the same database items have their operations interleaved...'. The definitions on these slides provide the correct matches.\"\n    },\n    {\n      \"type\": \"TRUE_FALSE\",\n      \"prompt\": \"True or False: In interleaved processing, processes are concurrently executed across multiple CPUs.\",\n      \"correctAnswer\": false,\n      \"explanation\": \"Slide 3: 'Interleaved processing: concurrent execution of processes is interleaved in a single CPU'. The statement describes parallel processing, not interleaved processing.\"\n    },\n    {\n      \"type\": \"MCQ_MULTIPLE\",\n      \"prompt\": \"Which of the following are listed as causes for a transaction to fail? Select all that apply.\",\n      \"options\": [\n        \"A computer failure, such as a system crash.\",\n        \"Concurrency control enforcement aborting the transaction.\",\n        \"A logical programming error within the transaction.\",\n        \"Successful completion of all database access operations.\"\n      ],\n      \"correctAnswer\": [\n        \"A computer failure, such as a system crash.\",\n        \"Concurrency control enforcement aborting the transaction.\",\n        \"A logical programming error within the transaction.\"\n      ],\n      \"explanation\": \"Slide 14, 15: 'A computer failure (system crash):...', 'A transaction or system error : ...logical programming error.', 'Concurrency control enforcement: The concurrency control method may decide to abort the transaction...'. These are all cited as reasons for failure.\"\n    },\n    {\n      \"type\": \"FILL_IN_THE_BLANK\",\n      \"prompt\": \"Fill in the blanks to complete the definition of a transaction.\",\n      \"sentenceHtml\": \"A transaction is a <input> unit of database processing that includes one or more <input> operations.\",\n      \"correctAnswer\": [\n        \"logical\",\n        \"access\"\n      ],\n      \"explanation\": \"Slide 4: 'A Transaction: logical unit of database processing that includes one or more access operations...'. The definition directly provides these key terms.\"\n    }\n  ]\n}\n```",
+  "run" : 1,
+  "schema_ok" : true,
+  "temperature" : 0.2,
+  "timestamp" : "2026-06-05T12:51:52.109656"
+}

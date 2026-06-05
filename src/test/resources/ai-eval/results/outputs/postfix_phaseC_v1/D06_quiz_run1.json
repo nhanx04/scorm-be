@@ -1,0 +1,94 @@
+{
+  "cleaned" : "{\n  \"questions\": [\n    {\n      \"citation\": {\n        \"reasoning\": \"This quote shows the flow where Prior and Likelihood are combined to produce the Posterior.\",\n        \"sourceLocation\": \"Slide 6\",\n        \"verbatimQuote\": \"Prior P(H) Data & Likelihood P(D | H) Posterior P(H | D)\"\n      },\n      \"correctAnswer\": \"The Posterior probability\",\n      \"options\": [\n        \"The Posterior probability\",\n        \"The initial Prior belief\",\n        \"The final decision utility\",\n        \"The evidence from data alone\"\n      ],\n      \"prompt\": \"In the Bayesian Learning pipeline, what is the direct result of combining the Prior belief with the Likelihood from data?\",\n      \"type\": \"MCQ_SINGLE\"\n    },\n    {\n      \"citation\": {\n        \"reasoning\": \"This quote directly contradicts the statement, showing that hypothesis probability is updated incrementally.\",\n        \"sourceLocation\": \"Slide 5\",\n        \"verbatimQuote\": \"Each training example can incrementally update hypothesis probability\"\n      },\n      \"correctAnswer\": false,\n      \"prompt\": \"True or False: According to the features of Bayesian Learning, a hypothesis probability is fixed and cannot be changed by new training examples.\",\n      \"type\": \"TRUE_FALSE\"\n    },\n    {\n      \"citation\": {\n        \"reasoning\": \"This quote explicitly defines the term P(Email | Spam) in the context of the example.\",\n        \"sourceLocation\": \"Slide 10\",\n        \"verbatimQuote\": \"P(Email | Spam): likelihood of observing the words if email is spam.\"\n      },\n      \"correctAnswer\": [\n        \"The likelihood of observing the words if the email is spam\",\n        \"Likelihood of observing the words if email is spam\"\n      ],\n      \"prompt\": \"In the spam detection example provided, what does the term P(Email | Spam) represent?\",\n      \"type\": \"SHORT_ANSWER\"\n    },\n    {\n      \"citation\": {\n        \"reasoning\": \"This quote directly states the formula for combining prior knowledge and data to get the posterior probability.\",\n        \"sourceLocation\": \"Slide 5\",\n        \"verbatimQuote\": \"Prior knowledge + data → final posterior probability\"\n      },\n      \"correctAnswer\": [\n        \"Prior\",\n        \"posterior\"\n      ],\n      \"prompt\": \"Fill in the blanks to complete the statement about a key feature of Bayesian Learning.\",\n      \"sentenceHtml\": \"<p>___(1)___ knowledge combined with data leads to the final ___(2)___ probability.</p>\",\n      \"type\": \"FILL_IN_THE_BLANK\"\n    },\n    {\n      \"citation\": {\n        \"reasoning\": \"This slide provides the definitions for all three terms used in the matching exercise.\",\n        \"sourceLocation\": \"Slide 9\",\n        \"verbatimQuote\": \"P(h): prior probability of hypothesis h ... P(h | D): posterior probability of h given D ... P(D | h): likelihood of observing D given h\"\n      },\n      \"correctAnswer\": null,\n      \"pairs\": [\n        {\n          \"left\": \"P(h)\",\n          \"right\": \"The initial belief in a hypothesis before observing data.\"\n        },\n        {\n          \"left\": \"P(D | h)\",\n          \"right\": \"The probability of observing the data if the hypothesis is true.\"\n        },\n        {\n          \"left\": \"P(h | D)\",\n          \"right\": \"The updated belief in a hypothesis after observing data.\"\n        }\n      ],\n      \"prompt\": \"Match each term from Bayes' Theorem with its correct description.\",\n      \"type\": \"MATCHING\"\n    }\n  ]\n}",
+  "completion_tokens" : 849,
+  "doc_file" : "BayesianLearning.pdf",
+  "doc_id" : "D06",
+  "doc_language" : "en",
+  "doc_pages" : 36,
+  "doc_title" : "Bayesian Learning",
+  "empty_field" : false,
+  "error_message" : null,
+  "error_type" : null,
+  "feature" : "quiz",
+  "json_parse_ok" : true,
+  "latency_ms" : 20302,
+  "model" : "gemini-2.5-pro",
+  "parsed" : {
+    "questions" : [ {
+      "type" : "MCQ_SINGLE",
+      "prompt" : "In the Bayesian Learning pipeline, what is the direct result of combining the Prior belief with the Likelihood from data?",
+      "options" : [ "The Posterior probability", "The initial Prior belief", "The final decision utility", "The evidence from data alone" ],
+      "correctAnswer" : "The Posterior probability",
+      "citation" : {
+        "sourceLocation" : "Slide 6",
+        "verbatimQuote" : "Prior P(H) Data & Likelihood P(D | H) Posterior P(H | D)",
+        "reasoning" : "This quote shows the flow where Prior and Likelihood are combined to produce the Posterior."
+      },
+      "sentenceHtml" : null,
+      "pairs" : null
+    }, {
+      "type" : "TRUE_FALSE",
+      "prompt" : "True or False: According to the features of Bayesian Learning, a hypothesis probability is fixed and cannot be changed by new training examples.",
+      "options" : null,
+      "correctAnswer" : false,
+      "citation" : {
+        "sourceLocation" : "Slide 5",
+        "verbatimQuote" : "Each training example can incrementally update hypothesis probability",
+        "reasoning" : "This quote directly contradicts the statement, showing that hypothesis probability is updated incrementally."
+      },
+      "sentenceHtml" : null,
+      "pairs" : null
+    }, {
+      "type" : "SHORT_ANSWER",
+      "prompt" : "In the spam detection example provided, what does the term P(Email | Spam) represent?",
+      "options" : null,
+      "correctAnswer" : [ "The likelihood of observing the words if the email is spam", "Likelihood of observing the words if email is spam" ],
+      "citation" : {
+        "sourceLocation" : "Slide 10",
+        "verbatimQuote" : "P(Email | Spam): likelihood of observing the words if email is spam.",
+        "reasoning" : "This quote explicitly defines the term P(Email | Spam) in the context of the example."
+      },
+      "sentenceHtml" : null,
+      "pairs" : null
+    }, {
+      "type" : "FILL_IN_THE_BLANK",
+      "prompt" : "Fill in the blanks to complete the statement about a key feature of Bayesian Learning.",
+      "options" : null,
+      "correctAnswer" : [ "Prior", "posterior" ],
+      "citation" : {
+        "sourceLocation" : "Slide 5",
+        "verbatimQuote" : "Prior knowledge + data → final posterior probability",
+        "reasoning" : "This quote directly states the formula for combining prior knowledge and data to get the posterior probability."
+      },
+      "sentenceHtml" : "<p>___(1)___ knowledge combined with data leads to the final ___(2)___ probability.</p>",
+      "pairs" : null
+    }, {
+      "type" : "MATCHING",
+      "prompt" : "Match each term from Bayes' Theorem with its correct description.",
+      "options" : null,
+      "correctAnswer" : null,
+      "citation" : {
+        "sourceLocation" : "Slide 9",
+        "verbatimQuote" : "P(h): prior probability of hypothesis h ... P(h | D): posterior probability of h given D ... P(D | h): likelihood of observing D given h",
+        "reasoning" : "This slide provides the definitions for all three terms used in the matching exercise."
+      },
+      "sentenceHtml" : null,
+      "pairs" : [ {
+        "left" : "P(h)",
+        "right" : "The initial belief in a hypothesis before observing data."
+      }, {
+        "left" : "P(D | h)",
+        "right" : "The probability of observing the data if the hypothesis is true."
+      }, {
+        "left" : "P(h | D)",
+        "right" : "The updated belief in a hypothesis after observing data."
+      } ]
+    } ]
+  },
+  "prompt_tokens" : 4003,
+  "raw" : "```json\n{\n  \"questions\": [\n    {\n      \"citation\": {\n        \"reasoning\": \"This quote shows the flow where Prior and Likelihood are combined to produce the Posterior.\",\n        \"sourceLocation\": \"Slide 6\",\n        \"verbatimQuote\": \"Prior P(H) Data & Likelihood P(D | H) Posterior P(H | D)\"\n      },\n      \"correctAnswer\": \"The Posterior probability\",\n      \"options\": [\n        \"The Posterior probability\",\n        \"The initial Prior belief\",\n        \"The final decision utility\",\n        \"The evidence from data alone\"\n      ],\n      \"prompt\": \"In the Bayesian Learning pipeline, what is the direct result of combining the Prior belief with the Likelihood from data?\",\n      \"type\": \"MCQ_SINGLE\"\n    },\n    {\n      \"citation\": {\n        \"reasoning\": \"This quote directly contradicts the statement, showing that hypothesis probability is updated incrementally.\",\n        \"sourceLocation\": \"Slide 5\",\n        \"verbatimQuote\": \"Each training example can incrementally update hypothesis probability\"\n      },\n      \"correctAnswer\": false,\n      \"prompt\": \"True or False: According to the features of Bayesian Learning, a hypothesis probability is fixed and cannot be changed by new training examples.\",\n      \"type\": \"TRUE_FALSE\"\n    },\n    {\n      \"citation\": {\n        \"reasoning\": \"This quote explicitly defines the term P(Email | Spam) in the context of the example.\",\n        \"sourceLocation\": \"Slide 10\",\n        \"verbatimQuote\": \"P(Email | Spam): likelihood of observing the words if email is spam.\"\n      },\n      \"correctAnswer\": [\n        \"The likelihood of observing the words if the email is spam\",\n        \"Likelihood of observing the words if email is spam\"\n      ],\n      \"prompt\": \"In the spam detection example provided, what does the term P(Email | Spam) represent?\",\n      \"type\": \"SHORT_ANSWER\"\n    },\n    {\n      \"citation\": {\n        \"reasoning\": \"This quote directly states the formula for combining prior knowledge and data to get the posterior probability.\",\n        \"sourceLocation\": \"Slide 5\",\n        \"verbatimQuote\": \"Prior knowledge + data → final posterior probability\"\n      },\n      \"correctAnswer\": [\n        \"Prior\",\n        \"posterior\"\n      ],\n      \"prompt\": \"Fill in the blanks to complete the statement about a key feature of Bayesian Learning.\",\n      \"sentenceHtml\": \"<p>___(1)___ knowledge combined with data leads to the final ___(2)___ probability.</p>\",\n      \"type\": \"FILL_IN_THE_BLANK\"\n    },\n    {\n      \"citation\": {\n        \"reasoning\": \"This slide provides the definitions for all three terms used in the matching exercise.\",\n        \"sourceLocation\": \"Slide 9\",\n        \"verbatimQuote\": \"P(h): prior probability of hypothesis h ... P(h | D): posterior probability of h given D ... P(D | h): likelihood of observing D given h\"\n      },\n      \"correctAnswer\": null,\n      \"pairs\": [\n        {\n          \"left\": \"P(h)\",\n          \"right\": \"The initial belief in a hypothesis before observing data.\"\n        },\n        {\n          \"left\": \"P(D | h)\",\n          \"right\": \"The probability of observing the data if the hypothesis is true.\"\n        },\n        {\n          \"left\": \"P(h | D)\",\n          \"right\": \"The updated belief in a hypothesis after observing data.\"\n        }\n      ],\n      \"prompt\": \"Match each term from Bayes' Theorem with its correct description.\",\n      \"type\": \"MATCHING\"\n    }\n  ]\n}\n```",
+  "run" : 1,
+  "schema_ok" : true,
+  "temperature" : 0.2,
+  "timestamp" : "2026-06-05T20:27:25.371589"
+}

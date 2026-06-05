@@ -1,0 +1,74 @@
+{
+  "cleaned" : "{\n  \"questions\": [\n    {\n      \"type\": \"MCQ_SINGLE\",\n      \"prompt\": \"What is the default behavior for the `DROP TABLE` command if no option is specified?\",\n      \"options\": [\n        \"CASCADE\",\n        \"RESTRICT\",\n        \"SET NULL\",\n        \"SET DEFAULT\"\n      ],\n      \"correctAnswer\": \"RESTRICT\",\n      \"explanation\": \"Slide 25: 'RESTRICT (default): dropped on if it is not referenced in any constraints or views'. This indicates RESTRICT is the default action for DROP TABLE.\"\n    },\n    {\n      \"type\": \"MCQ_MULTIPLE\",\n      \"prompt\": \"According to the material, which of the following are classified as character-string data types? (Select all that apply)\",\n      \"options\": [\n        \"VARCHAR(n)\",\n        \"INTEGER\",\n        \"CHAR(n)\",\n        \"BIT(n)\"\n      ],\n      \"correctAnswer\": [\n        \"VARCHAR(n)\",\n        \"CHAR(n)\"\n      ],\n      \"explanation\": \"Slide 11: 'Character-string data types: Fixed length: CHAR(n), CHARACTER(n) Varying length: VARCHAR(n), CHAR VARYING(n)'. This slide explicitly lists both CHAR and VARCHAR as character-string types.\"\n    },\n    {\n      \"type\": \"TRUE_FALSE\",\n      \"prompt\": \"True or False: The Data Definition Language (DDL) is used for specifying data types, structures, and constraints.\",\n      \"correctAnswer\": true,\n      \"explanation\": \"Slide 6: 'Permits specification of data types, structures and any data constraints'. This statement directly confirms the function of Data Definition Language.\"\n    },\n    {\n      \"type\": \"FILL_IN_THE_BLANK\",\n      \"prompt\": \"Complete the SQL command to create a new domain.\",\n      \"sentenceHtml\": \"CREATE DOMAIN SSN_TYPE <input> CHAR(9);\",\n      \"correctAnswer\": [\n        \"AS\"\n      ],\n      \"explanation\": \"Slide 13: 'CREATE DOMAIN DomainName AS DataType'. The syntax shows that the keyword 'AS' is used to link the domain name to its data type.\"\n    },\n    {\n      \"type\": \"MATCHING\",\n      \"prompt\": \"Match each SQL language category with its corresponding set of commands.\",\n      \"pairs\": [\n        {\n          \"left\": \"Data Definition Language (DDL)\",\n          \"right\": \"create, drop, alter\"\n        },\n        {\n          \"left\": \"Data Manipulation Language (DML)\",\n          \"right\": \"select, insert, update, delete\"\n        },\n        {\n          \"left\": \"Data Control Language (DCL)\",\n          \"right\": \"commit, rollback, grant, revoke\"\n        }\n      ],\n      \"correctAnswer\": null,\n      \"explanation\": \"Slide 4: 'Data Definition Language (DDL) } Create, Alter, Drop... Data Manipulation Language (DML) } Select, Insert, Update, Delete... Data Control Language (DCL) } Commit, Rollback, Grant, Revoke'. This slide lists the commands for each language category.\"\n    }\n  ]\n}",
+  "completion_tokens" : 728,
+  "doc_file" : "4-1_SQL.pdf",
+  "doc_id" : "D02",
+  "doc_language" : "en",
+  "doc_pages" : 114,
+  "doc_title" : "Structured Query Language (DDL/DML/DCL)",
+  "empty_field" : false,
+  "error_message" : null,
+  "error_type" : null,
+  "feature" : "quiz",
+  "json_parse_ok" : true,
+  "latency_ms" : 23360,
+  "model" : "gemini-2.5-pro",
+  "parsed" : {
+    "questions" : [ {
+      "type" : "MCQ_SINGLE",
+      "prompt" : "What is the default behavior for the `DROP TABLE` command if no option is specified?",
+      "options" : [ "CASCADE", "RESTRICT", "SET NULL", "SET DEFAULT" ],
+      "correctAnswer" : "RESTRICT",
+      "explanation" : "Slide 25: 'RESTRICT (default): dropped on if it is not referenced in any constraints or views'. This indicates RESTRICT is the default action for DROP TABLE.",
+      "sentenceHtml" : null,
+      "pairs" : null
+    }, {
+      "type" : "MCQ_MULTIPLE",
+      "prompt" : "According to the material, which of the following are classified as character-string data types? (Select all that apply)",
+      "options" : [ "VARCHAR(n)", "INTEGER", "CHAR(n)", "BIT(n)" ],
+      "correctAnswer" : [ "VARCHAR(n)", "CHAR(n)" ],
+      "explanation" : "Slide 11: 'Character-string data types: Fixed length: CHAR(n), CHARACTER(n) Varying length: VARCHAR(n), CHAR VARYING(n)'. This slide explicitly lists both CHAR and VARCHAR as character-string types.",
+      "sentenceHtml" : null,
+      "pairs" : null
+    }, {
+      "type" : "TRUE_FALSE",
+      "prompt" : "True or False: The Data Definition Language (DDL) is used for specifying data types, structures, and constraints.",
+      "options" : null,
+      "correctAnswer" : true,
+      "explanation" : "Slide 6: 'Permits specification of data types, structures and any data constraints'. This statement directly confirms the function of Data Definition Language.",
+      "sentenceHtml" : null,
+      "pairs" : null
+    }, {
+      "type" : "FILL_IN_THE_BLANK",
+      "prompt" : "Complete the SQL command to create a new domain.",
+      "options" : null,
+      "correctAnswer" : [ "AS" ],
+      "explanation" : "Slide 13: 'CREATE DOMAIN DomainName AS DataType'. The syntax shows that the keyword 'AS' is used to link the domain name to its data type.",
+      "sentenceHtml" : "CREATE DOMAIN SSN_TYPE <input> CHAR(9);",
+      "pairs" : null
+    }, {
+      "type" : "MATCHING",
+      "prompt" : "Match each SQL language category with its corresponding set of commands.",
+      "options" : null,
+      "correctAnswer" : null,
+      "explanation" : "Slide 4: 'Data Definition Language (DDL) } Create, Alter, Drop... Data Manipulation Language (DML) } Select, Insert, Update, Delete... Data Control Language (DCL) } Commit, Rollback, Grant, Revoke'. This slide lists the commands for each language category.",
+      "sentenceHtml" : null,
+      "pairs" : [ {
+        "left" : "Data Definition Language (DDL)",
+        "right" : "create, drop, alter"
+      }, {
+        "left" : "Data Manipulation Language (DML)",
+        "right" : "select, insert, update, delete"
+      }, {
+        "left" : "Data Control Language (DCL)",
+        "right" : "commit, rollback, grant, revoke"
+      } ]
+    } ]
+  },
+  "prompt_tokens" : 3533,
+  "raw" : "```json\n{\n  \"questions\": [\n    {\n      \"type\": \"MCQ_SINGLE\",\n      \"prompt\": \"What is the default behavior for the `DROP TABLE` command if no option is specified?\",\n      \"options\": [\n        \"CASCADE\",\n        \"RESTRICT\",\n        \"SET NULL\",\n        \"SET DEFAULT\"\n      ],\n      \"correctAnswer\": \"RESTRICT\",\n      \"explanation\": \"Slide 25: 'RESTRICT (default): dropped on if it is not referenced in any constraints or views'. This indicates RESTRICT is the default action for DROP TABLE.\"\n    },\n    {\n      \"type\": \"MCQ_MULTIPLE\",\n      \"prompt\": \"According to the material, which of the following are classified as character-string data types? (Select all that apply)\",\n      \"options\": [\n        \"VARCHAR(n)\",\n        \"INTEGER\",\n        \"CHAR(n)\",\n        \"BIT(n)\"\n      ],\n      \"correctAnswer\": [\n        \"VARCHAR(n)\",\n        \"CHAR(n)\"\n      ],\n      \"explanation\": \"Slide 11: 'Character-string data types: Fixed length: CHAR(n), CHARACTER(n) Varying length: VARCHAR(n), CHAR VARYING(n)'. This slide explicitly lists both CHAR and VARCHAR as character-string types.\"\n    },\n    {\n      \"type\": \"TRUE_FALSE\",\n      \"prompt\": \"True or False: The Data Definition Language (DDL) is used for specifying data types, structures, and constraints.\",\n      \"correctAnswer\": true,\n      \"explanation\": \"Slide 6: 'Permits specification of data types, structures and any data constraints'. This statement directly confirms the function of Data Definition Language.\"\n    },\n    {\n      \"type\": \"FILL_IN_THE_BLANK\",\n      \"prompt\": \"Complete the SQL command to create a new domain.\",\n      \"sentenceHtml\": \"CREATE DOMAIN SSN_TYPE <input> CHAR(9);\",\n      \"correctAnswer\": [\n        \"AS\"\n      ],\n      \"explanation\": \"Slide 13: 'CREATE DOMAIN DomainName AS DataType'. The syntax shows that the keyword 'AS' is used to link the domain name to its data type.\"\n    },\n    {\n      \"type\": \"MATCHING\",\n      \"prompt\": \"Match each SQL language category with its corresponding set of commands.\",\n      \"pairs\": [\n        {\n          \"left\": \"Data Definition Language (DDL)\",\n          \"right\": \"create, drop, alter\"\n        },\n        {\n          \"left\": \"Data Manipulation Language (DML)\",\n          \"right\": \"select, insert, update, delete\"\n        },\n        {\n          \"left\": \"Data Control Language (DCL)\",\n          \"right\": \"commit, rollback, grant, revoke\"\n        }\n      ],\n      \"correctAnswer\": null,\n      \"explanation\": \"Slide 4: 'Data Definition Language (DDL) } Create, Alter, Drop... Data Manipulation Language (DML) } Select, Insert, Update, Delete... Data Control Language (DCL) } Commit, Rollback, Grant, Revoke'. This slide lists the commands for each language category.\"\n    }\n  ]\n}\n```",
+  "run" : 1,
+  "schema_ok" : true,
+  "temperature" : 0.2,
+  "timestamp" : "2026-06-05T12:51:09.215038"
+}

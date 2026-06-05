@@ -1,0 +1,85 @@
+{
+  "cleaned" : "{\n  \"questions\": [\n    {\n      \"citation\": {\n        \"reasoning\": \"The quote lists the algorithms under the Shortest Path Problem, and A* Search is not included.\",\n        \"sourceLocation\": \"Slide 9.4\",\n        \"verbatimQuote\": \"Shortest Path Problem\\nDijkstra's Algorithm\\nBellman-Ford Algorithm\\nFloyd-Warshall Algorithm\\nFord's algorithm\"\n      },\n      \"correctAnswer\": \"A* Search Algorithm\",\n      \"options\": [\n        \"Dijkstra's Algorithm\",\n        \"Bellman-Ford Algorithm\",\n        \"A* Search Algorithm\",\n        \"Floyd-Warshall Algorithm\"\n      ],\n      \"prompt\": \"Based on the 'Contents' section, which of the following is NOT listed as an algorithm for the Shortest Path Problem?\",\n      \"type\": \"MCQ_SINGLE\"\n    },\n    {\n      \"citation\": {\n        \"reasoning\": \"The quote lists the authors of the chapter, which includes the two correct options.\",\n        \"sourceLocation\": \"Slide 9.1\",\n        \"verbatimQuote\": \"Huynh Tuong Nguyen, Tran Tuan Anh, Nguyen An Khuong, Le Hong Trang\"\n      },\n      \"correctAnswer\": [\n        \"Huynh Tuong Nguyen\",\n        \"Le Hong Trang\"\n      ],\n      \"options\": [\n        \"Huynh Tuong Nguyen\",\n        \"Chung Ki-hong\",\n        \"Le Hong Trang\",\n        \"Hur Joon-seok\"\n      ],\n      \"prompt\": \"According to the title slide, which two individuals are listed as authors of the 'Graph connectivity' chapter?\",\n      \"type\": \"MCQ_MULTIPLE\"\n    },\n    {\n      \"citation\": {\n        \"reasoning\": \"The quote directly states this as a course learning outcome.\",\n        \"sourceLocation\": \"Slide 9.3\",\n        \"verbatimQuote\": \"L.O.2.3 Explain problem modeling using discrete structures\"\n      },\n      \"correctAnswer\": true,\n      \"prompt\": \"True or False: According to the 'Course outcomes' slide, one learning outcome is to 'Explain problem modeling using discrete structures'.\",\n      \"type\": \"TRUE_FALSE\"\n    },\n    {\n      \"citation\": {\n        \"reasoning\": \"The quote shows the four main sections in the contents, with 'Graph Coloring' being the fourth.\",\n        \"sourceLocation\": \"Slide 9.4\",\n        \"verbatimQuote\": \"Contents\\n1 Connectivity\\n2 Euler and Hamilton Paths\\n3 Shortest Path Problem\\n4 Graph Coloring\"\n      },\n      \"correctAnswer\": [\n        \"Graph Coloring\"\n      ],\n      \"prompt\": \"Besides 'Connectivity' and 'Shortest Path Problem', what is the fourth main topic listed in the chapter's contents?\",\n      \"type\": \"SHORT_ANSWER\"\n    },\n    {\n      \"citation\": {\n        \"reasoning\": \"The quote explicitly names KAIST as the institution where some slides were created.\",\n        \"sourceLocation\": \"Slide 9.2\",\n        \"verbatimQuote\": \"Some slides about Euler and Hamilton circuits are created by Chung Ki-hong and Hur Joon-seok from KAIST.\"\n      },\n      \"correctAnswer\": [\n        \"KAIST\"\n      ],\n      \"prompt\": \"Fill in the blank with the name of the university mentioned in the acknowledgement.\",\n      \"sentenceHtml\": \"Some slides about Euler and Hamilton circuits were created by Chung Ki-hong and Hur Joon-seok from <input>.\",\n      \"type\": \"FILL_IN_THE_BLANK\"\n    }\n  ]\n}",
+  "completion_tokens" : 830,
+  "doc_file" : "ds10connectivity.pdf",
+  "doc_id" : "D05",
+  "doc_language" : "en",
+  "doc_pages" : 360,
+  "doc_title" : "Graph Connectivity (Discrete Structures - Chapter 9)",
+  "empty_field" : false,
+  "error_message" : null,
+  "error_type" : null,
+  "feature" : "quiz",
+  "json_parse_ok" : true,
+  "latency_ms" : 26774,
+  "model" : "gemini-2.5-pro",
+  "parsed" : {
+    "questions" : [ {
+      "type" : "MCQ_SINGLE",
+      "prompt" : "Based on the 'Contents' section, which of the following is NOT listed as an algorithm for the Shortest Path Problem?",
+      "options" : [ "Dijkstra's Algorithm", "Bellman-Ford Algorithm", "A* Search Algorithm", "Floyd-Warshall Algorithm" ],
+      "correctAnswer" : "A* Search Algorithm",
+      "citation" : {
+        "sourceLocation" : "Slide 9.4",
+        "verbatimQuote" : "Shortest Path Problem\nDijkstra's Algorithm\nBellman-Ford Algorithm\nFloyd-Warshall Algorithm\nFord's algorithm",
+        "reasoning" : "The quote lists the algorithms under the Shortest Path Problem, and A* Search is not included."
+      },
+      "sentenceHtml" : null,
+      "pairs" : null
+    }, {
+      "type" : "MCQ_MULTIPLE",
+      "prompt" : "According to the title slide, which two individuals are listed as authors of the 'Graph connectivity' chapter?",
+      "options" : [ "Huynh Tuong Nguyen", "Chung Ki-hong", "Le Hong Trang", "Hur Joon-seok" ],
+      "correctAnswer" : [ "Huynh Tuong Nguyen", "Le Hong Trang" ],
+      "citation" : {
+        "sourceLocation" : "Slide 9.1",
+        "verbatimQuote" : "Huynh Tuong Nguyen, Tran Tuan Anh, Nguyen An Khuong, Le Hong Trang",
+        "reasoning" : "The quote lists the authors of the chapter, which includes the two correct options."
+      },
+      "sentenceHtml" : null,
+      "pairs" : null
+    }, {
+      "type" : "TRUE_FALSE",
+      "prompt" : "True or False: According to the 'Course outcomes' slide, one learning outcome is to 'Explain problem modeling using discrete structures'.",
+      "options" : null,
+      "correctAnswer" : true,
+      "citation" : {
+        "sourceLocation" : "Slide 9.3",
+        "verbatimQuote" : "L.O.2.3 Explain problem modeling using discrete structures",
+        "reasoning" : "The quote directly states this as a course learning outcome."
+      },
+      "sentenceHtml" : null,
+      "pairs" : null
+    }, {
+      "type" : "SHORT_ANSWER",
+      "prompt" : "Besides 'Connectivity' and 'Shortest Path Problem', what is the fourth main topic listed in the chapter's contents?",
+      "options" : null,
+      "correctAnswer" : [ "Graph Coloring" ],
+      "citation" : {
+        "sourceLocation" : "Slide 9.4",
+        "verbatimQuote" : "Contents\n1 Connectivity\n2 Euler and Hamilton Paths\n3 Shortest Path Problem\n4 Graph Coloring",
+        "reasoning" : "The quote shows the four main sections in the contents, with 'Graph Coloring' being the fourth."
+      },
+      "sentenceHtml" : null,
+      "pairs" : null
+    }, {
+      "type" : "FILL_IN_THE_BLANK",
+      "prompt" : "Fill in the blank with the name of the university mentioned in the acknowledgement.",
+      "options" : null,
+      "correctAnswer" : [ "KAIST" ],
+      "citation" : {
+        "sourceLocation" : "Slide 9.2",
+        "verbatimQuote" : "Some slides about Euler and Hamilton circuits are created by Chung Ki-hong and Hur Joon-seok from KAIST.",
+        "reasoning" : "The quote explicitly names KAIST as the institution where some slides were created."
+      },
+      "sentenceHtml" : "Some slides about Euler and Hamilton circuits were created by Chung Ki-hong and Hur Joon-seok from <input>.",
+      "pairs" : null
+    } ]
+  },
+  "prompt_tokens" : 3790,
+  "raw" : "```json\n{\n  \"questions\": [\n    {\n      \"citation\": {\n        \"reasoning\": \"The quote lists the algorithms under the Shortest Path Problem, and A* Search is not included.\",\n        \"sourceLocation\": \"Slide 9.4\",\n        \"verbatimQuote\": \"Shortest Path Problem\\nDijkstra's Algorithm\\nBellman-Ford Algorithm\\nFloyd-Warshall Algorithm\\nFord's algorithm\"\n      },\n      \"correctAnswer\": \"A* Search Algorithm\",\n      \"options\": [\n        \"Dijkstra's Algorithm\",\n        \"Bellman-Ford Algorithm\",\n        \"A* Search Algorithm\",\n        \"Floyd-Warshall Algorithm\"\n      ],\n      \"prompt\": \"Based on the 'Contents' section, which of the following is NOT listed as an algorithm for the Shortest Path Problem?\",\n      \"type\": \"MCQ_SINGLE\"\n    },\n    {\n      \"citation\": {\n        \"reasoning\": \"The quote lists the authors of the chapter, which includes the two correct options.\",\n        \"sourceLocation\": \"Slide 9.1\",\n        \"verbatimQuote\": \"Huynh Tuong Nguyen, Tran Tuan Anh, Nguyen An Khuong, Le Hong Trang\"\n      },\n      \"correctAnswer\": [\n        \"Huynh Tuong Nguyen\",\n        \"Le Hong Trang\"\n      ],\n      \"options\": [\n        \"Huynh Tuong Nguyen\",\n        \"Chung Ki-hong\",\n        \"Le Hong Trang\",\n        \"Hur Joon-seok\"\n      ],\n      \"prompt\": \"According to the title slide, which two individuals are listed as authors of the 'Graph connectivity' chapter?\",\n      \"type\": \"MCQ_MULTIPLE\"\n    },\n    {\n      \"citation\": {\n        \"reasoning\": \"The quote directly states this as a course learning outcome.\",\n        \"sourceLocation\": \"Slide 9.3\",\n        \"verbatimQuote\": \"L.O.2.3 Explain problem modeling using discrete structures\"\n      },\n      \"correctAnswer\": true,\n      \"prompt\": \"True or False: According to the 'Course outcomes' slide, one learning outcome is to 'Explain problem modeling using discrete structures'.\",\n      \"type\": \"TRUE_FALSE\"\n    },\n    {\n      \"citation\": {\n        \"reasoning\": \"The quote shows the four main sections in the contents, with 'Graph Coloring' being the fourth.\",\n        \"sourceLocation\": \"Slide 9.4\",\n        \"verbatimQuote\": \"Contents\\n1 Connectivity\\n2 Euler and Hamilton Paths\\n3 Shortest Path Problem\\n4 Graph Coloring\"\n      },\n      \"correctAnswer\": [\n        \"Graph Coloring\"\n      ],\n      \"prompt\": \"Besides 'Connectivity' and 'Shortest Path Problem', what is the fourth main topic listed in the chapter's contents?\",\n      \"type\": \"SHORT_ANSWER\"\n    },\n    {\n      \"citation\": {\n        \"reasoning\": \"The quote explicitly names KAIST as the institution where some slides were created.\",\n        \"sourceLocation\": \"Slide 9.2\",\n        \"verbatimQuote\": \"Some slides about Euler and Hamilton circuits are created by Chung Ki-hong and Hur Joon-seok from KAIST.\"\n      },\n      \"correctAnswer\": [\n        \"KAIST\"\n      ],\n      \"prompt\": \"Fill in the blank with the name of the university mentioned in the acknowledgement.\",\n      \"sentenceHtml\": \"Some slides about Euler and Hamilton circuits were created by Chung Ki-hong and Hur Joon-seok from <input>.\",\n      \"type\": \"FILL_IN_THE_BLANK\"\n    }\n  ]\n}\n```",
+  "run" : 1,
+  "schema_ok" : true,
+  "temperature" : 0.2,
+  "timestamp" : "2026-06-05T20:26:58.420574"
+}

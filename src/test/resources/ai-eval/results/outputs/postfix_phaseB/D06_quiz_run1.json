@@ -1,0 +1,94 @@
+{
+  "cleaned" : "{\n  \"questions\": [\n    {\n      \"citation\": {\n        \"reasoning\": \"The slide explicitly defines the components of the Bayesian learning process.\",\n        \"sourceLocation\": \"Slide 6\",\n        \"verbatimQuote\": \"• Prior P(H): initial belief • Likelihood P(D|H): evidence from data • Posterior P(H|D): updated belief\"\n      },\n      \"correctAnswer\": \"Posterior P(H|D)\",\n      \"options\": [\n        \"Posterior P(H|D)\",\n        \"Prior P(H)\",\n        \"Likelihood P(D|H)\",\n        \"Max Expected Utility\"\n      ],\n      \"prompt\": \"In the Bayesian Learning Pipeline, what is the term for the updated belief after considering the data?\",\n      \"type\": \"MCQ_SINGLE\"\n    },\n    {\n      \"citation\": {\n        \"reasoning\": \"The slide states that updates can be done incrementally with each example.\",\n        \"sourceLocation\": \"Slide 5\",\n        \"verbatimQuote\": \"• Each training example can incrementally update hypothesis probability\"\n      },\n      \"correctAnswer\": false,\n      \"prompt\": \"True or False: According to the features of Bayesian Learning, all training data must be processed at once to update a hypothesis.\",\n      \"type\": \"TRUE_FALSE\"\n    },\n    {\n      \"citation\": {\n        \"reasoning\": \"The slide directly defines P(D|h) as the likelihood.\",\n        \"sourceLocation\": \"Slide 9\",\n        \"verbatimQuote\": \"• P(D | h): likelihood of observing D given h\"\n      },\n      \"correctAnswer\": [\n        \"likelihood\"\n      ],\n      \"prompt\": \"Fill in the blank to complete the definition from Bayes' Theorem.\",\n      \"sentenceHtml\": \"In Bayes' Theorem, P(D|h) represents the <input> of observing the data D given the hypothesis h.\",\n      \"type\": \"FILL_IN_THE_BLANK\"\n    },\n    {\n      \"citation\": {\n        \"reasoning\": \"The slide provides the exact definition of how learning is formulated.\",\n        \"sourceLocation\": \"Slide 3\",\n        \"verbatimQuote\": \"• Learning is formulated as the manipulation of probabilities to evaluate and compare hypotheses.\"\n      },\n      \"correctAnswer\": [\n        \"The manipulation of probabilities to evaluate and compare hypotheses\"\n      ],\n      \"prompt\": \"According to the introduction, how is learning formulated in the Bayesian approach?\",\n      \"type\": \"SHORT_ANSWER\"\n    },\n    {\n      \"citation\": {\n        \"reasoning\": \"The slide lists each term and its corresponding description in the pipeline.\",\n        \"sourceLocation\": \"Slide 6\",\n        \"verbatimQuote\": \"• Prior P(H): initial belief • Likelihood P(D|H): evidence from data • Posterior P(H|D): updated belief\"\n      },\n      \"correctAnswer\": null,\n      \"pairs\": [\n        {\n          \"left\": \"P(H)\",\n          \"right\": \"Initial belief\"\n        },\n        {\n          \"left\": \"P(D|H)\",\n          \"right\": \"Evidence from data\"\n        },\n        {\n          \"left\": \"P(H|D)\",\n          \"right\": \"Updated belief\"\n        }\n      ],\n      \"prompt\": \"Match each probabilistic term with its correct description in the context of the Bayesian Learning Pipeline.\",\n      \"type\": \"MATCHING\"\n    }\n  ]\n}",
+  "completion_tokens" : 797,
+  "doc_file" : "BayesianLearning.pdf",
+  "doc_id" : "D06",
+  "doc_language" : "en",
+  "doc_pages" : 36,
+  "doc_title" : "Bayesian Learning",
+  "empty_field" : false,
+  "error_message" : null,
+  "error_type" : null,
+  "feature" : "quiz",
+  "json_parse_ok" : true,
+  "latency_ms" : 20139,
+  "model" : "gemini-2.5-pro",
+  "parsed" : {
+    "questions" : [ {
+      "type" : "MCQ_SINGLE",
+      "prompt" : "In the Bayesian Learning Pipeline, what is the term for the updated belief after considering the data?",
+      "options" : [ "Posterior P(H|D)", "Prior P(H)", "Likelihood P(D|H)", "Max Expected Utility" ],
+      "correctAnswer" : "Posterior P(H|D)",
+      "citation" : {
+        "sourceLocation" : "Slide 6",
+        "verbatimQuote" : "• Prior P(H): initial belief • Likelihood P(D|H): evidence from data • Posterior P(H|D): updated belief",
+        "reasoning" : "The slide explicitly defines the components of the Bayesian learning process."
+      },
+      "sentenceHtml" : null,
+      "pairs" : null
+    }, {
+      "type" : "TRUE_FALSE",
+      "prompt" : "True or False: According to the features of Bayesian Learning, all training data must be processed at once to update a hypothesis.",
+      "options" : null,
+      "correctAnswer" : false,
+      "citation" : {
+        "sourceLocation" : "Slide 5",
+        "verbatimQuote" : "• Each training example can incrementally update hypothesis probability",
+        "reasoning" : "The slide states that updates can be done incrementally with each example."
+      },
+      "sentenceHtml" : null,
+      "pairs" : null
+    }, {
+      "type" : "FILL_IN_THE_BLANK",
+      "prompt" : "Fill in the blank to complete the definition from Bayes' Theorem.",
+      "options" : null,
+      "correctAnswer" : [ "likelihood" ],
+      "citation" : {
+        "sourceLocation" : "Slide 9",
+        "verbatimQuote" : "• P(D | h): likelihood of observing D given h",
+        "reasoning" : "The slide directly defines P(D|h) as the likelihood."
+      },
+      "sentenceHtml" : "In Bayes' Theorem, P(D|h) represents the <input> of observing the data D given the hypothesis h.",
+      "pairs" : null
+    }, {
+      "type" : "SHORT_ANSWER",
+      "prompt" : "According to the introduction, how is learning formulated in the Bayesian approach?",
+      "options" : null,
+      "correctAnswer" : [ "The manipulation of probabilities to evaluate and compare hypotheses" ],
+      "citation" : {
+        "sourceLocation" : "Slide 3",
+        "verbatimQuote" : "• Learning is formulated as the manipulation of probabilities to evaluate and compare hypotheses.",
+        "reasoning" : "The slide provides the exact definition of how learning is formulated."
+      },
+      "sentenceHtml" : null,
+      "pairs" : null
+    }, {
+      "type" : "MATCHING",
+      "prompt" : "Match each probabilistic term with its correct description in the context of the Bayesian Learning Pipeline.",
+      "options" : null,
+      "correctAnswer" : null,
+      "citation" : {
+        "sourceLocation" : "Slide 6",
+        "verbatimQuote" : "• Prior P(H): initial belief • Likelihood P(D|H): evidence from data • Posterior P(H|D): updated belief",
+        "reasoning" : "The slide lists each term and its corresponding description in the pipeline."
+      },
+      "sentenceHtml" : null,
+      "pairs" : [ {
+        "left" : "P(H)",
+        "right" : "Initial belief"
+      }, {
+        "left" : "P(D|H)",
+        "right" : "Evidence from data"
+      }, {
+        "left" : "P(H|D)",
+        "right" : "Updated belief"
+      } ]
+    } ]
+  },
+  "prompt_tokens" : 3284,
+  "raw" : "```json\n{\n  \"questions\": [\n    {\n      \"citation\": {\n        \"reasoning\": \"The slide explicitly defines the components of the Bayesian learning process.\",\n        \"sourceLocation\": \"Slide 6\",\n        \"verbatimQuote\": \"• Prior P(H): initial belief • Likelihood P(D|H): evidence from data • Posterior P(H|D): updated belief\"\n      },\n      \"correctAnswer\": \"Posterior P(H|D)\",\n      \"options\": [\n        \"Posterior P(H|D)\",\n        \"Prior P(H)\",\n        \"Likelihood P(D|H)\",\n        \"Max Expected Utility\"\n      ],\n      \"prompt\": \"In the Bayesian Learning Pipeline, what is the term for the updated belief after considering the data?\",\n      \"type\": \"MCQ_SINGLE\"\n    },\n    {\n      \"citation\": {\n        \"reasoning\": \"The slide states that updates can be done incrementally with each example.\",\n        \"sourceLocation\": \"Slide 5\",\n        \"verbatimQuote\": \"• Each training example can incrementally update hypothesis probability\"\n      },\n      \"correctAnswer\": false,\n      \"prompt\": \"True or False: According to the features of Bayesian Learning, all training data must be processed at once to update a hypothesis.\",\n      \"type\": \"TRUE_FALSE\"\n    },\n    {\n      \"citation\": {\n        \"reasoning\": \"The slide directly defines P(D|h) as the likelihood.\",\n        \"sourceLocation\": \"Slide 9\",\n        \"verbatimQuote\": \"• P(D | h): likelihood of observing D given h\"\n      },\n      \"correctAnswer\": [\n        \"likelihood\"\n      ],\n      \"prompt\": \"Fill in the blank to complete the definition from Bayes' Theorem.\",\n      \"sentenceHtml\": \"In Bayes' Theorem, P(D|h) represents the <input> of observing the data D given the hypothesis h.\",\n      \"type\": \"FILL_IN_THE_BLANK\"\n    },\n    {\n      \"citation\": {\n        \"reasoning\": \"The slide provides the exact definition of how learning is formulated.\",\n        \"sourceLocation\": \"Slide 3\",\n        \"verbatimQuote\": \"• Learning is formulated as the manipulation of probabilities to evaluate and compare hypotheses.\"\n      },\n      \"correctAnswer\": [\n        \"The manipulation of probabilities to evaluate and compare hypotheses\"\n      ],\n      \"prompt\": \"According to the introduction, how is learning formulated in the Bayesian approach?\",\n      \"type\": \"SHORT_ANSWER\"\n    },\n    {\n      \"citation\": {\n        \"reasoning\": \"The slide lists each term and its corresponding description in the pipeline.\",\n        \"sourceLocation\": \"Slide 6\",\n        \"verbatimQuote\": \"• Prior P(H): initial belief • Likelihood P(D|H): evidence from data • Posterior P(H|D): updated belief\"\n      },\n      \"correctAnswer\": null,\n      \"pairs\": [\n        {\n          \"left\": \"P(H)\",\n          \"right\": \"Initial belief\"\n        },\n        {\n          \"left\": \"P(D|H)\",\n          \"right\": \"Evidence from data\"\n        },\n        {\n          \"left\": \"P(H|D)\",\n          \"right\": \"Updated belief\"\n        }\n      ],\n      \"prompt\": \"Match each probabilistic term with its correct description in the context of the Bayesian Learning Pipeline.\",\n      \"type\": \"MATCHING\"\n    }\n  ]\n}\n```",
+  "run" : 1,
+  "schema_ok" : true,
+  "temperature" : 0.2,
+  "timestamp" : "2026-06-05T13:03:27.252722"
+}

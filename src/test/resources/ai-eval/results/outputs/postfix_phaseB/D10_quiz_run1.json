@@ -1,0 +1,97 @@
+{
+  "cleaned" : "{\n  \"questions\": [\n    {\n      \"citation\": {\n        \"reasoning\": \"The slide explicitly lists 'input prices' as a determinant that causes a shift in the supply curve.\",\n        \"sourceLocation\": \"Slide 12\",\n        \"verbatimQuote\": \"Changes in supply: Shifts due to some change in a determinant of supply • input prices\"\n      },\n      \"correctAnswer\": \"The supply curve will shift to the left.\",\n      \"options\": [\n        \"The supply curve will shift to the left.\",\n        \"The supply curve will shift to the right.\",\n        \"There will be a movement up along the supply curve.\",\n        \"There will be a movement down along the supply curve.\"\n      ],\n      \"prompt\": \"If the cost of input prices for producing a good increases, what is the likely effect on the supply curve for that good?\",\n      \"type\": \"MCQ_SINGLE\"\n    },\n    {\n      \"citation\": {\n        \"reasoning\": \"The law of demand states an inverse relationship between price and quantity demanded, not a direct one.\",\n        \"sourceLocation\": \"Slide 5\",\n        \"verbatimQuote\": \"The quantity of a good demanded in a given time period increases as its price falls, ceteris paribus.\"\n      },\n      \"correctAnswer\": false,\n      \"prompt\": \"True or False: According to the law of demand, the quantity of a good demanded increases as its price increases, ceteris paribus.\",\n      \"type\": \"TRUE_FALSE\"\n    },\n    {\n      \"citation\": {\n        \"reasoning\": \"The slide explicitly lists these factors as the non-price determinants that shift the demand curve.\",\n        \"sourceLocation\": \"Slide 5\",\n        \"verbatimQuote\": \"Determinants of demand • Tastes (desire for this and other goods) • Income (of the consumer) • Other goods (their availability and price) • Expectations (for income, prices, tastes) • Number of buyers\"\n      },\n      \"correctAnswer\": [\n        \"Tastes\",\n        \"Income\",\n        \"Other goods\",\n        \"Expectations\",\n        \"Number of buyers\"\n      ],\n      \"prompt\": \"Besides price, list two determinants that can cause a shift of the demand curve.\",\n      \"type\": \"SHORT_ANSWER\"\n    },\n    {\n      \"citation\": {\n        \"reasoning\": \"The definition explicitly states that a surplus occurs when quantity supplied is greater than quantity demanded.\",\n        \"sourceLocation\": \"Slide 15\",\n        \"verbatimQuote\": \"Surplus (excess supply): quantity supplied is greater than quantity demanded\"\n      },\n      \"correctAnswer\": [\n        \"greater\"\n      ],\n      \"prompt\": \"Fill in the blank:\",\n      \"sentenceHtml\": \"A surplus occurs in a market when the quantity supplied is ___ than the quantity demanded at a given price.\",\n      \"type\": \"FILL_IN_THE_BLANK\"\n    },\n    {\n      \"citation\": {\n        \"reasoning\": \"The slide provides the exact definition for the term 'Equilibrium price' used in the matching pair.\",\n        \"sourceLocation\": \"Slide 14\",\n        \"verbatimQuote\": \"Equilibrium price: price where Q supplied = Q demanded\"\n      },\n      \"correctAnswer\": null,\n      \"pairs\": [\n        {\n          \"left\": \"Demand\",\n          \"right\": \"The ability and willingness to buy specific quantities of a good at alternative prices.\"\n        },\n        {\n          \"left\": \"Change in quantity demanded\",\n          \"right\": \"Movements along a given demand curve in response to price changes of that good.\"\n        },\n        {\n          \"left\": \"Equilibrium price\",\n          \"right\": \"The price where the quantity supplied equals the quantity demanded.\"\n        },\n        {\n          \"left\": \"Law of supply\",\n          \"right\": \"The quantity of a good supplied increases as its price increases, ceteris paribus.\"\n        }\n      ],\n      \"prompt\": \"Match each economic term with its correct description.\",\n      \"type\": \"MATCHING\"\n    }\n  ]\n}",
+  "completion_tokens" : 934,
+  "doc_file" : "Chuong2_CungCauDiemCanBangGiaTranGiaSanThue_Eng.pdf",
+  "doc_id" : "D10",
+  "doc_language" : "en",
+  "doc_pages" : 57,
+  "doc_title" : "Supply, Demand and Market Equilibrium",
+  "empty_field" : false,
+  "error_message" : null,
+  "error_type" : null,
+  "feature" : "quiz",
+  "json_parse_ok" : true,
+  "latency_ms" : 30730,
+  "model" : "gemini-2.5-pro",
+  "parsed" : {
+    "questions" : [ {
+      "type" : "MCQ_SINGLE",
+      "prompt" : "If the cost of input prices for producing a good increases, what is the likely effect on the supply curve for that good?",
+      "options" : [ "The supply curve will shift to the left.", "The supply curve will shift to the right.", "There will be a movement up along the supply curve.", "There will be a movement down along the supply curve." ],
+      "correctAnswer" : "The supply curve will shift to the left.",
+      "citation" : {
+        "sourceLocation" : "Slide 12",
+        "verbatimQuote" : "Changes in supply: Shifts due to some change in a determinant of supply • input prices",
+        "reasoning" : "The slide explicitly lists 'input prices' as a determinant that causes a shift in the supply curve."
+      },
+      "sentenceHtml" : null,
+      "pairs" : null
+    }, {
+      "type" : "TRUE_FALSE",
+      "prompt" : "True or False: According to the law of demand, the quantity of a good demanded increases as its price increases, ceteris paribus.",
+      "options" : null,
+      "correctAnswer" : false,
+      "citation" : {
+        "sourceLocation" : "Slide 5",
+        "verbatimQuote" : "The quantity of a good demanded in a given time period increases as its price falls, ceteris paribus.",
+        "reasoning" : "The law of demand states an inverse relationship between price and quantity demanded, not a direct one."
+      },
+      "sentenceHtml" : null,
+      "pairs" : null
+    }, {
+      "type" : "SHORT_ANSWER",
+      "prompt" : "Besides price, list two determinants that can cause a shift of the demand curve.",
+      "options" : null,
+      "correctAnswer" : [ "Tastes", "Income", "Other goods", "Expectations", "Number of buyers" ],
+      "citation" : {
+        "sourceLocation" : "Slide 5",
+        "verbatimQuote" : "Determinants of demand • Tastes (desire for this and other goods) • Income (of the consumer) • Other goods (their availability and price) • Expectations (for income, prices, tastes) • Number of buyers",
+        "reasoning" : "The slide explicitly lists these factors as the non-price determinants that shift the demand curve."
+      },
+      "sentenceHtml" : null,
+      "pairs" : null
+    }, {
+      "type" : "FILL_IN_THE_BLANK",
+      "prompt" : "Fill in the blank:",
+      "options" : null,
+      "correctAnswer" : [ "greater" ],
+      "citation" : {
+        "sourceLocation" : "Slide 15",
+        "verbatimQuote" : "Surplus (excess supply): quantity supplied is greater than quantity demanded",
+        "reasoning" : "The definition explicitly states that a surplus occurs when quantity supplied is greater than quantity demanded."
+      },
+      "sentenceHtml" : "A surplus occurs in a market when the quantity supplied is ___ than the quantity demanded at a given price.",
+      "pairs" : null
+    }, {
+      "type" : "MATCHING",
+      "prompt" : "Match each economic term with its correct description.",
+      "options" : null,
+      "correctAnswer" : null,
+      "citation" : {
+        "sourceLocation" : "Slide 14",
+        "verbatimQuote" : "Equilibrium price: price where Q supplied = Q demanded",
+        "reasoning" : "The slide provides the exact definition for the term 'Equilibrium price' used in the matching pair."
+      },
+      "sentenceHtml" : null,
+      "pairs" : [ {
+        "left" : "Demand",
+        "right" : "The ability and willingness to buy specific quantities of a good at alternative prices."
+      }, {
+        "left" : "Change in quantity demanded",
+        "right" : "Movements along a given demand curve in response to price changes of that good."
+      }, {
+        "left" : "Equilibrium price",
+        "right" : "The price where the quantity supplied equals the quantity demanded."
+      }, {
+        "left" : "Law of supply",
+        "right" : "The quantity of a good supplied increases as its price increases, ceteris paribus."
+      } ]
+    } ]
+  },
+  "prompt_tokens" : 3489,
+  "raw" : "```json\n{\n  \"questions\": [\n    {\n      \"citation\": {\n        \"reasoning\": \"The slide explicitly lists 'input prices' as a determinant that causes a shift in the supply curve.\",\n        \"sourceLocation\": \"Slide 12\",\n        \"verbatimQuote\": \"Changes in supply: Shifts due to some change in a determinant of supply • input prices\"\n      },\n      \"correctAnswer\": \"The supply curve will shift to the left.\",\n      \"options\": [\n        \"The supply curve will shift to the left.\",\n        \"The supply curve will shift to the right.\",\n        \"There will be a movement up along the supply curve.\",\n        \"There will be a movement down along the supply curve.\"\n      ],\n      \"prompt\": \"If the cost of input prices for producing a good increases, what is the likely effect on the supply curve for that good?\",\n      \"type\": \"MCQ_SINGLE\"\n    },\n    {\n      \"citation\": {\n        \"reasoning\": \"The law of demand states an inverse relationship between price and quantity demanded, not a direct one.\",\n        \"sourceLocation\": \"Slide 5\",\n        \"verbatimQuote\": \"The quantity of a good demanded in a given time period increases as its price falls, ceteris paribus.\"\n      },\n      \"correctAnswer\": false,\n      \"prompt\": \"True or False: According to the law of demand, the quantity of a good demanded increases as its price increases, ceteris paribus.\",\n      \"type\": \"TRUE_FALSE\"\n    },\n    {\n      \"citation\": {\n        \"reasoning\": \"The slide explicitly lists these factors as the non-price determinants that shift the demand curve.\",\n        \"sourceLocation\": \"Slide 5\",\n        \"verbatimQuote\": \"Determinants of demand • Tastes (desire for this and other goods) • Income (of the consumer) • Other goods (their availability and price) • Expectations (for income, prices, tastes) • Number of buyers\"\n      },\n      \"correctAnswer\": [\n        \"Tastes\",\n        \"Income\",\n        \"Other goods\",\n        \"Expectations\",\n        \"Number of buyers\"\n      ],\n      \"prompt\": \"Besides price, list two determinants that can cause a shift of the demand curve.\",\n      \"type\": \"SHORT_ANSWER\"\n    },\n    {\n      \"citation\": {\n        \"reasoning\": \"The definition explicitly states that a surplus occurs when quantity supplied is greater than quantity demanded.\",\n        \"sourceLocation\": \"Slide 15\",\n        \"verbatimQuote\": \"Surplus (excess supply): quantity supplied is greater than quantity demanded\"\n      },\n      \"correctAnswer\": [\n        \"greater\"\n      ],\n      \"prompt\": \"Fill in the blank:\",\n      \"sentenceHtml\": \"A surplus occurs in a market when the quantity supplied is ___ than the quantity demanded at a given price.\",\n      \"type\": \"FILL_IN_THE_BLANK\"\n    },\n    {\n      \"citation\": {\n        \"reasoning\": \"The slide provides the exact definition for the term 'Equilibrium price' used in the matching pair.\",\n        \"sourceLocation\": \"Slide 14\",\n        \"verbatimQuote\": \"Equilibrium price: price where Q supplied = Q demanded\"\n      },\n      \"correctAnswer\": null,\n      \"pairs\": [\n        {\n          \"left\": \"Demand\",\n          \"right\": \"The ability and willingness to buy specific quantities of a good at alternative prices.\"\n        },\n        {\n          \"left\": \"Change in quantity demanded\",\n          \"right\": \"Movements along a given demand curve in response to price changes of that good.\"\n        },\n        {\n          \"left\": \"Equilibrium price\",\n          \"right\": \"The price where the quantity supplied equals the quantity demanded.\"\n        },\n        {\n          \"left\": \"Law of supply\",\n          \"right\": \"The quantity of a good supplied increases as its price increases, ceteris paribus.\"\n        }\n      ],\n      \"prompt\": \"Match each economic term with its correct description.\",\n      \"type\": \"MATCHING\"\n    }\n  ]\n}\n```",
+  "run" : 1,
+  "schema_ok" : true,
+  "temperature" : 0.2,
+  "timestamp" : "2026-06-05T13:05:16.976864"
+}

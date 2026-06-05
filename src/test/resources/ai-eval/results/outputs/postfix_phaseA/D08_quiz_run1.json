@@ -1,0 +1,77 @@
+{
+  "cleaned" : "{\n  \"questions\": [\n    {\n      \"type\": \"MCQ_SINGLE\",\n      \"prompt\": \"Theo quan điểm trọng sản phẩm, doanh nghiệp cần tập trung vào yếu tố cốt lõi nào?\",\n      \"options\": [\n        \"Sản xuất và phân phối sản phẩm đại trà với mức giá thấp.\",\n        \"Cải tiến chất lượng, mẫu mã và sự khác biệt của sản phẩm.\",\n        \"Các nỗ lực xúc tiến bán hàng và chính sách khuyến mãi hấp dẫn.\",\n        \"Thỏa mãn nhu cầu của thị trường mục tiêu hiệu quả hơn đối thủ.\"\n      ],\n      \"correctAnswer\": \"Cải tiến chất lượng, mẫu mã và sự khác biệt của sản phẩm.\",\n      \"explanation\": \"Slide 13: 'Trọng Sản phẩm: Sản phẩm chất lượng, mẫu mã đẹp, khác lạ  quản lý tập trung cải tiến sản phẩm'. Quan điểm này nhấn mạnh vào việc tạo ra sản phẩm ưu việt nhất.\"\n    },\n    {\n      \"type\": \"TRUE_FALSE\",\n      \"prompt\": \"Theo tài liệu, \\\"Đòi hỏi\\\" (Demands) là những mong muốn (wants) được hình thành do các yếu tố văn hóa và tính cách.\",\n      \"correctAnswer\": false,\n      \"explanation\": \"Slide 3: 'Đòi hỏi (Demands): mong muốn mà người ta có khả năng mua và sẵn lòng mua'. Đòi hỏi gắn liền với khả năng mua, không phải chỉ là mong muốn.\"\n    },\n    {\n      \"type\": \"MATCHING\",\n      \"prompt\": \"Ghép nối các khái niệm Marketing ở cột trái với mô tả phù hợp ở cột phải.\",\n      \"pairs\": [\n        {\n          \"left\": \"Nhu cầu (Needs)\",\n          \"right\": \"Trạng thái thiếu hụt một thứ gì đó cần được thỏa mãn.\"\n        },\n        {\n          \"left\": \"Mong muốn (Wants)\",\n          \"right\": \"Hình thái cụ thể của nhu cầu, bị ảnh hưởng bởi văn hóa, tính cách.\"\n        },\n        {\n          \"left\": \"Quan điểm trọng Bán hàng\",\n          \"right\": \"Tập trung vào các nỗ lực xúc tiến và khuyến mãi do dư thừa công suất.\"\n        },\n        {\n          \"left\": \"Quan điểm trọng Tiếp thị\",\n          \"right\": \"Tập trung vào việc tạo, truyền thông và chuyển giao giá trị cho khách hàng.\"\n        }\n      ],\n      \"correctAnswer\": null,\n      \"explanation\": \"Slide 3 & 12: 'Nhu cầu (Needs): trạng thái thiếu hụt... Mong muốn (Wants): Một hình thái của nhu cầu...'. Các slide này định nghĩa rõ ràng từng khái niệm và quan điểm marketing.\"\n    },\n    {\n      \"type\": \"SHORT_ANSWER\",\n      \"prompt\": \"Theo quan điểm marketing, đâu là điểm xuất phát của quá trình kinh doanh?\",\n      \"correctAnswer\": [\n        \"Thị trường mục tiêu\",\n        \"Thị trường\"\n      ],\n      \"explanation\": \"Slide 20: 'Quản điểm marketing: Thị trường mục tiêu -> Nhu cầu -> Tổ hợp tiếp thị -> Thỏa mãn cao nhất nhu cầu'. Điểm khởi đầu của quan điểm marketing là xác định thị trường mục tiêu.\"\n    },\n    {\n      \"type\": \"FILL_IN_THE_BLANK\",\n      \"prompt\": \"Điền vào chỗ trống để hoàn thành một trong các điều kiện của hoạt động trao đổi.\",\n      \"sentenceHtml\": \"Để hoạt động trao đổi diễn ra, mỗi bên phải có quyền tự do <input> hay <input> đề nghị của bên kia.\",\n      \"correctAnswer\": [\n        \"chấp nhận\",\n        \"từ chối\"\n      ],\n      \"explanation\": \"Slide 6: '5. Mỗi bên có quyền tự do chấp nhận hay từ chối đề nghị của bên kia.'. Đây là điều kiện cuối cùng được liệt kê cho một cuộc trao đổi thành công.\"\n    }\n  ]\n}",
+  "completion_tokens" : 888,
+  "doc_file" : "NVT- POM-Ch1- DAI CUONG VE TIEP THI.pdf",
+  "doc_id" : "D08",
+  "doc_language" : "vi",
+  "doc_pages" : 26,
+  "doc_title" : "Đại cương về Marketing",
+  "empty_field" : false,
+  "error_message" : null,
+  "error_type" : null,
+  "feature" : "quiz",
+  "json_parse_ok" : true,
+  "latency_ms" : 25456,
+  "model" : "gemini-2.5-pro",
+  "parsed" : {
+    "questions" : [ {
+      "type" : "MCQ_SINGLE",
+      "prompt" : "Theo quan điểm trọng sản phẩm, doanh nghiệp cần tập trung vào yếu tố cốt lõi nào?",
+      "options" : [ "Sản xuất và phân phối sản phẩm đại trà với mức giá thấp.", "Cải tiến chất lượng, mẫu mã và sự khác biệt của sản phẩm.", "Các nỗ lực xúc tiến bán hàng và chính sách khuyến mãi hấp dẫn.", "Thỏa mãn nhu cầu của thị trường mục tiêu hiệu quả hơn đối thủ." ],
+      "correctAnswer" : "Cải tiến chất lượng, mẫu mã và sự khác biệt của sản phẩm.",
+      "explanation" : "Slide 13: 'Trọng Sản phẩm: Sản phẩm chất lượng, mẫu mã đẹp, khác lạ  quản lý tập trung cải tiến sản phẩm'. Quan điểm này nhấn mạnh vào việc tạo ra sản phẩm ưu việt nhất.",
+      "sentenceHtml" : null,
+      "pairs" : null
+    }, {
+      "type" : "TRUE_FALSE",
+      "prompt" : "Theo tài liệu, \"Đòi hỏi\" (Demands) là những mong muốn (wants) được hình thành do các yếu tố văn hóa và tính cách.",
+      "options" : null,
+      "correctAnswer" : false,
+      "explanation" : "Slide 3: 'Đòi hỏi (Demands): mong muốn mà người ta có khả năng mua và sẵn lòng mua'. Đòi hỏi gắn liền với khả năng mua, không phải chỉ là mong muốn.",
+      "sentenceHtml" : null,
+      "pairs" : null
+    }, {
+      "type" : "MATCHING",
+      "prompt" : "Ghép nối các khái niệm Marketing ở cột trái với mô tả phù hợp ở cột phải.",
+      "options" : null,
+      "correctAnswer" : null,
+      "explanation" : "Slide 3 & 12: 'Nhu cầu (Needs): trạng thái thiếu hụt... Mong muốn (Wants): Một hình thái của nhu cầu...'. Các slide này định nghĩa rõ ràng từng khái niệm và quan điểm marketing.",
+      "sentenceHtml" : null,
+      "pairs" : [ {
+        "left" : "Nhu cầu (Needs)",
+        "right" : "Trạng thái thiếu hụt một thứ gì đó cần được thỏa mãn."
+      }, {
+        "left" : "Mong muốn (Wants)",
+        "right" : "Hình thái cụ thể của nhu cầu, bị ảnh hưởng bởi văn hóa, tính cách."
+      }, {
+        "left" : "Quan điểm trọng Bán hàng",
+        "right" : "Tập trung vào các nỗ lực xúc tiến và khuyến mãi do dư thừa công suất."
+      }, {
+        "left" : "Quan điểm trọng Tiếp thị",
+        "right" : "Tập trung vào việc tạo, truyền thông và chuyển giao giá trị cho khách hàng."
+      } ]
+    }, {
+      "type" : "SHORT_ANSWER",
+      "prompt" : "Theo quan điểm marketing, đâu là điểm xuất phát của quá trình kinh doanh?",
+      "options" : null,
+      "correctAnswer" : [ "Thị trường mục tiêu", "Thị trường" ],
+      "explanation" : "Slide 20: 'Quản điểm marketing: Thị trường mục tiêu -> Nhu cầu -> Tổ hợp tiếp thị -> Thỏa mãn cao nhất nhu cầu'. Điểm khởi đầu của quan điểm marketing là xác định thị trường mục tiêu.",
+      "sentenceHtml" : null,
+      "pairs" : null
+    }, {
+      "type" : "FILL_IN_THE_BLANK",
+      "prompt" : "Điền vào chỗ trống để hoàn thành một trong các điều kiện của hoạt động trao đổi.",
+      "options" : null,
+      "correctAnswer" : [ "chấp nhận", "từ chối" ],
+      "explanation" : "Slide 6: '5. Mỗi bên có quyền tự do chấp nhận hay từ chối đề nghị của bên kia.'. Đây là điều kiện cuối cùng được liệt kê cho một cuộc trao đổi thành công.",
+      "sentenceHtml" : "Để hoạt động trao đổi diễn ra, mỗi bên phải có quyền tự do <input> hay <input> đề nghị của bên kia.",
+      "pairs" : null
+    } ]
+  },
+  "prompt_tokens" : 3765,
+  "raw" : "```json\n{\n  \"questions\": [\n    {\n      \"type\": \"MCQ_SINGLE\",\n      \"prompt\": \"Theo quan điểm trọng sản phẩm, doanh nghiệp cần tập trung vào yếu tố cốt lõi nào?\",\n      \"options\": [\n        \"Sản xuất và phân phối sản phẩm đại trà với mức giá thấp.\",\n        \"Cải tiến chất lượng, mẫu mã và sự khác biệt của sản phẩm.\",\n        \"Các nỗ lực xúc tiến bán hàng và chính sách khuyến mãi hấp dẫn.\",\n        \"Thỏa mãn nhu cầu của thị trường mục tiêu hiệu quả hơn đối thủ.\"\n      ],\n      \"correctAnswer\": \"Cải tiến chất lượng, mẫu mã và sự khác biệt của sản phẩm.\",\n      \"explanation\": \"Slide 13: 'Trọng Sản phẩm: Sản phẩm chất lượng, mẫu mã đẹp, khác lạ  quản lý tập trung cải tiến sản phẩm'. Quan điểm này nhấn mạnh vào việc tạo ra sản phẩm ưu việt nhất.\"\n    },\n    {\n      \"type\": \"TRUE_FALSE\",\n      \"prompt\": \"Theo tài liệu, \\\"Đòi hỏi\\\" (Demands) là những mong muốn (wants) được hình thành do các yếu tố văn hóa và tính cách.\",\n      \"correctAnswer\": false,\n      \"explanation\": \"Slide 3: 'Đòi hỏi (Demands): mong muốn mà người ta có khả năng mua và sẵn lòng mua'. Đòi hỏi gắn liền với khả năng mua, không phải chỉ là mong muốn.\"\n    },\n    {\n      \"type\": \"MATCHING\",\n      \"prompt\": \"Ghép nối các khái niệm Marketing ở cột trái với mô tả phù hợp ở cột phải.\",\n      \"pairs\": [\n        {\n          \"left\": \"Nhu cầu (Needs)\",\n          \"right\": \"Trạng thái thiếu hụt một thứ gì đó cần được thỏa mãn.\"\n        },\n        {\n          \"left\": \"Mong muốn (Wants)\",\n          \"right\": \"Hình thái cụ thể của nhu cầu, bị ảnh hưởng bởi văn hóa, tính cách.\"\n        },\n        {\n          \"left\": \"Quan điểm trọng Bán hàng\",\n          \"right\": \"Tập trung vào các nỗ lực xúc tiến và khuyến mãi do dư thừa công suất.\"\n        },\n        {\n          \"left\": \"Quan điểm trọng Tiếp thị\",\n          \"right\": \"Tập trung vào việc tạo, truyền thông và chuyển giao giá trị cho khách hàng.\"\n        }\n      ],\n      \"correctAnswer\": null,\n      \"explanation\": \"Slide 3 & 12: 'Nhu cầu (Needs): trạng thái thiếu hụt... Mong muốn (Wants): Một hình thái của nhu cầu...'. Các slide này định nghĩa rõ ràng từng khái niệm và quan điểm marketing.\"\n    },\n    {\n      \"type\": \"SHORT_ANSWER\",\n      \"prompt\": \"Theo quan điểm marketing, đâu là điểm xuất phát của quá trình kinh doanh?\",\n      \"correctAnswer\": [\n        \"Thị trường mục tiêu\",\n        \"Thị trường\"\n      ],\n      \"explanation\": \"Slide 20: 'Quản điểm marketing: Thị trường mục tiêu -> Nhu cầu -> Tổ hợp tiếp thị -> Thỏa mãn cao nhất nhu cầu'. Điểm khởi đầu của quan điểm marketing là xác định thị trường mục tiêu.\"\n    },\n    {\n      \"type\": \"FILL_IN_THE_BLANK\",\n      \"prompt\": \"Điền vào chỗ trống để hoàn thành một trong các điều kiện của hoạt động trao đổi.\",\n      \"sentenceHtml\": \"Để hoạt động trao đổi diễn ra, mỗi bên phải có quyền tự do <input> hay <input> đề nghị của bên kia.\",\n      \"correctAnswer\": [\n        \"chấp nhận\",\n        \"từ chối\"\n      ],\n      \"explanation\": \"Slide 6: '5. Mỗi bên có quyền tự do chấp nhận hay từ chối đề nghị của bên kia.'. Đây là điều kiện cuối cùng được liệt kê cho một cuộc trao đổi thành công.\"\n    }\n  ]\n}\n```",
+  "run" : 1,
+  "schema_ok" : true,
+  "temperature" : 0.2,
+  "timestamp" : "2026-06-05T12:53:31.476380"
+}

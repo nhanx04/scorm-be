@@ -1,0 +1,94 @@
+{
+  "cleaned" : "{\n  \"questions\": [\n    {\n      \"citation\": {\n        \"reasoning\": \"This quote directly lists the three core elements that design thinking integrates.\",\n        \"sourceLocation\": \"Slide 3\",\n        \"verbatimQuote\": \"integrate the needs of people, the possibilities of technology, and the requirements for business success.”\"\n      },\n      \"correctAnswer\": \"The needs of people, possibilities of technology, and requirements for business success.\",\n      \"options\": [\n        \"The needs of people, possibilities of technology, and requirements for business success.\",\n        \"The desires of designers, the limitations of the budget, and the speed of production.\",\n        \"Market trends, competitor analysis, and shareholder expectations for the project.\",\n        \"User feedback, agile development, and various product marketing strategies.\"\n      ],\n      \"prompt\": \"According to the definition by Tim Brown, what three key elements does design thinking integrate?\",\n      \"type\": \"MCQ_SINGLE\"\n    },\n    {\n      \"citation\": {\n        \"reasoning\": \"The quote states the goal is maximum learning with least effort, which contradicts the idea of a fully featured product.\",\n        \"sourceLocation\": \"Slide 27\",\n        \"verbatimQuote\": \"collect the maximum amount of validated learning about customers with the least effort.”\"\n      },\n      \"correctAnswer\": false,\n      \"prompt\": \"True or False: The primary goal of a Minimum Viable Product (MVP) is to be a fully featured product ready for a large-scale market launch.\",\n      \"type\": \"TRUE_FALSE\"\n    },\n    {\n      \"citation\": {\n        \"reasoning\": \"This quote explicitly lists the four values of the Agile Manifesto.\",\n        \"sourceLocation\": \"Slide 24\",\n        \"verbatimQuote\": \"Bring four values • Individuals and interactions • Customer collaboration • Responding to change •Working versions of products\"\n      },\n      \"correctAnswer\": [\n        \"Working versions of products\"\n      ],\n      \"prompt\": \"Fill in the blank with the fourth value of the Agile Manifesto.\",\n      \"sentenceHtml\": \"The four values of the Agile Manifesto are: Individuals and interactions, Customer collaboration, Responding to change, and ___.\",\n      \"type\": \"FILL_IN_THE_BLANK\"\n    },\n    {\n      \"citation\": {\n        \"reasoning\": \"The slide explicitly lists the three steps of the hypothesis testing process.\",\n        \"sourceLocation\": \"Slide 20\",\n        \"verbatimQuote\": \"Steps •Hypothesis statement •Test method •Test metric & criteria\"\n      },\n      \"correctAnswer\": [\n        \"Hypothesis statement, Test method, Test metric & criteria\"\n      ],\n      \"prompt\": \"According to the presentation, what are the three steps of the hypothesis testing process for value creation?\",\n      \"type\": \"SHORT_ANSWER\"\n    },\n    {\n      \"citation\": {\n        \"reasoning\": \"This quote provides the direct definition for one of the matching pairs, confirming the source's relevance.\",\n        \"sourceLocation\": \"Slide 31\",\n        \"verbatimQuote\": \"When you sketch, you are trying to get a basic concept of how the app will work in user interface form.\"\n      },\n      \"correctAnswer\": null,\n      \"pairs\": [\n        {\n          \"left\": \"Sketching\",\n          \"right\": \"Expressing a basic concept of how an app will work in user interface form.\"\n        },\n        {\n          \"left\": \"Storyboard\",\n          \"right\": \"A process that visualizes time and interaction, often using personas and scenarios.\"\n        },\n        {\n          \"left\": \"Minimum Viable Product\",\n          \"right\": \"A version of a new product used to collect maximum validated learning with the least effort.\"\n        }\n      ],\n      \"prompt\": \"Match each prototyping term with its correct description from the material.\",\n      \"type\": \"MATCHING\"\n    }\n  ]\n}",
+  "completion_tokens" : 887,
+  "doc_file" : "05_Design_thinking_v3.pdf",
+  "doc_id" : "D07",
+  "doc_language" : "en",
+  "doc_pages" : 72,
+  "doc_title" : "Design Thinking & Design Principles (Electronic Commerce)",
+  "empty_field" : false,
+  "error_message" : null,
+  "error_type" : null,
+  "feature" : "quiz",
+  "json_parse_ok" : true,
+  "latency_ms" : 20517,
+  "model" : "gemini-2.5-pro",
+  "parsed" : {
+    "questions" : [ {
+      "type" : "MCQ_SINGLE",
+      "prompt" : "According to the definition by Tim Brown, what three key elements does design thinking integrate?",
+      "options" : [ "The needs of people, possibilities of technology, and requirements for business success.", "The desires of designers, the limitations of the budget, and the speed of production.", "Market trends, competitor analysis, and shareholder expectations for the project.", "User feedback, agile development, and various product marketing strategies." ],
+      "correctAnswer" : "The needs of people, possibilities of technology, and requirements for business success.",
+      "citation" : {
+        "sourceLocation" : "Slide 3",
+        "verbatimQuote" : "integrate the needs of people, the possibilities of technology, and the requirements for business success.”",
+        "reasoning" : "This quote directly lists the three core elements that design thinking integrates."
+      },
+      "sentenceHtml" : null,
+      "pairs" : null
+    }, {
+      "type" : "TRUE_FALSE",
+      "prompt" : "True or False: The primary goal of a Minimum Viable Product (MVP) is to be a fully featured product ready for a large-scale market launch.",
+      "options" : null,
+      "correctAnswer" : false,
+      "citation" : {
+        "sourceLocation" : "Slide 27",
+        "verbatimQuote" : "collect the maximum amount of validated learning about customers with the least effort.”",
+        "reasoning" : "The quote states the goal is maximum learning with least effort, which contradicts the idea of a fully featured product."
+      },
+      "sentenceHtml" : null,
+      "pairs" : null
+    }, {
+      "type" : "FILL_IN_THE_BLANK",
+      "prompt" : "Fill in the blank with the fourth value of the Agile Manifesto.",
+      "options" : null,
+      "correctAnswer" : [ "Working versions of products" ],
+      "citation" : {
+        "sourceLocation" : "Slide 24",
+        "verbatimQuote" : "Bring four values • Individuals and interactions • Customer collaboration • Responding to change •Working versions of products",
+        "reasoning" : "This quote explicitly lists the four values of the Agile Manifesto."
+      },
+      "sentenceHtml" : "The four values of the Agile Manifesto are: Individuals and interactions, Customer collaboration, Responding to change, and ___.",
+      "pairs" : null
+    }, {
+      "type" : "SHORT_ANSWER",
+      "prompt" : "According to the presentation, what are the three steps of the hypothesis testing process for value creation?",
+      "options" : null,
+      "correctAnswer" : [ "Hypothesis statement, Test method, Test metric & criteria" ],
+      "citation" : {
+        "sourceLocation" : "Slide 20",
+        "verbatimQuote" : "Steps •Hypothesis statement •Test method •Test metric & criteria",
+        "reasoning" : "The slide explicitly lists the three steps of the hypothesis testing process."
+      },
+      "sentenceHtml" : null,
+      "pairs" : null
+    }, {
+      "type" : "MATCHING",
+      "prompt" : "Match each prototyping term with its correct description from the material.",
+      "options" : null,
+      "correctAnswer" : null,
+      "citation" : {
+        "sourceLocation" : "Slide 31",
+        "verbatimQuote" : "When you sketch, you are trying to get a basic concept of how the app will work in user interface form.",
+        "reasoning" : "This quote provides the direct definition for one of the matching pairs, confirming the source's relevance."
+      },
+      "sentenceHtml" : null,
+      "pairs" : [ {
+        "left" : "Sketching",
+        "right" : "Expressing a basic concept of how an app will work in user interface form."
+      }, {
+        "left" : "Storyboard",
+        "right" : "A process that visualizes time and interaction, often using personas and scenarios."
+      }, {
+        "left" : "Minimum Viable Product",
+        "right" : "A version of a new product used to collect maximum validated learning with the least effort."
+      } ]
+    } ]
+  },
+  "prompt_tokens" : 2948,
+  "raw" : "```json\n{\n  \"questions\": [\n    {\n      \"citation\": {\n        \"reasoning\": \"This quote directly lists the three core elements that design thinking integrates.\",\n        \"sourceLocation\": \"Slide 3\",\n        \"verbatimQuote\": \"integrate the needs of people, the possibilities of technology, and the requirements for business success.”\"\n      },\n      \"correctAnswer\": \"The needs of people, possibilities of technology, and requirements for business success.\",\n      \"options\": [\n        \"The needs of people, possibilities of technology, and requirements for business success.\",\n        \"The desires of designers, the limitations of the budget, and the speed of production.\",\n        \"Market trends, competitor analysis, and shareholder expectations for the project.\",\n        \"User feedback, agile development, and various product marketing strategies.\"\n      ],\n      \"prompt\": \"According to the definition by Tim Brown, what three key elements does design thinking integrate?\",\n      \"type\": \"MCQ_SINGLE\"\n    },\n    {\n      \"citation\": {\n        \"reasoning\": \"The quote states the goal is maximum learning with least effort, which contradicts the idea of a fully featured product.\",\n        \"sourceLocation\": \"Slide 27\",\n        \"verbatimQuote\": \"collect the maximum amount of validated learning about customers with the least effort.”\"\n      },\n      \"correctAnswer\": false,\n      \"prompt\": \"True or False: The primary goal of a Minimum Viable Product (MVP) is to be a fully featured product ready for a large-scale market launch.\",\n      \"type\": \"TRUE_FALSE\"\n    },\n    {\n      \"citation\": {\n        \"reasoning\": \"This quote explicitly lists the four values of the Agile Manifesto.\",\n        \"sourceLocation\": \"Slide 24\",\n        \"verbatimQuote\": \"Bring four values • Individuals and interactions • Customer collaboration • Responding to change •Working versions of products\"\n      },\n      \"correctAnswer\": [\n        \"Working versions of products\"\n      ],\n      \"prompt\": \"Fill in the blank with the fourth value of the Agile Manifesto.\",\n      \"sentenceHtml\": \"The four values of the Agile Manifesto are: Individuals and interactions, Customer collaboration, Responding to change, and ___.\",\n      \"type\": \"FILL_IN_THE_BLANK\"\n    },\n    {\n      \"citation\": {\n        \"reasoning\": \"The slide explicitly lists the three steps of the hypothesis testing process.\",\n        \"sourceLocation\": \"Slide 20\",\n        \"verbatimQuote\": \"Steps •Hypothesis statement •Test method •Test metric & criteria\"\n      },\n      \"correctAnswer\": [\n        \"Hypothesis statement, Test method, Test metric & criteria\"\n      ],\n      \"prompt\": \"According to the presentation, what are the three steps of the hypothesis testing process for value creation?\",\n      \"type\": \"SHORT_ANSWER\"\n    },\n    {\n      \"citation\": {\n        \"reasoning\": \"This quote provides the direct definition for one of the matching pairs, confirming the source's relevance.\",\n        \"sourceLocation\": \"Slide 31\",\n        \"verbatimQuote\": \"When you sketch, you are trying to get a basic concept of how the app will work in user interface form.\"\n      },\n      \"correctAnswer\": null,\n      \"pairs\": [\n        {\n          \"left\": \"Sketching\",\n          \"right\": \"Expressing a basic concept of how an app will work in user interface form.\"\n        },\n        {\n          \"left\": \"Storyboard\",\n          \"right\": \"A process that visualizes time and interaction, often using personas and scenarios.\"\n        },\n        {\n          \"left\": \"Minimum Viable Product\",\n          \"right\": \"A version of a new product used to collect maximum validated learning with the least effort.\"\n        }\n      ],\n      \"prompt\": \"Match each prototyping term with its correct description from the material.\",\n      \"type\": \"MATCHING\"\n    }\n  ]\n}\n```",
+  "run" : 1,
+  "schema_ok" : true,
+  "temperature" : 0.2,
+  "timestamp" : "2026-06-05T13:03:47.485707"
+}

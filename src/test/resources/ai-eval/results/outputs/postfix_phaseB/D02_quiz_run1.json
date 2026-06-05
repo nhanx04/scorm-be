@@ -1,0 +1,94 @@
+{
+  "cleaned" : "{\n  \"questions\": [\n    {\n      \"citation\": {\n        \"reasoning\": \"The quote directly lists the commands associated with each SQL language category.\",\n        \"sourceLocation\": \"Slide 4\",\n        \"verbatimQuote\": \"Data Definition Language (DDL)\\n\\n} Create, Alter, Drop\\n} Data Manipulation Language (DML)\\n\\n} Select, Insert, Update, Delete\\n} Data Control Language (DCL)\\n\\n} Commit, Rollback, Grant, Revoke\"\n      },\n      \"correctAnswer\": null,\n      \"pairs\": [\n        {\n          \"left\": \"Data Definition Language (DDL)\",\n          \"right\": \"create, drop, alter\"\n        },\n        {\n          \"left\": \"Data Manipulation Language (DML)\",\n          \"right\": \"select, insert, update, delete\"\n        },\n        {\n          \"left\": \"Data Control Language (DCL)\",\n          \"right\": \"commit, rollback, grant, revoke\"\n        }\n      ],\n      \"prompt\": \"Match each SQL language category to its corresponding set of commands.\",\n      \"type\": \"MATCHING\"\n    },\n    {\n      \"citation\": {\n        \"reasoning\": \"The quote explicitly states that RESTRICT is the default behavior for the DROP command.\",\n        \"sourceLocation\": \"Slide 25\",\n        \"verbatimQuote\": \"RESTRICT (default): dropped on if it is not referenced in any constraints or views\"\n      },\n      \"correctAnswer\": \"RESTRICT\",\n      \"options\": [\n        \"CASCADE\",\n        \"RESTRICT\",\n        \"SET NULL\",\n        \"SET DEFAULT\"\n      ],\n      \"prompt\": \"When using the `DROP TABLE` command, what is the default behavior if no drop option is specified?\",\n      \"type\": \"MCQ_SINGLE\"\n    },\n    {\n      \"citation\": {\n        \"reasoning\": \"The quote lists the valid referential triggered actions, which include the correct options.\",\n        \"sourceLocation\": \"Slide 16\",\n        \"verbatimQuote\": \"Referential triggered actions: RESTRICT (default), SET NULL, CASCADE, and SET DEFAULT\"\n      },\n      \"correctAnswer\": [\n        \"CASCADE\",\n        \"SET NULL\",\n        \"RESTRICT\"\n      ],\n      \"options\": [\n        \"CASCADE\",\n        \"SET NULL\",\n        \"RESTRICT\",\n        \"UNIQUE\"\n      ],\n      \"prompt\": \"According to the material, which of the following are valid referential triggered actions for a FOREIGN KEY clause?\",\n      \"type\": \"MCQ_MULTIPLE\"\n    },\n    {\n      \"citation\": {\n        \"reasoning\": \"The quote directly states that virtual relations are created using the CREATE VIEW statement.\",\n        \"sourceLocation\": \"Slide 10\",\n        \"verbatimQuote\": \"Virtual relations\\n} Created through the CREATE VIEW statement.\"\n      },\n      \"correctAnswer\": [\n        \"CREATE VIEW\"\n      ],\n      \"prompt\": \"Fill in the blank to complete the statement about how virtual relations are made.\",\n      \"sentenceHtml\": \"According to the document, virtual relations are created through the ___(1)___ statement.\",\n      \"type\": \"FILL_IN_THE_BLANK\"\n    },\n    {\n      \"citation\": {\n        \"reasoning\": \"The quote lists two main benefits of using CREATE DOMAIN, either of which is a correct answer.\",\n        \"sourceLocation\": \"Slide 13\",\n        \"verbatimQuote\": \"Makes it easier to change the data type for a domain that is used by numerous attributes \\n\\n} Improves schema readability\"\n      },\n      \"correctAnswer\": [\n        \"Makes it easier to change the data type for a domain\",\n        \"Improves schema readability\"\n      ],\n      \"prompt\": \"Based on the text, state one of the two main benefits of using the `CREATE DOMAIN` statement.\",\n      \"type\": \"SHORT_ANSWER\"\n    }\n  ]\n}",
+  "completion_tokens" : 909,
+  "doc_file" : "4-1_SQL.pdf",
+  "doc_id" : "D02",
+  "doc_language" : "en",
+  "doc_pages" : 114,
+  "doc_title" : "Structured Query Language (DDL/DML/DCL)",
+  "empty_field" : false,
+  "error_message" : null,
+  "error_type" : null,
+  "feature" : "quiz",
+  "json_parse_ok" : true,
+  "latency_ms" : 23149,
+  "model" : "gemini-2.5-pro",
+  "parsed" : {
+    "questions" : [ {
+      "type" : "MATCHING",
+      "prompt" : "Match each SQL language category to its corresponding set of commands.",
+      "options" : null,
+      "correctAnswer" : null,
+      "citation" : {
+        "sourceLocation" : "Slide 4",
+        "verbatimQuote" : "Data Definition Language (DDL)\n\n} Create, Alter, Drop\n} Data Manipulation Language (DML)\n\n} Select, Insert, Update, Delete\n} Data Control Language (DCL)\n\n} Commit, Rollback, Grant, Revoke",
+        "reasoning" : "The quote directly lists the commands associated with each SQL language category."
+      },
+      "sentenceHtml" : null,
+      "pairs" : [ {
+        "left" : "Data Definition Language (DDL)",
+        "right" : "create, drop, alter"
+      }, {
+        "left" : "Data Manipulation Language (DML)",
+        "right" : "select, insert, update, delete"
+      }, {
+        "left" : "Data Control Language (DCL)",
+        "right" : "commit, rollback, grant, revoke"
+      } ]
+    }, {
+      "type" : "MCQ_SINGLE",
+      "prompt" : "When using the `DROP TABLE` command, what is the default behavior if no drop option is specified?",
+      "options" : [ "CASCADE", "RESTRICT", "SET NULL", "SET DEFAULT" ],
+      "correctAnswer" : "RESTRICT",
+      "citation" : {
+        "sourceLocation" : "Slide 25",
+        "verbatimQuote" : "RESTRICT (default): dropped on if it is not referenced in any constraints or views",
+        "reasoning" : "The quote explicitly states that RESTRICT is the default behavior for the DROP command."
+      },
+      "sentenceHtml" : null,
+      "pairs" : null
+    }, {
+      "type" : "MCQ_MULTIPLE",
+      "prompt" : "According to the material, which of the following are valid referential triggered actions for a FOREIGN KEY clause?",
+      "options" : [ "CASCADE", "SET NULL", "RESTRICT", "UNIQUE" ],
+      "correctAnswer" : [ "CASCADE", "SET NULL", "RESTRICT" ],
+      "citation" : {
+        "sourceLocation" : "Slide 16",
+        "verbatimQuote" : "Referential triggered actions: RESTRICT (default), SET NULL, CASCADE, and SET DEFAULT",
+        "reasoning" : "The quote lists the valid referential triggered actions, which include the correct options."
+      },
+      "sentenceHtml" : null,
+      "pairs" : null
+    }, {
+      "type" : "FILL_IN_THE_BLANK",
+      "prompt" : "Fill in the blank to complete the statement about how virtual relations are made.",
+      "options" : null,
+      "correctAnswer" : [ "CREATE VIEW" ],
+      "citation" : {
+        "sourceLocation" : "Slide 10",
+        "verbatimQuote" : "Virtual relations\n} Created through the CREATE VIEW statement.",
+        "reasoning" : "The quote directly states that virtual relations are created using the CREATE VIEW statement."
+      },
+      "sentenceHtml" : "According to the document, virtual relations are created through the ___(1)___ statement.",
+      "pairs" : null
+    }, {
+      "type" : "SHORT_ANSWER",
+      "prompt" : "Based on the text, state one of the two main benefits of using the `CREATE DOMAIN` statement.",
+      "options" : null,
+      "correctAnswer" : [ "Makes it easier to change the data type for a domain", "Improves schema readability" ],
+      "citation" : {
+        "sourceLocation" : "Slide 13",
+        "verbatimQuote" : "Makes it easier to change the data type for a domain that is used by numerous attributes \n\n} Improves schema readability",
+        "reasoning" : "The quote lists two main benefits of using CREATE DOMAIN, either of which is a correct answer."
+      },
+      "sentenceHtml" : null,
+      "pairs" : null
+    } ]
+  },
+  "prompt_tokens" : 3623,
+  "raw" : "```json\n{\n  \"questions\": [\n    {\n      \"citation\": {\n        \"reasoning\": \"The quote directly lists the commands associated with each SQL language category.\",\n        \"sourceLocation\": \"Slide 4\",\n        \"verbatimQuote\": \"Data Definition Language (DDL)\\n\\n} Create, Alter, Drop\\n} Data Manipulation Language (DML)\\n\\n} Select, Insert, Update, Delete\\n} Data Control Language (DCL)\\n\\n} Commit, Rollback, Grant, Revoke\"\n      },\n      \"correctAnswer\": null,\n      \"pairs\": [\n        {\n          \"left\": \"Data Definition Language (DDL)\",\n          \"right\": \"create, drop, alter\"\n        },\n        {\n          \"left\": \"Data Manipulation Language (DML)\",\n          \"right\": \"select, insert, update, delete\"\n        },\n        {\n          \"left\": \"Data Control Language (DCL)\",\n          \"right\": \"commit, rollback, grant, revoke\"\n        }\n      ],\n      \"prompt\": \"Match each SQL language category to its corresponding set of commands.\",\n      \"type\": \"MATCHING\"\n    },\n    {\n      \"citation\": {\n        \"reasoning\": \"The quote explicitly states that RESTRICT is the default behavior for the DROP command.\",\n        \"sourceLocation\": \"Slide 25\",\n        \"verbatimQuote\": \"RESTRICT (default): dropped on if it is not referenced in any constraints or views\"\n      },\n      \"correctAnswer\": \"RESTRICT\",\n      \"options\": [\n        \"CASCADE\",\n        \"RESTRICT\",\n        \"SET NULL\",\n        \"SET DEFAULT\"\n      ],\n      \"prompt\": \"When using the `DROP TABLE` command, what is the default behavior if no drop option is specified?\",\n      \"type\": \"MCQ_SINGLE\"\n    },\n    {\n      \"citation\": {\n        \"reasoning\": \"The quote lists the valid referential triggered actions, which include the correct options.\",\n        \"sourceLocation\": \"Slide 16\",\n        \"verbatimQuote\": \"Referential triggered actions: RESTRICT (default), SET NULL, CASCADE, and SET DEFAULT\"\n      },\n      \"correctAnswer\": [\n        \"CASCADE\",\n        \"SET NULL\",\n        \"RESTRICT\"\n      ],\n      \"options\": [\n        \"CASCADE\",\n        \"SET NULL\",\n        \"RESTRICT\",\n        \"UNIQUE\"\n      ],\n      \"prompt\": \"According to the material, which of the following are valid referential triggered actions for a FOREIGN KEY clause?\",\n      \"type\": \"MCQ_MULTIPLE\"\n    },\n    {\n      \"citation\": {\n        \"reasoning\": \"The quote directly states that virtual relations are created using the CREATE VIEW statement.\",\n        \"sourceLocation\": \"Slide 10\",\n        \"verbatimQuote\": \"Virtual relations\\n} Created through the CREATE VIEW statement.\"\n      },\n      \"correctAnswer\": [\n        \"CREATE VIEW\"\n      ],\n      \"prompt\": \"Fill in the blank to complete the statement about how virtual relations are made.\",\n      \"sentenceHtml\": \"According to the document, virtual relations are created through the ___(1)___ statement.\",\n      \"type\": \"FILL_IN_THE_BLANK\"\n    },\n    {\n      \"citation\": {\n        \"reasoning\": \"The quote lists two main benefits of using CREATE DOMAIN, either of which is a correct answer.\",\n        \"sourceLocation\": \"Slide 13\",\n        \"verbatimQuote\": \"Makes it easier to change the data type for a domain that is used by numerous attributes \\n\\n} Improves schema readability\"\n      },\n      \"correctAnswer\": [\n        \"Makes it easier to change the data type for a domain\",\n        \"Improves schema readability\"\n      ],\n      \"prompt\": \"Based on the text, state one of the two main benefits of using the `CREATE DOMAIN` statement.\",\n      \"type\": \"SHORT_ANSWER\"\n    }\n  ]\n}\n```",
+  "run" : 1,
+  "schema_ok" : true,
+  "temperature" : 0.2,
+  "timestamp" : "2026-06-05T13:01:56.982837"
+}

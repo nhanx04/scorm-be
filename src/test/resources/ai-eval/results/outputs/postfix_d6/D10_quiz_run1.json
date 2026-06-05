@@ -1,0 +1,77 @@
+{
+  "cleaned" : "{\n  \"questions\": [\n    {\n      \"type\": \"MCQ_SINGLE\",\n      \"prompt\": \"According to the provided material, which of the following would cause a movement along the demand curve for a good, rather than a shift of the curve?\",\n      \"options\": [\n        \"A change in consumer income.\",\n        \"A change in the price of the good itself.\",\n        \"A change in consumer tastes.\",\n        \"An increase in the number of buyers.\"\n      ],\n      \"correctAnswer\": \"A change in the price of the good itself.\",\n      \"explanation\": \"Theo tài liệu: The slide titled 'Changes in quantity demanded' states that movements along a given demand curve occur 'in response to price changes of the good.' The other options are listed as 'non-price determinants' that cause the curve to shift.\"\n    },\n    {\n      \"type\": \"TRUE_FALSE\",\n      \"prompt\": \"True or False: Based on the provided slides, a 'Surplus' occurs when the quantity demanded is greater than the quantity supplied.\",\n      \"correctAnswer\": false,\n      \"explanation\": \"Theo tài liệu: The slide 'Markets Not in Equilibrium: Surplus' defines a surplus (excess supply) as a situation where 'quantity supplied is greater than quantity demanded'.\"\n    },\n    {\n      \"type\": \"FILL_IN_THE_BLANK\",\n      \"prompt\": \"Fill in the blanks to complete the Law of Supply as stated in the document.\",\n      \"sentenceHtml\": \"The quantity of a good supplied in a given time period ___(1)___ as its price ___(2)___, ceteris paribus.\",\n      \"correctAnswer\": [\n        \"increases\",\n        \"increases\"\n      ],\n      \"explanation\": \"Theo tài liệu: The slide titled 'Supply' explicitly states the 'Law of supply: The quantity of a good supplied in a given time period increases as its price increases, ceteris paribus.'\"\n    },\n    {\n      \"type\": \"SHORT_ANSWER\",\n      \"prompt\": \"According to the 'Determinants of demand' slide, list two factors that can cause the demand curve to shift.\",\n      \"correctAnswer\": [\n        \"Tastes\",\n        \"Income\",\n        \"Other goods\",\n        \"Expectations\",\n        \"Number of buyers\"\n      ],\n      \"explanation\": \"Theo tài liệu: The slide 'Determinants of demand' lists the following shifters: Tastes, Income, Other goods (their availability and price), Expectations, and Number of buyers. Any two from this list are correct.\"\n    },\n    {\n      \"type\": \"MATCHING\",\n      \"prompt\": \"Match each concept to its correct definition based on the provided material.\",\n      \"pairs\": [\n        {\n          \"left\": \"Demand\",\n          \"right\": \"The ability and willingness to buy specific quantities of a good at alternative prices.\"\n        },\n        {\n          \"left\": \"Supply\",\n          \"right\": \"The ability and willingness to sell specific quantities of a good at alternative prices.\"\n        },\n        {\n          \"left\": \"Equilibrium Price\",\n          \"right\": \"The price where quantity supplied equals quantity demanded.\"\n        },\n        {\n          \"left\": \"Change in quantity demanded\",\n          \"right\": \"Movement along a given demand curve in response to price changes.\"\n        }\n      ],\n      \"correctAnswer\": null,\n      \"explanation\": \"Theo tài liệu: The definitions are taken directly from the slides. 'Demand' and 'Supply' are defined on the 'Supply and Demand' slide. 'Equilibrium Price' is defined on the 'Supply and Demand Together' slide. 'Change in quantity demanded' is defined on the 'The Demand Curve' slide.\"\n    }\n  ]\n}",
+  "completion_tokens" : 835,
+  "doc_file" : "Chuong2_CungCauDiemCanBangGiaTranGiaSanThue_Eng.pdf",
+  "doc_id" : "D10",
+  "doc_language" : "en",
+  "doc_pages" : 57,
+  "doc_title" : "Supply, Demand and Market Equilibrium",
+  "empty_field" : false,
+  "error_message" : null,
+  "error_type" : null,
+  "feature" : "quiz",
+  "json_parse_ok" : true,
+  "latency_ms" : 20295,
+  "model" : "gemini-2.5-pro",
+  "parsed" : {
+    "questions" : [ {
+      "type" : "MCQ_SINGLE",
+      "prompt" : "According to the provided material, which of the following would cause a movement along the demand curve for a good, rather than a shift of the curve?",
+      "options" : [ "A change in consumer income.", "A change in the price of the good itself.", "A change in consumer tastes.", "An increase in the number of buyers." ],
+      "correctAnswer" : "A change in the price of the good itself.",
+      "explanation" : "Theo tài liệu: The slide titled 'Changes in quantity demanded' states that movements along a given demand curve occur 'in response to price changes of the good.' The other options are listed as 'non-price determinants' that cause the curve to shift.",
+      "sentenceHtml" : null,
+      "pairs" : null
+    }, {
+      "type" : "TRUE_FALSE",
+      "prompt" : "True or False: Based on the provided slides, a 'Surplus' occurs when the quantity demanded is greater than the quantity supplied.",
+      "options" : null,
+      "correctAnswer" : false,
+      "explanation" : "Theo tài liệu: The slide 'Markets Not in Equilibrium: Surplus' defines a surplus (excess supply) as a situation where 'quantity supplied is greater than quantity demanded'.",
+      "sentenceHtml" : null,
+      "pairs" : null
+    }, {
+      "type" : "FILL_IN_THE_BLANK",
+      "prompt" : "Fill in the blanks to complete the Law of Supply as stated in the document.",
+      "options" : null,
+      "correctAnswer" : [ "increases", "increases" ],
+      "explanation" : "Theo tài liệu: The slide titled 'Supply' explicitly states the 'Law of supply: The quantity of a good supplied in a given time period increases as its price increases, ceteris paribus.'",
+      "sentenceHtml" : "The quantity of a good supplied in a given time period ___(1)___ as its price ___(2)___, ceteris paribus.",
+      "pairs" : null
+    }, {
+      "type" : "SHORT_ANSWER",
+      "prompt" : "According to the 'Determinants of demand' slide, list two factors that can cause the demand curve to shift.",
+      "options" : null,
+      "correctAnswer" : [ "Tastes", "Income", "Other goods", "Expectations", "Number of buyers" ],
+      "explanation" : "Theo tài liệu: The slide 'Determinants of demand' lists the following shifters: Tastes, Income, Other goods (their availability and price), Expectations, and Number of buyers. Any two from this list are correct.",
+      "sentenceHtml" : null,
+      "pairs" : null
+    }, {
+      "type" : "MATCHING",
+      "prompt" : "Match each concept to its correct definition based on the provided material.",
+      "options" : null,
+      "correctAnswer" : null,
+      "explanation" : "Theo tài liệu: The definitions are taken directly from the slides. 'Demand' and 'Supply' are defined on the 'Supply and Demand' slide. 'Equilibrium Price' is defined on the 'Supply and Demand Together' slide. 'Change in quantity demanded' is defined on the 'The Demand Curve' slide.",
+      "sentenceHtml" : null,
+      "pairs" : [ {
+        "left" : "Demand",
+        "right" : "The ability and willingness to buy specific quantities of a good at alternative prices."
+      }, {
+        "left" : "Supply",
+        "right" : "The ability and willingness to sell specific quantities of a good at alternative prices."
+      }, {
+        "left" : "Equilibrium Price",
+        "right" : "The price where quantity supplied equals quantity demanded."
+      }, {
+        "left" : "Change in quantity demanded",
+        "right" : "Movement along a given demand curve in response to price changes."
+      } ]
+    } ]
+  },
+  "prompt_tokens" : 3038,
+  "raw" : "```json\n{\n  \"questions\": [\n    {\n      \"type\": \"MCQ_SINGLE\",\n      \"prompt\": \"According to the provided material, which of the following would cause a movement along the demand curve for a good, rather than a shift of the curve?\",\n      \"options\": [\n        \"A change in consumer income.\",\n        \"A change in the price of the good itself.\",\n        \"A change in consumer tastes.\",\n        \"An increase in the number of buyers.\"\n      ],\n      \"correctAnswer\": \"A change in the price of the good itself.\",\n      \"explanation\": \"Theo tài liệu: The slide titled 'Changes in quantity demanded' states that movements along a given demand curve occur 'in response to price changes of the good.' The other options are listed as 'non-price determinants' that cause the curve to shift.\"\n    },\n    {\n      \"type\": \"TRUE_FALSE\",\n      \"prompt\": \"True or False: Based on the provided slides, a 'Surplus' occurs when the quantity demanded is greater than the quantity supplied.\",\n      \"correctAnswer\": false,\n      \"explanation\": \"Theo tài liệu: The slide 'Markets Not in Equilibrium: Surplus' defines a surplus (excess supply) as a situation where 'quantity supplied is greater than quantity demanded'.\"\n    },\n    {\n      \"type\": \"FILL_IN_THE_BLANK\",\n      \"prompt\": \"Fill in the blanks to complete the Law of Supply as stated in the document.\",\n      \"sentenceHtml\": \"The quantity of a good supplied in a given time period ___(1)___ as its price ___(2)___, ceteris paribus.\",\n      \"correctAnswer\": [\n        \"increases\",\n        \"increases\"\n      ],\n      \"explanation\": \"Theo tài liệu: The slide titled 'Supply' explicitly states the 'Law of supply: The quantity of a good supplied in a given time period increases as its price increases, ceteris paribus.'\"\n    },\n    {\n      \"type\": \"SHORT_ANSWER\",\n      \"prompt\": \"According to the 'Determinants of demand' slide, list two factors that can cause the demand curve to shift.\",\n      \"correctAnswer\": [\n        \"Tastes\",\n        \"Income\",\n        \"Other goods\",\n        \"Expectations\",\n        \"Number of buyers\"\n      ],\n      \"explanation\": \"Theo tài liệu: The slide 'Determinants of demand' lists the following shifters: Tastes, Income, Other goods (their availability and price), Expectations, and Number of buyers. Any two from this list are correct.\"\n    },\n    {\n      \"type\": \"MATCHING\",\n      \"prompt\": \"Match each concept to its correct definition based on the provided material.\",\n      \"pairs\": [\n        {\n          \"left\": \"Demand\",\n          \"right\": \"The ability and willingness to buy specific quantities of a good at alternative prices.\"\n        },\n        {\n          \"left\": \"Supply\",\n          \"right\": \"The ability and willingness to sell specific quantities of a good at alternative prices.\"\n        },\n        {\n          \"left\": \"Equilibrium Price\",\n          \"right\": \"The price where quantity supplied equals quantity demanded.\"\n        },\n        {\n          \"left\": \"Change in quantity demanded\",\n          \"right\": \"Movement along a given demand curve in response to price changes.\"\n        }\n      ],\n      \"correctAnswer\": null,\n      \"explanation\": \"Theo tài liệu: The definitions are taken directly from the slides. 'Demand' and 'Supply' are defined on the 'Supply and Demand' slide. 'Equilibrium Price' is defined on the 'Supply and Demand Together' slide. 'Change in quantity demanded' is defined on the 'The Demand Curve' slide.\"\n    }\n  ]\n}\n```",
+  "run" : 1,
+  "schema_ok" : true,
+  "temperature" : 0.2,
+  "timestamp" : "2026-06-05T07:35:23.355625"
+}

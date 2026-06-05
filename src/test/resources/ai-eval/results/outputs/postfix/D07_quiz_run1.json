@@ -1,6 +1,6 @@
 {
-  "cleaned" : "{\n  \"questions\": [\n    {\n      \"type\": \"MCQ_SINGLE\",\n      \"prompt\": \"According to the provided material, what is the primary purpose of a Minimum Viable Product (MVP)?\",\n      \"options\": [\n        \"To launch a fully-featured product to the market as quickly as possible.\",\n        \"To collect the maximum amount of validated learning about customers with the least effort.\",\n        \"To create a perfect, bug-free version of the product before showing it to users.\",\n        \"To generate the highest possible revenue in the first month of launch.\"\n      ],\n      \"correctAnswer\": \"To collect the maximum amount of validated learning about customers with the least effort.\",\n      \"explanation\": \"Slide 27: The material provides a direct quote from Eric Ries defining an MVP: “A minimum viable product is that version of a new product which allows a team to collect the maximum amount of validated learning about customers with the least effort.”\"\n    },\n    {\n      \"type\": \"MCQ_MULTIPLE\",\n      \"prompt\": \"Based on the \\\"Lean startup program\\\" slide, which of the following are listed as its core components? (Select all that apply)\",\n      \"options\": [\n        \"Business model canvas\",\n        \"Customer development process\",\n        \"Agile development\",\n        \"Hypothesis Testing for Value Creation\",\n        \"Storyboard creation\"\n      ],\n      \"correctAnswer\": [\n        \"Business model canvas\",\n        \"Customer development process\",\n        \"Agile development\"\n      ],\n      \"explanation\": \"Slide 26: The slide explicitly lists three components for the Lean startup program: Business model canvas, Customer development process, and Agile development.\"\n    },\n    {\n      \"type\": \"TRUE_FALSE\",\n      \"prompt\": \"True or False: According to the presentation, when sketching user interfaces, paying close attention to fine details is the most important aspect to establish the application's flow.\",\n      \"correctAnswer\": false,\n      \"explanation\": \"Slide 31: The slide on Sketching states, \\\"Detail is not important, your trying to establish flow\\\".\"\n    },\n    {\n      \"type\": \"FILL_IN_THE_BLANK\",\n      \"prompt\": \"Fill in the blanks to complete the definition of Design Thinking by Tim Brown.\",\n      \"sentenceHtml\": \"“Design thinking” is a human-centered approach to innovation that draws from the designer's toolkit to integrate the needs of ___(1)___, the possibilities of ___(2)___, and the requirements for business ___(3)___.”\",\n      \"correctAnswer\": [\n        \"people\",\n        \"technology\",\n        \"success\"\n      ],\n      \"explanation\": \"Slide 3: This is a direct quote from Tim Brown, President and CEO of IDEO, as presented in the material.\"\n    },\n    {\n      \"type\": \"MATCHING\",\n      \"prompt\": \"Match each component of the Test Card with its corresponding description.\",\n      \"pairs\": [\n        {\n          \"left\": \"Hypothesis\",\n          \"right\": \"What assumption will you focus on?\"\n        },\n        {\n          \"left\": \"Test\",\n          \"right\": \"How will you test your hypothesis?\"\n        },\n        {\n          \"left\": \"Metric\",\n          \"right\": \"How will you measure the results?\"\n        },\n        {\n          \"left\": \"Criteria\",\n          \"right\": \"How will you know if your hypothesis is correct?\"\n        }\n      ],\n      \"correctAnswer\": null,\n      \"explanation\": \"Slide 22: The 'Test Card' diagram directly maps each component (Hypothesis, Test, Metric, Criteria) to its corresponding guiding question.\"\n    }\n  ]\n}",
-  "completion_tokens" : 835,
+  "cleaned" : "{\n  \"questions\": [\n    {\n      \"citation\": {\n        \"reasoning\": \"This quote directly lists the three core components that form the correct answer.\",\n        \"sourceLocation\": \"Slide 3\",\n        \"verbatimQuote\": \"integrate the needs of people, the possibilities of technology, and the requirements for business success.”\"\n      },\n      \"correctAnswer\": \"The needs of people, the possibilities of technology, and business requirements.\",\n      \"options\": [\n        \"The needs of people, the possibilities of technology, and business requirements.\",\n        \"User interviews, market analysis, and financial projections.\",\n        \"Product packaging, marketing strategies, and customer support.\",\n        \"Agile development, lean startup principles, and prototyping tools.\"\n      ],\n      \"prompt\": \"According to Tim Brown's definition, which combination best represents the core components integrated by design thinking?\",\n      \"type\": \"MCQ_SINGLE\"\n    },\n    {\n      \"citation\": {\n        \"reasoning\": \"This quote clarifies that the goal of an MVP is learning with minimal effort, not launching a full product.\",\n        \"sourceLocation\": \"Slide 27\",\n        \"verbatimQuote\": \"allows a team to collect the maximum amount of validated learning about customers with the least effort.”\"\n      },\n      \"correctAnswer\": false,\n      \"prompt\": \"True or False: The main goal of creating a Minimum Viable Product (MVP) is to launch a fully-featured product to the market as quickly as possible.\",\n      \"type\": \"TRUE_FALSE\"\n    },\n    {\n      \"citation\": {\n        \"reasoning\": \"The slide explicitly lists the three required components for hypothesis testing.\",\n        \"sourceLocation\": \"Slide 20\",\n        \"verbatimQuote\": \"•Hypothesis statement •Test method •Test metric & criteria\"\n      },\n      \"correctAnswer\": [\n        \"Hypothesis statement, test method, test metric & criteria\"\n      ],\n      \"prompt\": \"A startup wants to test a new idea. Based on the provided material, what are the three essential components they must define for their test?\",\n      \"type\": \"SHORT_ANSWER\"\n    },\n    {\n      \"citation\": {\n        \"reasoning\": \"This quote provides the exact words needed to correctly fill in the blanks in the sentence.\",\n        \"sourceLocation\": \"Slide 13\",\n        \"verbatimQuote\": \"how a business creates and delivers value to customers (David Teece)\"\n      },\n      \"correctAnswer\": [\n        \"creates\",\n        \"delivers\"\n      ],\n      \"prompt\": \"Fill in the blanks to complete the definition of a business model.\",\n      \"sentenceHtml\": \"According to David Teece, a business model demonstrates how a business ___ and ___ value to customers.\",\n      \"type\": \"FILL_IN_THE_BLANK\"\n    },\n    {\n      \"citation\": {\n        \"reasoning\": \"This quote defines storyboarding, which is one of the key pairs in the matching exercise.\",\n        \"sourceLocation\": \"Slide 30\",\n        \"verbatimQuote\": \"A process of time and interaction\"\n      },\n      \"correctAnswer\": null,\n      \"pairs\": [\n        {\n          \"left\": \"Sketching\",\n          \"right\": \"A quick way to express basic UI concepts and flow, where detail is not important.\"\n        },\n        {\n          \"left\": \"Storyboard\",\n          \"right\": \"A process illustrating time and interaction, often using personas and scenarios.\"\n        },\n        {\n          \"left\": \"Agile Manifesto\",\n          \"right\": \"A set of values focusing on individuals, customer collaboration, and responding to change.\"\n        },\n        {\n          \"left\": \"Business Model\",\n          \"right\": \"Articulates the logic of how a business creates and delivers value to customers.\"\n        }\n      ],\n      \"prompt\": \"Match each concept with its corresponding description from the presentation.\",\n      \"type\": \"MATCHING\"\n    }\n  ]\n}",
+  "completion_tokens" : 902,
   "doc_file" : "05_Design_thinking_v3.pdf",
   "doc_id" : "D07",
   "doc_language" : "en",
@@ -11,67 +11,87 @@
   "error_type" : null,
   "feature" : "quiz",
   "json_parse_ok" : true,
-  "latency_ms" : 17265,
+  "latency_ms" : 22169,
   "model" : "gemini-2.5-pro",
   "parsed" : {
     "questions" : [ {
       "type" : "MCQ_SINGLE",
-      "prompt" : "According to the provided material, what is the primary purpose of a Minimum Viable Product (MVP)?",
-      "options" : [ "To launch a fully-featured product to the market as quickly as possible.", "To collect the maximum amount of validated learning about customers with the least effort.", "To create a perfect, bug-free version of the product before showing it to users.", "To generate the highest possible revenue in the first month of launch." ],
-      "correctAnswer" : "To collect the maximum amount of validated learning about customers with the least effort.",
-      "explanation" : "Slide 27: The material provides a direct quote from Eric Ries defining an MVP: “A minimum viable product is that version of a new product which allows a team to collect the maximum amount of validated learning about customers with the least effort.”",
-      "sentenceHtml" : null,
-      "pairs" : null
-    }, {
-      "type" : "MCQ_MULTIPLE",
-      "prompt" : "Based on the \"Lean startup program\" slide, which of the following are listed as its core components? (Select all that apply)",
-      "options" : [ "Business model canvas", "Customer development process", "Agile development", "Hypothesis Testing for Value Creation", "Storyboard creation" ],
-      "correctAnswer" : [ "Business model canvas", "Customer development process", "Agile development" ],
-      "explanation" : "Slide 26: The slide explicitly lists three components for the Lean startup program: Business model canvas, Customer development process, and Agile development.",
+      "prompt" : "According to Tim Brown's definition, which combination best represents the core components integrated by design thinking?",
+      "options" : [ "The needs of people, the possibilities of technology, and business requirements.", "User interviews, market analysis, and financial projections.", "Product packaging, marketing strategies, and customer support.", "Agile development, lean startup principles, and prototyping tools." ],
+      "correctAnswer" : "The needs of people, the possibilities of technology, and business requirements.",
+      "citation" : {
+        "sourceLocation" : "Slide 3",
+        "verbatimQuote" : "integrate the needs of people, the possibilities of technology, and the requirements for business success.”",
+        "reasoning" : "This quote directly lists the three core components that form the correct answer."
+      },
       "sentenceHtml" : null,
       "pairs" : null
     }, {
       "type" : "TRUE_FALSE",
-      "prompt" : "True or False: According to the presentation, when sketching user interfaces, paying close attention to fine details is the most important aspect to establish the application's flow.",
+      "prompt" : "True or False: The main goal of creating a Minimum Viable Product (MVP) is to launch a fully-featured product to the market as quickly as possible.",
       "options" : null,
       "correctAnswer" : false,
-      "explanation" : "Slide 31: The slide on Sketching states, \"Detail is not important, your trying to establish flow\".",
+      "citation" : {
+        "sourceLocation" : "Slide 27",
+        "verbatimQuote" : "allows a team to collect the maximum amount of validated learning about customers with the least effort.”",
+        "reasoning" : "This quote clarifies that the goal of an MVP is learning with minimal effort, not launching a full product."
+      },
+      "sentenceHtml" : null,
+      "pairs" : null
+    }, {
+      "type" : "SHORT_ANSWER",
+      "prompt" : "A startup wants to test a new idea. Based on the provided material, what are the three essential components they must define for their test?",
+      "options" : null,
+      "correctAnswer" : [ "Hypothesis statement, test method, test metric & criteria" ],
+      "citation" : {
+        "sourceLocation" : "Slide 20",
+        "verbatimQuote" : "•Hypothesis statement •Test method •Test metric & criteria",
+        "reasoning" : "The slide explicitly lists the three required components for hypothesis testing."
+      },
       "sentenceHtml" : null,
       "pairs" : null
     }, {
       "type" : "FILL_IN_THE_BLANK",
-      "prompt" : "Fill in the blanks to complete the definition of Design Thinking by Tim Brown.",
+      "prompt" : "Fill in the blanks to complete the definition of a business model.",
       "options" : null,
-      "correctAnswer" : [ "people", "technology", "success" ],
-      "explanation" : "Slide 3: This is a direct quote from Tim Brown, President and CEO of IDEO, as presented in the material.",
-      "sentenceHtml" : "“Design thinking” is a human-centered approach to innovation that draws from the designer's toolkit to integrate the needs of ___(1)___, the possibilities of ___(2)___, and the requirements for business ___(3)___.”",
+      "correctAnswer" : [ "creates", "delivers" ],
+      "citation" : {
+        "sourceLocation" : "Slide 13",
+        "verbatimQuote" : "how a business creates and delivers value to customers (David Teece)",
+        "reasoning" : "This quote provides the exact words needed to correctly fill in the blanks in the sentence."
+      },
+      "sentenceHtml" : "According to David Teece, a business model demonstrates how a business ___ and ___ value to customers.",
       "pairs" : null
     }, {
       "type" : "MATCHING",
-      "prompt" : "Match each component of the Test Card with its corresponding description.",
+      "prompt" : "Match each concept with its corresponding description from the presentation.",
       "options" : null,
       "correctAnswer" : null,
-      "explanation" : "Slide 22: The 'Test Card' diagram directly maps each component (Hypothesis, Test, Metric, Criteria) to its corresponding guiding question.",
+      "citation" : {
+        "sourceLocation" : "Slide 30",
+        "verbatimQuote" : "A process of time and interaction",
+        "reasoning" : "This quote defines storyboarding, which is one of the key pairs in the matching exercise."
+      },
       "sentenceHtml" : null,
       "pairs" : [ {
-        "left" : "Hypothesis",
-        "right" : "What assumption will you focus on?"
+        "left" : "Sketching",
+        "right" : "A quick way to express basic UI concepts and flow, where detail is not important."
       }, {
-        "left" : "Test",
-        "right" : "How will you test your hypothesis?"
+        "left" : "Storyboard",
+        "right" : "A process illustrating time and interaction, often using personas and scenarios."
       }, {
-        "left" : "Metric",
-        "right" : "How will you measure the results?"
+        "left" : "Agile Manifesto",
+        "right" : "A set of values focusing on individuals, customer collaboration, and responding to change."
       }, {
-        "left" : "Criteria",
-        "right" : "How will you know if your hypothesis is correct?"
+        "left" : "Business Model",
+        "right" : "Articulates the logic of how a business creates and delivers value to customers."
       } ]
     } ]
   },
-  "prompt_tokens" : 2497,
-  "raw" : "```json\n{\n  \"questions\": [\n    {\n      \"type\": \"MCQ_SINGLE\",\n      \"prompt\": \"According to the provided material, what is the primary purpose of a Minimum Viable Product (MVP)?\",\n      \"options\": [\n        \"To launch a fully-featured product to the market as quickly as possible.\",\n        \"To collect the maximum amount of validated learning about customers with the least effort.\",\n        \"To create a perfect, bug-free version of the product before showing it to users.\",\n        \"To generate the highest possible revenue in the first month of launch.\"\n      ],\n      \"correctAnswer\": \"To collect the maximum amount of validated learning about customers with the least effort.\",\n      \"explanation\": \"Slide 27: The material provides a direct quote from Eric Ries defining an MVP: “A minimum viable product is that version of a new product which allows a team to collect the maximum amount of validated learning about customers with the least effort.”\"\n    },\n    {\n      \"type\": \"MCQ_MULTIPLE\",\n      \"prompt\": \"Based on the \\\"Lean startup program\\\" slide, which of the following are listed as its core components? (Select all that apply)\",\n      \"options\": [\n        \"Business model canvas\",\n        \"Customer development process\",\n        \"Agile development\",\n        \"Hypothesis Testing for Value Creation\",\n        \"Storyboard creation\"\n      ],\n      \"correctAnswer\": [\n        \"Business model canvas\",\n        \"Customer development process\",\n        \"Agile development\"\n      ],\n      \"explanation\": \"Slide 26: The slide explicitly lists three components for the Lean startup program: Business model canvas, Customer development process, and Agile development.\"\n    },\n    {\n      \"type\": \"TRUE_FALSE\",\n      \"prompt\": \"True or False: According to the presentation, when sketching user interfaces, paying close attention to fine details is the most important aspect to establish the application's flow.\",\n      \"correctAnswer\": false,\n      \"explanation\": \"Slide 31: The slide on Sketching states, \\\"Detail is not important, your trying to establish flow\\\".\"\n    },\n    {\n      \"type\": \"FILL_IN_THE_BLANK\",\n      \"prompt\": \"Fill in the blanks to complete the definition of Design Thinking by Tim Brown.\",\n      \"sentenceHtml\": \"“Design thinking” is a human-centered approach to innovation that draws from the designer's toolkit to integrate the needs of ___(1)___, the possibilities of ___(2)___, and the requirements for business ___(3)___.”\",\n      \"correctAnswer\": [\n        \"people\",\n        \"technology\",\n        \"success\"\n      ],\n      \"explanation\": \"Slide 3: This is a direct quote from Tim Brown, President and CEO of IDEO, as presented in the material.\"\n    },\n    {\n      \"type\": \"MATCHING\",\n      \"prompt\": \"Match each component of the Test Card with its corresponding description.\",\n      \"pairs\": [\n        {\n          \"left\": \"Hypothesis\",\n          \"right\": \"What assumption will you focus on?\"\n        },\n        {\n          \"left\": \"Test\",\n          \"right\": \"How will you test your hypothesis?\"\n        },\n        {\n          \"left\": \"Metric\",\n          \"right\": \"How will you measure the results?\"\n        },\n        {\n          \"left\": \"Criteria\",\n          \"right\": \"How will you know if your hypothesis is correct?\"\n        }\n      ],\n      \"correctAnswer\": null,\n      \"explanation\": \"Slide 22: The 'Test Card' diagram directly maps each component (Hypothesis, Test, Metric, Criteria) to its corresponding guiding question.\"\n    }\n  ]\n}\n```",
+  "prompt_tokens" : 3709,
+  "raw" : "```json\n{\n  \"questions\": [\n    {\n      \"citation\": {\n        \"reasoning\": \"This quote directly lists the three core components that form the correct answer.\",\n        \"sourceLocation\": \"Slide 3\",\n        \"verbatimQuote\": \"integrate the needs of people, the possibilities of technology, and the requirements for business success.”\"\n      },\n      \"correctAnswer\": \"The needs of people, the possibilities of technology, and business requirements.\",\n      \"options\": [\n        \"The needs of people, the possibilities of technology, and business requirements.\",\n        \"User interviews, market analysis, and financial projections.\",\n        \"Product packaging, marketing strategies, and customer support.\",\n        \"Agile development, lean startup principles, and prototyping tools.\"\n      ],\n      \"prompt\": \"According to Tim Brown's definition, which combination best represents the core components integrated by design thinking?\",\n      \"type\": \"MCQ_SINGLE\"\n    },\n    {\n      \"citation\": {\n        \"reasoning\": \"This quote clarifies that the goal of an MVP is learning with minimal effort, not launching a full product.\",\n        \"sourceLocation\": \"Slide 27\",\n        \"verbatimQuote\": \"allows a team to collect the maximum amount of validated learning about customers with the least effort.”\"\n      },\n      \"correctAnswer\": false,\n      \"prompt\": \"True or False: The main goal of creating a Minimum Viable Product (MVP) is to launch a fully-featured product to the market as quickly as possible.\",\n      \"type\": \"TRUE_FALSE\"\n    },\n    {\n      \"citation\": {\n        \"reasoning\": \"The slide explicitly lists the three required components for hypothesis testing.\",\n        \"sourceLocation\": \"Slide 20\",\n        \"verbatimQuote\": \"•Hypothesis statement •Test method •Test metric & criteria\"\n      },\n      \"correctAnswer\": [\n        \"Hypothesis statement, test method, test metric & criteria\"\n      ],\n      \"prompt\": \"A startup wants to test a new idea. Based on the provided material, what are the three essential components they must define for their test?\",\n      \"type\": \"SHORT_ANSWER\"\n    },\n    {\n      \"citation\": {\n        \"reasoning\": \"This quote provides the exact words needed to correctly fill in the blanks in the sentence.\",\n        \"sourceLocation\": \"Slide 13\",\n        \"verbatimQuote\": \"how a business creates and delivers value to customers (David Teece)\"\n      },\n      \"correctAnswer\": [\n        \"creates\",\n        \"delivers\"\n      ],\n      \"prompt\": \"Fill in the blanks to complete the definition of a business model.\",\n      \"sentenceHtml\": \"According to David Teece, a business model demonstrates how a business ___ and ___ value to customers.\",\n      \"type\": \"FILL_IN_THE_BLANK\"\n    },\n    {\n      \"citation\": {\n        \"reasoning\": \"This quote defines storyboarding, which is one of the key pairs in the matching exercise.\",\n        \"sourceLocation\": \"Slide 30\",\n        \"verbatimQuote\": \"A process of time and interaction\"\n      },\n      \"correctAnswer\": null,\n      \"pairs\": [\n        {\n          \"left\": \"Sketching\",\n          \"right\": \"A quick way to express basic UI concepts and flow, where detail is not important.\"\n        },\n        {\n          \"left\": \"Storyboard\",\n          \"right\": \"A process illustrating time and interaction, often using personas and scenarios.\"\n        },\n        {\n          \"left\": \"Agile Manifesto\",\n          \"right\": \"A set of values focusing on individuals, customer collaboration, and responding to change.\"\n        },\n        {\n          \"left\": \"Business Model\",\n          \"right\": \"Articulates the logic of how a business creates and delivers value to customers.\"\n        }\n      ],\n      \"prompt\": \"Match each concept with its corresponding description from the presentation.\",\n      \"type\": \"MATCHING\"\n    }\n  ]\n}\n```",
   "run" : 1,
   "schema_ok" : true,
   "temperature" : 0.2,
-  "timestamp" : "2026-06-05T07:34:26.151970"
+  "timestamp" : "2026-06-05T20:43:35.918516"
 }

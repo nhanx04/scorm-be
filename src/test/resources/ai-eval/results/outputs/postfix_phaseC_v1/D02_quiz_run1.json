@@ -1,0 +1,97 @@
+{
+  "cleaned" : "{\n  \"questions\": [\n    {\n      \"type\": \"MCQ_SINGLE\",\n      \"prompt\": \"A developer tries to drop a table that is referenced by a foreign key constraint. What is the outcome if they use the `DROP TABLE` command with its default behavior?\",\n      \"options\": [\n        \"The table is dropped, and the referencing constraint is also dropped automatically.\",\n        \"The command fails because the table is referenced by another object.\",\n        \"The table is dropped, and the foreign key values in the referencing table are set to NULL.\",\n        \"The database prompts the user to confirm dropping the related constraint.\"\n      ],\n      \"correctAnswer\": \"The command fails because the table is referenced by another object.\",\n      \"citation\": {\n        \"sourceLocation\": \"Slide 25\",\n        \"verbatimQuote\": \"RESTRICT (default): dropped on if it is not referenced in any constraints or views\",\n        \"reasoning\": \"This quote states the default behavior is RESTRICT, which prevents dropping an object if it is referenced.\"\n      }\n    },\n    {\n      \"type\": \"TRUE_FALSE\",\n      \"prompt\": \"True or False: A `CHECK` constraint can be used to ensure that a department's creation date is always earlier than its manager's start date within the same record.\",\n      \"correctAnswer\": true,\n      \"citation\": {\n        \"sourceLocation\": \"Slide 23\",\n        \"verbatimQuote\": \"Ex: Department’s create-date must be earlier than the manager’s start-date: CHECK (DEPT_CREATE_DATE < MGRSTARTDATE);\",\n        \"reasoning\": \"The source provides a direct example of using a CHECK constraint to compare two columns within the same tuple.\"\n      }\n    },\n    {\n      \"type\": \"MATCHING\",\n      \"prompt\": \"Match each database task with the correct DDL command based on its function.\",\n      \"pairs\": [\n        {\n          \"left\": \"Add a new 'Email' column to an existing 'Users' table.\",\n          \"right\": \"ALTER\"\n        },\n        {\n          \"left\": \"Create the initial structure for a new 'Products' table.\",\n          \"right\": \"CREATE\"\n        },\n        {\n          \"left\": \"Completely remove the 'TemporaryData' table and its data.\",\n          \"right\": \"DROP\"\n        },\n        {\n          \"left\": \"Define a logical grouping of tables for a single application.\",\n          \"right\": \"CREATE SCHEMA\"\n        }\n      ],\n      \"correctAnswer\": null,\n      \"citation\": {\n        \"sourceLocation\": \"Slide 6\",\n        \"verbatimQuote\": \"CREATE: make a new database object ... ALTER: modify an existing database object. DROP: destroy an existing database object\",\n        \"reasoning\": \"This slide defines the primary purpose of the CREATE, ALTER, and DROP commands, which directly map to the tasks.\"\n      }\n    },\n    {\n      \"type\": \"SHORT_ANSWER\",\n      \"prompt\": \"A database needs to store user biographies, which can vary greatly in length. According to the material, what is the name of the appropriate varying length character-string data type?\",\n      \"correctAnswer\": [\n        \"VARCHAR(n)\",\n        \"CHAR VARYING(n)\",\n        \"CHARACTER VARYING(n)\"\n      ],\n      \"citation\": {\n        \"sourceLocation\": \"Slide 11\",\n        \"verbatimQuote\": \"Character-string data types: ... Varying length: VARCHAR(n), CHAR VARYING(n), CHARACTER VARYING(n)\",\n        \"reasoning\": \"The quote explicitly lists the data types designed for character strings of varying length, which is suitable for biographies.\"\n      }\n    },\n    {\n      \"type\": \"FILL_IN_THE_BLANK\",\n      \"prompt\": \"Complete the sentence that describes the hierarchical relationship between schemas and catalogs in SQL.\",\n      \"sentenceHtml\": \"A <span>___(1)___</span> is defined as a named collection of <span>___(2)___</span>.\",\n      \"correctAnswer\": [\n        \"Catalog\",\n        \"schemas\"\n      ],\n      \"citation\": {\n        \"sourceLocation\": \"Slide 8\",\n        \"verbatimQuote\": \"Catalog: a named collection of schemas\",\n        \"reasoning\": \"This quote directly defines a catalog as a collection of schemas, providing the exact words to fill in the blanks.\"\n      }\n    }\n  ]\n}",
+  "completion_tokens" : 1008,
+  "doc_file" : "4-1_SQL.pdf",
+  "doc_id" : "D02",
+  "doc_language" : "en",
+  "doc_pages" : 114,
+  "doc_title" : "Structured Query Language (DDL/DML/DCL)",
+  "empty_field" : false,
+  "error_message" : null,
+  "error_type" : null,
+  "feature" : "quiz",
+  "json_parse_ok" : true,
+  "latency_ms" : 28547,
+  "model" : "gemini-2.5-pro",
+  "parsed" : {
+    "questions" : [ {
+      "type" : "MCQ_SINGLE",
+      "prompt" : "A developer tries to drop a table that is referenced by a foreign key constraint. What is the outcome if they use the `DROP TABLE` command with its default behavior?",
+      "options" : [ "The table is dropped, and the referencing constraint is also dropped automatically.", "The command fails because the table is referenced by another object.", "The table is dropped, and the foreign key values in the referencing table are set to NULL.", "The database prompts the user to confirm dropping the related constraint." ],
+      "correctAnswer" : "The command fails because the table is referenced by another object.",
+      "citation" : {
+        "sourceLocation" : "Slide 25",
+        "verbatimQuote" : "RESTRICT (default): dropped on if it is not referenced in any constraints or views",
+        "reasoning" : "This quote states the default behavior is RESTRICT, which prevents dropping an object if it is referenced."
+      },
+      "sentenceHtml" : null,
+      "pairs" : null
+    }, {
+      "type" : "TRUE_FALSE",
+      "prompt" : "True or False: A `CHECK` constraint can be used to ensure that a department's creation date is always earlier than its manager's start date within the same record.",
+      "options" : null,
+      "correctAnswer" : true,
+      "citation" : {
+        "sourceLocation" : "Slide 23",
+        "verbatimQuote" : "Ex: Department’s create-date must be earlier than the manager’s start-date: CHECK (DEPT_CREATE_DATE < MGRSTARTDATE);",
+        "reasoning" : "The source provides a direct example of using a CHECK constraint to compare two columns within the same tuple."
+      },
+      "sentenceHtml" : null,
+      "pairs" : null
+    }, {
+      "type" : "MATCHING",
+      "prompt" : "Match each database task with the correct DDL command based on its function.",
+      "options" : null,
+      "correctAnswer" : null,
+      "citation" : {
+        "sourceLocation" : "Slide 6",
+        "verbatimQuote" : "CREATE: make a new database object ... ALTER: modify an existing database object. DROP: destroy an existing database object",
+        "reasoning" : "This slide defines the primary purpose of the CREATE, ALTER, and DROP commands, which directly map to the tasks."
+      },
+      "sentenceHtml" : null,
+      "pairs" : [ {
+        "left" : "Add a new 'Email' column to an existing 'Users' table.",
+        "right" : "ALTER"
+      }, {
+        "left" : "Create the initial structure for a new 'Products' table.",
+        "right" : "CREATE"
+      }, {
+        "left" : "Completely remove the 'TemporaryData' table and its data.",
+        "right" : "DROP"
+      }, {
+        "left" : "Define a logical grouping of tables for a single application.",
+        "right" : "CREATE SCHEMA"
+      } ]
+    }, {
+      "type" : "SHORT_ANSWER",
+      "prompt" : "A database needs to store user biographies, which can vary greatly in length. According to the material, what is the name of the appropriate varying length character-string data type?",
+      "options" : null,
+      "correctAnswer" : [ "VARCHAR(n)", "CHAR VARYING(n)", "CHARACTER VARYING(n)" ],
+      "citation" : {
+        "sourceLocation" : "Slide 11",
+        "verbatimQuote" : "Character-string data types: ... Varying length: VARCHAR(n), CHAR VARYING(n), CHARACTER VARYING(n)",
+        "reasoning" : "The quote explicitly lists the data types designed for character strings of varying length, which is suitable for biographies."
+      },
+      "sentenceHtml" : null,
+      "pairs" : null
+    }, {
+      "type" : "FILL_IN_THE_BLANK",
+      "prompt" : "Complete the sentence that describes the hierarchical relationship between schemas and catalogs in SQL.",
+      "options" : null,
+      "correctAnswer" : [ "Catalog", "schemas" ],
+      "citation" : {
+        "sourceLocation" : "Slide 8",
+        "verbatimQuote" : "Catalog: a named collection of schemas",
+        "reasoning" : "This quote directly defines a catalog as a collection of schemas, providing the exact words to fill in the blanks."
+      },
+      "sentenceHtml" : "A <span>___(1)___</span> is defined as a named collection of <span>___(2)___</span>.",
+      "pairs" : null
+    } ]
+  },
+  "prompt_tokens" : 4342,
+  "raw" : "```json\n{\n  \"questions\": [\n    {\n      \"type\": \"MCQ_SINGLE\",\n      \"prompt\": \"A developer tries to drop a table that is referenced by a foreign key constraint. What is the outcome if they use the `DROP TABLE` command with its default behavior?\",\n      \"options\": [\n        \"The table is dropped, and the referencing constraint is also dropped automatically.\",\n        \"The command fails because the table is referenced by another object.\",\n        \"The table is dropped, and the foreign key values in the referencing table are set to NULL.\",\n        \"The database prompts the user to confirm dropping the related constraint.\"\n      ],\n      \"correctAnswer\": \"The command fails because the table is referenced by another object.\",\n      \"citation\": {\n        \"sourceLocation\": \"Slide 25\",\n        \"verbatimQuote\": \"RESTRICT (default): dropped on if it is not referenced in any constraints or views\",\n        \"reasoning\": \"This quote states the default behavior is RESTRICT, which prevents dropping an object if it is referenced.\"\n      }\n    },\n    {\n      \"type\": \"TRUE_FALSE\",\n      \"prompt\": \"True or False: A `CHECK` constraint can be used to ensure that a department's creation date is always earlier than its manager's start date within the same record.\",\n      \"correctAnswer\": true,\n      \"citation\": {\n        \"sourceLocation\": \"Slide 23\",\n        \"verbatimQuote\": \"Ex: Department’s create-date must be earlier than the manager’s start-date: CHECK (DEPT_CREATE_DATE < MGRSTARTDATE);\",\n        \"reasoning\": \"The source provides a direct example of using a CHECK constraint to compare two columns within the same tuple.\"\n      }\n    },\n    {\n      \"type\": \"MATCHING\",\n      \"prompt\": \"Match each database task with the correct DDL command based on its function.\",\n      \"pairs\": [\n        {\n          \"left\": \"Add a new 'Email' column to an existing 'Users' table.\",\n          \"right\": \"ALTER\"\n        },\n        {\n          \"left\": \"Create the initial structure for a new 'Products' table.\",\n          \"right\": \"CREATE\"\n        },\n        {\n          \"left\": \"Completely remove the 'TemporaryData' table and its data.\",\n          \"right\": \"DROP\"\n        },\n        {\n          \"left\": \"Define a logical grouping of tables for a single application.\",\n          \"right\": \"CREATE SCHEMA\"\n        }\n      ],\n      \"correctAnswer\": null,\n      \"citation\": {\n        \"sourceLocation\": \"Slide 6\",\n        \"verbatimQuote\": \"CREATE: make a new database object ... ALTER: modify an existing database object. DROP: destroy an existing database object\",\n        \"reasoning\": \"This slide defines the primary purpose of the CREATE, ALTER, and DROP commands, which directly map to the tasks.\"\n      }\n    },\n    {\n      \"type\": \"SHORT_ANSWER\",\n      \"prompt\": \"A database needs to store user biographies, which can vary greatly in length. According to the material, what is the name of the appropriate varying length character-string data type?\",\n      \"correctAnswer\": [\n        \"VARCHAR(n)\",\n        \"CHAR VARYING(n)\",\n        \"CHARACTER VARYING(n)\"\n      ],\n      \"citation\": {\n        \"sourceLocation\": \"Slide 11\",\n        \"verbatimQuote\": \"Character-string data types: ... Varying length: VARCHAR(n), CHAR VARYING(n), CHARACTER VARYING(n)\",\n        \"reasoning\": \"The quote explicitly lists the data types designed for character strings of varying length, which is suitable for biographies.\"\n      }\n    },\n    {\n      \"type\": \"FILL_IN_THE_BLANK\",\n      \"prompt\": \"Complete the sentence that describes the hierarchical relationship between schemas and catalogs in SQL.\",\n      \"sentenceHtml\": \"A <span>___(1)___</span> is defined as a named collection of <span>___(2)___</span>.\",\n      \"correctAnswer\": [\n        \"Catalog\",\n        \"schemas\"\n      ],\n      \"citation\": {\n        \"sourceLocation\": \"Slide 8\",\n        \"verbatimQuote\": \"Catalog: a named collection of schemas\",\n        \"reasoning\": \"This quote directly defines a catalog as a collection of schemas, providing the exact words to fill in the blanks.\"\n      }\n    }\n  ]\n}\n```",
+  "run" : 1,
+  "schema_ok" : true,
+  "temperature" : 0.2,
+  "timestamp" : "2026-06-05T20:25:38.837080"
+}

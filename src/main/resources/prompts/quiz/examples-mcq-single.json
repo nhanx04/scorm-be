@@ -1,12 +1,16 @@
 {
   "type": "MCQ_SINGLE",
   "description": "Câu hỏi trắc nghiệm 1 đáp án đúng. correctAnswer là MỘT chuỗi (string), không phải mảng.",
-  "sourceContext": "Trong cấu trúc nguyên tử, hạt nhân được tạo thành từ proton và neutron. Proton mang điện tích dương, còn neutron không mang điện. Electron mang điện tích âm và chuyển động xung quanh hạt nhân.",
+  "sourceContext": "Slide 3: Trong cấu trúc nguyên tử, hạt nhân được tạo thành từ proton và neutron. Proton mang điện tích dương, còn neutron không mang điện. Electron mang điện tích âm và chuyển động xung quanh hạt nhân.",
   "expectedOutput": {
     "type": "MCQ_SINGLE",
     "prompt": "Trong cấu trúc nguyên tử, hạt nào KHÔNG mang điện tích?",
     "options": ["Proton", "Neutron", "Electron", "Hạt nhân"],
     "correctAnswer": "Neutron",
-    "explanation": "Theo tài liệu, neutron là hạt cấu tạo nên hạt nhân nhưng không mang điện. Proton mang điện dương và electron mang điện âm."
+    "citation": {
+      "sourceLocation": "Slide 3",
+      "verbatimQuote": "neutron không mang điện",
+      "reasoning": "Quote khẳng định trực tiếp neutron là hạt không mang điện."
+    }
   }
 }

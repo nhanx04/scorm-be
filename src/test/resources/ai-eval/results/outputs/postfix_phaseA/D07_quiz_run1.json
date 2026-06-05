@@ -1,0 +1,74 @@
+{
+  "cleaned" : "{\n  \"questions\": [\n    {\n      \"type\": \"MCQ_SINGLE\",\n      \"prompt\": \"According to the material, what is a primary goal of the Design Thinking method?\",\n      \"options\": [\n        \"To focus innovation on people and design based on their needs and wants.\",\n        \"To prioritize technological possibilities over business requirements for success.\",\n        \"To create a business strategy based solely on market opportunity data.\",\n        \"To develop products using only the designer's toolkit without user input.\"\n      ],\n      \"correctAnswer\": \"To focus innovation on people and design based on their needs and wants.\",\n      \"explanation\": \"Slide 5: 'A method of focusing innovation on people and designing based on: What people need and want'. This statement directly defines the primary human-centered goal of the method.\"\n    },\n    {\n      \"type\": \"MCQ_MULTIPLE\",\n      \"prompt\": \"Based on the diagram, which of the following are core components of the Business Model Canvas?\",\n      \"options\": [\n        \"Value Propositions\",\n        \"Cost Structure\",\n        \"Project Timeline\",\n        \"Marketing Strategy\",\n        \"Customer Segments\"\n      ],\n      \"correctAnswer\": [\n        \"Value Propositions\",\n        \"Cost Structure\",\n        \"Customer Segments\"\n      ],\n      \"explanation\": \"Slide 15: '[Image of Business Model Canvas]'. The diagram explicitly shows Value Propositions, Cost Structure, and Customer Segments as key blocks.\"\n    },\n    {\n      \"type\": \"TRUE_FALSE\",\n      \"prompt\": \"True or False: The Minimum Viable Product (MVP) is defined as the final, fully-featured version of a product ready for mass-market launch.\",\n      \"correctAnswer\": false,\n      \"explanation\": \"Slide 27: 'A minimum viable product is that version of a new product which allows a team to collect the maximum amount of validated learning... with the least effort.'. This definition emphasizes learning with minimal effort, not a final product.\"\n    },\n    {\n      \"type\": \"FILL_IN_THE_BLANK\",\n      \"prompt\": \"Complete the three steps of Hypothesis Testing for Value Creation.\",\n      \"sentenceHtml\": \"The process includes the Hypothesis statement, the <input>, and the Test metric & criteria.\",\n      \"correctAnswer\": [\n        \"Test method\"\n      ],\n      \"explanation\": \"Slide 20: 'Steps: Hypothesis statement, Test method, Test metric & criteria'. The slide lists these three distinct steps in order for the process.\"\n    },\n    {\n      \"type\": \"MATCHING\",\n      \"prompt\": \"Match each concept with its corresponding description from the presentation.\",\n      \"pairs\": [\n        {\n          \"left\": \"Agile\",\n          \"right\": \"A set of values including customer collaboration and responding to change.\"\n        },\n        {\n          \"left\": \"Sketching\",\n          \"right\": \"A way to express ideas quickly and establish flow without focusing on detail.\"\n        },\n        {\n          \"left\": \"Storyboard\",\n          \"right\": \"A process of time and interaction that requires personas and scenarios as prerequisites.\"\n        }\n      ],\n      \"correctAnswer\": null,\n      \"explanation\": \"Slides 24, 31, 30: The material defines Agile with its values, describes Sketching as a way to 'Express your ideas quickly', and lists prerequisites for Storyboarding, calling it 'A process of time and interaction'.\"\n    }\n  ]\n}",
+  "completion_tokens" : 780,
+  "doc_file" : "05_Design_thinking_v3.pdf",
+  "doc_id" : "D07",
+  "doc_language" : "en",
+  "doc_pages" : 72,
+  "doc_title" : "Design Thinking & Design Principles (Electronic Commerce)",
+  "empty_field" : false,
+  "error_message" : null,
+  "error_type" : null,
+  "feature" : "quiz",
+  "json_parse_ok" : true,
+  "latency_ms" : 23002,
+  "model" : "gemini-2.5-pro",
+  "parsed" : {
+    "questions" : [ {
+      "type" : "MCQ_SINGLE",
+      "prompt" : "According to the material, what is a primary goal of the Design Thinking method?",
+      "options" : [ "To focus innovation on people and design based on their needs and wants.", "To prioritize technological possibilities over business requirements for success.", "To create a business strategy based solely on market opportunity data.", "To develop products using only the designer's toolkit without user input." ],
+      "correctAnswer" : "To focus innovation on people and design based on their needs and wants.",
+      "explanation" : "Slide 5: 'A method of focusing innovation on people and designing based on: What people need and want'. This statement directly defines the primary human-centered goal of the method.",
+      "sentenceHtml" : null,
+      "pairs" : null
+    }, {
+      "type" : "MCQ_MULTIPLE",
+      "prompt" : "Based on the diagram, which of the following are core components of the Business Model Canvas?",
+      "options" : [ "Value Propositions", "Cost Structure", "Project Timeline", "Marketing Strategy", "Customer Segments" ],
+      "correctAnswer" : [ "Value Propositions", "Cost Structure", "Customer Segments" ],
+      "explanation" : "Slide 15: '[Image of Business Model Canvas]'. The diagram explicitly shows Value Propositions, Cost Structure, and Customer Segments as key blocks.",
+      "sentenceHtml" : null,
+      "pairs" : null
+    }, {
+      "type" : "TRUE_FALSE",
+      "prompt" : "True or False: The Minimum Viable Product (MVP) is defined as the final, fully-featured version of a product ready for mass-market launch.",
+      "options" : null,
+      "correctAnswer" : false,
+      "explanation" : "Slide 27: 'A minimum viable product is that version of a new product which allows a team to collect the maximum amount of validated learning... with the least effort.'. This definition emphasizes learning with minimal effort, not a final product.",
+      "sentenceHtml" : null,
+      "pairs" : null
+    }, {
+      "type" : "FILL_IN_THE_BLANK",
+      "prompt" : "Complete the three steps of Hypothesis Testing for Value Creation.",
+      "options" : null,
+      "correctAnswer" : [ "Test method" ],
+      "explanation" : "Slide 20: 'Steps: Hypothesis statement, Test method, Test metric & criteria'. The slide lists these three distinct steps in order for the process.",
+      "sentenceHtml" : "The process includes the Hypothesis statement, the <input>, and the Test metric & criteria.",
+      "pairs" : null
+    }, {
+      "type" : "MATCHING",
+      "prompt" : "Match each concept with its corresponding description from the presentation.",
+      "options" : null,
+      "correctAnswer" : null,
+      "explanation" : "Slides 24, 31, 30: The material defines Agile with its values, describes Sketching as a way to 'Express your ideas quickly', and lists prerequisites for Storyboarding, calling it 'A process of time and interaction'.",
+      "sentenceHtml" : null,
+      "pairs" : [ {
+        "left" : "Agile",
+        "right" : "A set of values including customer collaboration and responding to change."
+      }, {
+        "left" : "Sketching",
+        "right" : "A way to express ideas quickly and establish flow without focusing on detail."
+      }, {
+        "left" : "Storyboard",
+        "right" : "A process of time and interaction that requires personas and scenarios as prerequisites."
+      } ]
+    } ]
+  },
+  "prompt_tokens" : 2858,
+  "raw" : "```json\n{\n  \"questions\": [\n    {\n      \"type\": \"MCQ_SINGLE\",\n      \"prompt\": \"According to the material, what is a primary goal of the Design Thinking method?\",\n      \"options\": [\n        \"To focus innovation on people and design based on their needs and wants.\",\n        \"To prioritize technological possibilities over business requirements for success.\",\n        \"To create a business strategy based solely on market opportunity data.\",\n        \"To develop products using only the designer's toolkit without user input.\"\n      ],\n      \"correctAnswer\": \"To focus innovation on people and design based on their needs and wants.\",\n      \"explanation\": \"Slide 5: 'A method of focusing innovation on people and designing based on: What people need and want'. This statement directly defines the primary human-centered goal of the method.\"\n    },\n    {\n      \"type\": \"MCQ_MULTIPLE\",\n      \"prompt\": \"Based on the diagram, which of the following are core components of the Business Model Canvas?\",\n      \"options\": [\n        \"Value Propositions\",\n        \"Cost Structure\",\n        \"Project Timeline\",\n        \"Marketing Strategy\",\n        \"Customer Segments\"\n      ],\n      \"correctAnswer\": [\n        \"Value Propositions\",\n        \"Cost Structure\",\n        \"Customer Segments\"\n      ],\n      \"explanation\": \"Slide 15: '[Image of Business Model Canvas]'. The diagram explicitly shows Value Propositions, Cost Structure, and Customer Segments as key blocks.\"\n    },\n    {\n      \"type\": \"TRUE_FALSE\",\n      \"prompt\": \"True or False: The Minimum Viable Product (MVP) is defined as the final, fully-featured version of a product ready for mass-market launch.\",\n      \"correctAnswer\": false,\n      \"explanation\": \"Slide 27: 'A minimum viable product is that version of a new product which allows a team to collect the maximum amount of validated learning... with the least effort.'. This definition emphasizes learning with minimal effort, not a final product.\"\n    },\n    {\n      \"type\": \"FILL_IN_THE_BLANK\",\n      \"prompt\": \"Complete the three steps of Hypothesis Testing for Value Creation.\",\n      \"sentenceHtml\": \"The process includes the Hypothesis statement, the <input>, and the Test metric & criteria.\",\n      \"correctAnswer\": [\n        \"Test method\"\n      ],\n      \"explanation\": \"Slide 20: 'Steps: Hypothesis statement, Test method, Test metric & criteria'. The slide lists these three distinct steps in order for the process.\"\n    },\n    {\n      \"type\": \"MATCHING\",\n      \"prompt\": \"Match each concept with its corresponding description from the presentation.\",\n      \"pairs\": [\n        {\n          \"left\": \"Agile\",\n          \"right\": \"A set of values including customer collaboration and responding to change.\"\n        },\n        {\n          \"left\": \"Sketching\",\n          \"right\": \"A way to express ideas quickly and establish flow without focusing on detail.\"\n        },\n        {\n          \"left\": \"Storyboard\",\n          \"right\": \"A process of time and interaction that requires personas and scenarios as prerequisites.\"\n        }\n      ],\n      \"correctAnswer\": null,\n      \"explanation\": \"Slides 24, 31, 30: The material defines Agile with its values, describes Sketching as a way to 'Express your ideas quickly', and lists prerequisites for Storyboarding, calling it 'A process of time and interaction'.\"\n    }\n  ]\n}\n```",
+  "run" : 1,
+  "schema_ok" : true,
+  "temperature" : 0.2,
+  "timestamp" : "2026-06-05T12:53:08.395265"
+}

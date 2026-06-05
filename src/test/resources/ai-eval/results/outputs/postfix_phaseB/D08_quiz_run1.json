@@ -1,0 +1,97 @@
+{
+  "cleaned" : "{\n  \"questions\": [\n    {\n      \"citation\": {\n        \"reasoning\": \"Slide 13 liệt kê và mô tả trọng tâm của từng quan điểm marketing.\",\n        \"sourceLocation\": \"Slide 13\",\n        \"verbatimQuote\": \"1. Trọng Sản xuất: Sản phẩm nhiều, giá thấp  quản lý tập trung hiệu quả sản xuất + phân phối\\n2. Trọng Sản phẩm: Sản phẩm chất lượng, mẫu mã đẹp, khác lạ  quản lý tập trung cải tiến sản phẩm\"\n      },\n      \"correctAnswer\": null,\n      \"pairs\": [\n        {\n          \"left\": \"Trọng Sản xuất\",\n          \"right\": \"Tập trung vào hiệu quả sản xuất và phân phối để có sản phẩm nhiều, giá thấp.\"\n        },\n        {\n          \"left\": \"Trọng Sản phẩm\",\n          \"right\": \"Tập trung vào việc liên tục cải tiến sản phẩm để có chất lượng tốt, mẫu mã đẹp.\"\n        },\n        {\n          \"left\": \"Trọng Bán hàng\",\n          \"right\": \"Tập trung vào các nỗ lực khuyến mãi và chính sách bán hàng hấp dẫn.\"\n        },\n        {\n          \"left\": \"Trọng Tiếp thị\",\n          \"right\": \"Tập trung vào việc thỏa mãn thị trường mục tiêu một cách hiệu quả hơn đối thủ.\"\n        }\n      ],\n      \"prompt\": \"Hãy ghép mỗi quan điểm marketing với trọng tâm quản lý tương ứng.\",\n      \"type\": \"MATCHING\"\n    },\n    {\n      \"citation\": {\n        \"reasoning\": \"Slide 3 định nghĩa \\\"Đòi hỏi\\\" là mong muốn đi kèm với khả năng và sự sẵn lòng mua.\",\n        \"sourceLocation\": \"Slide 3\",\n        \"verbatimQuote\": \"Đòi hỏi (Demands): mong muốn mà người ta có khả năng mua và sẵn lòng mua\"\n      },\n      \"correctAnswer\": \"Đòi hỏi (Demands)\",\n      \"options\": [\n        \"Nhu cầu (Needs)\",\n        \"Mong muốn (Wants)\",\n        \"Đòi hỏi (Demands)\",\n        \"Sự thỏa mãn (Satisfaction)\"\n      ],\n      \"prompt\": \"Một người tiêu dùng mong muốn sở hữu một chiếc điện thoại thông minh đời mới và có đủ tiền để mua nó. Tình huống này thể hiện khái niệm nào?\",\n      \"type\": \"MCQ_SINGLE\"\n    },\n    {\n      \"citation\": {\n        \"reasoning\": \"Slide 20 chỉ ra rằng việc tối đa hóa doanh thu qua bán hàng thuộc về quan điểm bán hàng, không phải quan điểm marketing.\",\n        \"sourceLocation\": \"Slide 20\",\n        \"verbatimQuote\": \"Quan điểm bán hàng\\n• Sản xuất\\n• Sản phẩm\\n• Xúc tiến bán hàng\\n• Tối đa hóa doanh thu thông qua bán hàng -> Lợi nhuận\"\n      },\n      \"correctAnswer\": false,\n      \"prompt\": \"Đúng hay Sai: Theo tài liệu, quan điểm marketing có điểm xuất phát là sản phẩm hiện có và mục tiêu là tối đa hóa doanh thu thông qua bán hàng.\",\n      \"type\": \"TRUE_FALSE\"\n    },\n    {\n      \"citation\": {\n        \"reasoning\": \"Slide 6 liệt kê 5 điều kiện cần thiết để một cuộc trao đổi có thể diễn ra.\",\n        \"sourceLocation\": \"Slide 6\",\n        \"verbatimQuote\": \"Điều kiện:\\n1. Ít nhất phải 2 bên biết nhau;\\n2. Mỗi bên muốn trao đổi;\\n3. Mỗi bên có cái để trao đổi;\"\n      },\n      \"correctAnswer\": [\n        \"Ít nhất phải 2 bên biết nhau\",\n        \"Mỗi bên muốn trao đổi\",\n        \"Mỗi bên có cái để trao đổi\",\n        \"Mỗi bên có khả năng giao dịch và trao đổi sản phẩm của mình\",\n        \"Mỗi bên có quyền tự do chấp nhận hay từ chối đề nghị của bên kia\"\n      ],\n      \"prompt\": \"Theo tài liệu, cốt lõi của marketing là \\\"Trao đổi để thỏa mãn\\\". Hãy nêu một trong năm điều kiện để sự trao đổi này có thể diễn ra.\",\n      \"type\": \"SHORT_ANSWER\"\n    },\n    {\n      \"citation\": {\n        \"reasoning\": \"Slide 17 giải thích rằng theo quan điểm marketing, doanh nghiệp cần sản xuất những gì người tiêu dùng cần.\",\n        \"sourceLocation\": \"Slide 17\",\n        \"verbatimQuote\": \"Doanh nghiệp cần sản xuất những sản phẩm người tiêu dùng cần mới bán được.\"\n      },\n      \"correctAnswer\": [\n        \"người tiêu dùng cần\"\n      ],\n      \"prompt\": \"Điền vào chỗ trống để hoàn thành luận điểm của quan điểm trọng Marketing.\",\n      \"sentenceHtml\": \"Theo quan điểm trọng Marketing, doanh nghiệp cần sản xuất những sản phẩm <input> mới bán được.\",\n      \"type\": \"FILL_IN_THE_BLANK\"\n    }\n  ]\n}",
+  "completion_tokens" : 1121,
+  "doc_file" : "NVT- POM-Ch1- DAI CUONG VE TIEP THI.pdf",
+  "doc_id" : "D08",
+  "doc_language" : "vi",
+  "doc_pages" : 26,
+  "doc_title" : "Đại cương về Marketing",
+  "empty_field" : false,
+  "error_message" : null,
+  "error_type" : null,
+  "feature" : "quiz",
+  "json_parse_ok" : true,
+  "latency_ms" : 24136,
+  "model" : "gemini-2.5-pro",
+  "parsed" : {
+    "questions" : [ {
+      "type" : "MATCHING",
+      "prompt" : "Hãy ghép mỗi quan điểm marketing với trọng tâm quản lý tương ứng.",
+      "options" : null,
+      "correctAnswer" : null,
+      "citation" : {
+        "sourceLocation" : "Slide 13",
+        "verbatimQuote" : "1. Trọng Sản xuất: Sản phẩm nhiều, giá thấp  quản lý tập trung hiệu quả sản xuất + phân phối\n2. Trọng Sản phẩm: Sản phẩm chất lượng, mẫu mã đẹp, khác lạ  quản lý tập trung cải tiến sản phẩm",
+        "reasoning" : "Slide 13 liệt kê và mô tả trọng tâm của từng quan điểm marketing."
+      },
+      "sentenceHtml" : null,
+      "pairs" : [ {
+        "left" : "Trọng Sản xuất",
+        "right" : "Tập trung vào hiệu quả sản xuất và phân phối để có sản phẩm nhiều, giá thấp."
+      }, {
+        "left" : "Trọng Sản phẩm",
+        "right" : "Tập trung vào việc liên tục cải tiến sản phẩm để có chất lượng tốt, mẫu mã đẹp."
+      }, {
+        "left" : "Trọng Bán hàng",
+        "right" : "Tập trung vào các nỗ lực khuyến mãi và chính sách bán hàng hấp dẫn."
+      }, {
+        "left" : "Trọng Tiếp thị",
+        "right" : "Tập trung vào việc thỏa mãn thị trường mục tiêu một cách hiệu quả hơn đối thủ."
+      } ]
+    }, {
+      "type" : "MCQ_SINGLE",
+      "prompt" : "Một người tiêu dùng mong muốn sở hữu một chiếc điện thoại thông minh đời mới và có đủ tiền để mua nó. Tình huống này thể hiện khái niệm nào?",
+      "options" : [ "Nhu cầu (Needs)", "Mong muốn (Wants)", "Đòi hỏi (Demands)", "Sự thỏa mãn (Satisfaction)" ],
+      "correctAnswer" : "Đòi hỏi (Demands)",
+      "citation" : {
+        "sourceLocation" : "Slide 3",
+        "verbatimQuote" : "Đòi hỏi (Demands): mong muốn mà người ta có khả năng mua và sẵn lòng mua",
+        "reasoning" : "Slide 3 định nghĩa \"Đòi hỏi\" là mong muốn đi kèm với khả năng và sự sẵn lòng mua."
+      },
+      "sentenceHtml" : null,
+      "pairs" : null
+    }, {
+      "type" : "TRUE_FALSE",
+      "prompt" : "Đúng hay Sai: Theo tài liệu, quan điểm marketing có điểm xuất phát là sản phẩm hiện có và mục tiêu là tối đa hóa doanh thu thông qua bán hàng.",
+      "options" : null,
+      "correctAnswer" : false,
+      "citation" : {
+        "sourceLocation" : "Slide 20",
+        "verbatimQuote" : "Quan điểm bán hàng\n• Sản xuất\n• Sản phẩm\n• Xúc tiến bán hàng\n• Tối đa hóa doanh thu thông qua bán hàng -> Lợi nhuận",
+        "reasoning" : "Slide 20 chỉ ra rằng việc tối đa hóa doanh thu qua bán hàng thuộc về quan điểm bán hàng, không phải quan điểm marketing."
+      },
+      "sentenceHtml" : null,
+      "pairs" : null
+    }, {
+      "type" : "SHORT_ANSWER",
+      "prompt" : "Theo tài liệu, cốt lõi của marketing là \"Trao đổi để thỏa mãn\". Hãy nêu một trong năm điều kiện để sự trao đổi này có thể diễn ra.",
+      "options" : null,
+      "correctAnswer" : [ "Ít nhất phải 2 bên biết nhau", "Mỗi bên muốn trao đổi", "Mỗi bên có cái để trao đổi", "Mỗi bên có khả năng giao dịch và trao đổi sản phẩm của mình", "Mỗi bên có quyền tự do chấp nhận hay từ chối đề nghị của bên kia" ],
+      "citation" : {
+        "sourceLocation" : "Slide 6",
+        "verbatimQuote" : "Điều kiện:\n1. Ít nhất phải 2 bên biết nhau;\n2. Mỗi bên muốn trao đổi;\n3. Mỗi bên có cái để trao đổi;",
+        "reasoning" : "Slide 6 liệt kê 5 điều kiện cần thiết để một cuộc trao đổi có thể diễn ra."
+      },
+      "sentenceHtml" : null,
+      "pairs" : null
+    }, {
+      "type" : "FILL_IN_THE_BLANK",
+      "prompt" : "Điền vào chỗ trống để hoàn thành luận điểm của quan điểm trọng Marketing.",
+      "options" : null,
+      "correctAnswer" : [ "người tiêu dùng cần" ],
+      "citation" : {
+        "sourceLocation" : "Slide 17",
+        "verbatimQuote" : "Doanh nghiệp cần sản xuất những sản phẩm người tiêu dùng cần mới bán được.",
+        "reasoning" : "Slide 17 giải thích rằng theo quan điểm marketing, doanh nghiệp cần sản xuất những gì người tiêu dùng cần."
+      },
+      "sentenceHtml" : "Theo quan điểm trọng Marketing, doanh nghiệp cần sản xuất những sản phẩm <input> mới bán được.",
+      "pairs" : null
+    } ]
+  },
+  "prompt_tokens" : 3855,
+  "raw" : "```json\n{\n  \"questions\": [\n    {\n      \"citation\": {\n        \"reasoning\": \"Slide 13 liệt kê và mô tả trọng tâm của từng quan điểm marketing.\",\n        \"sourceLocation\": \"Slide 13\",\n        \"verbatimQuote\": \"1. Trọng Sản xuất: Sản phẩm nhiều, giá thấp  quản lý tập trung hiệu quả sản xuất + phân phối\\n2. Trọng Sản phẩm: Sản phẩm chất lượng, mẫu mã đẹp, khác lạ  quản lý tập trung cải tiến sản phẩm\"\n      },\n      \"correctAnswer\": null,\n      \"pairs\": [\n        {\n          \"left\": \"Trọng Sản xuất\",\n          \"right\": \"Tập trung vào hiệu quả sản xuất và phân phối để có sản phẩm nhiều, giá thấp.\"\n        },\n        {\n          \"left\": \"Trọng Sản phẩm\",\n          \"right\": \"Tập trung vào việc liên tục cải tiến sản phẩm để có chất lượng tốt, mẫu mã đẹp.\"\n        },\n        {\n          \"left\": \"Trọng Bán hàng\",\n          \"right\": \"Tập trung vào các nỗ lực khuyến mãi và chính sách bán hàng hấp dẫn.\"\n        },\n        {\n          \"left\": \"Trọng Tiếp thị\",\n          \"right\": \"Tập trung vào việc thỏa mãn thị trường mục tiêu một cách hiệu quả hơn đối thủ.\"\n        }\n      ],\n      \"prompt\": \"Hãy ghép mỗi quan điểm marketing với trọng tâm quản lý tương ứng.\",\n      \"type\": \"MATCHING\"\n    },\n    {\n      \"citation\": {\n        \"reasoning\": \"Slide 3 định nghĩa \\\"Đòi hỏi\\\" là mong muốn đi kèm với khả năng và sự sẵn lòng mua.\",\n        \"sourceLocation\": \"Slide 3\",\n        \"verbatimQuote\": \"Đòi hỏi (Demands): mong muốn mà người ta có khả năng mua và sẵn lòng mua\"\n      },\n      \"correctAnswer\": \"Đòi hỏi (Demands)\",\n      \"options\": [\n        \"Nhu cầu (Needs)\",\n        \"Mong muốn (Wants)\",\n        \"Đòi hỏi (Demands)\",\n        \"Sự thỏa mãn (Satisfaction)\"\n      ],\n      \"prompt\": \"Một người tiêu dùng mong muốn sở hữu một chiếc điện thoại thông minh đời mới và có đủ tiền để mua nó. Tình huống này thể hiện khái niệm nào?\",\n      \"type\": \"MCQ_SINGLE\"\n    },\n    {\n      \"citation\": {\n        \"reasoning\": \"Slide 20 chỉ ra rằng việc tối đa hóa doanh thu qua bán hàng thuộc về quan điểm bán hàng, không phải quan điểm marketing.\",\n        \"sourceLocation\": \"Slide 20\",\n        \"verbatimQuote\": \"Quan điểm bán hàng\\n• Sản xuất\\n• Sản phẩm\\n• Xúc tiến bán hàng\\n• Tối đa hóa doanh thu thông qua bán hàng -> Lợi nhuận\"\n      },\n      \"correctAnswer\": false,\n      \"prompt\": \"Đúng hay Sai: Theo tài liệu, quan điểm marketing có điểm xuất phát là sản phẩm hiện có và mục tiêu là tối đa hóa doanh thu thông qua bán hàng.\",\n      \"type\": \"TRUE_FALSE\"\n    },\n    {\n      \"citation\": {\n        \"reasoning\": \"Slide 6 liệt kê 5 điều kiện cần thiết để một cuộc trao đổi có thể diễn ra.\",\n        \"sourceLocation\": \"Slide 6\",\n        \"verbatimQuote\": \"Điều kiện:\\n1. Ít nhất phải 2 bên biết nhau;\\n2. Mỗi bên muốn trao đổi;\\n3. Mỗi bên có cái để trao đổi;\"\n      },\n      \"correctAnswer\": [\n        \"Ít nhất phải 2 bên biết nhau\",\n        \"Mỗi bên muốn trao đổi\",\n        \"Mỗi bên có cái để trao đổi\",\n        \"Mỗi bên có khả năng giao dịch và trao đổi sản phẩm của mình\",\n        \"Mỗi bên có quyền tự do chấp nhận hay từ chối đề nghị của bên kia\"\n      ],\n      \"prompt\": \"Theo tài liệu, cốt lõi của marketing là \\\"Trao đổi để thỏa mãn\\\". Hãy nêu một trong năm điều kiện để sự trao đổi này có thể diễn ra.\",\n      \"type\": \"SHORT_ANSWER\"\n    },\n    {\n      \"citation\": {\n        \"reasoning\": \"Slide 17 giải thích rằng theo quan điểm marketing, doanh nghiệp cần sản xuất những gì người tiêu dùng cần.\",\n        \"sourceLocation\": \"Slide 17\",\n        \"verbatimQuote\": \"Doanh nghiệp cần sản xuất những sản phẩm người tiêu dùng cần mới bán được.\"\n      },\n      \"correctAnswer\": [\n        \"người tiêu dùng cần\"\n      ],\n      \"prompt\": \"Điền vào chỗ trống để hoàn thành luận điểm của quan điểm trọng Marketing.\",\n      \"sentenceHtml\": \"Theo quan điểm trọng Marketing, doanh nghiệp cần sản xuất những sản phẩm <input> mới bán được.\",\n      \"type\": \"FILL_IN_THE_BLANK\"\n    }\n  ]\n}\n```",
+  "run" : 1,
+  "schema_ok" : true,
+  "temperature" : 0.2,
+  "timestamp" : "2026-06-05T13:04:08.075344"
+}

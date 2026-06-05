@@ -1,6 +1,6 @@
 {
-  "cleaned" : "{\n  \"questions\": [\n    {\n      \"type\": \"MCQ_SINGLE\",\n      \"prompt\": \"According to the document, which search algorithm is specifically designed for sorted data structures and works by repeatedly dividing the search interval in half?\",\n      \"options\": [\n        \"Linear Search\",\n        \"Sequential Search\",\n        \"Binary Search\",\n        \"Jump Search\"\n      ],\n      \"correctAnswer\": \"Binary Search\",\n      \"explanation\": \"According to the document (Slide 6): The approach for Binary Search is to 'Search a sorted array by repeatedly dividing the search interval in half.' It is also classified under Interval Search, which is for sorted data structures.\"\n    },\n    {\n      \"type\": \"TRUE_FALSE\",\n      \"prompt\": \"True or False: The time complexity of Jump Search is O(log n).\",\n      \"correctAnswer\": false,\n      \"explanation\": \"According to the document (Slide 7), the time complexity for Jump Search is O(√n). The time complexity for Binary Search is O(log n) (Slide 6).\"\n    },\n    {\n      \"type\": \"FILL_IN_THE_BLANK\",\n      \"prompt\": \"Complete the sentence describing the two main categories of searching algorithms.\",\n      \"sentenceHtml\": \"Based on the type of search operation, searching algorithms are generally classified into two categories: ___ Search and ___ Search.\",\n      \"correctAnswer\": [\n        \"Sequential\",\n        \"Interval\"\n      ],\n      \"explanation\": \"According to the document (Slide 5): 'Based on the type of search operation, these algorithms are generally classified into two categories: 1 Sequential Search... 2 Interval Search...'\"\n    },\n    {\n      \"type\": \"SHORT_ANSWER\",\n      \"prompt\": \"What is the time complexity of the Linear Search algorithm as stated in the provided material?\",\n      \"correctAnswer\": [\n        \"O(n)\"\n      ],\n      \"explanation\": \"According to the document (Slide 5), under the description of Linear Search: 'The time complexity of the above algorithm is O(n).'\"\n    },\n    {\n      \"type\": \"MATCHING\",\n      \"prompt\": \"Match each search algorithm with its correct time complexity.\",\n      \"pairs\": [\n        {\n          \"left\": \"Linear Search\",\n          \"right\": \"O(n)\"\n        },\n        {\n          \"left\": \"Binary Search\",\n          \"right\": \"O(log n)\"\n        },\n        {\n          \"left\": \"Jump Search\",\n          \"right\": \"O(√n)\"\n        }\n      ],\n      \"correctAnswer\": null,\n      \"explanation\": \"According to the document: Slide 5 states Linear Search has a time complexity of O(n). Slide 6 states Binary Search has a time complexity of O(log n). Slide 7 states Jump Search has a time complexity of O(√n).\"\n    }\n  ]\n}",
-  "completion_tokens" : 659,
+  "cleaned" : "{\n  \"questions\": [\n    {\n      \"citation\": {\n        \"reasoning\": \"The quote explicitly states that Binary Search is used to 'Search a sorted array'.\",\n        \"sourceLocation\": \"Slide 6\",\n        \"verbatimQuote\": \"Search a sorted array by repeatedly dividing the search interval in half.\"\n      },\n      \"correctAnswer\": \"The data structure must be sorted.\",\n      \"options\": [\n        \"The data structure must be sorted.\",\n        \"The data structure must contain only integers.\",\n        \"The data structure must have an odd number of elements.\",\n        \"The data structure must be a linked list.\"\n      ],\n      \"prompt\": \"Which of the following is a fundamental requirement for applying an Interval Search algorithm like Binary Search?\",\n      \"type\": \"MCQ_SINGLE\"\n    },\n    {\n      \"citation\": {\n        \"reasoning\": \"The quote specifies that Interval Search algorithms are designed for 'sorted data-structures'.\",\n        \"sourceLocation\": \"Slide 5\",\n        \"verbatimQuote\": \"These algorithms are specifically designed for searching in sorted data-structures.\"\n      },\n      \"correctAnswer\": false,\n      \"prompt\": \"True or False: According to the provided text, Interval Search algorithms are suitable for searching in unsorted lists.\",\n      \"type\": \"TRUE_FALSE\"\n    },\n    {\n      \"citation\": {\n        \"reasoning\": \"The text directly states to 'return -1' if the element is not found.\",\n        \"sourceLocation\": \"Slide 5\",\n        \"verbatimQuote\": \"If x doesn’t match with any of elements, return -1.\"\n      },\n      \"correctAnswer\": [\n        \"-1\"\n      ],\n      \"prompt\": \"In the Linear Search algorithm described, what specific value is returned when the target element is not present in the list?\",\n      \"type\": \"SHORT_ANSWER\"\n    },\n    {\n      \"citation\": {\n        \"reasoning\": \"The quote describes the second step of the Jump Search process, which is performing a linear search.\",\n        \"sourceLocation\": \"Slide 7\",\n        \"verbatimQuote\": \"Perform the linear search on the block k.\"\n      },\n      \"correctAnswer\": [\n        \"linear search\"\n      ],\n      \"prompt\": \"Fill in the blank to complete the description of the Jump Search algorithm's approach.\",\n      \"sentenceHtml\": \"After finding the block where the element might be, the next step is to perform a <input> on that specific block.\",\n      \"type\": \"FILL_IN_THE_BLANK\"\n    },\n    {\n      \"citation\": {\n        \"reasoning\": \"This quote confirms the correct time complexity for the Binary Search algorithm, which is one of the pairs.\",\n        \"sourceLocation\": \"Slide 6\",\n        \"verbatimQuote\": \"Time complexity: O(log n)\"\n      },\n      \"correctAnswer\": null,\n      \"pairs\": [\n        {\n          \"left\": \"Sequential Search (Linear)\",\n          \"right\": \"O(n)\"\n        },\n        {\n          \"left\": \"Binary Search\",\n          \"right\": \"O(log n)\"\n        },\n        {\n          \"left\": \"Jump Search\",\n          \"right\": \"O(√n)\"\n        }\n      ],\n      \"prompt\": \"Match each searching algorithm with its time complexity as stated in the document.\",\n      \"type\": \"MATCHING\"\n    }\n  ]\n}",
+  "completion_tokens" : 786,
   "doc_file" : "201_DSA___Chapter_7__Hash___Search__new_.pdf",
   "doc_id" : "D03",
   "doc_language" : "en",
@@ -11,50 +11,70 @@
   "error_type" : null,
   "feature" : "quiz",
   "json_parse_ok" : true,
-  "latency_ms" : 19083,
+  "latency_ms" : 23151,
   "model" : "gemini-2.5-pro",
   "parsed" : {
     "questions" : [ {
       "type" : "MCQ_SINGLE",
-      "prompt" : "According to the document, which search algorithm is specifically designed for sorted data structures and works by repeatedly dividing the search interval in half?",
-      "options" : [ "Linear Search", "Sequential Search", "Binary Search", "Jump Search" ],
-      "correctAnswer" : "Binary Search",
-      "explanation" : "According to the document (Slide 6): The approach for Binary Search is to 'Search a sorted array by repeatedly dividing the search interval in half.' It is also classified under Interval Search, which is for sorted data structures.",
+      "prompt" : "Which of the following is a fundamental requirement for applying an Interval Search algorithm like Binary Search?",
+      "options" : [ "The data structure must be sorted.", "The data structure must contain only integers.", "The data structure must have an odd number of elements.", "The data structure must be a linked list." ],
+      "correctAnswer" : "The data structure must be sorted.",
+      "citation" : {
+        "sourceLocation" : "Slide 6",
+        "verbatimQuote" : "Search a sorted array by repeatedly dividing the search interval in half.",
+        "reasoning" : "The quote explicitly states that Binary Search is used to 'Search a sorted array'."
+      },
       "sentenceHtml" : null,
       "pairs" : null
     }, {
       "type" : "TRUE_FALSE",
-      "prompt" : "True or False: The time complexity of Jump Search is O(log n).",
+      "prompt" : "True or False: According to the provided text, Interval Search algorithms are suitable for searching in unsorted lists.",
       "options" : null,
       "correctAnswer" : false,
-      "explanation" : "According to the document (Slide 7), the time complexity for Jump Search is O(√n). The time complexity for Binary Search is O(log n) (Slide 6).",
+      "citation" : {
+        "sourceLocation" : "Slide 5",
+        "verbatimQuote" : "These algorithms are specifically designed for searching in sorted data-structures.",
+        "reasoning" : "The quote specifies that Interval Search algorithms are designed for 'sorted data-structures'."
+      },
+      "sentenceHtml" : null,
+      "pairs" : null
+    }, {
+      "type" : "SHORT_ANSWER",
+      "prompt" : "In the Linear Search algorithm described, what specific value is returned when the target element is not present in the list?",
+      "options" : null,
+      "correctAnswer" : [ "-1" ],
+      "citation" : {
+        "sourceLocation" : "Slide 5",
+        "verbatimQuote" : "If x doesn’t match with any of elements, return -1.",
+        "reasoning" : "The text directly states to 'return -1' if the element is not found."
+      },
       "sentenceHtml" : null,
       "pairs" : null
     }, {
       "type" : "FILL_IN_THE_BLANK",
-      "prompt" : "Complete the sentence describing the two main categories of searching algorithms.",
+      "prompt" : "Fill in the blank to complete the description of the Jump Search algorithm's approach.",
       "options" : null,
-      "correctAnswer" : [ "Sequential", "Interval" ],
-      "explanation" : "According to the document (Slide 5): 'Based on the type of search operation, these algorithms are generally classified into two categories: 1 Sequential Search... 2 Interval Search...'",
-      "sentenceHtml" : "Based on the type of search operation, searching algorithms are generally classified into two categories: ___ Search and ___ Search.",
-      "pairs" : null
-    }, {
-      "type" : "SHORT_ANSWER",
-      "prompt" : "What is the time complexity of the Linear Search algorithm as stated in the provided material?",
-      "options" : null,
-      "correctAnswer" : [ "O(n)" ],
-      "explanation" : "According to the document (Slide 5), under the description of Linear Search: 'The time complexity of the above algorithm is O(n).'",
-      "sentenceHtml" : null,
+      "correctAnswer" : [ "linear search" ],
+      "citation" : {
+        "sourceLocation" : "Slide 7",
+        "verbatimQuote" : "Perform the linear search on the block k.",
+        "reasoning" : "The quote describes the second step of the Jump Search process, which is performing a linear search."
+      },
+      "sentenceHtml" : "After finding the block where the element might be, the next step is to perform a <input> on that specific block.",
       "pairs" : null
     }, {
       "type" : "MATCHING",
-      "prompt" : "Match each search algorithm with its correct time complexity.",
+      "prompt" : "Match each searching algorithm with its time complexity as stated in the document.",
       "options" : null,
       "correctAnswer" : null,
-      "explanation" : "According to the document: Slide 5 states Linear Search has a time complexity of O(n). Slide 6 states Binary Search has a time complexity of O(log n). Slide 7 states Jump Search has a time complexity of O(√n).",
+      "citation" : {
+        "sourceLocation" : "Slide 6",
+        "verbatimQuote" : "Time complexity: O(log n)",
+        "reasoning" : "This quote confirms the correct time complexity for the Binary Search algorithm, which is one of the pairs."
+      },
       "sentenceHtml" : null,
       "pairs" : [ {
-        "left" : "Linear Search",
+        "left" : "Sequential Search (Linear)",
         "right" : "O(n)"
       }, {
         "left" : "Binary Search",
@@ -65,10 +85,10 @@
       } ]
     } ]
   },
-  "prompt_tokens" : 2391,
-  "raw" : "```json\n{\n  \"questions\": [\n    {\n      \"type\": \"MCQ_SINGLE\",\n      \"prompt\": \"According to the document, which search algorithm is specifically designed for sorted data structures and works by repeatedly dividing the search interval in half?\",\n      \"options\": [\n        \"Linear Search\",\n        \"Sequential Search\",\n        \"Binary Search\",\n        \"Jump Search\"\n      ],\n      \"correctAnswer\": \"Binary Search\",\n      \"explanation\": \"According to the document (Slide 6): The approach for Binary Search is to 'Search a sorted array by repeatedly dividing the search interval in half.' It is also classified under Interval Search, which is for sorted data structures.\"\n    },\n    {\n      \"type\": \"TRUE_FALSE\",\n      \"prompt\": \"True or False: The time complexity of Jump Search is O(log n).\",\n      \"correctAnswer\": false,\n      \"explanation\": \"According to the document (Slide 7), the time complexity for Jump Search is O(√n). The time complexity for Binary Search is O(log n) (Slide 6).\"\n    },\n    {\n      \"type\": \"FILL_IN_THE_BLANK\",\n      \"prompt\": \"Complete the sentence describing the two main categories of searching algorithms.\",\n      \"sentenceHtml\": \"Based on the type of search operation, searching algorithms are generally classified into two categories: ___ Search and ___ Search.\",\n      \"correctAnswer\": [\n        \"Sequential\",\n        \"Interval\"\n      ],\n      \"explanation\": \"According to the document (Slide 5): 'Based on the type of search operation, these algorithms are generally classified into two categories: 1 Sequential Search... 2 Interval Search...'\"\n    },\n    {\n      \"type\": \"SHORT_ANSWER\",\n      \"prompt\": \"What is the time complexity of the Linear Search algorithm as stated in the provided material?\",\n      \"correctAnswer\": [\n        \"O(n)\"\n      ],\n      \"explanation\": \"According to the document (Slide 5), under the description of Linear Search: 'The time complexity of the above algorithm is O(n).'\"\n    },\n    {\n      \"type\": \"MATCHING\",\n      \"prompt\": \"Match each search algorithm with its correct time complexity.\",\n      \"pairs\": [\n        {\n          \"left\": \"Linear Search\",\n          \"right\": \"O(n)\"\n        },\n        {\n          \"left\": \"Binary Search\",\n          \"right\": \"O(log n)\"\n        },\n        {\n          \"left\": \"Jump Search\",\n          \"right\": \"O(√n)\"\n        }\n      ],\n      \"correctAnswer\": null,\n      \"explanation\": \"According to the document: Slide 5 states Linear Search has a time complexity of O(n). Slide 6 states Binary Search has a time complexity of O(log n). Slide 7 states Jump Search has a time complexity of O(√n).\"\n    }\n  ]\n}\n```",
+  "prompt_tokens" : 3603,
+  "raw" : "```json\n{\n  \"questions\": [\n    {\n      \"citation\": {\n        \"reasoning\": \"The quote explicitly states that Binary Search is used to 'Search a sorted array'.\",\n        \"sourceLocation\": \"Slide 6\",\n        \"verbatimQuote\": \"Search a sorted array by repeatedly dividing the search interval in half.\"\n      },\n      \"correctAnswer\": \"The data structure must be sorted.\",\n      \"options\": [\n        \"The data structure must be sorted.\",\n        \"The data structure must contain only integers.\",\n        \"The data structure must have an odd number of elements.\",\n        \"The data structure must be a linked list.\"\n      ],\n      \"prompt\": \"Which of the following is a fundamental requirement for applying an Interval Search algorithm like Binary Search?\",\n      \"type\": \"MCQ_SINGLE\"\n    },\n    {\n      \"citation\": {\n        \"reasoning\": \"The quote specifies that Interval Search algorithms are designed for 'sorted data-structures'.\",\n        \"sourceLocation\": \"Slide 5\",\n        \"verbatimQuote\": \"These algorithms are specifically designed for searching in sorted data-structures.\"\n      },\n      \"correctAnswer\": false,\n      \"prompt\": \"True or False: According to the provided text, Interval Search algorithms are suitable for searching in unsorted lists.\",\n      \"type\": \"TRUE_FALSE\"\n    },\n    {\n      \"citation\": {\n        \"reasoning\": \"The text directly states to 'return -1' if the element is not found.\",\n        \"sourceLocation\": \"Slide 5\",\n        \"verbatimQuote\": \"If x doesn’t match with any of elements, return -1.\"\n      },\n      \"correctAnswer\": [\n        \"-1\"\n      ],\n      \"prompt\": \"In the Linear Search algorithm described, what specific value is returned when the target element is not present in the list?\",\n      \"type\": \"SHORT_ANSWER\"\n    },\n    {\n      \"citation\": {\n        \"reasoning\": \"The quote describes the second step of the Jump Search process, which is performing a linear search.\",\n        \"sourceLocation\": \"Slide 7\",\n        \"verbatimQuote\": \"Perform the linear search on the block k.\"\n      },\n      \"correctAnswer\": [\n        \"linear search\"\n      ],\n      \"prompt\": \"Fill in the blank to complete the description of the Jump Search algorithm's approach.\",\n      \"sentenceHtml\": \"After finding the block where the element might be, the next step is to perform a <input> on that specific block.\",\n      \"type\": \"FILL_IN_THE_BLANK\"\n    },\n    {\n      \"citation\": {\n        \"reasoning\": \"This quote confirms the correct time complexity for the Binary Search algorithm, which is one of the pairs.\",\n        \"sourceLocation\": \"Slide 6\",\n        \"verbatimQuote\": \"Time complexity: O(log n)\"\n      },\n      \"correctAnswer\": null,\n      \"pairs\": [\n        {\n          \"left\": \"Sequential Search (Linear)\",\n          \"right\": \"O(n)\"\n        },\n        {\n          \"left\": \"Binary Search\",\n          \"right\": \"O(log n)\"\n        },\n        {\n          \"left\": \"Jump Search\",\n          \"right\": \"O(√n)\"\n        }\n      ],\n      \"prompt\": \"Match each searching algorithm with its time complexity as stated in the document.\",\n      \"type\": \"MATCHING\"\n    }\n  ]\n}\n```",
   "run" : 1,
   "schema_ok" : true,
   "temperature" : 0.2,
-  "timestamp" : "2026-06-05T07:32:56.550985"
+  "timestamp" : "2026-06-05T20:42:02.630853"
 }

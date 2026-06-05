@@ -1,0 +1,94 @@
+{
+  "cleaned" : "{\n  \"questions\": [\n    {\n      \"citation\": {\n        \"reasoning\": \"Tài liệu nêu rõ điện trường bên trong quả cầu tích điện bề mặt bằng 0.\",\n        \"sourceLocation\": \"Slide 8\",\n        \"verbatimQuote\": \"Ở bên trong quả cầu (r < R): iq 0 nên E = 0.\"\n      },\n      \"correctAnswer\": \"Bằng 0\",\n      \"options\": [\n        \"Bằng 0\",\n        \"Tỉ lệ nghịch với bình phương khoảng cách r\",\n        \"Tỉ lệ thuận với khoảng cách r\",\n        \"Là một hằng số dương không đổi\"\n      ],\n      \"prompt\": \"Theo ví dụ 2, cường độ điện trường bên trong một quả cầu (r < R) tích điện đều trên bề mặt là bao nhiêu?\",\n      \"type\": \"MCQ_SINGLE\"\n    },\n    {\n      \"citation\": {\n        \"reasoning\": \"Tài liệu khẳng định rằng đường sức điện trường tĩnh là không khép kín.\",\n        \"sourceLocation\": \"Slide 4\",\n        \"verbatimQuote\": \"Đường sức điện trường tĩnh không khép kín.\"\n      },\n      \"correctAnswer\": false,\n      \"prompt\": \"Đúng hay sai? Theo tài liệu, đường sức điện trường tĩnh là những đường cong khép kín.\",\n      \"type\": \"TRUE_FALSE\"\n    },\n    {\n      \"citation\": {\n        \"reasoning\": \"Tài liệu giới thiệu vecto cảm ứng điện để khử sự gián đoạn của vecto E.\",\n        \"sourceLocation\": \"Slide 5\",\n        \"verbatimQuote\": \"Để khử sự gián đoạn đó, ta đưa vào đại lượng mới là vecto cảm ứng điện\"\n      },\n      \"correctAnswer\": [\n        \"vecto cảm ứng điện\",\n        \"vecto cảm ứng điện D\"\n      ],\n      \"prompt\": \"Đại lượng vật lý nào được đưa vào để khử sự gián đoạn của vecto cường độ điện trường khi đi qua mặt phân cách giữa hai môi trường?\",\n      \"type\": \"SHORT_ANSWER\"\n    },\n    {\n      \"citation\": {\n        \"reasoning\": \"Tài liệu định nghĩa rõ định lý Gauss tổng quát áp dụng cho vecto cảm ứng điện.\",\n        \"sourceLocation\": \"Slide 7\",\n        \"verbatimQuote\": \"Định lý Gauss tổng quát: Trong môi trường bất kỳ, thông lượng của vecto cảm ứng điện gửi qua mặt kín S thì bằng tổng đại số điện tích chứa bên trong mặt kín.\"\n      },\n      \"correctAnswer\": [\n        \"cảm ứng điện\"\n      ],\n      \"prompt\": \"Hoàn thành phát biểu về định lý Gauss tổng quát.\",\n      \"sentenceHtml\": \"Trong môi trường bất kỳ, thông lượng của vecto <input> gửi qua mặt kín S thì bằng tổng đại số điện tích chứa bên trong mặt kín.\",\n      \"type\": \"FILL_IN_THE_BLANK\"\n    },\n    {\n      \"citation\": {\n        \"reasoning\": \"Tài liệu định nghĩa rõ ràng các loại mật độ điện tương ứng với chiều phân bố điện tích.\",\n        \"sourceLocation\": \"Slide 2\",\n        \"verbatimQuote\": \"Nếu vật tích điện một chiều thì nó có mật độ điện dài λ=dq/dl. • Nếu vật tích điện hai chiều thì nó có mật độ điện mặt σ=dq/dS. • Nếu vật tích điện ba chiều thì nó có mật độ điện khối ρ=dq/dV.\"\n      },\n      \"correctAnswer\": null,\n      \"pairs\": [\n        {\n          \"left\": \"Vật tích điện một chiều\",\n          \"right\": \"Mật độ điện dài λ\"\n        },\n        {\n          \"left\": \"Vật tích điện hai chiều\",\n          \"right\": \"Mật độ điện mặt σ\"\n        },\n        {\n          \"left\": \"Vật tích điện ba chiều\",\n          \"right\": \"Mật độ điện khối ρ\"\n        }\n      ],\n      \"prompt\": \"Ghép nối loại phân bố điện tích với mật độ điện tương ứng của nó.\",\n      \"type\": \"MATCHING\"\n    }\n  ]\n}",
+  "completion_tokens" : 945,
+  "doc_file" : "Chương 6.pdf",
+  "doc_id" : "D09",
+  "doc_language" : "vi",
+  "doc_pages" : 25,
+  "doc_title" : "Trường tĩnh điện trong chân không",
+  "empty_field" : false,
+  "error_message" : null,
+  "error_type" : null,
+  "feature" : "quiz",
+  "json_parse_ok" : true,
+  "latency_ms" : 44493,
+  "model" : "gemini-2.5-pro",
+  "parsed" : {
+    "questions" : [ {
+      "type" : "MCQ_SINGLE",
+      "prompt" : "Theo ví dụ 2, cường độ điện trường bên trong một quả cầu (r < R) tích điện đều trên bề mặt là bao nhiêu?",
+      "options" : [ "Bằng 0", "Tỉ lệ nghịch với bình phương khoảng cách r", "Tỉ lệ thuận với khoảng cách r", "Là một hằng số dương không đổi" ],
+      "correctAnswer" : "Bằng 0",
+      "citation" : {
+        "sourceLocation" : "Slide 8",
+        "verbatimQuote" : "Ở bên trong quả cầu (r < R): iq 0 nên E = 0.",
+        "reasoning" : "Tài liệu nêu rõ điện trường bên trong quả cầu tích điện bề mặt bằng 0."
+      },
+      "sentenceHtml" : null,
+      "pairs" : null
+    }, {
+      "type" : "TRUE_FALSE",
+      "prompt" : "Đúng hay sai? Theo tài liệu, đường sức điện trường tĩnh là những đường cong khép kín.",
+      "options" : null,
+      "correctAnswer" : false,
+      "citation" : {
+        "sourceLocation" : "Slide 4",
+        "verbatimQuote" : "Đường sức điện trường tĩnh không khép kín.",
+        "reasoning" : "Tài liệu khẳng định rằng đường sức điện trường tĩnh là không khép kín."
+      },
+      "sentenceHtml" : null,
+      "pairs" : null
+    }, {
+      "type" : "SHORT_ANSWER",
+      "prompt" : "Đại lượng vật lý nào được đưa vào để khử sự gián đoạn của vecto cường độ điện trường khi đi qua mặt phân cách giữa hai môi trường?",
+      "options" : null,
+      "correctAnswer" : [ "vecto cảm ứng điện", "vecto cảm ứng điện D" ],
+      "citation" : {
+        "sourceLocation" : "Slide 5",
+        "verbatimQuote" : "Để khử sự gián đoạn đó, ta đưa vào đại lượng mới là vecto cảm ứng điện",
+        "reasoning" : "Tài liệu giới thiệu vecto cảm ứng điện để khử sự gián đoạn của vecto E."
+      },
+      "sentenceHtml" : null,
+      "pairs" : null
+    }, {
+      "type" : "FILL_IN_THE_BLANK",
+      "prompt" : "Hoàn thành phát biểu về định lý Gauss tổng quát.",
+      "options" : null,
+      "correctAnswer" : [ "cảm ứng điện" ],
+      "citation" : {
+        "sourceLocation" : "Slide 7",
+        "verbatimQuote" : "Định lý Gauss tổng quát: Trong môi trường bất kỳ, thông lượng của vecto cảm ứng điện gửi qua mặt kín S thì bằng tổng đại số điện tích chứa bên trong mặt kín.",
+        "reasoning" : "Tài liệu định nghĩa rõ định lý Gauss tổng quát áp dụng cho vecto cảm ứng điện."
+      },
+      "sentenceHtml" : "Trong môi trường bất kỳ, thông lượng của vecto <input> gửi qua mặt kín S thì bằng tổng đại số điện tích chứa bên trong mặt kín.",
+      "pairs" : null
+    }, {
+      "type" : "MATCHING",
+      "prompt" : "Ghép nối loại phân bố điện tích với mật độ điện tương ứng của nó.",
+      "options" : null,
+      "correctAnswer" : null,
+      "citation" : {
+        "sourceLocation" : "Slide 2",
+        "verbatimQuote" : "Nếu vật tích điện một chiều thì nó có mật độ điện dài λ=dq/dl. • Nếu vật tích điện hai chiều thì nó có mật độ điện mặt σ=dq/dS. • Nếu vật tích điện ba chiều thì nó có mật độ điện khối ρ=dq/dV.",
+        "reasoning" : "Tài liệu định nghĩa rõ ràng các loại mật độ điện tương ứng với chiều phân bố điện tích."
+      },
+      "sentenceHtml" : null,
+      "pairs" : [ {
+        "left" : "Vật tích điện một chiều",
+        "right" : "Mật độ điện dài λ"
+      }, {
+        "left" : "Vật tích điện hai chiều",
+        "right" : "Mật độ điện mặt σ"
+      }, {
+        "left" : "Vật tích điện ba chiều",
+        "right" : "Mật độ điện khối ρ"
+      } ]
+    } ]
+  },
+  "prompt_tokens" : 4226,
+  "raw" : "```json\n{\n  \"questions\": [\n    {\n      \"citation\": {\n        \"reasoning\": \"Tài liệu nêu rõ điện trường bên trong quả cầu tích điện bề mặt bằng 0.\",\n        \"sourceLocation\": \"Slide 8\",\n        \"verbatimQuote\": \"Ở bên trong quả cầu (r < R): iq 0 nên E = 0.\"\n      },\n      \"correctAnswer\": \"Bằng 0\",\n      \"options\": [\n        \"Bằng 0\",\n        \"Tỉ lệ nghịch với bình phương khoảng cách r\",\n        \"Tỉ lệ thuận với khoảng cách r\",\n        \"Là một hằng số dương không đổi\"\n      ],\n      \"prompt\": \"Theo ví dụ 2, cường độ điện trường bên trong một quả cầu (r < R) tích điện đều trên bề mặt là bao nhiêu?\",\n      \"type\": \"MCQ_SINGLE\"\n    },\n    {\n      \"citation\": {\n        \"reasoning\": \"Tài liệu khẳng định rằng đường sức điện trường tĩnh là không khép kín.\",\n        \"sourceLocation\": \"Slide 4\",\n        \"verbatimQuote\": \"Đường sức điện trường tĩnh không khép kín.\"\n      },\n      \"correctAnswer\": false,\n      \"prompt\": \"Đúng hay sai? Theo tài liệu, đường sức điện trường tĩnh là những đường cong khép kín.\",\n      \"type\": \"TRUE_FALSE\"\n    },\n    {\n      \"citation\": {\n        \"reasoning\": \"Tài liệu giới thiệu vecto cảm ứng điện để khử sự gián đoạn của vecto E.\",\n        \"sourceLocation\": \"Slide 5\",\n        \"verbatimQuote\": \"Để khử sự gián đoạn đó, ta đưa vào đại lượng mới là vecto cảm ứng điện\"\n      },\n      \"correctAnswer\": [\n        \"vecto cảm ứng điện\",\n        \"vecto cảm ứng điện D\"\n      ],\n      \"prompt\": \"Đại lượng vật lý nào được đưa vào để khử sự gián đoạn của vecto cường độ điện trường khi đi qua mặt phân cách giữa hai môi trường?\",\n      \"type\": \"SHORT_ANSWER\"\n    },\n    {\n      \"citation\": {\n        \"reasoning\": \"Tài liệu định nghĩa rõ định lý Gauss tổng quát áp dụng cho vecto cảm ứng điện.\",\n        \"sourceLocation\": \"Slide 7\",\n        \"verbatimQuote\": \"Định lý Gauss tổng quát: Trong môi trường bất kỳ, thông lượng của vecto cảm ứng điện gửi qua mặt kín S thì bằng tổng đại số điện tích chứa bên trong mặt kín.\"\n      },\n      \"correctAnswer\": [\n        \"cảm ứng điện\"\n      ],\n      \"prompt\": \"Hoàn thành phát biểu về định lý Gauss tổng quát.\",\n      \"sentenceHtml\": \"Trong môi trường bất kỳ, thông lượng của vecto <input> gửi qua mặt kín S thì bằng tổng đại số điện tích chứa bên trong mặt kín.\",\n      \"type\": \"FILL_IN_THE_BLANK\"\n    },\n    {\n      \"citation\": {\n        \"reasoning\": \"Tài liệu định nghĩa rõ ràng các loại mật độ điện tương ứng với chiều phân bố điện tích.\",\n        \"sourceLocation\": \"Slide 2\",\n        \"verbatimQuote\": \"Nếu vật tích điện một chiều thì nó có mật độ điện dài λ=dq/dl. • Nếu vật tích điện hai chiều thì nó có mật độ điện mặt σ=dq/dS. • Nếu vật tích điện ba chiều thì nó có mật độ điện khối ρ=dq/dV.\"\n      },\n      \"correctAnswer\": null,\n      \"pairs\": [\n        {\n          \"left\": \"Vật tích điện một chiều\",\n          \"right\": \"Mật độ điện dài λ\"\n        },\n        {\n          \"left\": \"Vật tích điện hai chiều\",\n          \"right\": \"Mật độ điện mặt σ\"\n        },\n        {\n          \"left\": \"Vật tích điện ba chiều\",\n          \"right\": \"Mật độ điện khối ρ\"\n        }\n      ],\n      \"prompt\": \"Ghép nối loại phân bố điện tích với mật độ điện tương ứng của nó.\",\n      \"type\": \"MATCHING\"\n    }\n  ]\n}\n```",
+  "run" : 1,
+  "schema_ok" : true,
+  "temperature" : 0.2,
+  "timestamp" : "2026-06-05T13:04:32.341421"
+}

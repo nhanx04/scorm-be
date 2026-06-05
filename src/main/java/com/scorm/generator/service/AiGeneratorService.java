@@ -360,17 +360,20 @@ public class AiGeneratorService {
                 String difficulty = request.getDifficulty() != null ? request.getDifficulty() : "Trung bình";
                 String language = request.getLanguage() != null ? request.getLanguage() : "Vietnamese";
 
-                return callQuizWithRetry(converter, addendum -> chatClient.prompt()
-                                .options(quizOptions)
-                                .user(u -> u.text(QuizPrompts.FROM_TEXT + (addendum.isEmpty() ? "" : "\n\n" + addendum))
-                                                .param("sourceText", request.getSourceText())
-                                                .param("numberOfQuestions", request.getNumberOfQuestions())
-                                                .param("difficulty", difficulty)
-                                                .param("language", language)
-                                                .param("fewShotExamples", buildQuizFewShotBlock())
-                                                .param("formatInstructions", formatInstructions))
-                                .call()
-                                .content());
+                return callQuizWithRetry(converter, request.getSourceText(),
+                                addendum -> chatClient.prompt()
+                                                .options(quizOptions)
+                                                .user(u -> u.text(QuizPrompts.FROM_TEXT
+                                                                + (addendum.isEmpty() ? "" : "\n\n" + addendum))
+                                                                .param("sourceText", request.getSourceText())
+                                                                .param("numberOfQuestions",
+                                                                                request.getNumberOfQuestions())
+                                                                .param("difficulty", difficulty)
+                                                                .param("language", language)
+                                                                .param("fewShotExamples", buildQuizFewShotBlock())
+                                                                .param("formatInstructions", formatInstructions))
+                                                .call()
+                                                .content());
         }
 
         private String buildQuizFewShotBlock() {
@@ -397,21 +400,23 @@ public class AiGeneratorService {
          */
         private AiQuizResponse callQuizWithRetry(
                         BeanOutputConverter<AiQuizResponse> converter,
+                        String sourceText,
                         java.util.function.Function<String, String> invokeWithAddendum) {
                 String raw = invokeWithAddendum.apply("");
                 AiQuizResponse first = converter.convert(stripJsonFence(raw));
-                List<String> issues = QuizSchemaValidator.validate(first);
+                List<String> issues = QuizSchemaValidator.validate(first, sourceText);
                 meters.counter("ai.quiz.schema_issues", "attempt", "first").increment(issues.size());
                 if (issues.isEmpty()) {
                         return first;
                 }
-                log.warn("Quiz schema issues on first call ({}); retrying once.", issues.size());
-                String addendum = "LẦN TRƯỚC EM ĐÃ TRẢ VỀ JSON THIẾU TRƯỜNG. HÃY SỬA:\n  - "
+                log.warn("Quiz schema/citation issues on first call ({}); retrying once.", issues.size());
+                String addendum = "LẦN TRƯỚC EM ĐÃ TRẢ VỀ JSON CÓ VẤN ĐỀ. HÃY SỬA:\n  - "
                                 + String.join("\n  - ", issues)
-                                + "\nTrả về lại JSON đầy đủ.";
+                                + "\nĐặc biệt với citation.verbatimQuote — phải trích NGUYÊN VĂN từ tài liệu,"
+                                + " không paraphrase. Trả về lại JSON đầy đủ.";
                 String rawRetry = invokeWithAddendum.apply(addendum);
                 AiQuizResponse second = converter.convert(stripJsonFence(rawRetry));
-                List<String> residual = QuizSchemaValidator.validate(second);
+                List<String> residual = QuizSchemaValidator.validate(second, sourceText);
                 meters.counter("ai.quiz.schema_issues", "attempt", "retry").increment(residual.size());
                 if (!residual.isEmpty()) {
                         log.warn("Quiz schema STILL has {} issue(s) after retry; returning best effort.",
@@ -433,7 +438,8 @@ public class AiGeneratorService {
                 String difficulty = request.getDifficulty() != null ? request.getDifficulty() : "Trung bình";
                 String language = request.getLanguage() != null ? request.getLanguage() : "Vietnamese";
 
-                return callQuizWithRetry(converter, addendum -> chatClient.prompt()
+                return callQuizWithRetry(converter, sourceText,
+                                addendum -> chatClient.prompt()
                                 .options(quizOptions)
                                 .user(u -> u.text(QuizPrompts.COURSE_AWARE + (addendum.isEmpty() ? "" : "\n\n" + addendum))
                                                 .param("courseTitle", courseTitle)

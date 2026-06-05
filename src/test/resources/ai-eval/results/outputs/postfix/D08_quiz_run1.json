@@ -1,6 +1,6 @@
 {
-  "cleaned" : "{\n  \"questions\": [\n    {\n      \"type\": \"MCQ_SINGLE\",\n      \"prompt\": \"Theo quan điểm Marketing, yếu tố nào là điểm khởi đầu của quá trình kinh doanh?\",\n      \"options\": [\n        \"Sản phẩm hiện có của công ty\",\n        \"Nhu cầu của thị trường mục tiêu\",\n        \"Các chương trình xúc tiến bán hàng\",\n        \"Tối đa hóa doanh thu thông qua bán hàng\"\n      ],\n      \"correctAnswer\": \"Nhu cầu của thị trường mục tiêu\",\n      \"explanation\": \"Slide 20: Bảng so sánh \\\"Bán hàng vs Marketing\\\" chỉ ra rằng \\\"Quan điểm marketing\\\" bắt đầu từ \\\"Thị trường mục tiêu\\\" và \\\"Nhu cầu\\\", trong khi \\\"Quan điểm bán hàng\\\" bắt đầu từ \\\"Sản xuất\\\" và \\\"Sản phẩm\\\".\"\n    },\n    {\n      \"type\": \"MATCHING\",\n      \"prompt\": \"Hãy ghép nối các quan điểm Marketing sau với trọng tâm tương ứng của chúng.\",\n      \"pairs\": [\n        {\n          \"left\": \"Quan điểm trọng Sản xuất\",\n          \"right\": \"Tập trung vào hiệu quả sản xuất và phân phối để có sản phẩm nhiều, giá thấp.\"\n        },\n        {\n          \"left\": \"Quan điểm trọng Sản phẩm\",\n          \"right\": \"Tập trung vào việc tạo ra sản phẩm chất lượng, mẫu mã đẹp và không ngừng cải tiến.\"\n        },\n        {\n          \"left\": \"Quan điểm trọng Bán hàng\",\n          \"right\": \"Tập trung vào các nỗ lực khuyến mãi và chính sách bán hàng hấp dẫn để thu hút khách hàng.\"\n        },\n        {\n          \"left\": \"Quan điểm trọng Tiếp thị\",\n          \"right\": \"Tập trung vào việc thỏa mãn thị trường mục tiêu một cách hiệu quả hơn đối thủ cạnh tranh.\"\n        }\n      ],\n      \"correctAnswer\": null,\n      \"explanation\": \"Slide 13: Bảng \\\"Các quan điểm Marketing\\\" mô tả trọng tâm của từng quan điểm: Trọng Sản xuất tập trung vào hiệu quả sản xuất + phân phối; Trọng Sản phẩm tập trung vào cải tiến sản phẩm; Trọng Bán hàng tập trung vào nỗ lực khuyến mãi; và Trọng Tiếp thị tập trung vào việc thỏa mãn thị trường.\"\n    },\n    {\n      \"type\": \"TRUE_FALSE\",\n      \"prompt\": \"Đúng hay sai: Theo tài liệu, một trong những điều kiện để hoạt động trao đổi diễn ra là mỗi bên phải có khả năng giao dịch và bắt buộc phải chấp nhận đề nghị của bên kia.\",\n      \"correctAnswer\": false,\n      \"explanation\": \"Slide 6: Điều kiện thứ 5 để trao đổi diễn ra là \\\"Mỗi bên có quyền tự do chấp nhận hay từ chối đề nghị của bên kia\\\", không phải là \\\"bắt buộc phải chấp nhận\\\".\"\n    },\n    {\n      \"type\": \"FILL_IN_THE_BLANK\",\n      \"prompt\": \"Điền vào chỗ trống để hoàn thành định nghĩa sau:\",\n      \"sentenceHtml\": \"Đòi hỏi (Demands) là mong muốn mà người ta có ___(1)___ và ___(2)___ mua.\",\n      \"correctAnswer\": [\n        \"khả năng mua\",\n        \"sẵn lòng\"\n      ],\n      \"explanation\": \"Slide 3: Tài liệu định nghĩa \\\"Đòi hỏi (Demands)\\\" là \\\"mong muốn mà người ta có khả năng mua và sẵn lòng mua\\\".\"\n    },\n    {\n      \"type\": \"SHORT_ANSWER\",\n      \"prompt\": \"Theo sơ đồ trong tài liệu, quá trình quản lý Marketing bao gồm 4 bước chính. Bước thứ hai trong quá trình đó là gì?\",\n      \"correctAnswer\": [\n        \"Phát triển các chiến lược tiếp thị\",\n        \"Phát triển chiến lược tiếp thị\"\n      ],\n      \"explanation\": \"Slide 25: Sơ đồ \\\"Quá trình quản lý Marketing\\\" liệt kê 4 bước theo thứ tự: 1. Phân tích cơ hội thị trường, 2. Phát triển các chiến lược tiếp thị, 3. Hoạch định các chương trình tiếp thị, 4. Quản lý các hoạt động tiếp thị.\"\n    }\n  ]\n}",
-  "completion_tokens" : 944,
+  "cleaned" : "{\n  \"questions\": [\n    {\n      \"citation\": {\n        \"reasoning\": \"Câu trả lời đúng được định nghĩa trực tiếp trong trích dẫn này.\",\n        \"sourceLocation\": \"Slide 3\",\n        \"verbatimQuote\": \"Đòi hỏi (Demands): mong muốn mà người ta có khả năng mua và sẵn lòng mua\"\n      },\n      \"correctAnswer\": \"Đòi hỏi (Demands)\",\n      \"options\": [\n        \"Nhu cầu (Needs)\",\n        \"Mong muốn (Wants)\",\n        \"Đòi hỏi (Demands)\",\n        \"Sự thỏa mãn (Satisfaction)\"\n      ],\n      \"prompt\": \"Một sinh viên cảm thấy đói (nhu cầu), muốn ăn một tô phở bò tái (mong muốn). Khi sinh viên này có đủ tiền và quyết định đi đến quán phở để mua, mong muốn đó đã trở thành gì?\",\n      \"type\": \"MCQ_SINGLE\"\n    },\n    {\n      \"citation\": {\n        \"reasoning\": \"Trích dẫn này giải thích rằng quan điểm marketing bắt đầu từ thị trường mục tiêu và nhu cầu, không phải từ sản phẩm.\",\n        \"sourceLocation\": \"Slide 20\",\n        \"verbatimQuote\": \"Quản điểm marketing: Thị trường mục tiêu -> Nhu cầu -> Tổ hợp tiếp thị -> Thỏa mãn cao nhất nhu cầu -> Lợi nhuận\"\n      },\n      \"correctAnswer\": false,\n      \"prompt\": \"Đúng hay sai: Theo quan điểm marketing được trình bày trong tài liệu, điểm khởi đầu của quá trình kinh doanh là tập trung vào sản phẩm hiện có của nhà máy.\",\n      \"type\": \"TRUE_FALSE\"\n    },\n    {\n      \"citation\": {\n        \"reasoning\": \"Trích dẫn này định nghĩa rõ ràng về quan điểm trọng sản phẩm, làm cơ sở cho việc nối cặp đúng.\",\n        \"sourceLocation\": \"Slide 13\",\n        \"verbatimQuote\": \"Sản phẩm chất lượng, mẫu mã đẹp, khác lạ  quản lý tập trung cải tiến sản phẩm\"\n      },\n      \"correctAnswer\": null,\n      \"pairs\": [\n        {\n          \"left\": \"Trọng Sản xuất\",\n          \"right\": \"Tập trung vào hiệu quả sản xuất và mở rộng phạm vi phân phối để có giá thấp.\"\n        },\n        {\n          \"left\": \"Trọng Sản phẩm\",\n          \"right\": \"Tập trung vào việc tạo ra sản phẩm có chất lượng tốt nhất, kiểu dáng độc đáo.\"\n        },\n        {\n          \"left\": \"Trọng Bán hàng\",\n          \"right\": \"Tập trung vào các nỗ lực xúc tiến, khuyến mãi để thu hút khách hàng.\"\n        },\n        {\n          \"left\": \"Trọng Tiếp thị\",\n          \"right\": \"Tập trung vào việc thấu hiểu và thỏa mãn nhu cầu của thị trường mục tiêu.\"\n        }\n      ],\n      \"prompt\": \"Hãy nối mỗi quan điểm marketing ở cột trái với trọng tâm tương ứng ở cột phải.\",\n      \"type\": \"MATCHING\"\n    },\n    {\n      \"citation\": {\n        \"reasoning\": \"Trích dẫn này là một trong những điều kiện được liệt kê để một cuộc trao đổi diễn ra.\",\n        \"sourceLocation\": \"Slide 6\",\n        \"verbatimQuote\": \"Mỗi bên có cái để trao đổi;\"\n      },\n      \"correctAnswer\": [\n        \"Ít nhất phải 2 bên biết nhau\",\n        \"Mỗi bên muốn trao đổi\",\n        \"Mỗi bên có cái để trao đổi\",\n        \"Mỗi bên có khả năng giao dịch và trao đổi sản phẩm của mình\",\n        \"Mỗi bên có quyền tự do chấp nhận hay từ chối đề nghị của bên kia\"\n      ],\n      \"prompt\": \"Tài liệu liệt kê 5 điều kiện để một cuộc trao đổi diễn ra. Hãy nêu một trong số các điều kiện đó.\",\n      \"type\": \"SHORT_ANSWER\"\n    },\n    {\n      \"citation\": {\n        \"reasoning\": \"Trích dẫn này chứa định nghĩa gốc, trong đó các từ cần điền 'value' (giá trị) xuất hiện ở cả hai vị trí.\",\n        \"sourceLocation\": \"Slide 9\",\n        \"verbatimQuote\": \"Marketing is a process by which companies create value for customers and build strong customer relationships in order to capture value from customers in return\"\n      },\n      \"correctAnswer\": [\n        \"giá trị\",\n        \"giá trị\"\n      ],\n      \"prompt\": \"Điền vào chỗ trống để hoàn thành một điểm chính trong định nghĩa về Marketing của Kotler (2018):\",\n      \"sentenceHtml\": \"<p>Marketing là một tiến trình mà qua đó các công ty tạo ra <input /> cho khách hàng và xây dựng mối quan hệ bền chặt nhằm nhận lại <input /> từ khách hàng.</p>\",\n      \"type\": \"FILL_IN_THE_BLANK\"\n    }\n  ]\n}",
+  "completion_tokens" : 1111,
   "doc_file" : "NVT- POM-Ch1- DAI CUONG VE TIEP THI.pdf",
   "doc_id" : "D08",
   "doc_language" : "vi",
@@ -11,67 +11,87 @@
   "error_type" : null,
   "feature" : "quiz",
   "json_parse_ok" : true,
-  "latency_ms" : 21739,
+  "latency_ms" : 23713,
   "model" : "gemini-2.5-pro",
   "parsed" : {
     "questions" : [ {
       "type" : "MCQ_SINGLE",
-      "prompt" : "Theo quan điểm Marketing, yếu tố nào là điểm khởi đầu của quá trình kinh doanh?",
-      "options" : [ "Sản phẩm hiện có của công ty", "Nhu cầu của thị trường mục tiêu", "Các chương trình xúc tiến bán hàng", "Tối đa hóa doanh thu thông qua bán hàng" ],
-      "correctAnswer" : "Nhu cầu của thị trường mục tiêu",
-      "explanation" : "Slide 20: Bảng so sánh \"Bán hàng vs Marketing\" chỉ ra rằng \"Quan điểm marketing\" bắt đầu từ \"Thị trường mục tiêu\" và \"Nhu cầu\", trong khi \"Quan điểm bán hàng\" bắt đầu từ \"Sản xuất\" và \"Sản phẩm\".",
+      "prompt" : "Một sinh viên cảm thấy đói (nhu cầu), muốn ăn một tô phở bò tái (mong muốn). Khi sinh viên này có đủ tiền và quyết định đi đến quán phở để mua, mong muốn đó đã trở thành gì?",
+      "options" : [ "Nhu cầu (Needs)", "Mong muốn (Wants)", "Đòi hỏi (Demands)", "Sự thỏa mãn (Satisfaction)" ],
+      "correctAnswer" : "Đòi hỏi (Demands)",
+      "citation" : {
+        "sourceLocation" : "Slide 3",
+        "verbatimQuote" : "Đòi hỏi (Demands): mong muốn mà người ta có khả năng mua và sẵn lòng mua",
+        "reasoning" : "Câu trả lời đúng được định nghĩa trực tiếp trong trích dẫn này."
+      },
+      "sentenceHtml" : null,
+      "pairs" : null
+    }, {
+      "type" : "TRUE_FALSE",
+      "prompt" : "Đúng hay sai: Theo quan điểm marketing được trình bày trong tài liệu, điểm khởi đầu của quá trình kinh doanh là tập trung vào sản phẩm hiện có của nhà máy.",
+      "options" : null,
+      "correctAnswer" : false,
+      "citation" : {
+        "sourceLocation" : "Slide 20",
+        "verbatimQuote" : "Quản điểm marketing: Thị trường mục tiêu -> Nhu cầu -> Tổ hợp tiếp thị -> Thỏa mãn cao nhất nhu cầu -> Lợi nhuận",
+        "reasoning" : "Trích dẫn này giải thích rằng quan điểm marketing bắt đầu từ thị trường mục tiêu và nhu cầu, không phải từ sản phẩm."
+      },
       "sentenceHtml" : null,
       "pairs" : null
     }, {
       "type" : "MATCHING",
-      "prompt" : "Hãy ghép nối các quan điểm Marketing sau với trọng tâm tương ứng của chúng.",
+      "prompt" : "Hãy nối mỗi quan điểm marketing ở cột trái với trọng tâm tương ứng ở cột phải.",
       "options" : null,
       "correctAnswer" : null,
-      "explanation" : "Slide 13: Bảng \"Các quan điểm Marketing\" mô tả trọng tâm của từng quan điểm: Trọng Sản xuất tập trung vào hiệu quả sản xuất + phân phối; Trọng Sản phẩm tập trung vào cải tiến sản phẩm; Trọng Bán hàng tập trung vào nỗ lực khuyến mãi; và Trọng Tiếp thị tập trung vào việc thỏa mãn thị trường.",
+      "citation" : {
+        "sourceLocation" : "Slide 13",
+        "verbatimQuote" : "Sản phẩm chất lượng, mẫu mã đẹp, khác lạ  quản lý tập trung cải tiến sản phẩm",
+        "reasoning" : "Trích dẫn này định nghĩa rõ ràng về quan điểm trọng sản phẩm, làm cơ sở cho việc nối cặp đúng."
+      },
       "sentenceHtml" : null,
       "pairs" : [ {
-        "left" : "Quan điểm trọng Sản xuất",
-        "right" : "Tập trung vào hiệu quả sản xuất và phân phối để có sản phẩm nhiều, giá thấp."
+        "left" : "Trọng Sản xuất",
+        "right" : "Tập trung vào hiệu quả sản xuất và mở rộng phạm vi phân phối để có giá thấp."
       }, {
-        "left" : "Quan điểm trọng Sản phẩm",
-        "right" : "Tập trung vào việc tạo ra sản phẩm chất lượng, mẫu mã đẹp và không ngừng cải tiến."
+        "left" : "Trọng Sản phẩm",
+        "right" : "Tập trung vào việc tạo ra sản phẩm có chất lượng tốt nhất, kiểu dáng độc đáo."
       }, {
-        "left" : "Quan điểm trọng Bán hàng",
-        "right" : "Tập trung vào các nỗ lực khuyến mãi và chính sách bán hàng hấp dẫn để thu hút khách hàng."
+        "left" : "Trọng Bán hàng",
+        "right" : "Tập trung vào các nỗ lực xúc tiến, khuyến mãi để thu hút khách hàng."
       }, {
-        "left" : "Quan điểm trọng Tiếp thị",
-        "right" : "Tập trung vào việc thỏa mãn thị trường mục tiêu một cách hiệu quả hơn đối thủ cạnh tranh."
+        "left" : "Trọng Tiếp thị",
+        "right" : "Tập trung vào việc thấu hiểu và thỏa mãn nhu cầu của thị trường mục tiêu."
       } ]
     }, {
-      "type" : "TRUE_FALSE",
-      "prompt" : "Đúng hay sai: Theo tài liệu, một trong những điều kiện để hoạt động trao đổi diễn ra là mỗi bên phải có khả năng giao dịch và bắt buộc phải chấp nhận đề nghị của bên kia.",
+      "type" : "SHORT_ANSWER",
+      "prompt" : "Tài liệu liệt kê 5 điều kiện để một cuộc trao đổi diễn ra. Hãy nêu một trong số các điều kiện đó.",
       "options" : null,
-      "correctAnswer" : false,
-      "explanation" : "Slide 6: Điều kiện thứ 5 để trao đổi diễn ra là \"Mỗi bên có quyền tự do chấp nhận hay từ chối đề nghị của bên kia\", không phải là \"bắt buộc phải chấp nhận\".",
+      "correctAnswer" : [ "Ít nhất phải 2 bên biết nhau", "Mỗi bên muốn trao đổi", "Mỗi bên có cái để trao đổi", "Mỗi bên có khả năng giao dịch và trao đổi sản phẩm của mình", "Mỗi bên có quyền tự do chấp nhận hay từ chối đề nghị của bên kia" ],
+      "citation" : {
+        "sourceLocation" : "Slide 6",
+        "verbatimQuote" : "Mỗi bên có cái để trao đổi;",
+        "reasoning" : "Trích dẫn này là một trong những điều kiện được liệt kê để một cuộc trao đổi diễn ra."
+      },
       "sentenceHtml" : null,
       "pairs" : null
     }, {
       "type" : "FILL_IN_THE_BLANK",
-      "prompt" : "Điền vào chỗ trống để hoàn thành định nghĩa sau:",
+      "prompt" : "Điền vào chỗ trống để hoàn thành một điểm chính trong định nghĩa về Marketing của Kotler (2018):",
       "options" : null,
-      "correctAnswer" : [ "khả năng mua", "sẵn lòng" ],
-      "explanation" : "Slide 3: Tài liệu định nghĩa \"Đòi hỏi (Demands)\" là \"mong muốn mà người ta có khả năng mua và sẵn lòng mua\".",
-      "sentenceHtml" : "Đòi hỏi (Demands) là mong muốn mà người ta có ___(1)___ và ___(2)___ mua.",
-      "pairs" : null
-    }, {
-      "type" : "SHORT_ANSWER",
-      "prompt" : "Theo sơ đồ trong tài liệu, quá trình quản lý Marketing bao gồm 4 bước chính. Bước thứ hai trong quá trình đó là gì?",
-      "options" : null,
-      "correctAnswer" : [ "Phát triển các chiến lược tiếp thị", "Phát triển chiến lược tiếp thị" ],
-      "explanation" : "Slide 25: Sơ đồ \"Quá trình quản lý Marketing\" liệt kê 4 bước theo thứ tự: 1. Phân tích cơ hội thị trường, 2. Phát triển các chiến lược tiếp thị, 3. Hoạch định các chương trình tiếp thị, 4. Quản lý các hoạt động tiếp thị.",
-      "sentenceHtml" : null,
+      "correctAnswer" : [ "giá trị", "giá trị" ],
+      "citation" : {
+        "sourceLocation" : "Slide 9",
+        "verbatimQuote" : "Marketing is a process by which companies create value for customers and build strong customer relationships in order to capture value from customers in return",
+        "reasoning" : "Trích dẫn này chứa định nghĩa gốc, trong đó các từ cần điền 'value' (giá trị) xuất hiện ở cả hai vị trí."
+      },
+      "sentenceHtml" : "<p>Marketing là một tiến trình mà qua đó các công ty tạo ra <input /> cho khách hàng và xây dựng mối quan hệ bền chặt nhằm nhận lại <input /> từ khách hàng.</p>",
       "pairs" : null
     } ]
   },
-  "prompt_tokens" : 3404,
-  "raw" : "```json\n{\n  \"questions\": [\n    {\n      \"type\": \"MCQ_SINGLE\",\n      \"prompt\": \"Theo quan điểm Marketing, yếu tố nào là điểm khởi đầu của quá trình kinh doanh?\",\n      \"options\": [\n        \"Sản phẩm hiện có của công ty\",\n        \"Nhu cầu của thị trường mục tiêu\",\n        \"Các chương trình xúc tiến bán hàng\",\n        \"Tối đa hóa doanh thu thông qua bán hàng\"\n      ],\n      \"correctAnswer\": \"Nhu cầu của thị trường mục tiêu\",\n      \"explanation\": \"Slide 20: Bảng so sánh \\\"Bán hàng vs Marketing\\\" chỉ ra rằng \\\"Quan điểm marketing\\\" bắt đầu từ \\\"Thị trường mục tiêu\\\" và \\\"Nhu cầu\\\", trong khi \\\"Quan điểm bán hàng\\\" bắt đầu từ \\\"Sản xuất\\\" và \\\"Sản phẩm\\\".\"\n    },\n    {\n      \"type\": \"MATCHING\",\n      \"prompt\": \"Hãy ghép nối các quan điểm Marketing sau với trọng tâm tương ứng của chúng.\",\n      \"pairs\": [\n        {\n          \"left\": \"Quan điểm trọng Sản xuất\",\n          \"right\": \"Tập trung vào hiệu quả sản xuất và phân phối để có sản phẩm nhiều, giá thấp.\"\n        },\n        {\n          \"left\": \"Quan điểm trọng Sản phẩm\",\n          \"right\": \"Tập trung vào việc tạo ra sản phẩm chất lượng, mẫu mã đẹp và không ngừng cải tiến.\"\n        },\n        {\n          \"left\": \"Quan điểm trọng Bán hàng\",\n          \"right\": \"Tập trung vào các nỗ lực khuyến mãi và chính sách bán hàng hấp dẫn để thu hút khách hàng.\"\n        },\n        {\n          \"left\": \"Quan điểm trọng Tiếp thị\",\n          \"right\": \"Tập trung vào việc thỏa mãn thị trường mục tiêu một cách hiệu quả hơn đối thủ cạnh tranh.\"\n        }\n      ],\n      \"correctAnswer\": null,\n      \"explanation\": \"Slide 13: Bảng \\\"Các quan điểm Marketing\\\" mô tả trọng tâm của từng quan điểm: Trọng Sản xuất tập trung vào hiệu quả sản xuất + phân phối; Trọng Sản phẩm tập trung vào cải tiến sản phẩm; Trọng Bán hàng tập trung vào nỗ lực khuyến mãi; và Trọng Tiếp thị tập trung vào việc thỏa mãn thị trường.\"\n    },\n    {\n      \"type\": \"TRUE_FALSE\",\n      \"prompt\": \"Đúng hay sai: Theo tài liệu, một trong những điều kiện để hoạt động trao đổi diễn ra là mỗi bên phải có khả năng giao dịch và bắt buộc phải chấp nhận đề nghị của bên kia.\",\n      \"correctAnswer\": false,\n      \"explanation\": \"Slide 6: Điều kiện thứ 5 để trao đổi diễn ra là \\\"Mỗi bên có quyền tự do chấp nhận hay từ chối đề nghị của bên kia\\\", không phải là \\\"bắt buộc phải chấp nhận\\\".\"\n    },\n    {\n      \"type\": \"FILL_IN_THE_BLANK\",\n      \"prompt\": \"Điền vào chỗ trống để hoàn thành định nghĩa sau:\",\n      \"sentenceHtml\": \"Đòi hỏi (Demands) là mong muốn mà người ta có ___(1)___ và ___(2)___ mua.\",\n      \"correctAnswer\": [\n        \"khả năng mua\",\n        \"sẵn lòng\"\n      ],\n      \"explanation\": \"Slide 3: Tài liệu định nghĩa \\\"Đòi hỏi (Demands)\\\" là \\\"mong muốn mà người ta có khả năng mua và sẵn lòng mua\\\".\"\n    },\n    {\n      \"type\": \"SHORT_ANSWER\",\n      \"prompt\": \"Theo sơ đồ trong tài liệu, quá trình quản lý Marketing bao gồm 4 bước chính. Bước thứ hai trong quá trình đó là gì?\",\n      \"correctAnswer\": [\n        \"Phát triển các chiến lược tiếp thị\",\n        \"Phát triển chiến lược tiếp thị\"\n      ],\n      \"explanation\": \"Slide 25: Sơ đồ \\\"Quá trình quản lý Marketing\\\" liệt kê 4 bước theo thứ tự: 1. Phân tích cơ hội thị trường, 2. Phát triển các chiến lược tiếp thị, 3. Hoạch định các chương trình tiếp thị, 4. Quản lý các hoạt động tiếp thị.\"\n    }\n  ]\n}\n```",
+  "prompt_tokens" : 4616,
+  "raw" : "```json\n{\n  \"questions\": [\n    {\n      \"citation\": {\n        \"reasoning\": \"Câu trả lời đúng được định nghĩa trực tiếp trong trích dẫn này.\",\n        \"sourceLocation\": \"Slide 3\",\n        \"verbatimQuote\": \"Đòi hỏi (Demands): mong muốn mà người ta có khả năng mua và sẵn lòng mua\"\n      },\n      \"correctAnswer\": \"Đòi hỏi (Demands)\",\n      \"options\": [\n        \"Nhu cầu (Needs)\",\n        \"Mong muốn (Wants)\",\n        \"Đòi hỏi (Demands)\",\n        \"Sự thỏa mãn (Satisfaction)\"\n      ],\n      \"prompt\": \"Một sinh viên cảm thấy đói (nhu cầu), muốn ăn một tô phở bò tái (mong muốn). Khi sinh viên này có đủ tiền và quyết định đi đến quán phở để mua, mong muốn đó đã trở thành gì?\",\n      \"type\": \"MCQ_SINGLE\"\n    },\n    {\n      \"citation\": {\n        \"reasoning\": \"Trích dẫn này giải thích rằng quan điểm marketing bắt đầu từ thị trường mục tiêu và nhu cầu, không phải từ sản phẩm.\",\n        \"sourceLocation\": \"Slide 20\",\n        \"verbatimQuote\": \"Quản điểm marketing: Thị trường mục tiêu -> Nhu cầu -> Tổ hợp tiếp thị -> Thỏa mãn cao nhất nhu cầu -> Lợi nhuận\"\n      },\n      \"correctAnswer\": false,\n      \"prompt\": \"Đúng hay sai: Theo quan điểm marketing được trình bày trong tài liệu, điểm khởi đầu của quá trình kinh doanh là tập trung vào sản phẩm hiện có của nhà máy.\",\n      \"type\": \"TRUE_FALSE\"\n    },\n    {\n      \"citation\": {\n        \"reasoning\": \"Trích dẫn này định nghĩa rõ ràng về quan điểm trọng sản phẩm, làm cơ sở cho việc nối cặp đúng.\",\n        \"sourceLocation\": \"Slide 13\",\n        \"verbatimQuote\": \"Sản phẩm chất lượng, mẫu mã đẹp, khác lạ  quản lý tập trung cải tiến sản phẩm\"\n      },\n      \"correctAnswer\": null,\n      \"pairs\": [\n        {\n          \"left\": \"Trọng Sản xuất\",\n          \"right\": \"Tập trung vào hiệu quả sản xuất và mở rộng phạm vi phân phối để có giá thấp.\"\n        },\n        {\n          \"left\": \"Trọng Sản phẩm\",\n          \"right\": \"Tập trung vào việc tạo ra sản phẩm có chất lượng tốt nhất, kiểu dáng độc đáo.\"\n        },\n        {\n          \"left\": \"Trọng Bán hàng\",\n          \"right\": \"Tập trung vào các nỗ lực xúc tiến, khuyến mãi để thu hút khách hàng.\"\n        },\n        {\n          \"left\": \"Trọng Tiếp thị\",\n          \"right\": \"Tập trung vào việc thấu hiểu và thỏa mãn nhu cầu của thị trường mục tiêu.\"\n        }\n      ],\n      \"prompt\": \"Hãy nối mỗi quan điểm marketing ở cột trái với trọng tâm tương ứng ở cột phải.\",\n      \"type\": \"MATCHING\"\n    },\n    {\n      \"citation\": {\n        \"reasoning\": \"Trích dẫn này là một trong những điều kiện được liệt kê để một cuộc trao đổi diễn ra.\",\n        \"sourceLocation\": \"Slide 6\",\n        \"verbatimQuote\": \"Mỗi bên có cái để trao đổi;\"\n      },\n      \"correctAnswer\": [\n        \"Ít nhất phải 2 bên biết nhau\",\n        \"Mỗi bên muốn trao đổi\",\n        \"Mỗi bên có cái để trao đổi\",\n        \"Mỗi bên có khả năng giao dịch và trao đổi sản phẩm của mình\",\n        \"Mỗi bên có quyền tự do chấp nhận hay từ chối đề nghị của bên kia\"\n      ],\n      \"prompt\": \"Tài liệu liệt kê 5 điều kiện để một cuộc trao đổi diễn ra. Hãy nêu một trong số các điều kiện đó.\",\n      \"type\": \"SHORT_ANSWER\"\n    },\n    {\n      \"citation\": {\n        \"reasoning\": \"Trích dẫn này chứa định nghĩa gốc, trong đó các từ cần điền 'value' (giá trị) xuất hiện ở cả hai vị trí.\",\n        \"sourceLocation\": \"Slide 9\",\n        \"verbatimQuote\": \"Marketing is a process by which companies create value for customers and build strong customer relationships in order to capture value from customers in return\"\n      },\n      \"correctAnswer\": [\n        \"giá trị\",\n        \"giá trị\"\n      ],\n      \"prompt\": \"Điền vào chỗ trống để hoàn thành một điểm chính trong định nghĩa về Marketing của Kotler (2018):\",\n      \"sentenceHtml\": \"<p>Marketing là một tiến trình mà qua đó các công ty tạo ra <input /> cho khách hàng và xây dựng mối quan hệ bền chặt nhằm nhận lại <input /> từ khách hàng.</p>\",\n      \"type\": \"FILL_IN_THE_BLANK\"\n    }\n  ]\n}\n```",
   "run" : 1,
   "schema_ok" : true,
   "temperature" : 0.2,
-  "timestamp" : "2026-06-05T07:34:43.495916"
+  "timestamp" : "2026-06-05T20:43:58.163655"
 }

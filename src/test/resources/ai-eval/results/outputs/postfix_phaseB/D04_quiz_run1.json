@@ -1,0 +1,94 @@
+{
+  "cleaned" : "{\n  \"questions\": [\n    {\n      \"citation\": {\n        \"reasoning\": \"The quote directly defines the problem described in the question stem.\",\n        \"sourceLocation\": \"Slide 9\",\n        \"verbatimQuote\": \"The Lost Update Problem. This occurs when two transactions that access the same database items have their operations interleaved in a way that makes the value of some database item incorrect.\"\n      },\n      \"correctAnswer\": \"The Lost Update Problem\",\n      \"options\": [\n        \"The Lost Update Problem\",\n        \"The Temporary Update Problem\",\n        \"The Incorrect Summary Problem\",\n        \"The Unrepeatable Read Problem\"\n      ],\n      \"prompt\": \"Which problem occurs when two transactions' interleaved operations on the same data result in an incorrect value?\",\n      \"type\": \"MCQ_SINGLE\"\n    },\n    {\n      \"citation\": {\n        \"reasoning\": \"The source states the write to disk can happen immediately OR at a later time, making the absolute statement false.\",\n        \"sourceLocation\": \"Slide 7\",\n        \"verbatimQuote\": \"Store the updated block from the buffer back to disk (either immediately or at some later point in time).\"\n      },\n      \"correctAnswer\": false,\n      \"prompt\": \"True or False: The write_item(X) command guarantees that the updated block is immediately stored back to disk.\",\n      \"type\": \"TRUE_FALSE\"\n    },\n    {\n      \"citation\": {\n        \"reasoning\": \"The source provides the exact definitions for both interleaved and parallel processing.\",\n        \"sourceLocation\": \"Slide 3\",\n        \"verbatimQuote\": \"Interleaved processing: concurrent execution of processes is interleaved in a single CPU. Parallel processing: processes are concurrently executed in multiple CPUs.\"\n      },\n      \"correctAnswer\": [\n        \"Interleaved\",\n        \"Parallel\"\n      ],\n      \"prompt\": \"Fill in the blanks:\",\n      \"sentenceHtml\": \"In ___(1)___ processing, concurrent execution of processes is interleaved in a single CPU, while in ___(2)___ processing, processes are concurrently executed in multiple CPUs.\",\n      \"type\": \"FILL_IN_THE_BLANK\"\n    },\n    {\n      \"citation\": {\n        \"reasoning\": \"The source lists several reasons for transaction failure, including the one provided in the answer.\",\n        \"sourceLocation\": \"Slide 15\",\n        \"verbatimQuote\": \"Local errors or exception conditions detected by the transaction: - certain conditions necessitate cancellation of the transaction.\"\n      },\n      \"correctAnswer\": [\n        \"Local errors or exception conditions\",\n        \"A transaction or system error\",\n        \"Concurrency control enforcement\"\n      ],\n      \"prompt\": \"According to the material, what is one reason a transaction might fail, other than a system crash or disk failure?\",\n      \"type\": \"SHORT_ANSWER\"\n    },\n    {\n      \"citation\": {\n        \"reasoning\": \"The source provides the definitions for each of the concurrency problems listed in the matching pairs.\",\n        \"sourceLocation\": \"Slide 12\",\n        \"verbatimQuote\": \"The unrepeatable Read Problem: Transaction T reads the same item twice and the item is changed by another transaction T’ between the two reads.\"\n      },\n      \"correctAnswer\": null,\n      \"pairs\": [\n        {\n          \"left\": \"Dirty Read Problem\",\n          \"right\": \"An updated item is accessed by another transaction before the original transaction's failure is reverted.\"\n        },\n        {\n          \"left\": \"Unrepeatable Read Problem\",\n          \"right\": \"An item is changed by another transaction between two reads by the same transaction.\"\n        },\n        {\n          \"left\": \"Incorrect Summary Problem\",\n          \"right\": \"An aggregate function calculates some values before they are updated and others after.\"\n        }\n      ],\n      \"prompt\": \"Match each concurrency problem with its correct description.\",\n      \"type\": \"MATCHING\"\n    }\n  ]\n}",
+  "completion_tokens" : 892,
+  "doc_file" : "Chapter_5 - Transaction Processing.pdf",
+  "doc_id" : "D04",
+  "doc_language" : "en",
+  "doc_pages" : 65,
+  "doc_title" : "Introduction to Transaction Processing Concepts and Theory",
+  "empty_field" : false,
+  "error_message" : null,
+  "error_type" : null,
+  "feature" : "quiz",
+  "json_parse_ok" : true,
+  "latency_ms" : 22682,
+  "model" : "gemini-2.5-pro",
+  "parsed" : {
+    "questions" : [ {
+      "type" : "MCQ_SINGLE",
+      "prompt" : "Which problem occurs when two transactions' interleaved operations on the same data result in an incorrect value?",
+      "options" : [ "The Lost Update Problem", "The Temporary Update Problem", "The Incorrect Summary Problem", "The Unrepeatable Read Problem" ],
+      "correctAnswer" : "The Lost Update Problem",
+      "citation" : {
+        "sourceLocation" : "Slide 9",
+        "verbatimQuote" : "The Lost Update Problem. This occurs when two transactions that access the same database items have their operations interleaved in a way that makes the value of some database item incorrect.",
+        "reasoning" : "The quote directly defines the problem described in the question stem."
+      },
+      "sentenceHtml" : null,
+      "pairs" : null
+    }, {
+      "type" : "TRUE_FALSE",
+      "prompt" : "True or False: The write_item(X) command guarantees that the updated block is immediately stored back to disk.",
+      "options" : null,
+      "correctAnswer" : false,
+      "citation" : {
+        "sourceLocation" : "Slide 7",
+        "verbatimQuote" : "Store the updated block from the buffer back to disk (either immediately or at some later point in time).",
+        "reasoning" : "The source states the write to disk can happen immediately OR at a later time, making the absolute statement false."
+      },
+      "sentenceHtml" : null,
+      "pairs" : null
+    }, {
+      "type" : "FILL_IN_THE_BLANK",
+      "prompt" : "Fill in the blanks:",
+      "options" : null,
+      "correctAnswer" : [ "Interleaved", "Parallel" ],
+      "citation" : {
+        "sourceLocation" : "Slide 3",
+        "verbatimQuote" : "Interleaved processing: concurrent execution of processes is interleaved in a single CPU. Parallel processing: processes are concurrently executed in multiple CPUs.",
+        "reasoning" : "The source provides the exact definitions for both interleaved and parallel processing."
+      },
+      "sentenceHtml" : "In ___(1)___ processing, concurrent execution of processes is interleaved in a single CPU, while in ___(2)___ processing, processes are concurrently executed in multiple CPUs.",
+      "pairs" : null
+    }, {
+      "type" : "SHORT_ANSWER",
+      "prompt" : "According to the material, what is one reason a transaction might fail, other than a system crash or disk failure?",
+      "options" : null,
+      "correctAnswer" : [ "Local errors or exception conditions", "A transaction or system error", "Concurrency control enforcement" ],
+      "citation" : {
+        "sourceLocation" : "Slide 15",
+        "verbatimQuote" : "Local errors or exception conditions detected by the transaction: - certain conditions necessitate cancellation of the transaction.",
+        "reasoning" : "The source lists several reasons for transaction failure, including the one provided in the answer."
+      },
+      "sentenceHtml" : null,
+      "pairs" : null
+    }, {
+      "type" : "MATCHING",
+      "prompt" : "Match each concurrency problem with its correct description.",
+      "options" : null,
+      "correctAnswer" : null,
+      "citation" : {
+        "sourceLocation" : "Slide 12",
+        "verbatimQuote" : "The unrepeatable Read Problem: Transaction T reads the same item twice and the item is changed by another transaction T’ between the two reads.",
+        "reasoning" : "The source provides the definitions for each of the concurrency problems listed in the matching pairs."
+      },
+      "sentenceHtml" : null,
+      "pairs" : [ {
+        "left" : "Dirty Read Problem",
+        "right" : "An updated item is accessed by another transaction before the original transaction's failure is reverted."
+      }, {
+        "left" : "Unrepeatable Read Problem",
+        "right" : "An item is changed by another transaction between two reads by the same transaction."
+      }, {
+        "left" : "Incorrect Summary Problem",
+        "right" : "An aggregate function calculates some values before they are updated and others after."
+      } ]
+    } ]
+  },
+  "prompt_tokens" : 2861,
+  "raw" : "```json\n{\n  \"questions\": [\n    {\n      \"citation\": {\n        \"reasoning\": \"The quote directly defines the problem described in the question stem.\",\n        \"sourceLocation\": \"Slide 9\",\n        \"verbatimQuote\": \"The Lost Update Problem. This occurs when two transactions that access the same database items have their operations interleaved in a way that makes the value of some database item incorrect.\"\n      },\n      \"correctAnswer\": \"The Lost Update Problem\",\n      \"options\": [\n        \"The Lost Update Problem\",\n        \"The Temporary Update Problem\",\n        \"The Incorrect Summary Problem\",\n        \"The Unrepeatable Read Problem\"\n      ],\n      \"prompt\": \"Which problem occurs when two transactions' interleaved operations on the same data result in an incorrect value?\",\n      \"type\": \"MCQ_SINGLE\"\n    },\n    {\n      \"citation\": {\n        \"reasoning\": \"The source states the write to disk can happen immediately OR at a later time, making the absolute statement false.\",\n        \"sourceLocation\": \"Slide 7\",\n        \"verbatimQuote\": \"Store the updated block from the buffer back to disk (either immediately or at some later point in time).\"\n      },\n      \"correctAnswer\": false,\n      \"prompt\": \"True or False: The write_item(X) command guarantees that the updated block is immediately stored back to disk.\",\n      \"type\": \"TRUE_FALSE\"\n    },\n    {\n      \"citation\": {\n        \"reasoning\": \"The source provides the exact definitions for both interleaved and parallel processing.\",\n        \"sourceLocation\": \"Slide 3\",\n        \"verbatimQuote\": \"Interleaved processing: concurrent execution of processes is interleaved in a single CPU. Parallel processing: processes are concurrently executed in multiple CPUs.\"\n      },\n      \"correctAnswer\": [\n        \"Interleaved\",\n        \"Parallel\"\n      ],\n      \"prompt\": \"Fill in the blanks:\",\n      \"sentenceHtml\": \"In ___(1)___ processing, concurrent execution of processes is interleaved in a single CPU, while in ___(2)___ processing, processes are concurrently executed in multiple CPUs.\",\n      \"type\": \"FILL_IN_THE_BLANK\"\n    },\n    {\n      \"citation\": {\n        \"reasoning\": \"The source lists several reasons for transaction failure, including the one provided in the answer.\",\n        \"sourceLocation\": \"Slide 15\",\n        \"verbatimQuote\": \"Local errors or exception conditions detected by the transaction: - certain conditions necessitate cancellation of the transaction.\"\n      },\n      \"correctAnswer\": [\n        \"Local errors or exception conditions\",\n        \"A transaction or system error\",\n        \"Concurrency control enforcement\"\n      ],\n      \"prompt\": \"According to the material, what is one reason a transaction might fail, other than a system crash or disk failure?\",\n      \"type\": \"SHORT_ANSWER\"\n    },\n    {\n      \"citation\": {\n        \"reasoning\": \"The source provides the definitions for each of the concurrency problems listed in the matching pairs.\",\n        \"sourceLocation\": \"Slide 12\",\n        \"verbatimQuote\": \"The unrepeatable Read Problem: Transaction T reads the same item twice and the item is changed by another transaction T’ between the two reads.\"\n      },\n      \"correctAnswer\": null,\n      \"pairs\": [\n        {\n          \"left\": \"Dirty Read Problem\",\n          \"right\": \"An updated item is accessed by another transaction before the original transaction's failure is reverted.\"\n        },\n        {\n          \"left\": \"Unrepeatable Read Problem\",\n          \"right\": \"An item is changed by another transaction between two reads by the same transaction.\"\n        },\n        {\n          \"left\": \"Incorrect Summary Problem\",\n          \"right\": \"An aggregate function calculates some values before they are updated and others after.\"\n        }\n      ],\n      \"prompt\": \"Match each concurrency problem with its correct description.\",\n      \"type\": \"MATCHING\"\n    }\n  ]\n}\n```",
+  "run" : 1,
+  "schema_ok" : true,
+  "temperature" : 0.2,
+  "timestamp" : "2026-06-05T13:02:39.415666"
+}

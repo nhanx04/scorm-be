@@ -1,12 +1,16 @@
 {
   "type": "MCQ_MULTIPLE",
   "description": "Câu hỏi trắc nghiệm nhiều đáp án đúng. correctAnswer LUÔN là MẢNG chuỗi (array of string), kể cả khi tạm thời chỉ có 1 đáp án đúng. Phải có ít nhất 2 đáp án đúng để đúng nghĩa MULTIPLE.",
-  "sourceContext": "Các ngôn ngữ lập trình hướng đối tượng phổ biến hiện nay bao gồm Java, C++, Python và C#. Trong khi đó, JavaScript là ngôn ngữ đa mô hình nhưng chủ yếu được biết đến với mô hình prototype-based. Haskell là ngôn ngữ lập trình hàm thuần túy.",
+  "sourceContext": "Slide 5: Các ngôn ngữ lập trình hướng đối tượng phổ biến hiện nay bao gồm Java, C++, Python và C#. Trong khi đó, JavaScript là ngôn ngữ đa mô hình nhưng chủ yếu được biết đến với mô hình prototype-based. Haskell là ngôn ngữ lập trình hàm thuần túy.",
   "expectedOutput": {
     "type": "MCQ_MULTIPLE",
     "prompt": "Theo tài liệu, những ngôn ngữ nào sau đây thuộc nhóm hướng đối tượng phổ biến?",
-    "options": ["Java", "Haskell", "Python", "C#", "Haskell"],
+    "options": ["Java", "Haskell", "Python", "C#", "JavaScript"],
     "correctAnswer": ["Java", "Python", "C#"],
-    "explanation": "Tài liệu liệt kê Java, C++, Python và C# là các ngôn ngữ hướng đối tượng phổ biến. Haskell là ngôn ngữ lập trình hàm, không thuộc nhóm này."
+    "citation": {
+      "sourceLocation": "Slide 5",
+      "verbatimQuote": "Các ngôn ngữ lập trình hướng đối tượng phổ biến hiện nay bao gồm Java, C++, Python và C#",
+      "reasoning": "Quote liệt kê đúng 4 ngôn ngữ OOP phổ biến; Haskell bị loại vì là ngôn ngữ hàm."
+    }
   }
 }
