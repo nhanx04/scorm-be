@@ -61,4 +61,11 @@ public class CourseController {
             Authentication authentication) {
         return ResponseEntity.ok(courseService.importScormPackage(file, authentication));
     }
+
+    @GetMapping("/recent")
+    public ResponseEntity<List<CourseResponse>> getRecent(
+            @RequestParam(defaultValue = "6") int limit,
+            Authentication authentication) {
+        return ResponseEntity.ok(courseService.getRecentCourses(authentication, limit));
+    }
 }

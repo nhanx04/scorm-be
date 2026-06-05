@@ -517,6 +517,16 @@ public class CourseServiceImpl implements CourseService {
         return course;
     }
 
+    @Override
+    public List<CourseResponse> getRecentCourses(Authentication authentication, int limit) {
+        User currentUser = (User) authentication.getPrincipal();
+        return courseRepository.findByUser_UserIdOrderByUpdatedAtDesc(currentUser.getUserId())
+                .stream()
+                .limit(limit)
+                .map(course -> CourseResponse.fromEntity(course, parseJson(course.getExtraInfor())))
+                .toList();
+    }
+
     private JsonNode parseJson(String json) {
         if (json == null) {
             return null;

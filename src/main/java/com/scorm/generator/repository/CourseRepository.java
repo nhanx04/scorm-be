@@ -7,5 +7,6 @@ import java.util.List;
 
 public interface CourseRepository extends JpaRepository<Course, Long> {
     List<Course> findByUser_UserIdOrderByCreatedAtDesc(Long userId);
-}
 
+    List<Course> findByUser_UserIdOrderByUpdatedAtDesc(Long userId);
+}

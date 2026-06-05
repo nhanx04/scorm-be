@@ -24,4 +24,6 @@ public interface CourseService {
     CourseResponse saveAiCourseOutline(AiCourseOutline outline, Authentication authentication);
 
     CourseResponse importScormPackage(MultipartFile file, Authentication authentication);
+
+    List<CourseResponse> getRecentCourses(Authentication authentication, int limit);
 }
