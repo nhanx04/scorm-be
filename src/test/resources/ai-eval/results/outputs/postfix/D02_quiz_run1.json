@@ -1,6 +1,6 @@
 {
-  "cleaned" : "{\n  \"questions\": [\n    {\n      \"type\": \"MCQ_SINGLE\",\n      \"prompt\": \"According to the provided material, what is the default behavior option when using the DROP TABLE command if it is not explicitly specified?\",\n      \"options\": [\n        \"CASCADE\",\n        \"RESTRICT\",\n        \"SET NULL\",\n        \"ALLOW\"\n      ],\n      \"correctAnswer\": \"RESTRICT\",\n      \"explanation\": \"Slide 25: When describing the DROP TABLE command, the material states, 'RESTRICT (default): dropped on if it is not referenced in any constraints or views'.\"\n    },\n    {\n      \"type\": \"TRUE_FALSE\",\n      \"prompt\": \"True or False: Based on the document, the `CREATE VIEW` statement is used to create base tables, which are physically stored as a file by the DBMS.\",\n      \"correctAnswer\": false,\n      \"explanation\": \"Slide 10: The document distinguishes between 'Base tables' and 'Virtual relations'. It states that base tables are 'actually created and stored as a file by the DBMS', while virtual relations are 'Created through the CREATE VIEW statement'. The question incorrectly associates `CREATE VIEW` with base tables.\"\n    },\n    {\n      \"type\": \"SHORT_ANSWER\",\n      \"prompt\": \"Based on the 'Introduction of Structured Query Language' slide, list the four commands that are part of the Data Control Language (DCL).\",\n      \"correctAnswer\": [\n        \"Commit, Rollback, Grant, Revoke\"\n      ],\n      \"explanation\": \"Slide 4: Under the heading 'Data Control Language (DCL)', the document lists the following commands: 'Commit, Rollback, Grant, Revoke'.\"\n    },\n    {\n      \"type\": \"FILL_IN_THE_BLANK\",\n      \"prompt\": \"Complete the definition of a Schema based on the provided slide.\",\n      \"sentenceHtml\": \"A Schema is a group of ___(1)___ and other constructs that belong to the same ___(2)___ application.\",\n      \"correctAnswer\": [\n        \"tables\",\n        \"database\"\n      ],\n      \"explanation\": \"Slide 8: The definition is provided directly: 'Schema: a group of tables and other constructs that belong to the same database application'.\"\n    },\n    {\n      \"type\": \"MATCHING\",\n      \"prompt\": \"Match each SQL constraint clause with its correct description from the material.\",\n      \"pairs\": [\n        {\n          \"left\": \"PRIMARY KEY\",\n          \"right\": \"Specifies one or more attributes that make up the primary key of a relation.\"\n        },\n        {\n          \"left\": \"UNIQUE\",\n          \"right\": \"Specifies alternate (secondary) keys.\"\n        },\n        {\n          \"left\": \"FOREIGN KEY\",\n          \"right\": \"Defines a relationship and enforces referential integrity by referencing a parent table.\"\n        },\n        {\n          \"left\": \"CHECK\",\n          \"right\": \"Specifies a condition that must be met for each tuple when it is inserted or modified.\"\n        }\n      ],\n      \"correctAnswer\": null,\n      \"explanation\": \"Theo tài liệu:\\n- Slide 15: 'PRIMARY KEY clause: specifies one or more attributes that make up the primary key of a relation.'\\n- Slide 15: 'UNIQUE clause: Specifies alternate (secondary) keys.'\\n- Slide 16: The FOREIGN KEY clause is shown with 'REFERENCES ParentTableName', indicating its role in referential integrity.\\n- Slide 23: 'Specifying constraints on tuples using CHECK. Affected on each tuple individually as being inserted or modified'.\"\n    }\n  ]\n}",
-  "completion_tokens" : 816,
+  "cleaned" : "{\n  \"questions\": [\n    {\n      \"type\": \"MCQ_MULTIPLE\",\n      \"prompt\": \"According to the provided material, which of the following commands are part of the Data Definition Language (DDL)?\",\n      \"options\": [\n        \"CREATE\",\n        \"SELECT\",\n        \"DROP\",\n        \"GRANT\",\n        \"ALTER\"\n      ],\n      \"correctAnswer\": [\n        \"CREATE\",\n        \"DROP\",\n        \"ALTER\"\n      ],\n      \"explanation\": \"Slide 4: The material lists the basic SQL sub-languages. Under 'Data Definition Language (DDL)', it explicitly lists 'Create, Alter, Drop'.\"\n    },\n    {\n      \"type\": \"MATCHING\",\n      \"prompt\": \"Match each SQL constraint or clause with its correct description based on the document.\",\n      \"pairs\": [\n        {\n          \"left\": \"PRIMARY KEY clause\",\n          \"right\": \"Specifies one or more attributes that make up the primary key of a relation.\"\n        },\n        {\n          \"left\": \"UNIQUE clause\",\n          \"right\": \"Specifies alternate (secondary) keys.\"\n        },\n        {\n          \"left\": \"NOT NULL\",\n          \"right\": \"A constraint where NULL is not permitted for a particular attribute.\"\n        },\n        {\n          \"left\": \"DROP SCHEMA ... CASCADE\",\n          \"right\": \"Destroys a schema and all constraints and views that reference its tables.\"\n        }\n      ],\n      \"correctAnswer\": null,\n      \"explanation\": \"Theo tài liệu:\\n- Slide 15: 'PRIMARY KEY clause: specifies one or more attributes that make up the primary key of a relation.'\\n- Slide 15: 'UNIQUE clause: Specifies alternate (secondary) keys.'\\n- Slide 17: 'NOT NULL: NULL is not permitted for a particular attribute.'\\n- Slide 24 & 25: The CASCADE option for DROP means that all referencing constraints and views are dropped automatically.\"\n    },\n    {\n      \"type\": \"TRUE_FALSE\",\n      \"prompt\": \"True or False: When using the `DROP TABLE` command, if the table is referenced in any constraints, the default behavior is to automatically drop those constraints along with the table.\",\n      \"correctAnswer\": false,\n      \"explanation\": \"Slide 25: The document states that for `DROP TABLE`, 'RESTRICT (default): dropped only if it is not referenced in any constraints or views'. The behavior described in the question is CASCADE, not the default.\"\n    },\n    {\n      \"type\": \"FILL_IN_THE_BLANK\",\n      \"prompt\": \"Fill in the blank with the correct term from the document.\",\n      \"sentenceHtml\": \"A <input> is a named collection of schemas.\",\n      \"correctAnswer\": [\n        \"Catalog\"\n      ],\n      \"explanation\": \"Slide 8: The material defines a Catalog as 'a named collection of schemas'.\"\n    },\n    {\n      \"type\": \"SHORT_ANSWER\",\n      \"prompt\": \"According to the material, what are the four possible 'referential triggered actions' for a FOREIGN KEY constraint?\",\n      \"correctAnswer\": [\n        \"RESTRICT\",\n        \"SET NULL\",\n        \"CASCADE\",\n        \"SET DEFAULT\"\n      ],\n      \"explanation\": \"Slide 16: The document explicitly lists the four actions: 'Referential triggered actions: RESTRICT (default), SET NULL, CASCADE, and SET DEFAULT'.\"\n    }\n  ]\n}",
+  "completion_tokens" : 787,
   "doc_file" : "4-1_SQL.pdf",
   "doc_id" : "D02",
   "doc_language" : "en",
@@ -11,67 +11,67 @@
   "error_type" : null,
   "feature" : "quiz",
   "json_parse_ok" : true,
-  "latency_ms" : 20923,
+  "latency_ms" : 19580,
   "model" : "gemini-2.5-pro",
   "parsed" : {
     "questions" : [ {
-      "type" : "MCQ_SINGLE",
-      "prompt" : "According to the provided material, what is the default behavior option when using the DROP TABLE command if it is not explicitly specified?",
-      "options" : [ "CASCADE", "RESTRICT", "SET NULL", "ALLOW" ],
-      "correctAnswer" : "RESTRICT",
-      "explanation" : "Slide 25: When describing the DROP TABLE command, the material states, 'RESTRICT (default): dropped on if it is not referenced in any constraints or views'.",
+      "type" : "MCQ_MULTIPLE",
+      "prompt" : "According to the provided material, which of the following commands are part of the Data Definition Language (DDL)?",
+      "options" : [ "CREATE", "SELECT", "DROP", "GRANT", "ALTER" ],
+      "correctAnswer" : [ "CREATE", "DROP", "ALTER" ],
+      "explanation" : "Slide 4: The material lists the basic SQL sub-languages. Under 'Data Definition Language (DDL)', it explicitly lists 'Create, Alter, Drop'.",
       "sentenceHtml" : null,
       "pairs" : null
+    }, {
+      "type" : "MATCHING",
+      "prompt" : "Match each SQL constraint or clause with its correct description based on the document.",
+      "options" : null,
+      "correctAnswer" : null,
+      "explanation" : "Theo tài liệu:\n- Slide 15: 'PRIMARY KEY clause: specifies one or more attributes that make up the primary key of a relation.'\n- Slide 15: 'UNIQUE clause: Specifies alternate (secondary) keys.'\n- Slide 17: 'NOT NULL: NULL is not permitted for a particular attribute.'\n- Slide 24 & 25: The CASCADE option for DROP means that all referencing constraints and views are dropped automatically.",
+      "sentenceHtml" : null,
+      "pairs" : [ {
+        "left" : "PRIMARY KEY clause",
+        "right" : "Specifies one or more attributes that make up the primary key of a relation."
+      }, {
+        "left" : "UNIQUE clause",
+        "right" : "Specifies alternate (secondary) keys."
+      }, {
+        "left" : "NOT NULL",
+        "right" : "A constraint where NULL is not permitted for a particular attribute."
+      }, {
+        "left" : "DROP SCHEMA ... CASCADE",
+        "right" : "Destroys a schema and all constraints and views that reference its tables."
+      } ]
     }, {
       "type" : "TRUE_FALSE",
-      "prompt" : "True or False: Based on the document, the `CREATE VIEW` statement is used to create base tables, which are physically stored as a file by the DBMS.",
+      "prompt" : "True or False: When using the `DROP TABLE` command, if the table is referenced in any constraints, the default behavior is to automatically drop those constraints along with the table.",
       "options" : null,
       "correctAnswer" : false,
-      "explanation" : "Slide 10: The document distinguishes between 'Base tables' and 'Virtual relations'. It states that base tables are 'actually created and stored as a file by the DBMS', while virtual relations are 'Created through the CREATE VIEW statement'. The question incorrectly associates `CREATE VIEW` with base tables.",
-      "sentenceHtml" : null,
-      "pairs" : null
-    }, {
-      "type" : "SHORT_ANSWER",
-      "prompt" : "Based on the 'Introduction of Structured Query Language' slide, list the four commands that are part of the Data Control Language (DCL).",
-      "options" : null,
-      "correctAnswer" : [ "Commit, Rollback, Grant, Revoke" ],
-      "explanation" : "Slide 4: Under the heading 'Data Control Language (DCL)', the document lists the following commands: 'Commit, Rollback, Grant, Revoke'.",
+      "explanation" : "Slide 25: The document states that for `DROP TABLE`, 'RESTRICT (default): dropped only if it is not referenced in any constraints or views'. The behavior described in the question is CASCADE, not the default.",
       "sentenceHtml" : null,
       "pairs" : null
     }, {
       "type" : "FILL_IN_THE_BLANK",
-      "prompt" : "Complete the definition of a Schema based on the provided slide.",
+      "prompt" : "Fill in the blank with the correct term from the document.",
       "options" : null,
-      "correctAnswer" : [ "tables", "database" ],
-      "explanation" : "Slide 8: The definition is provided directly: 'Schema: a group of tables and other constructs that belong to the same database application'.",
-      "sentenceHtml" : "A Schema is a group of ___(1)___ and other constructs that belong to the same ___(2)___ application.",
+      "correctAnswer" : [ "Catalog" ],
+      "explanation" : "Slide 8: The material defines a Catalog as 'a named collection of schemas'.",
+      "sentenceHtml" : "A <input> is a named collection of schemas.",
       "pairs" : null
     }, {
-      "type" : "MATCHING",
-      "prompt" : "Match each SQL constraint clause with its correct description from the material.",
+      "type" : "SHORT_ANSWER",
+      "prompt" : "According to the material, what are the four possible 'referential triggered actions' for a FOREIGN KEY constraint?",
       "options" : null,
-      "correctAnswer" : null,
-      "explanation" : "Theo tài liệu:\n- Slide 15: 'PRIMARY KEY clause: specifies one or more attributes that make up the primary key of a relation.'\n- Slide 15: 'UNIQUE clause: Specifies alternate (secondary) keys.'\n- Slide 16: The FOREIGN KEY clause is shown with 'REFERENCES ParentTableName', indicating its role in referential integrity.\n- Slide 23: 'Specifying constraints on tuples using CHECK. Affected on each tuple individually as being inserted or modified'.",
+      "correctAnswer" : [ "RESTRICT", "SET NULL", "CASCADE", "SET DEFAULT" ],
+      "explanation" : "Slide 16: The document explicitly lists the four actions: 'Referential triggered actions: RESTRICT (default), SET NULL, CASCADE, and SET DEFAULT'.",
       "sentenceHtml" : null,
-      "pairs" : [ {
-        "left" : "PRIMARY KEY",
-        "right" : "Specifies one or more attributes that make up the primary key of a relation."
-      }, {
-        "left" : "UNIQUE",
-        "right" : "Specifies alternate (secondary) keys."
-      }, {
-        "left" : "FOREIGN KEY",
-        "right" : "Defines a relationship and enforces referential integrity by referencing a parent table."
-      }, {
-        "left" : "CHECK",
-        "right" : "Specifies a condition that must be met for each tuple when it is inserted or modified."
-      } ]
+      "pairs" : null
     } ]
   },
-  "prompt_tokens" : 3132,
-  "raw" : "```json\n{\n  \"questions\": [\n    {\n      \"type\": \"MCQ_SINGLE\",\n      \"prompt\": \"According to the provided material, what is the default behavior option when using the DROP TABLE command if it is not explicitly specified?\",\n      \"options\": [\n        \"CASCADE\",\n        \"RESTRICT\",\n        \"SET NULL\",\n        \"ALLOW\"\n      ],\n      \"correctAnswer\": \"RESTRICT\",\n      \"explanation\": \"Slide 25: When describing the DROP TABLE command, the material states, 'RESTRICT (default): dropped on if it is not referenced in any constraints or views'.\"\n    },\n    {\n      \"type\": \"TRUE_FALSE\",\n      \"prompt\": \"True or False: Based on the document, the `CREATE VIEW` statement is used to create base tables, which are physically stored as a file by the DBMS.\",\n      \"correctAnswer\": false,\n      \"explanation\": \"Slide 10: The document distinguishes between 'Base tables' and 'Virtual relations'. It states that base tables are 'actually created and stored as a file by the DBMS', while virtual relations are 'Created through the CREATE VIEW statement'. The question incorrectly associates `CREATE VIEW` with base tables.\"\n    },\n    {\n      \"type\": \"SHORT_ANSWER\",\n      \"prompt\": \"Based on the 'Introduction of Structured Query Language' slide, list the four commands that are part of the Data Control Language (DCL).\",\n      \"correctAnswer\": [\n        \"Commit, Rollback, Grant, Revoke\"\n      ],\n      \"explanation\": \"Slide 4: Under the heading 'Data Control Language (DCL)', the document lists the following commands: 'Commit, Rollback, Grant, Revoke'.\"\n    },\n    {\n      \"type\": \"FILL_IN_THE_BLANK\",\n      \"prompt\": \"Complete the definition of a Schema based on the provided slide.\",\n      \"sentenceHtml\": \"A Schema is a group of ___(1)___ and other constructs that belong to the same ___(2)___ application.\",\n      \"correctAnswer\": [\n        \"tables\",\n        \"database\"\n      ],\n      \"explanation\": \"Slide 8: The definition is provided directly: 'Schema: a group of tables and other constructs that belong to the same database application'.\"\n    },\n    {\n      \"type\": \"MATCHING\",\n      \"prompt\": \"Match each SQL constraint clause with its correct description from the material.\",\n      \"pairs\": [\n        {\n          \"left\": \"PRIMARY KEY\",\n          \"right\": \"Specifies one or more attributes that make up the primary key of a relation.\"\n        },\n        {\n          \"left\": \"UNIQUE\",\n          \"right\": \"Specifies alternate (secondary) keys.\"\n        },\n        {\n          \"left\": \"FOREIGN KEY\",\n          \"right\": \"Defines a relationship and enforces referential integrity by referencing a parent table.\"\n        },\n        {\n          \"left\": \"CHECK\",\n          \"right\": \"Specifies a condition that must be met for each tuple when it is inserted or modified.\"\n        }\n      ],\n      \"correctAnswer\": null,\n      \"explanation\": \"Theo tài liệu:\\n- Slide 15: 'PRIMARY KEY clause: specifies one or more attributes that make up the primary key of a relation.'\\n- Slide 15: 'UNIQUE clause: Specifies alternate (secondary) keys.'\\n- Slide 16: The FOREIGN KEY clause is shown with 'REFERENCES ParentTableName', indicating its role in referential integrity.\\n- Slide 23: 'Specifying constraints on tuples using CHECK. Affected on each tuple individually as being inserted or modified'.\"\n    }\n  ]\n}\n```",
+  "prompt_tokens" : 3172,
+  "raw" : "```json\n{\n  \"questions\": [\n    {\n      \"type\": \"MCQ_MULTIPLE\",\n      \"prompt\": \"According to the provided material, which of the following commands are part of the Data Definition Language (DDL)?\",\n      \"options\": [\n        \"CREATE\",\n        \"SELECT\",\n        \"DROP\",\n        \"GRANT\",\n        \"ALTER\"\n      ],\n      \"correctAnswer\": [\n        \"CREATE\",\n        \"DROP\",\n        \"ALTER\"\n      ],\n      \"explanation\": \"Slide 4: The material lists the basic SQL sub-languages. Under 'Data Definition Language (DDL)', it explicitly lists 'Create, Alter, Drop'.\"\n    },\n    {\n      \"type\": \"MATCHING\",\n      \"prompt\": \"Match each SQL constraint or clause with its correct description based on the document.\",\n      \"pairs\": [\n        {\n          \"left\": \"PRIMARY KEY clause\",\n          \"right\": \"Specifies one or more attributes that make up the primary key of a relation.\"\n        },\n        {\n          \"left\": \"UNIQUE clause\",\n          \"right\": \"Specifies alternate (secondary) keys.\"\n        },\n        {\n          \"left\": \"NOT NULL\",\n          \"right\": \"A constraint where NULL is not permitted for a particular attribute.\"\n        },\n        {\n          \"left\": \"DROP SCHEMA ... CASCADE\",\n          \"right\": \"Destroys a schema and all constraints and views that reference its tables.\"\n        }\n      ],\n      \"correctAnswer\": null,\n      \"explanation\": \"Theo tài liệu:\\n- Slide 15: 'PRIMARY KEY clause: specifies one or more attributes that make up the primary key of a relation.'\\n- Slide 15: 'UNIQUE clause: Specifies alternate (secondary) keys.'\\n- Slide 17: 'NOT NULL: NULL is not permitted for a particular attribute.'\\n- Slide 24 & 25: The CASCADE option for DROP means that all referencing constraints and views are dropped automatically.\"\n    },\n    {\n      \"type\": \"TRUE_FALSE\",\n      \"prompt\": \"True or False: When using the `DROP TABLE` command, if the table is referenced in any constraints, the default behavior is to automatically drop those constraints along with the table.\",\n      \"correctAnswer\": false,\n      \"explanation\": \"Slide 25: The document states that for `DROP TABLE`, 'RESTRICT (default): dropped only if it is not referenced in any constraints or views'. The behavior described in the question is CASCADE, not the default.\"\n    },\n    {\n      \"type\": \"FILL_IN_THE_BLANK\",\n      \"prompt\": \"Fill in the blank with the correct term from the document.\",\n      \"sentenceHtml\": \"A <input> is a named collection of schemas.\",\n      \"correctAnswer\": [\n        \"Catalog\"\n      ],\n      \"explanation\": \"Slide 8: The material defines a Catalog as 'a named collection of schemas'.\"\n    },\n    {\n      \"type\": \"SHORT_ANSWER\",\n      \"prompt\": \"According to the material, what are the four possible 'referential triggered actions' for a FOREIGN KEY constraint?\",\n      \"correctAnswer\": [\n        \"RESTRICT\",\n        \"SET NULL\",\n        \"CASCADE\",\n        \"SET DEFAULT\"\n      ],\n      \"explanation\": \"Slide 16: The document explicitly lists the four actions: 'Referential triggered actions: RESTRICT (default), SET NULL, CASCADE, and SET DEFAULT'.\"\n    }\n  ]\n}\n```",
   "run" : 1,
   "schema_ok" : true,
   "temperature" : 0.2,
-  "timestamp" : "2026-06-04T22:14:18.608169"
+  "timestamp" : "2026-06-05T07:32:36.816899"
 }

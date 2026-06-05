@@ -1,0 +1,77 @@
+{
+  "cleaned" : "{\n  \"questions\": [\n    {\n      \"type\": \"MCQ_SINGLE\",\n      \"prompt\": \"According to the provided document, which of the following is NOT listed as an algorithm for the Shortest Path Problem?\",\n      \"options\": [\n        \"Dijkstra's Algorithm\",\n        \"Bellman-Ford Algorithm\",\n        \"Ford's algorithm\",\n        \"Kruskal's Algorithm\"\n      ],\n      \"correctAnswer\": \"Kruskal's Algorithm\",\n      \"explanation\": \"Theo tài liệu: Slide 9.4, under the 'Contents' section for 'Shortest Path Problem', lists Dijkstra's, Bellman-Ford, Floyd-Warshall, and Ford's algorithms. Kruskal's Algorithm is not mentioned in this list.\"\n    },\n    {\n      \"type\": \"TRUE_FALSE\",\n      \"prompt\": \"True or False: Based on the 'Acknowledgement' slide, all content in this presentation was created by faculty from the University of Technology - VNUHCM.\",\n      \"correctAnswer\": false,\n      \"explanation\": \"Theo tài liệu: Slide 9.2, the 'Acknowledgement' slide, explicitly states: 'Some slides about Euler and Hamilton circuits are created by Chung Ki-hong and Hur Joon-seok from KAIST.' This indicates that not all content was created by the VNUHCM faculty.\"\n    },\n    {\n      \"type\": \"SHORT_ANSWER\",\n      \"prompt\": \"What is the full title of the course this material belongs to, as stated on slide 9.1?\",\n      \"correctAnswer\": [\n        \"Discrete Structures for Computing\"\n      ],\n      \"explanation\": \"Theo tài liệu: Slide 9.1 explicitly mentions the course title under the chapter name: 'Discrete Structures for Computing on August 16, 2021'.\"\n    },\n    {\n      \"type\": \"FILL_IN_THE_BLANK\",\n      \"prompt\": \"Complete the sentence based on the course learning outcomes.\",\n      \"sentenceHtml\": \"Course learning outcome L.O.1.2 is to 'Define basic discrete structures: set, mapping, ___'.\",\n      \"correctAnswer\": [\n        \"graphs\"\n      ],\n      \"explanation\": \"Theo tài liệu: Slide 9.3, under 'Course learning outcomes', lists L.O.1.2 as 'Define basic discrete structures: set, mapping, graphs'.\"\n    },\n    {\n      \"type\": \"MATCHING\",\n      \"prompt\": \"Match the main content section number with its corresponding topic, as listed on the 'Contents' slide.\",\n      \"pairs\": [\n        {\n          \"left\": \"Section 1\",\n          \"right\": \"Connectivity\"\n        },\n        {\n          \"left\": \"Section 2\",\n          \"right\": \"Euler and Hamilton Paths\"\n        },\n        {\n          \"left\": \"Section 3\",\n          \"right\": \"Shortest Path Problem\"\n        },\n        {\n          \"left\": \"Section 4\",\n          \"right\": \"Graph Coloring\"\n        }\n      ],\n      \"correctAnswer\": null,\n      \"explanation\": \"Theo tài liệu: Slide 9.4, the 'Contents' slide, clearly lists the four main sections in this order: 1 Connectivity, 2 Euler and Hamilton Paths, 3 Shortest Path Problem, 4 Graph Coloring.\"\n    }\n  ]\n}",
+  "completion_tokens" : 758,
+  "doc_file" : "ds10connectivity.pdf",
+  "doc_id" : "D05",
+  "doc_language" : "en",
+  "doc_pages" : 360,
+  "doc_title" : "Graph Connectivity (Discrete Structures - Chapter 9)",
+  "empty_field" : false,
+  "error_message" : null,
+  "error_type" : null,
+  "feature" : "quiz",
+  "json_parse_ok" : true,
+  "latency_ms" : 25266,
+  "model" : "gemini-2.5-pro",
+  "parsed" : {
+    "questions" : [ {
+      "type" : "MCQ_SINGLE",
+      "prompt" : "According to the provided document, which of the following is NOT listed as an algorithm for the Shortest Path Problem?",
+      "options" : [ "Dijkstra's Algorithm", "Bellman-Ford Algorithm", "Ford's algorithm", "Kruskal's Algorithm" ],
+      "correctAnswer" : "Kruskal's Algorithm",
+      "explanation" : "Theo tài liệu: Slide 9.4, under the 'Contents' section for 'Shortest Path Problem', lists Dijkstra's, Bellman-Ford, Floyd-Warshall, and Ford's algorithms. Kruskal's Algorithm is not mentioned in this list.",
+      "sentenceHtml" : null,
+      "pairs" : null
+    }, {
+      "type" : "TRUE_FALSE",
+      "prompt" : "True or False: Based on the 'Acknowledgement' slide, all content in this presentation was created by faculty from the University of Technology - VNUHCM.",
+      "options" : null,
+      "correctAnswer" : false,
+      "explanation" : "Theo tài liệu: Slide 9.2, the 'Acknowledgement' slide, explicitly states: 'Some slides about Euler and Hamilton circuits are created by Chung Ki-hong and Hur Joon-seok from KAIST.' This indicates that not all content was created by the VNUHCM faculty.",
+      "sentenceHtml" : null,
+      "pairs" : null
+    }, {
+      "type" : "SHORT_ANSWER",
+      "prompt" : "What is the full title of the course this material belongs to, as stated on slide 9.1?",
+      "options" : null,
+      "correctAnswer" : [ "Discrete Structures for Computing" ],
+      "explanation" : "Theo tài liệu: Slide 9.1 explicitly mentions the course title under the chapter name: 'Discrete Structures for Computing on August 16, 2021'.",
+      "sentenceHtml" : null,
+      "pairs" : null
+    }, {
+      "type" : "FILL_IN_THE_BLANK",
+      "prompt" : "Complete the sentence based on the course learning outcomes.",
+      "options" : null,
+      "correctAnswer" : [ "graphs" ],
+      "explanation" : "Theo tài liệu: Slide 9.3, under 'Course learning outcomes', lists L.O.1.2 as 'Define basic discrete structures: set, mapping, graphs'.",
+      "sentenceHtml" : "Course learning outcome L.O.1.2 is to 'Define basic discrete structures: set, mapping, ___'.",
+      "pairs" : null
+    }, {
+      "type" : "MATCHING",
+      "prompt" : "Match the main content section number with its corresponding topic, as listed on the 'Contents' slide.",
+      "options" : null,
+      "correctAnswer" : null,
+      "explanation" : "Theo tài liệu: Slide 9.4, the 'Contents' slide, clearly lists the four main sections in this order: 1 Connectivity, 2 Euler and Hamilton Paths, 3 Shortest Path Problem, 4 Graph Coloring.",
+      "sentenceHtml" : null,
+      "pairs" : [ {
+        "left" : "Section 1",
+        "right" : "Connectivity"
+      }, {
+        "left" : "Section 2",
+        "right" : "Euler and Hamilton Paths"
+      }, {
+        "left" : "Section 3",
+        "right" : "Shortest Path Problem"
+      }, {
+        "left" : "Section 4",
+        "right" : "Graph Coloring"
+      } ]
+    } ]
+  },
+  "prompt_tokens" : 2580,
+  "raw" : "```json\n{\n  \"questions\": [\n    {\n      \"type\": \"MCQ_SINGLE\",\n      \"prompt\": \"According to the provided document, which of the following is NOT listed as an algorithm for the Shortest Path Problem?\",\n      \"options\": [\n        \"Dijkstra's Algorithm\",\n        \"Bellman-Ford Algorithm\",\n        \"Ford's algorithm\",\n        \"Kruskal's Algorithm\"\n      ],\n      \"correctAnswer\": \"Kruskal's Algorithm\",\n      \"explanation\": \"Theo tài liệu: Slide 9.4, under the 'Contents' section for 'Shortest Path Problem', lists Dijkstra's, Bellman-Ford, Floyd-Warshall, and Ford's algorithms. Kruskal's Algorithm is not mentioned in this list.\"\n    },\n    {\n      \"type\": \"TRUE_FALSE\",\n      \"prompt\": \"True or False: Based on the 'Acknowledgement' slide, all content in this presentation was created by faculty from the University of Technology - VNUHCM.\",\n      \"correctAnswer\": false,\n      \"explanation\": \"Theo tài liệu: Slide 9.2, the 'Acknowledgement' slide, explicitly states: 'Some slides about Euler and Hamilton circuits are created by Chung Ki-hong and Hur Joon-seok from KAIST.' This indicates that not all content was created by the VNUHCM faculty.\"\n    },\n    {\n      \"type\": \"SHORT_ANSWER\",\n      \"prompt\": \"What is the full title of the course this material belongs to, as stated on slide 9.1?\",\n      \"correctAnswer\": [\n        \"Discrete Structures for Computing\"\n      ],\n      \"explanation\": \"Theo tài liệu: Slide 9.1 explicitly mentions the course title under the chapter name: 'Discrete Structures for Computing on August 16, 2021'.\"\n    },\n    {\n      \"type\": \"FILL_IN_THE_BLANK\",\n      \"prompt\": \"Complete the sentence based on the course learning outcomes.\",\n      \"sentenceHtml\": \"Course learning outcome L.O.1.2 is to 'Define basic discrete structures: set, mapping, ___'.\",\n      \"correctAnswer\": [\n        \"graphs\"\n      ],\n      \"explanation\": \"Theo tài liệu: Slide 9.3, under 'Course learning outcomes', lists L.O.1.2 as 'Define basic discrete structures: set, mapping, graphs'.\"\n    },\n    {\n      \"type\": \"MATCHING\",\n      \"prompt\": \"Match the main content section number with its corresponding topic, as listed on the 'Contents' slide.\",\n      \"pairs\": [\n        {\n          \"left\": \"Section 1\",\n          \"right\": \"Connectivity\"\n        },\n        {\n          \"left\": \"Section 2\",\n          \"right\": \"Euler and Hamilton Paths\"\n        },\n        {\n          \"left\": \"Section 3\",\n          \"right\": \"Shortest Path Problem\"\n        },\n        {\n          \"left\": \"Section 4\",\n          \"right\": \"Graph Coloring\"\n        }\n      ],\n      \"correctAnswer\": null,\n      \"explanation\": \"Theo tài liệu: Slide 9.4, the 'Contents' slide, clearly lists the four main sections in this order: 1 Connectivity, 2 Euler and Hamilton Paths, 3 Shortest Path Problem, 4 Graph Coloring.\"\n    }\n  ]\n}\n```",
+  "run" : 1,
+  "schema_ok" : true,
+  "temperature" : 0.2,
+  "timestamp" : "2026-06-04T22:15:26.987955"
+}

@@ -74,6 +74,9 @@ class AiQualityEvaluationTest {
     private EvalConfig config;
     private ChatClient chatClient;
     private double cumulativeCostUsd = 0.0;
+    // Tika extraction takes 5-15s on long PDFs; cache by doc_id so re-running
+    // multiple passes (smoke / save / postfix / full) doesn't re-parse.
+    private final java.util.Map<String, String> pdfTextCache = new java.util.HashMap<>();
     private final ObjectMapper jsonMapper = new ObjectMapper()
             .enable(SerializationFeature.INDENT_OUTPUT);
     private boolean saveOutputs = false;
@@ -557,6 +560,10 @@ class AiQualityEvaluationTest {
     }
 
     private String readPdfText(EvalConfig.DocumentCfg doc) throws Exception {
+        String cached = pdfTextCache.get(doc.id());
+        if (cached != null) {
+            return cached;
+        }
         Path file = DOCS_DIR.resolve(doc.file());
         if (!Files.exists(file)) {
             throw new IllegalStateException("Missing test document: " + file);
@@ -567,7 +574,9 @@ class AiQualityEvaluationTest {
         for (Document d : docs) {
             sb.append(d.getText()).append('\n');
         }
-        return sb.toString();
+        String text = sb.toString();
+        pdfTextCache.put(doc.id(), text);
+        return text;
     }
 
     private static String stripJsonFence(String raw) {

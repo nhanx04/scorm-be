@@ -1,6 +1,6 @@
 {
-  "cleaned" : "{\n  \"questions\": [\n    {\n      \"type\": \"MCQ_SINGLE\",\n      \"prompt\": \"According to the 'Bayesian Learning Pipeline' diagram, what is the direct output of applying Bayes' rule to the Prior and Likelihood?\",\n      \"options\": [\n        \"Posterior P(H | D)\",\n        \"Decision (Max Expected Utility)\",\n        \"New Prior P(H)\",\n        \"Likelihood P(D | H)\"\n      ],\n      \"correctAnswer\": \"Posterior P(H | D)\",\n      \"explanation\": \"Theo tài liệu: Slide 6, 'Bayesian Learning Pipeline', shows that the 'Prior P(H)' and 'Data & Likelihood P(D | H)' are inputs to the 'update Bayes’ rule' step, which directly produces the 'Posterior P(H | D)'.\"\n    },\n    {\n      \"type\": \"MATCHING\",\n      \"prompt\": \"Match each term from Bayes' Theorem with its correct description as presented in the slides.\",\n      \"pairs\": [\n        {\n          \"left\": \"P(h)\",\n          \"right\": \"Initial belief about a hypothesis before observing data.\"\n        },\n        {\n          \"left\": \"P(D | h)\",\n          \"right\": \"The probability of observing the data, given that the hypothesis is true.\"\n        },\n        {\n          \"left\": \"P(h | D)\",\n          \"right\": \"The updated belief about a hypothesis after observing data.\"\n        },\n        {\n          \"left\": \"P(D)\",\n          \"right\": \"The prior probability of the training data.\"\n        }\n      ],\n      \"correctAnswer\": null,\n      \"explanation\": \"Theo tài liệu: Slide 9, 'Bayes’ Theorem', defines each component: 'P(h): prior probability of hypothesis h', 'P(D): prior probability of training data D', 'P(h | D): posterior probability of h given D', and 'P(D | h): likelihood of observing D given h'. Slide 6 further clarifies these as 'Prior P(H): initial belief' and 'Posterior P(H|D): updated belief'.\"\n    },\n    {\n      \"type\": \"TRUE_FALSE\",\n      \"prompt\": \"Based on the 'Learning vs. Inference and Decision' diagram, the 'Learning' phase is defined as the process of calculating the posterior predictive probability P(y | x, D).\",\n      \"correctAnswer\": false,\n      \"explanation\": \"Theo tài liệu: Slide 7, 'Learning vs. Inference and Decision', explicitly defines 'Learning' as the process of going from 'prior + likelihood → posterior'. The calculation of the posterior predictive P(y | x, D) is defined as 'Inference'.\"\n    },\n    {\n      \"type\": \"FILL_IN_THE_BLANK\",\n      \"prompt\": \"Complete the sentence below describing a key feature of Bayesian Learning.\",\n      \"sentenceHtml\": \"According to the slides, each training example can incrementally update the <input> probability, and combining prior knowledge with <input> leads to the final posterior probability.\",\n      \"correctAnswer\": [\n        \"hypothesis\",\n        \"data\"\n      ],\n      \"explanation\": \"Theo tài liệu: Slide 5, 'Features of Bayesian Learning', lists two key features: 'Each training example can incrementally update hypothesis probability' and 'Prior knowledge + data → final posterior probability'.\"\n    },\n    {\n      \"type\": \"SHORT_ANSWER\",\n      \"prompt\": \"In the 'Bayesian Learning Pipeline', what is the term for the initial belief about a hypothesis before any data is observed?\",\n      \"correctAnswer\": [\n        \"Prior P(H)\",\n        \"Prior\",\n        \"P(H)\"\n      ],\n      \"explanation\": \"Theo tài liệu: Slide 6, in the 'Note' section for the 'Bayesian Learning Pipeline' diagram, it is stated: 'Prior P(H): initial belief'.\"\n    }\n  ]\n}",
-  "completion_tokens" : 885,
+  "cleaned" : "{\n  \"questions\": [\n    {\n      \"type\": \"MATCHING\",\n      \"prompt\": \"Match each term from Bayes' Theorem with its correct description as presented in the material.\",\n      \"pairs\": [\n        {\n          \"left\": \"P(h | D)\",\n          \"right\": \"The posterior probability of hypothesis h given data D.\"\n        },\n        {\n          \"left\": \"P(D | h)\",\n          \"right\": \"The likelihood of observing data D given hypothesis h.\"\n        },\n        {\n          \"left\": \"P(h)\",\n          \"right\": \"The prior probability of hypothesis h.\"\n        },\n        {\n          \"left\": \"P(D)\",\n          \"right\": \"The prior probability of training data D.\"\n        }\n      ],\n      \"correctAnswer\": null,\n      \"explanation\": \"Slide 9: The slide explicitly defines each component of Bayes' Theorem: P(h) is the prior, P(D) is the prior probability of data, P(h | D) is the posterior, and P(D | h) is the likelihood.\"\n    },\n    {\n      \"type\": \"MCQ_SINGLE\",\n      \"prompt\": \"According to the 'Bayesian Learning Pipeline' diagram, what is the key idea of the learning process?\",\n      \"options\": [\n        \"learning = belief update\",\n        \"learning = maximizing expected utility\",\n        \"learning = data collection\",\n        \"learning = inference and decision\"\n      ],\n      \"correctAnswer\": \"learning = belief update\",\n      \"explanation\": \"Slide 6: In the 'Note' section accompanying the pipeline diagram, the last bullet point explicitly states: 'Key idea: learning = belief update'.\"\n    },\n    {\n      \"type\": \"TRUE_FALSE\",\n      \"prompt\": \"True or False: According to the provided material, the posterior probability calculated in one step can serve as the new prior for a subsequent step.\",\n      \"correctAnswer\": true,\n      \"explanation\": \"Slide 6: The 'Note' section of the 'Bayesian Learning Pipeline' slide includes the bullet point: 'Loop: posterior → new prior', which confirms this iterative process.\"\n    },\n    {\n      \"type\": \"FILL_IN_THE_BLANK\",\n      \"prompt\": \"Complete the core formula for Bayes' Theorem as shown in the slides.\",\n      \"sentenceHtml\": \"P(h | D) = ( P(D | h) * <input> ) / P(D)\",\n      \"correctAnswer\": [\n        \"P(h)\"\n      ],\n      \"explanation\": \"Slide 9: The slide presents the full formula for Bayes' Theorem as 'P(h | D) = P(D | h)P(h) / P(D)'. The missing term is P(h).\"\n    },\n    {\n      \"type\": \"MCQ_MULTIPLE\",\n      \"prompt\": \"Based on the 'Features of Bayesian Learning' slide, which of the following are characteristics of this approach? (Select all that apply)\",\n      \"options\": [\n        \"Each training example can incrementally update hypothesis probability.\",\n        \"It can handle multiple hypotheses with their associated probabilities.\",\n        \"It requires all data to be processed in a single batch.\",\n        \"It separates prior knowledge from the data, using only one or the other.\"\n      ],\n      \"correctAnswer\": [\n        \"Each training example can incrementally update hypothesis probability.\",\n        \"It can handle multiple hypotheses with their associated probabilities.\"\n      ],\n      \"explanation\": \"Slide 5: This slide lists the features. The first bullet point is 'Each training example can incrementally update hypothesis probability'. The third bullet point is 'Can handle multiple hypotheses with probabilities'. The other options are contradicted by the material, which mentions combining prior knowledge and data.\"\n    }\n  ]\n}",
+  "completion_tokens" : 853,
   "doc_file" : "BayesianLearning.pdf",
   "doc_id" : "D06",
   "doc_language" : "en",
@@ -11,67 +11,67 @@
   "error_type" : null,
   "feature" : "quiz",
   "json_parse_ok" : true,
-  "latency_ms" : 19913,
+  "latency_ms" : 24371,
   "model" : "gemini-2.5-pro",
   "parsed" : {
     "questions" : [ {
+      "type" : "MATCHING",
+      "prompt" : "Match each term from Bayes' Theorem with its correct description as presented in the material.",
+      "options" : null,
+      "correctAnswer" : null,
+      "explanation" : "Slide 9: The slide explicitly defines each component of Bayes' Theorem: P(h) is the prior, P(D) is the prior probability of data, P(h | D) is the posterior, and P(D | h) is the likelihood.",
+      "sentenceHtml" : null,
+      "pairs" : [ {
+        "left" : "P(h | D)",
+        "right" : "The posterior probability of hypothesis h given data D."
+      }, {
+        "left" : "P(D | h)",
+        "right" : "The likelihood of observing data D given hypothesis h."
+      }, {
+        "left" : "P(h)",
+        "right" : "The prior probability of hypothesis h."
+      }, {
+        "left" : "P(D)",
+        "right" : "The prior probability of training data D."
+      } ]
+    }, {
       "type" : "MCQ_SINGLE",
-      "prompt" : "According to the 'Bayesian Learning Pipeline' diagram, what is the direct output of applying Bayes' rule to the Prior and Likelihood?",
-      "options" : [ "Posterior P(H | D)", "Decision (Max Expected Utility)", "New Prior P(H)", "Likelihood P(D | H)" ],
-      "correctAnswer" : "Posterior P(H | D)",
-      "explanation" : "Theo tài liệu: Slide 6, 'Bayesian Learning Pipeline', shows that the 'Prior P(H)' and 'Data & Likelihood P(D | H)' are inputs to the 'update Bayes’ rule' step, which directly produces the 'Posterior P(H | D)'.",
+      "prompt" : "According to the 'Bayesian Learning Pipeline' diagram, what is the key idea of the learning process?",
+      "options" : [ "learning = belief update", "learning = maximizing expected utility", "learning = data collection", "learning = inference and decision" ],
+      "correctAnswer" : "learning = belief update",
+      "explanation" : "Slide 6: In the 'Note' section accompanying the pipeline diagram, the last bullet point explicitly states: 'Key idea: learning = belief update'.",
       "sentenceHtml" : null,
       "pairs" : null
     }, {
-      "type" : "MATCHING",
-      "prompt" : "Match each term from Bayes' Theorem with its correct description as presented in the slides.",
-      "options" : null,
-      "correctAnswer" : null,
-      "explanation" : "Theo tài liệu: Slide 9, 'Bayes’ Theorem', defines each component: 'P(h): prior probability of hypothesis h', 'P(D): prior probability of training data D', 'P(h | D): posterior probability of h given D', and 'P(D | h): likelihood of observing D given h'. Slide 6 further clarifies these as 'Prior P(H): initial belief' and 'Posterior P(H|D): updated belief'.",
-      "sentenceHtml" : null,
-      "pairs" : [ {
-        "left" : "P(h)",
-        "right" : "Initial belief about a hypothesis before observing data."
-      }, {
-        "left" : "P(D | h)",
-        "right" : "The probability of observing the data, given that the hypothesis is true."
-      }, {
-        "left" : "P(h | D)",
-        "right" : "The updated belief about a hypothesis after observing data."
-      }, {
-        "left" : "P(D)",
-        "right" : "The prior probability of the training data."
-      } ]
-    }, {
       "type" : "TRUE_FALSE",
-      "prompt" : "Based on the 'Learning vs. Inference and Decision' diagram, the 'Learning' phase is defined as the process of calculating the posterior predictive probability P(y | x, D).",
+      "prompt" : "True or False: According to the provided material, the posterior probability calculated in one step can serve as the new prior for a subsequent step.",
       "options" : null,
-      "correctAnswer" : false,
-      "explanation" : "Theo tài liệu: Slide 7, 'Learning vs. Inference and Decision', explicitly defines 'Learning' as the process of going from 'prior + likelihood → posterior'. The calculation of the posterior predictive P(y | x, D) is defined as 'Inference'.",
+      "correctAnswer" : true,
+      "explanation" : "Slide 6: The 'Note' section of the 'Bayesian Learning Pipeline' slide includes the bullet point: 'Loop: posterior → new prior', which confirms this iterative process.",
       "sentenceHtml" : null,
       "pairs" : null
     }, {
       "type" : "FILL_IN_THE_BLANK",
-      "prompt" : "Complete the sentence below describing a key feature of Bayesian Learning.",
+      "prompt" : "Complete the core formula for Bayes' Theorem as shown in the slides.",
       "options" : null,
-      "correctAnswer" : [ "hypothesis", "data" ],
-      "explanation" : "Theo tài liệu: Slide 5, 'Features of Bayesian Learning', lists two key features: 'Each training example can incrementally update hypothesis probability' and 'Prior knowledge + data → final posterior probability'.",
-      "sentenceHtml" : "According to the slides, each training example can incrementally update the <input> probability, and combining prior knowledge with <input> leads to the final posterior probability.",
+      "correctAnswer" : [ "P(h)" ],
+      "explanation" : "Slide 9: The slide presents the full formula for Bayes' Theorem as 'P(h | D) = P(D | h)P(h) / P(D)'. The missing term is P(h).",
+      "sentenceHtml" : "P(h | D) = ( P(D | h) * <input> ) / P(D)",
       "pairs" : null
     }, {
-      "type" : "SHORT_ANSWER",
-      "prompt" : "In the 'Bayesian Learning Pipeline', what is the term for the initial belief about a hypothesis before any data is observed?",
-      "options" : null,
-      "correctAnswer" : [ "Prior P(H)", "Prior", "P(H)" ],
-      "explanation" : "Theo tài liệu: Slide 6, in the 'Note' section for the 'Bayesian Learning Pipeline' diagram, it is stated: 'Prior P(H): initial belief'.",
+      "type" : "MCQ_MULTIPLE",
+      "prompt" : "Based on the 'Features of Bayesian Learning' slide, which of the following are characteristics of this approach? (Select all that apply)",
+      "options" : [ "Each training example can incrementally update hypothesis probability.", "It can handle multiple hypotheses with their associated probabilities.", "It requires all data to be processed in a single batch.", "It separates prior knowledge from the data, using only one or the other." ],
+      "correctAnswer" : [ "Each training example can incrementally update hypothesis probability.", "It can handle multiple hypotheses with their associated probabilities." ],
+      "explanation" : "Slide 5: This slide lists the features. The first bullet point is 'Each training example can incrementally update hypothesis probability'. The third bullet point is 'Can handle multiple hypotheses with probabilities'. The other options are contradicted by the material, which mentions combining prior knowledge and data.",
       "sentenceHtml" : null,
       "pairs" : null
     } ]
   },
-  "prompt_tokens" : 2793,
-  "raw" : "```json\n{\n  \"questions\": [\n    {\n      \"type\": \"MCQ_SINGLE\",\n      \"prompt\": \"According to the 'Bayesian Learning Pipeline' diagram, what is the direct output of applying Bayes' rule to the Prior and Likelihood?\",\n      \"options\": [\n        \"Posterior P(H | D)\",\n        \"Decision (Max Expected Utility)\",\n        \"New Prior P(H)\",\n        \"Likelihood P(D | H)\"\n      ],\n      \"correctAnswer\": \"Posterior P(H | D)\",\n      \"explanation\": \"Theo tài liệu: Slide 6, 'Bayesian Learning Pipeline', shows that the 'Prior P(H)' and 'Data & Likelihood P(D | H)' are inputs to the 'update Bayes’ rule' step, which directly produces the 'Posterior P(H | D)'.\"\n    },\n    {\n      \"type\": \"MATCHING\",\n      \"prompt\": \"Match each term from Bayes' Theorem with its correct description as presented in the slides.\",\n      \"pairs\": [\n        {\n          \"left\": \"P(h)\",\n          \"right\": \"Initial belief about a hypothesis before observing data.\"\n        },\n        {\n          \"left\": \"P(D | h)\",\n          \"right\": \"The probability of observing the data, given that the hypothesis is true.\"\n        },\n        {\n          \"left\": \"P(h | D)\",\n          \"right\": \"The updated belief about a hypothesis after observing data.\"\n        },\n        {\n          \"left\": \"P(D)\",\n          \"right\": \"The prior probability of the training data.\"\n        }\n      ],\n      \"correctAnswer\": null,\n      \"explanation\": \"Theo tài liệu: Slide 9, 'Bayes’ Theorem', defines each component: 'P(h): prior probability of hypothesis h', 'P(D): prior probability of training data D', 'P(h | D): posterior probability of h given D', and 'P(D | h): likelihood of observing D given h'. Slide 6 further clarifies these as 'Prior P(H): initial belief' and 'Posterior P(H|D): updated belief'.\"\n    },\n    {\n      \"type\": \"TRUE_FALSE\",\n      \"prompt\": \"Based on the 'Learning vs. Inference and Decision' diagram, the 'Learning' phase is defined as the process of calculating the posterior predictive probability P(y | x, D).\",\n      \"correctAnswer\": false,\n      \"explanation\": \"Theo tài liệu: Slide 7, 'Learning vs. Inference and Decision', explicitly defines 'Learning' as the process of going from 'prior + likelihood → posterior'. The calculation of the posterior predictive P(y | x, D) is defined as 'Inference'.\"\n    },\n    {\n      \"type\": \"FILL_IN_THE_BLANK\",\n      \"prompt\": \"Complete the sentence below describing a key feature of Bayesian Learning.\",\n      \"sentenceHtml\": \"According to the slides, each training example can incrementally update the <input> probability, and combining prior knowledge with <input> leads to the final posterior probability.\",\n      \"correctAnswer\": [\n        \"hypothesis\",\n        \"data\"\n      ],\n      \"explanation\": \"Theo tài liệu: Slide 5, 'Features of Bayesian Learning', lists two key features: 'Each training example can incrementally update hypothesis probability' and 'Prior knowledge + data → final posterior probability'.\"\n    },\n    {\n      \"type\": \"SHORT_ANSWER\",\n      \"prompt\": \"In the 'Bayesian Learning Pipeline', what is the term for the initial belief about a hypothesis before any data is observed?\",\n      \"correctAnswer\": [\n        \"Prior P(H)\",\n        \"Prior\",\n        \"P(H)\"\n      ],\n      \"explanation\": \"Theo tài liệu: Slide 6, in the 'Note' section for the 'Bayesian Learning Pipeline' diagram, it is stated: 'Prior P(H): initial belief'.\"\n    }\n  ]\n}\n```",
+  "prompt_tokens" : 2833,
+  "raw" : "```json\n{\n  \"questions\": [\n    {\n      \"type\": \"MATCHING\",\n      \"prompt\": \"Match each term from Bayes' Theorem with its correct description as presented in the material.\",\n      \"pairs\": [\n        {\n          \"left\": \"P(h | D)\",\n          \"right\": \"The posterior probability of hypothesis h given data D.\"\n        },\n        {\n          \"left\": \"P(D | h)\",\n          \"right\": \"The likelihood of observing data D given hypothesis h.\"\n        },\n        {\n          \"left\": \"P(h)\",\n          \"right\": \"The prior probability of hypothesis h.\"\n        },\n        {\n          \"left\": \"P(D)\",\n          \"right\": \"The prior probability of training data D.\"\n        }\n      ],\n      \"correctAnswer\": null,\n      \"explanation\": \"Slide 9: The slide explicitly defines each component of Bayes' Theorem: P(h) is the prior, P(D) is the prior probability of data, P(h | D) is the posterior, and P(D | h) is the likelihood.\"\n    },\n    {\n      \"type\": \"MCQ_SINGLE\",\n      \"prompt\": \"According to the 'Bayesian Learning Pipeline' diagram, what is the key idea of the learning process?\",\n      \"options\": [\n        \"learning = belief update\",\n        \"learning = maximizing expected utility\",\n        \"learning = data collection\",\n        \"learning = inference and decision\"\n      ],\n      \"correctAnswer\": \"learning = belief update\",\n      \"explanation\": \"Slide 6: In the 'Note' section accompanying the pipeline diagram, the last bullet point explicitly states: 'Key idea: learning = belief update'.\"\n    },\n    {\n      \"type\": \"TRUE_FALSE\",\n      \"prompt\": \"True or False: According to the provided material, the posterior probability calculated in one step can serve as the new prior for a subsequent step.\",\n      \"correctAnswer\": true,\n      \"explanation\": \"Slide 6: The 'Note' section of the 'Bayesian Learning Pipeline' slide includes the bullet point: 'Loop: posterior → new prior', which confirms this iterative process.\"\n    },\n    {\n      \"type\": \"FILL_IN_THE_BLANK\",\n      \"prompt\": \"Complete the core formula for Bayes' Theorem as shown in the slides.\",\n      \"sentenceHtml\": \"P(h | D) = ( P(D | h) * <input> ) / P(D)\",\n      \"correctAnswer\": [\n        \"P(h)\"\n      ],\n      \"explanation\": \"Slide 9: The slide presents the full formula for Bayes' Theorem as 'P(h | D) = P(D | h)P(h) / P(D)'. The missing term is P(h).\"\n    },\n    {\n      \"type\": \"MCQ_MULTIPLE\",\n      \"prompt\": \"Based on the 'Features of Bayesian Learning' slide, which of the following are characteristics of this approach? (Select all that apply)\",\n      \"options\": [\n        \"Each training example can incrementally update hypothesis probability.\",\n        \"It can handle multiple hypotheses with their associated probabilities.\",\n        \"It requires all data to be processed in a single batch.\",\n        \"It separates prior knowledge from the data, using only one or the other.\"\n      ],\n      \"correctAnswer\": [\n        \"Each training example can incrementally update hypothesis probability.\",\n        \"It can handle multiple hypotheses with their associated probabilities.\"\n      ],\n      \"explanation\": \"Slide 5: This slide lists the features. The first bullet point is 'Each training example can incrementally update hypothesis probability'. The third bullet point is 'Can handle multiple hypotheses with probabilities'. The other options are contradicted by the material, which mentions combining prior knowledge and data.\"\n    }\n  ]\n}\n```",
   "run" : 1,
   "schema_ok" : true,
   "temperature" : 0.2,
-  "timestamp" : "2026-06-04T22:15:52.442550"
+  "timestamp" : "2026-06-05T07:34:01.620556"
 }

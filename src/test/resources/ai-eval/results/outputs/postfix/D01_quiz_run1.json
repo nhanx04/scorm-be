@@ -1,66 +1,66 @@
 {
-  "cleaned" : "{\n  \"questions\": [\n    {\n      \"type\": \"MCQ_SINGLE\",\n      \"options\": [\n        \"Harvard Architecture\",\n        \"von Neumann Architecture\",\n        \"Turing Machine\",\n        \"Quantum Architecture\"\n      ],\n      \"correctAnswer\": \"von Neumann Architecture\",\n      \"explanation\": \"Slide 8: The document states, 'Well-known computer architecture: von Neumann. Imperative languages, most dominant, because of von Neumann computers.'\"\n    },\n    {\n      \"type\": \"TRUE_FALSE\",\n      \"prompt\": \"Based on the provided material, is the following statement true or false?\\n\\nThe document classifies the Lisp programming language as belonging to the imperative programming methodology.\",\n      \"correctAnswer\": false,\n      \"explanation\": \"Slide 7: The document lists Lisp under the 'Declarative' programming methodology, specifically as a 'Functional' language, not under the 'Imperative' category.\"\n    },\n    {\n      \"type\": \"SHORT_ANSWER\",\n      \"prompt\": \"According to the 'Evaluation' slide, what are the four criteria for evaluating a programming language?\",\n      \"correctAnswer\": [\n        \"Readability, Writability, Reliability, Cost\"\n      ],\n      \"explanation\": \"Slide 6: The 'Evaluation' slide explicitly lists four criteria: 1 Readability, 2 Writability, 3 Reliability, and 4 Cost.\"\n    },\n    {\n      \"type\": \"FILL_IN_THE_BLANK\",\n      \"prompt\": \"Complete the definition of a key language characteristic based on the provided material.\",\n      \"sentenceHtml\": \"According to the language characteristics slide, ___(1)___ means that every combination of features is meaningful, and independent functions should be controlled by ___(2)___ mechanisms.\",\n      \"correctAnswer\": [\n        \"Orthogonality\",\n        \"independent\"\n      ],\n      \"explanation\": \"Slide 5: The definition for 'Orthogonality' is given as: 'every combination of features is meaningful. Independent functions should be controlled by independent mechanisms.'\"\n    },\n    {\n      \"type\": \"MATCHING\",\n      \"prompt\": \"Match each programming language to its primary domain as listed in the document.\",\n      \"pairs\": [\n        {\n          \"left\": \"Fortran\",\n          \"right\": \"Scientific Applications\"\n        },\n        {\n          \"left\": \"COBOL\",\n          \"right\": \"Business Applications\"\n        },\n        {\n          \"left\": \"Prolog\",\n          \"right\": \"Artificial Intelligence\"\n        },\n        {\n          \"left\": \"PHP\",\n          \"right\": \"Web Software\"\n        }\n      ],\n      \"correctAnswer\": null,\n      \"explanation\": \"Slide 4: The 'Programming domains' section lists examples for each category. It shows Fortran for Scientific Applications, COBOL for Business Applications, Prolog for Artificial Intelligence, and PHP for Web Software.\"\n    }\n  ]\n}",
-  "completion_tokens" : 661,
+  "cleaned" : "{\n  \"questions\": [\n    {\n      \"type\": \"MCQ_SINGLE\",\n      \"prompt\": \"According to the presentation, what is the primary reason for the dominance of imperative programming languages?\",\n      \"options\": [\n        \"They offer superior support for data abstraction and polymorphism.\",\n        \"Their structure aligns well with the von Neumann computer architecture.\",\n        \"They focus on describing 'what' the computer should do, making them more intuitive.\",\n        \"They were the only languages available during the 1950s and early 1960s.\"\n      ],\n      \"correctAnswer\": \"Their structure aligns well with the von Neumann computer architecture.\",\n      \"explanation\": \"Slide 8 states: 'Imperative languages, most dominant, because of von Neumann computers.' It further explains that variables model memory cells and assignment statements model writing to memory, which is fundamental to this architecture.\"\n    },\n    {\n      \"type\": \"MCQ_MULTIPLE\",\n      \"prompt\": \"Based on the classification in the document, which of the following languages fall under the 'Declarative' programming methodology? (Select all that apply)\",\n      \"options\": [\n        \"C\",\n        \"Prolog\",\n        \"Haskell\",\n        \"COBOL\",\n        \"SQL\"\n      ],\n      \"correctAnswer\": [\n        \"Prolog\",\n        \"Haskell\",\n        \"SQL\"\n      ],\n      \"explanation\": \"Slide 7 lists several sub-categories under 'Declarative'. Haskell is listed under 'Functional', Prolog under 'Logic or constraint-based', and SQL under 'Query-based'. C and COBOL are listed as examples of 'Procedural-based', which is an 'Imperative' methodology.\"\n    },\n    {\n      \"type\": \"TRUE_FALSE\",\n      \"prompt\": \"True or False: The document indicates that the shift in programming methodologies from a process-oriented to a data-oriented approach, emphasizing data abstraction, occurred in the late 1960s.\",\n      \"correctAnswer\": false,\n      \"explanation\": \"Slide 9 states that the shift from process-oriented to data-oriented (with data abstraction) occurred in the 'Late 1970s'. The late 1960s were characterized by a focus on readability, better control structures, and structured programming.\"\n    },\n    {\n      \"type\": \"FILL_IN_THE_BLANK\",\n      \"prompt\": \"Fill in the blanks with the correct language characteristics mentioned in the material.\",\n      \"sentenceHtml\": \"The characteristic of ___ (1) ___ means that every combination of language features is meaningful, while ___ (2) ___ relates to the ease with which errors can be found and corrected.\",\n      \"correctAnswer\": [\n        \"Orthogonality\",\n        \"Safety\"\n      ],\n      \"explanation\": \"Slide 5 defines 'Orthogonality' as 'every combination of features is meaningful'. It defines 'Safety' as 'The ease of which errors can be found and corrected and new features added.'\"\n    },\n    {\n      \"type\": \"MATCHING\",\n      \"prompt\": \"Match each programming language to its primary programming domain as listed in the document.\",\n      \"pairs\": [\n        {\n          \"left\": \"COBOL\",\n          \"right\": \"Business Applications\"\n        },\n        {\n          \"left\": \"Fortran\",\n          \"right\": \"Scientific Applications\"\n        },\n        {\n          \"left\": \"LISP\",\n          \"right\": \"Artificial Intelligence\"\n        },\n        {\n          \"left\": \"PHP\",\n          \"right\": \"Web Software\"\n        }\n      ],\n      \"correctAnswer\": null,\n      \"explanation\": \"Slide 4 provides a list of programming domains and example languages. COBOL is listed under 'Business Applications', Fortran under 'Scientific Applications', LISP under 'Artificial Intelligence', and PHP under 'Web Software'.\"\n    }\n  ]\n}",
+  "completion_tokens" : 872,
   "doc_file" : "1-Introduction-2023.pdf",
   "doc_id" : "D01",
   "doc_language" : "en",
   "doc_pages" : 36,
   "doc_title" : "Introduction to Programming Languages and Compilers",
-  "empty_field" : true,
+  "empty_field" : false,
   "error_message" : null,
   "error_type" : null,
   "feature" : "quiz",
   "json_parse_ok" : true,
-  "latency_ms" : 20456,
+  "latency_ms" : 19643,
   "model" : "gemini-2.5-pro",
   "parsed" : {
     "questions" : [ {
       "type" : "MCQ_SINGLE",
-      "prompt" : null,
-      "options" : [ "Harvard Architecture", "von Neumann Architecture", "Turing Machine", "Quantum Architecture" ],
-      "correctAnswer" : "von Neumann Architecture",
-      "explanation" : "Slide 8: The document states, 'Well-known computer architecture: von Neumann. Imperative languages, most dominant, because of von Neumann computers.'",
+      "prompt" : "According to the presentation, what is the primary reason for the dominance of imperative programming languages?",
+      "options" : [ "They offer superior support for data abstraction and polymorphism.", "Their structure aligns well with the von Neumann computer architecture.", "They focus on describing 'what' the computer should do, making them more intuitive.", "They were the only languages available during the 1950s and early 1960s." ],
+      "correctAnswer" : "Their structure aligns well with the von Neumann computer architecture.",
+      "explanation" : "Slide 8 states: 'Imperative languages, most dominant, because of von Neumann computers.' It further explains that variables model memory cells and assignment statements model writing to memory, which is fundamental to this architecture.",
+      "sentenceHtml" : null,
+      "pairs" : null
+    }, {
+      "type" : "MCQ_MULTIPLE",
+      "prompt" : "Based on the classification in the document, which of the following languages fall under the 'Declarative' programming methodology? (Select all that apply)",
+      "options" : [ "C", "Prolog", "Haskell", "COBOL", "SQL" ],
+      "correctAnswer" : [ "Prolog", "Haskell", "SQL" ],
+      "explanation" : "Slide 7 lists several sub-categories under 'Declarative'. Haskell is listed under 'Functional', Prolog under 'Logic or constraint-based', and SQL under 'Query-based'. C and COBOL are listed as examples of 'Procedural-based', which is an 'Imperative' methodology.",
       "sentenceHtml" : null,
       "pairs" : null
     }, {
       "type" : "TRUE_FALSE",
-      "prompt" : "Based on the provided material, is the following statement true or false?\n\nThe document classifies the Lisp programming language as belonging to the imperative programming methodology.",
+      "prompt" : "True or False: The document indicates that the shift in programming methodologies from a process-oriented to a data-oriented approach, emphasizing data abstraction, occurred in the late 1960s.",
       "options" : null,
       "correctAnswer" : false,
-      "explanation" : "Slide 7: The document lists Lisp under the 'Declarative' programming methodology, specifically as a 'Functional' language, not under the 'Imperative' category.",
-      "sentenceHtml" : null,
-      "pairs" : null
-    }, {
-      "type" : "SHORT_ANSWER",
-      "prompt" : "According to the 'Evaluation' slide, what are the four criteria for evaluating a programming language?",
-      "options" : null,
-      "correctAnswer" : [ "Readability, Writability, Reliability, Cost" ],
-      "explanation" : "Slide 6: The 'Evaluation' slide explicitly lists four criteria: 1 Readability, 2 Writability, 3 Reliability, and 4 Cost.",
+      "explanation" : "Slide 9 states that the shift from process-oriented to data-oriented (with data abstraction) occurred in the 'Late 1970s'. The late 1960s were characterized by a focus on readability, better control structures, and structured programming.",
       "sentenceHtml" : null,
       "pairs" : null
     }, {
       "type" : "FILL_IN_THE_BLANK",
-      "prompt" : "Complete the definition of a key language characteristic based on the provided material.",
+      "prompt" : "Fill in the blanks with the correct language characteristics mentioned in the material.",
       "options" : null,
-      "correctAnswer" : [ "Orthogonality", "independent" ],
-      "explanation" : "Slide 5: The definition for 'Orthogonality' is given as: 'every combination of features is meaningful. Independent functions should be controlled by independent mechanisms.'",
-      "sentenceHtml" : "According to the language characteristics slide, ___(1)___ means that every combination of features is meaningful, and independent functions should be controlled by ___(2)___ mechanisms.",
+      "correctAnswer" : [ "Orthogonality", "Safety" ],
+      "explanation" : "Slide 5 defines 'Orthogonality' as 'every combination of features is meaningful'. It defines 'Safety' as 'The ease of which errors can be found and corrected and new features added.'",
+      "sentenceHtml" : "The characteristic of ___ (1) ___ means that every combination of language features is meaningful, while ___ (2) ___ relates to the ease with which errors can be found and corrected.",
       "pairs" : null
     }, {
       "type" : "MATCHING",
-      "prompt" : "Match each programming language to its primary domain as listed in the document.",
+      "prompt" : "Match each programming language to its primary programming domain as listed in the document.",
       "options" : null,
       "correctAnswer" : null,
-      "explanation" : "Slide 4: The 'Programming domains' section lists examples for each category. It shows Fortran for Scientific Applications, COBOL for Business Applications, Prolog for Artificial Intelligence, and PHP for Web Software.",
+      "explanation" : "Slide 4 provides a list of programming domains and example languages. COBOL is listed under 'Business Applications', Fortran under 'Scientific Applications', LISP under 'Artificial Intelligence', and PHP under 'Web Software'.",
       "sentenceHtml" : null,
       "pairs" : [ {
-        "left" : "Fortran",
-        "right" : "Scientific Applications"
-      }, {
         "left" : "COBOL",
         "right" : "Business Applications"
       }, {
-        "left" : "Prolog",
+        "left" : "Fortran",
+        "right" : "Scientific Applications"
+      }, {
+        "left" : "LISP",
         "right" : "Artificial Intelligence"
       }, {
         "left" : "PHP",
@@ -68,10 +68,10 @@
       } ]
     } ]
   },
-  "prompt_tokens" : 2438,
-  "raw" : "```json\n{\n  \"questions\": [\n    {\n      \"type\": \"MCQ_SINGLE\",\n      \"options\": [\n        \"Harvard Architecture\",\n        \"von Neumann Architecture\",\n        \"Turing Machine\",\n        \"Quantum Architecture\"\n      ],\n      \"correctAnswer\": \"von Neumann Architecture\",\n      \"explanation\": \"Slide 8: The document states, 'Well-known computer architecture: von Neumann. Imperative languages, most dominant, because of von Neumann computers.'\"\n    },\n    {\n      \"type\": \"TRUE_FALSE\",\n      \"prompt\": \"Based on the provided material, is the following statement true or false?\\n\\nThe document classifies the Lisp programming language as belonging to the imperative programming methodology.\",\n      \"correctAnswer\": false,\n      \"explanation\": \"Slide 7: The document lists Lisp under the 'Declarative' programming methodology, specifically as a 'Functional' language, not under the 'Imperative' category.\"\n    },\n    {\n      \"type\": \"SHORT_ANSWER\",\n      \"prompt\": \"According to the 'Evaluation' slide, what are the four criteria for evaluating a programming language?\",\n      \"correctAnswer\": [\n        \"Readability, Writability, Reliability, Cost\"\n      ],\n      \"explanation\": \"Slide 6: The 'Evaluation' slide explicitly lists four criteria: 1 Readability, 2 Writability, 3 Reliability, and 4 Cost.\"\n    },\n    {\n      \"type\": \"FILL_IN_THE_BLANK\",\n      \"prompt\": \"Complete the definition of a key language characteristic based on the provided material.\",\n      \"sentenceHtml\": \"According to the language characteristics slide, ___(1)___ means that every combination of features is meaningful, and independent functions should be controlled by ___(2)___ mechanisms.\",\n      \"correctAnswer\": [\n        \"Orthogonality\",\n        \"independent\"\n      ],\n      \"explanation\": \"Slide 5: The definition for 'Orthogonality' is given as: 'every combination of features is meaningful. Independent functions should be controlled by independent mechanisms.'\"\n    },\n    {\n      \"type\": \"MATCHING\",\n      \"prompt\": \"Match each programming language to its primary domain as listed in the document.\",\n      \"pairs\": [\n        {\n          \"left\": \"Fortran\",\n          \"right\": \"Scientific Applications\"\n        },\n        {\n          \"left\": \"COBOL\",\n          \"right\": \"Business Applications\"\n        },\n        {\n          \"left\": \"Prolog\",\n          \"right\": \"Artificial Intelligence\"\n        },\n        {\n          \"left\": \"PHP\",\n          \"right\": \"Web Software\"\n        }\n      ],\n      \"correctAnswer\": null,\n      \"explanation\": \"Slide 4: The 'Programming domains' section lists examples for each category. It shows Fortran for Scientific Applications, COBOL for Business Applications, Prolog for Artificial Intelligence, and PHP for Web Software.\"\n    }\n  ]\n}\n```",
+  "prompt_tokens" : 2478,
+  "raw" : "```json\n{\n  \"questions\": [\n    {\n      \"type\": \"MCQ_SINGLE\",\n      \"prompt\": \"According to the presentation, what is the primary reason for the dominance of imperative programming languages?\",\n      \"options\": [\n        \"They offer superior support for data abstraction and polymorphism.\",\n        \"Their structure aligns well with the von Neumann computer architecture.\",\n        \"They focus on describing 'what' the computer should do, making them more intuitive.\",\n        \"They were the only languages available during the 1950s and early 1960s.\"\n      ],\n      \"correctAnswer\": \"Their structure aligns well with the von Neumann computer architecture.\",\n      \"explanation\": \"Slide 8 states: 'Imperative languages, most dominant, because of von Neumann computers.' It further explains that variables model memory cells and assignment statements model writing to memory, which is fundamental to this architecture.\"\n    },\n    {\n      \"type\": \"MCQ_MULTIPLE\",\n      \"prompt\": \"Based on the classification in the document, which of the following languages fall under the 'Declarative' programming methodology? (Select all that apply)\",\n      \"options\": [\n        \"C\",\n        \"Prolog\",\n        \"Haskell\",\n        \"COBOL\",\n        \"SQL\"\n      ],\n      \"correctAnswer\": [\n        \"Prolog\",\n        \"Haskell\",\n        \"SQL\"\n      ],\n      \"explanation\": \"Slide 7 lists several sub-categories under 'Declarative'. Haskell is listed under 'Functional', Prolog under 'Logic or constraint-based', and SQL under 'Query-based'. C and COBOL are listed as examples of 'Procedural-based', which is an 'Imperative' methodology.\"\n    },\n    {\n      \"type\": \"TRUE_FALSE\",\n      \"prompt\": \"True or False: The document indicates that the shift in programming methodologies from a process-oriented to a data-oriented approach, emphasizing data abstraction, occurred in the late 1960s.\",\n      \"correctAnswer\": false,\n      \"explanation\": \"Slide 9 states that the shift from process-oriented to data-oriented (with data abstraction) occurred in the 'Late 1970s'. The late 1960s were characterized by a focus on readability, better control structures, and structured programming.\"\n    },\n    {\n      \"type\": \"FILL_IN_THE_BLANK\",\n      \"prompt\": \"Fill in the blanks with the correct language characteristics mentioned in the material.\",\n      \"sentenceHtml\": \"The characteristic of ___ (1) ___ means that every combination of language features is meaningful, while ___ (2) ___ relates to the ease with which errors can be found and corrected.\",\n      \"correctAnswer\": [\n        \"Orthogonality\",\n        \"Safety\"\n      ],\n      \"explanation\": \"Slide 5 defines 'Orthogonality' as 'every combination of features is meaningful'. It defines 'Safety' as 'The ease of which errors can be found and corrected and new features added.'\"\n    },\n    {\n      \"type\": \"MATCHING\",\n      \"prompt\": \"Match each programming language to its primary programming domain as listed in the document.\",\n      \"pairs\": [\n        {\n          \"left\": \"COBOL\",\n          \"right\": \"Business Applications\"\n        },\n        {\n          \"left\": \"Fortran\",\n          \"right\": \"Scientific Applications\"\n        },\n        {\n          \"left\": \"LISP\",\n          \"right\": \"Artificial Intelligence\"\n        },\n        {\n          \"left\": \"PHP\",\n          \"right\": \"Web Software\"\n        }\n      ],\n      \"correctAnswer\": null,\n      \"explanation\": \"Slide 4 provides a list of programming domains and example languages. COBOL is listed under 'Business Applications', Fortran under 'Scientific Applications', LISP under 'Artificial Intelligence', and PHP under 'Web Software'.\"\n    }\n  ]\n}\n```",
   "run" : 1,
   "schema_ok" : true,
   "temperature" : 0.2,
-  "timestamp" : "2026-06-04T22:13:57.977672"
+  "timestamp" : "2026-06-05T07:32:17.010503"
 }

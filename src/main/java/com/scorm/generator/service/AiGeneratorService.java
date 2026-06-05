@@ -1,7 +1,13 @@
 package com.scorm.generator.service;
 
+import io.micrometer.core.instrument.MeterRegistry;
+import io.micrometer.core.instrument.simple.SimpleMeterRegistry;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.ai.chat.client.ChatClient;
+import org.springframework.ai.chat.prompt.ChatOptions;
 import org.springframework.ai.converter.BeanOutputConverter;
+import org.springframework.beans.factory.ObjectProvider;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
@@ -20,6 +26,7 @@ import com.scorm.generator.dto.ai.GenerateCourseQuizRequest;
 import com.scorm.generator.dto.ai.GenerateQuizRequest;
 import com.scorm.generator.service.ai.PageContentExampleLoader;
 import com.scorm.generator.service.ai.QuizExampleLoader;
+import com.scorm.generator.service.ai.QuizSchemaValidator;
 
 import java.io.InputStream;
 import java.util.List;
@@ -28,18 +35,31 @@ import java.util.stream.Collectors;
 @Service
 public class AiGeneratorService {
 
+        private static final Logger log = LoggerFactory.getLogger(AiGeneratorService.class);
+
+        /**
+         * Rough heuristic for the smallest source text that can plausibly yield N
+         * faithful quiz questions without forcing the model to hallucinate.
+         * 4 chars/token × 200 tokens/question ≈ 800 chars per question.
+         */
+        private static final int MIN_CHARS_PER_QUIZ_QUESTION = 800;
+
         private final ChatClient chatClient;
         private final QuizExampleLoader quizExampleLoader;
         private final PageContentExampleLoader pageContentExampleLoader;
         private final boolean quizFewShotEnabled;
         private final boolean pageContentFewShotEnabled;
+        private final ChatOptions quizOptions;
+        private final MeterRegistry meters;
 
         public AiGeneratorService(
                         ChatClient.Builder chatClientBuilder,
                         QuizExampleLoader quizExampleLoader,
                         PageContentExampleLoader pageContentExampleLoader,
                         @Value("${app.ai.quiz.few-shot-enabled:true}") boolean quizFewShotEnabled,
-                        @Value("${app.ai.page-content.few-shot-enabled:true}") boolean pageContentFewShotEnabled) {
+                        @Value("${app.ai.page-content.few-shot-enabled:true}") boolean pageContentFewShotEnabled,
+                        @Value("${app.ai.quiz.temperature:0.3}") double quizTemperature,
+                        ObjectProvider<MeterRegistry> meterRegistry) {
                 this.chatClient = chatClientBuilder
                                 .defaultSystem(
                                                 "Bạn là một chuyên gia thiết kế giáo trình e-learning (Instructional Designer) với 10 năm kinh nghiệm. "
@@ -49,10 +69,33 @@ public class AiGeneratorService {
                 this.pageContentExampleLoader = pageContentExampleLoader;
                 this.quizFewShotEnabled = quizFewShotEnabled;
                 this.pageContentFewShotEnabled = pageContentFewShotEnabled;
+                // Quiz needs to stick close to the source — lower temperature than
+                // the chat-client default (0.7) which is tuned for outline creativity.
+                this.quizOptions = ChatOptions.builder().temperature(quizTemperature).build();
+                // Fall back to an in-process registry when no actuator/observability
+                // stack is wired up — keeps counters working in any environment.
+                this.meters = meterRegistry.getIfAvailable(SimpleMeterRegistry::new);
         }
 
         private static String stripJsonFence(String raw) {
                 return raw.replace("```json", "").replace("```", "").trim();
+        }
+
+        /**
+         * Warn (don't fail) when the source text is likely too short to support
+         * the requested question count without hallucination. The prompt already
+         * tells the model "tạo ít câu hơn thay vì bịa", so we just observe.
+         */
+        private static int previewQuizCoverage(String sourceText, int requestedQuestions) {
+                int chars = sourceText == null ? 0 : sourceText.length();
+                int feasible = Math.max(1, chars / MIN_CHARS_PER_QUIZ_QUESTION);
+                if (feasible < requestedQuestions) {
+                        log.warn("Quiz preflight: source text {} chars supports ~{} questions"
+                                        + " but {} were requested. Model is instructed to scale down"
+                                        + " rather than hallucinate.",
+                                        chars, feasible, requestedQuestions);
+                }
+                return feasible;
         }
 
         /**
@@ -312,25 +355,22 @@ public class AiGeneratorService {
         public AiQuizResponse generateQuizFromText(GenerateQuizRequest request) {
                 BeanOutputConverter<AiQuizResponse> converter = new BeanOutputConverter<>(AiQuizResponse.class);
                 String formatInstructions = converter.getFormat();
+                previewQuizCoverage(request.getSourceText(), request.getNumberOfQuestions());
 
-                String rawResponse = chatClient.prompt()
-                                .user(u -> u.text(QuizPrompts.FROM_TEXT)
+                String difficulty = request.getDifficulty() != null ? request.getDifficulty() : "Trung bình";
+                String language = request.getLanguage() != null ? request.getLanguage() : "Vietnamese";
+
+                return callQuizWithRetry(converter, addendum -> chatClient.prompt()
+                                .options(quizOptions)
+                                .user(u -> u.text(QuizPrompts.FROM_TEXT + (addendum.isEmpty() ? "" : "\n\n" + addendum))
                                                 .param("sourceText", request.getSourceText())
                                                 .param("numberOfQuestions", request.getNumberOfQuestions())
-                                                .param("difficulty",
-                                                                request.getDifficulty() != null
-                                                                                ? request.getDifficulty()
-                                                                                : "Trung bình")
-                                                .param("language",
-                                                                request.getLanguage() != null ? request.getLanguage()
-                                                                                : "Vietnamese")
+                                                .param("difficulty", difficulty)
+                                                .param("language", language)
                                                 .param("fewShotExamples", buildQuizFewShotBlock())
                                                 .param("formatInstructions", formatInstructions))
                                 .call()
-                                .content();
-
-                String jsonContent = stripJsonFence(rawResponse);
-                return converter.convert(jsonContent);
+                                .content());
         }
 
         private String buildQuizFewShotBlock() {
@@ -349,76 +389,69 @@ public class AiGeneratorService {
                                 """.formatted(all);
         }
 
+        /**
+         * Issue a quiz call, validate the parsed response, and retry ONCE with a
+         * corrective addendum if the schema is incomplete. Anything still wrong
+         * after the second call is returned as-is — the caller decides whether
+         * to surface a 400 or accept the best-effort payload.
+         */
+        private AiQuizResponse callQuizWithRetry(
+                        BeanOutputConverter<AiQuizResponse> converter,
+                        java.util.function.Function<String, String> invokeWithAddendum) {
+                String raw = invokeWithAddendum.apply("");
+                AiQuizResponse first = converter.convert(stripJsonFence(raw));
+                List<String> issues = QuizSchemaValidator.validate(first);
+                meters.counter("ai.quiz.schema_issues", "attempt", "first").increment(issues.size());
+                if (issues.isEmpty()) {
+                        return first;
+                }
+                log.warn("Quiz schema issues on first call ({}); retrying once.", issues.size());
+                String addendum = "LẦN TRƯỚC EM ĐÃ TRẢ VỀ JSON THIẾU TRƯỜNG. HÃY SỬA:\n  - "
+                                + String.join("\n  - ", issues)
+                                + "\nTrả về lại JSON đầy đủ.";
+                String rawRetry = invokeWithAddendum.apply(addendum);
+                AiQuizResponse second = converter.convert(stripJsonFence(rawRetry));
+                List<String> residual = QuizSchemaValidator.validate(second);
+                meters.counter("ai.quiz.schema_issues", "attempt", "retry").increment(residual.size());
+                if (!residual.isEmpty()) {
+                        log.warn("Quiz schema STILL has {} issue(s) after retry; returning best effort.",
+                                        residual.size());
+                }
+                return second;
+        }
+
         public AiQuizResponse generateCourseAwareQuiz(GenerateCourseQuizRequest request) {
                 BeanOutputConverter<AiQuizResponse> converter = new BeanOutputConverter<>(AiQuizResponse.class);
                 String formatInstructions = converter.getFormat();
+                previewQuizCoverage(request.getSourceText(), request.getNumberOfQuestions());
 
-                String userPrompt = """
-                                Bạn là trợ lý học tập cho khóa học dưới đây. Hãy tạo câu hỏi kiểm tra chỉ dựa trên ngữ cảnh được cung cấp.
+                String courseTitle = orEmpty(request.getCourseTitle());
+                String courseDescription = orEmpty(request.getCourseDescription());
+                String sectionTitle = orEmpty(request.getSectionTitle());
+                String pageTitle = orEmpty(request.getPageTitle());
+                String sourceText = orEmpty(request.getSourceText());
+                String difficulty = request.getDifficulty() != null ? request.getDifficulty() : "Trung bình";
+                String language = request.getLanguage() != null ? request.getLanguage() : "Vietnamese";
 
-                                THÔNG TIN KHÓA HỌC:
-                                - courseTitle: {courseTitle}
-                                - courseDescription: {courseDescription}
-                                - sectionTitle: {sectionTitle}
-                                - pageTitle: {pageTitle}
-
-                                NGUỒN NỘI DUNG BÀI HỌC:
-                                "{sourceText}"
-
-                                RÀNG BUỘC NGHIÊM NGẶT VỀ NGUỒN (anti-hallucination):
-                                1. MỌI câu hỏi PHẢI có thể trả lời được CHỈ bằng "NGUỒN NỘI DUNG BÀI HỌC" ở trên.
-                                2. TUYỆT ĐỐI KHÔNG sử dụng kiến thức chung từ training data nằm ngoài nội dung bài học.
-                                3. Trước khi tạo mỗi câu, tự kiểm tra: "Đáp án đúng có trích dẫn được TRỰC TIẾP từ nội dung bài học không?" Nếu không → loại bỏ.
-                                4. Nếu nội dung bài học quá ngắn để có đủ {numberOfQuestions} câu, tạo ít câu hơn thay vì bịa.
-
-                                YÊU CẦU:
-                                1. Tạo đúng {numberOfQuestions} câu, độ khó {difficulty}, ngôn ngữ {language}.
-                                2. Bao phủ đầy đủ 6 loại câu hỏi: MCQ_SINGLE, MCQ_MULTIPLE, TRUE_FALSE, SHORT_ANSWER, FILL_IN_THE_BLANK, MATCHING.
-                                3. FILL_IN_THE_BLANK BẮT BUỘC có cả 3 trường: prompt (chỉ dẫn ngắn cho học viên, không được để trống), sentenceHtml (câu có chỗ trống), correctAnswer (mảng đáp án).
-                                4. explanation BẮT BUỘC mở đầu bằng "Theo tài liệu:" hoặc "Slide X:" và trích ngữ cảnh từ nội dung bài học (không phải kiến thức chung).
-
-                                {fewShotExamples}
-
-                                Chỉ trả về JSON hợp lệ theo schema:
-                                {formatInstructions}
-                                """;
-
-                String rawResponse = chatClient.prompt()
-                                .user(u -> u.text(userPrompt)
-                                                .param("courseTitle",
-                                                                request.getCourseTitle() != null
-                                                                                ? request.getCourseTitle()
-                                                                                : "")
-                                                .param("courseDescription",
-                                                                request.getCourseDescription() != null
-                                                                                ? request.getCourseDescription()
-                                                                                : "")
-                                                .param("sectionTitle",
-                                                                request.getSectionTitle() != null
-                                                                                ? request.getSectionTitle()
-                                                                                : "")
-                                                .param("pageTitle",
-                                                                request.getPageTitle() != null ? request.getPageTitle()
-                                                                                : "")
-                                                .param("sourceText",
-                                                                request.getSourceText() != null
-                                                                                ? request.getSourceText()
-                                                                                : "")
+                return callQuizWithRetry(converter, addendum -> chatClient.prompt()
+                                .options(quizOptions)
+                                .user(u -> u.text(QuizPrompts.COURSE_AWARE + (addendum.isEmpty() ? "" : "\n\n" + addendum))
+                                                .param("courseTitle", courseTitle)
+                                                .param("courseDescription", courseDescription)
+                                                .param("sectionTitle", sectionTitle)
+                                                .param("pageTitle", pageTitle)
+                                                .param("sourceText", sourceText)
                                                 .param("numberOfQuestions", request.getNumberOfQuestions())
-                                                .param("difficulty",
-                                                                request.getDifficulty() != null
-                                                                                ? request.getDifficulty()
-                                                                                : "Trung bình")
-                                                .param("language",
-                                                                request.getLanguage() != null ? request.getLanguage()
-                                                                                : "Vietnamese")
+                                                .param("difficulty", difficulty)
+                                                .param("language", language)
                                                 .param("fewShotExamples", buildQuizFewShotBlock())
                                                 .param("formatInstructions", formatInstructions))
                                 .call()
-                                .content();
+                                .content());
+        }
 
-                String jsonContent = stripJsonFence(rawResponse);
-                return converter.convert(jsonContent);
+        private static String orEmpty(String s) {
+                return s != null ? s : "";
         }
 
         public AiKnowledgeAnswerResponse askCourseKnowledge(AskKnowledgeRequest request) {
