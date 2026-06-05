@@ -52,8 +52,12 @@ import com.google.genai.Client;
 @EnabledIfSystemProperty(named = "ai-eval.enabled", matches = "true")
 class LlmJudgeTest {
 
-    private static final Path GROUND_TRUTH_PATH =
-            Paths.get("src/test/resources/ai-eval/ground-truth/ground_truth.json");
+    // Override which ground-truth file to load via -Dai-eval.gt-file=...
+    // Default: 5-facts/doc baseline. Pass "ground_truth_expanded.json" to use
+    // the D8 AI-expanded version (~15 facts/doc).
+    private static final Path GROUND_TRUTH_PATH = Paths.get(
+            "src/test/resources/ai-eval/ground-truth/" +
+                    System.getProperty("ai-eval.gt-file", "ground_truth.json"));
     private static final Path RESULTS_DIR =
             Paths.get("src/test/resources/ai-eval/results");
     // Allow judging post-fix outputs without overwriting baseline judge CSV.
