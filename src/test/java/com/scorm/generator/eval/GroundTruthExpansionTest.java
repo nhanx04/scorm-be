@@ -96,81 +96,128 @@ class GroundTruthExpansionTest {
     }
 
     @Test
-    @DisplayName("Expand each doc's GT from 5 → ~15 facts (D05: ~25) via AI extract + substring verify")
+    @DisplayName("Top up GT to ~25 facts/doc (D05: ~30) — additive, diversity-aware extraction")
     void expandGroundTruth() throws Exception {
+        // Two GT sources:
+        //   - GT_PATH: original 5 manual facts/doc (untouched)
+        //   - GT_EXPANDED_PATH: previous D8 output (manual + ai_extracted). When
+        //     present we *append* to it instead of starting over, asking the
+        //     model to avoid quotes already in the file.
         JsonNode origRoot = json.readTree(GT_PATH.toFile());
+        JsonNode existingExpanded = GT_EXPANDED_PATH.toFile().exists()
+                ? json.readTree(GT_EXPANDED_PATH.toFile())
+                : null;
 
         ObjectNode expandedRoot = json.createObjectNode();
-        expandedRoot.put("schema_version", "2.0");
+        expandedRoot.put("schema_version", "2.1");
         expandedRoot.put("extracted_at", LocalDateTime.now().toString());
         expandedRoot.put("description",
-                "Expanded ground truth — original 5 manual facts/doc PLUS AI-extracted facts "
-                + "(Gemini 2.5 Pro, temp=0.0) that passed substring verification against source.");
+                "Expanded ground truth (Option A): manual + AI-extracted facts, target ~25/doc, "
+                + "D05 ~30. Each AI fact's verbatim_quote substring-verified against source.");
         ArrayNode extractionNotes = json.createArrayNode();
-        extractionNotes.add("Original 5 facts/doc remain marked source=manual.");
-        extractionNotes.add("AI-extracted facts marked source=ai_extracted with verbatim_quote.");
-        extractionNotes.add("Each AI fact's verbatim_quote was substring-verified against "
-                + "Tika-extracted source text before inclusion. Facts failing this check were dropped.");
-        extractionNotes.add("Targets: 15 facts/doc; D05 (360p): 25 facts. Actual yield depends on "
-                + "substring survival rate.");
+        extractionNotes.add("Original 5 manual facts/doc preserved with source=manual.");
+        extractionNotes.add("AI-extracted facts: source=ai_extracted with verbatim_quote field.");
+        extractionNotes.add("Each round of extraction passes existing quotes to the model as "
+                + "an avoidance list, so additive runs accumulate diverse facts.");
+        extractionNotes.add("Targets: 25 facts/doc; D05 (360p): 30 facts.");
         expandedRoot.set("extraction_notes", extractionNotes);
 
         ArrayNode docsOut = json.createArrayNode();
         expandedRoot.set("documents", docsOut);
 
-        int totalOriginal = 0;
-        int totalExtracted = 0;
-        int totalSurvived = 0;
+        int totalManual = 0;
+        int totalExisting = 0;
+        int totalNewExtracted = 0;
+        int totalNewSurvived = 0;
 
         for (EvalConfig.DocumentCfg doc : config.documents()) {
-            int targetNew = "D05".equals(doc.id()) ? 20 : 10;
-            System.out.println("\n[gt-expand] ----- " + doc.id() + " " + doc.file()
-                    + " (target +" + targetNew + " facts) -----");
+            int targetTotal = "D05".equals(doc.id()) ? 30 : 25;
 
             String sourceText = readPdfText(doc);
             String normalisedSource = normalise(sourceText);
 
-            // Find original facts block
             ArrayNode origFacts = findOriginalFacts(origRoot, doc.id());
+            ArrayNode existingDocFacts = existingExpanded == null
+                    ? null
+                    : findExistingExpandedFacts(existingExpanded, doc.id());
 
-            // Ask Gemini to extract atomic facts
-            List<ExtractedFact> candidates = extractFacts(doc, sourceText, targetNew);
-            totalExtracted += candidates.size();
+            int existingCount = existingDocFacts == null ? 0 : existingDocFacts.size();
+            int gap = Math.max(0, targetTotal - existingCount);
+            // Ask for ~1.5× the gap to compensate for substring-survival ~69%
+            // and possible duplicates with the avoid list.
+            int askedFor = (int) Math.ceil(gap / 0.55);
 
-            // Substring-verify each candidate
-            List<ExtractedFact> survived = new ArrayList<>();
-            for (ExtractedFact f : candidates) {
-                String normQuote = normalise(f.verbatimQuote);
-                if (normQuote.length() >= MIN_QUOTE_LENGTH
-                        && normalisedSource.contains(normQuote)) {
-                    survived.add(f);
-                }
-            }
-            totalSurvived += survived.size();
-            System.out.println("[gt-expand]   extracted=" + candidates.size()
-                    + ", survived substring=" + survived.size()
-                    + " (" + (candidates.isEmpty() ? 0
-                            : 100 * survived.size() / candidates.size()) + "%)");
+            System.out.println("\n[gt-expand] ----- " + doc.id() + " " + doc.file()
+                    + "  (existing=" + existingCount + ", target=" + targetTotal
+                    + ", asking AI for " + askedFor + " new) -----");
 
-            // Build merged fact list — original first, then AI-extracted
             ArrayNode mergedFacts = json.createArrayNode();
             int origCount = origFacts == null ? 0 : origFacts.size();
-            totalOriginal += origCount;
-            if (origFacts != null) {
+            totalManual += origCount;
+
+            // Carry over existing facts (manual + prior ai_extracted)
+            List<String> avoidQuotes = new ArrayList<>();
+            if (existingDocFacts != null) {
+                for (int i = 0; i < existingDocFacts.size(); i++) {
+                    ObjectNode existing = (ObjectNode) existingDocFacts.get(i).deepCopy();
+                    mergedFacts.add(existing);
+                    String q = existing.path("verbatim_quote").asText("");
+                    if (!q.isBlank()) {
+                        avoidQuotes.add(q);
+                    }
+                }
+                totalExisting += existingCount;
+            } else if (origFacts != null) {
                 for (int i = 0; i < origFacts.size(); i++) {
                     ObjectNode orig = (ObjectNode) origFacts.get(i).deepCopy();
                     orig.put("source", "manual");
                     mergedFacts.add(orig);
                 }
             }
-            int next = origCount + 1;
-            for (ExtractedFact f : survived) {
-                ObjectNode aiFact = json.createObjectNode();
-                aiFact.put("id", doc.id() + "-F" + next++);
-                aiFact.put("fact", f.fact);
-                aiFact.put("verbatim_quote", f.verbatimQuote);
-                aiFact.put("source", "ai_extracted");
-                mergedFacts.add(aiFact);
+
+            int aiExtractedCount = 0;
+            if (gap > 0) {
+                List<ExtractedFact> candidates = extractFactsDiverse(
+                        doc, sourceText, askedFor, avoidQuotes);
+                totalNewExtracted += candidates.size();
+
+                int nextId = mergedFacts.size() + 1;
+                for (ExtractedFact f : candidates) {
+                    if (aiExtractedCount >= gap) {
+                        break;
+                    }
+                    String normQuote = normalise(f.verbatimQuote);
+                    if (normQuote.length() < MIN_QUOTE_LENGTH
+                            || !normalisedSource.contains(normQuote)) {
+                        continue;
+                    }
+                    // Avoid duplicates against carry-over list
+                    boolean dupe = false;
+                    for (String existing : avoidQuotes) {
+                        if (normalise(existing).contains(normQuote)
+                                || normQuote.contains(normalise(existing))) {
+                            dupe = true;
+                            break;
+                        }
+                    }
+                    if (dupe) {
+                        continue;
+                    }
+                    ObjectNode aiFact = json.createObjectNode();
+                    aiFact.put("id", doc.id() + "-F" + nextId++);
+                    aiFact.put("fact", f.fact);
+                    aiFact.put("verbatim_quote", f.verbatimQuote);
+                    aiFact.put("source", "ai_extracted");
+                    mergedFacts.add(aiFact);
+                    avoidQuotes.add(f.verbatimQuote);
+                    aiExtractedCount++;
+                }
+                totalNewSurvived += aiExtractedCount;
+                System.out.println("[gt-expand]   asked=" + askedFor + ", returned="
+                        + candidates.size() + ", added new=" + aiExtractedCount
+                        + ", final total=" + mergedFacts.size());
+            } else {
+                System.out.println("[gt-expand]   already at target — skipping AI call");
             }
 
             ObjectNode docNode = json.createObjectNode();
@@ -178,41 +225,72 @@ class GroundTruthExpansionTest {
             docNode.put("file", doc.file());
             docNode.put("title", doc.title());
             docNode.put("language", doc.language());
-            docNode.put("manual_facts_count", origCount);
-            docNode.put("ai_extracted_facts_count", survived.size());
+            docNode.put("total_facts_count", mergedFacts.size());
             docNode.set("key_facts", mergedFacts);
             docsOut.add(docNode);
         }
 
         expandedRoot.put("totals",
-                String.format("manual=%d, ai_extracted=%d (from %d candidates, "
-                        + "substring survival %d%%), total=%d",
-                        totalOriginal, totalSurvived, totalExtracted,
-                        totalExtracted == 0 ? 0 : 100 * totalSurvived / totalExtracted,
-                        totalOriginal + totalSurvived));
+                String.format("manual=%d, ai_extracted_existing=%d, ai_new=%d "
+                        + "(from %d new candidates, survival %d%%), total=%d",
+                        totalManual,
+                        totalExisting - totalManual,
+                        totalNewSurvived,
+                        totalNewExtracted,
+                        totalNewExtracted == 0 ? 0 : 100 * totalNewSurvived / totalNewExtracted,
+                        totalExisting + totalNewSurvived));
 
         Files.createDirectories(GT_EXPANDED_PATH.getParent());
         json.writeValue(GT_EXPANDED_PATH.toFile(), expandedRoot);
 
         System.out.println("\n[gt-expand] DONE.");
-        System.out.println("  Original facts:    " + totalOriginal);
-        System.out.println("  AI candidates:     " + totalExtracted);
-        System.out.println("  Substring-survived: " + totalSurvived
-                + " (" + (totalExtracted == 0 ? 0 : 100 * totalSurvived / totalExtracted) + "%)");
-        System.out.println("  Total merged:      " + (totalOriginal + totalSurvived));
+        System.out.println("  Manual facts:           " + totalManual);
+        System.out.println("  Existing AI facts kept: " + (totalExisting - totalManual));
+        System.out.println("  New AI candidates:      " + totalNewExtracted);
+        System.out.println("  New AI survived:        " + totalNewSurvived
+                + " (" + (totalNewExtracted == 0 ? 0
+                        : 100 * totalNewSurvived / totalNewExtracted) + "%)");
+        System.out.println("  Grand total facts:      " + (totalExisting + totalNewSurvived));
         System.out.println("  Cost: $" + String.format("%.4f", cumulativeCostUsd));
         System.out.println("  Output: " + GT_EXPANDED_PATH);
+    }
+
+    /** Locate the docs[i] node in an expanded-format GT file. */
+    private static ArrayNode findExistingExpandedFacts(JsonNode root, String docId) {
+        for (JsonNode d : root.path("documents")) {
+            if (docId.equals(d.path("doc_id").asText())) {
+                JsonNode facts = d.path("key_facts");
+                return facts.isArray() ? (ArrayNode) facts : null;
+            }
+        }
+        return null;
     }
 
     // ---------------------------------------------------------------------
     // Helpers
     // ---------------------------------------------------------------------
 
-    private List<ExtractedFact> extractFacts(EvalConfig.DocumentCfg doc,
-                                              String sourceText, int target) {
+    private List<ExtractedFact> extractFactsDiverse(EvalConfig.DocumentCfg doc,
+                                                     String sourceText, int target,
+                                                     List<String> avoidQuotes) {
         String trimmed = sourceText.length() > 30_000
                 ? sourceText.substring(0, 30_000) + "\n[...truncated...]"
                 : sourceText;
+
+        // Build avoid-list section. Each existing quote is truncated so the
+        // prompt token budget stays reasonable when avoid list is long.
+        StringBuilder avoidBlock = new StringBuilder();
+        if (!avoidQuotes.isEmpty()) {
+            avoidBlock.append("QUOTES ĐÃ ĐƯỢC SỬ DỤNG — TUYỆT ĐỐI KHÔNG ĐƯỢC TRÍCH LẠI HOẶC OVERLAP:\n");
+            int n = Math.min(avoidQuotes.size(), 50);  // cap at 50 to keep prompt sane
+            for (int i = 0; i < n; i++) {
+                String q = avoidQuotes.get(i);
+                String shortQ = q.length() > 100 ? q.substring(0, 100) + "…" : q;
+                avoidBlock.append("  - \"").append(shortQ).append("\"\n");
+            }
+            avoidBlock.append("Chọn KHÁI NIỆM/ĐOẠN KHÁC trong tài liệu, KHÔNG OVERLAP với danh sách trên.\n\n");
+        }
+
         String prompt = ("""
                 Bạn là chuyên gia bóc tách (extract) atomic facts từ tài liệu giáo dục \
                 để xây ground truth cho đánh giá hệ thống AI sinh câu hỏi.
@@ -222,7 +300,8 @@ class GroundTruthExpansionTest {
                 %s
                 =================================
 
-                NHIỆM VỤ: Trích xuất CHÍNH XÁC %d atomic facts từ tài liệu trên.
+                %s
+                NHIỆM VỤ: Trích xuất CHÍNH XÁC %d atomic facts MỚI từ tài liệu trên.
 
                 QUY TẮC NGHIÊM NGẶT cho mỗi fact:
                 1. **fact**: 1 câu khẳng định ngắn (≤ 30 từ), verifiable yes/no, KHÔNG phải opinion.
@@ -232,6 +311,7 @@ class GroundTruthExpansionTest {
                 4. Ưu tiên facts là: định nghĩa, công thức, taxonomy, số liệu cụ thể, tên tác giả/năm.
                 5. TRÁNH facts mơ hồ kiểu "tài liệu nói về X" — phải cụ thể, verifiable.
                 6. Ngôn ngữ fact + quote phải khớp ngôn ngữ tài liệu (%s).
+                7. PHẢI KHÁC với "QUOTES ĐÃ ĐƯỢC SỬ DỤNG" ở trên — không trích lại hoặc chồng lấp.
 
                 Trả về JSON đúng format sau (KHÔNG markdown fence, KHÔNG giải thích thêm):
                 [
@@ -240,7 +320,8 @@ class GroundTruthExpansionTest {
                   ...
                 ]
                 Đúng %d phần tử trong mảng.
-                """).formatted(trimmed, target, languageFullName(doc.language()), target);
+                """).formatted(trimmed, avoidBlock.toString(), target,
+                        languageFullName(doc.language()), target);
 
         ChatResponse response = extractorClient.prompt().user(prompt).call().chatResponse();
         String raw = response.getResult().getOutput().getText();

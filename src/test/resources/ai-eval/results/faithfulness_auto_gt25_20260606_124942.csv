@@ -1,0 +1,11 @@
+timestamp,doc_id,feature,run,judge_model,faithfulness_score,hallucination,unsupported_claims_count,reasoning,judge_latency_ms,judge_input_tokens,judge_output_tokens,judge_cost_usd,judge_parse_ok,error_type
+2026-06-06T12:49:44.093099,D01,quiz,1,gemini-2.5-flash,2,true,3,Nội dung AI tạo ra chứa nhiều câu hỏi và câu trả lời không được hỗ trợ hoặc mâu thuẫn với thông tin trong tài liệu nguồn.,2056,945,158,0.000679,true,
+2026-06-06T12:49:46.141088,D02,quiz,1,gemini-2.5-flash,3,false,2,Nội dung được tạo có một số câu hỏi không được hỗ trợ bởi các sự kiện cơ bản đã cho.,2046,771,108,0.000501,true,
+2026-06-06T12:49:47.864971,D03,quiz,1,gemini-2.5-flash,2,true,1,Nội dung được tạo ra chứa một câu trả lời không được hỗ trợ bởi tài liệu nguồn và mâu thuẫn với thông tin về thuật toán Jump Search.,1721,1016,93,0.000537,true,
+2026-06-06T12:49:50.956199,D04,quiz,1,gemini-2.5-flash,3,true,2,Nội dung được tạo có một số tuyên bố không được hỗ trợ bởi tài liệu nguồn.,3090,1196,86,0.000574,true,
+2026-06-06T12:49:52.695769,D05,quiz,1,gemini-2.5-flash,2,true,1,"Câu hỏi số 4 đề cập đến ""slide 9.5"" nhưng không có thông tin về slide này trong GROUND-TRUTH FACTS, dẫn đến một yêu cầu không thể xác minh.",1736,1081,106,0.000589,true,
+2026-06-06T12:49:54.407511,D06,quiz,1,gemini-2.5-flash,5,false,0,Tất cả các câu hỏi và đáp án được tạo ra đều nhất quán và được hỗ trợ bởi các thông tin trong tài liệu nguồn.,1709,1167,72,0.000530,true,
+2026-06-06T12:49:55.585437,D07,quiz,1,gemini-2.5-flash,5,false,0,Tất cả các câu hỏi và đáp án đều được hỗ trợ trực tiếp bởi thông tin trong tài liệu nguồn.,1175,1128,62,0.000493,true,
+2026-06-06T12:49:56.740511,D08,quiz,1,gemini-2.5-flash,5,false,0,Tất cả các câu hỏi và đáp án được tạo ra đều được hỗ trợ bởi thông tin trong tài liệu nguồn.,1153,1278,63,0.000541,true,
+2026-06-06T12:49:58.465150,D09,quiz,1,gemini-2.5-flash,2,true,2,Nội dung tạo ra chứa một số thông tin không được hỗ trợ bởi nguồn và một câu trả lời sai rõ ràng.,1722,1235,152,0.000751,true,
+2026-06-06T12:50:00.802708,D10,quiz,1,gemini-2.5-flash,3,false,3,Nội dung được tạo ra có một số câu hỏi không được hỗ trợ trực tiếp bởi các sự kiện trong văn bản nguồn.,2336,1127,268,0.001008,true,
