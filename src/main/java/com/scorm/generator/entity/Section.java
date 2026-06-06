@@ -8,6 +8,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.hibernate.annotations.JdbcTypeCode;
 import org.hibernate.type.SqlTypes;
+import java.util.List;
 
 @Data
 @Builder
@@ -51,4 +52,7 @@ public class Section {
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "section_courseid", referencedColumnName = "courseid")
     private Course course;
+
+    @OneToMany(mappedBy = "section", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.LAZY)
+    private List<Page> pages;
 }
