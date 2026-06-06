@@ -34,13 +34,6 @@ public class CourseController {
         return ResponseEntity.ok(courseService.listMine(authentication));
     }
 
-    @GetMapping("/recent")
-    public ResponseEntity<List<CourseResponse>> getRecent(
-            @RequestParam(defaultValue = "6") int limit,
-            Authentication authentication) {
-        return ResponseEntity.ok(courseService.getRecentCourses(authentication, limit));
-    }
-
     @GetMapping("/{courseId}")
     public ResponseEntity<com.scorm.generator.dto.CourseDetailResponse> getById(
             @PathVariable Long courseId,
