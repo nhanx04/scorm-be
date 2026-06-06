@@ -41,6 +41,25 @@ public class MediaAssetController {
         return ResponseEntity.ok(response);
     }
 
+    @PostMapping(value = "/upload", consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
+    public ResponseEntity<MediaUploadResponse> uploadFile(
+            @RequestPart("file") MultipartFile file,
+            Authentication authentication) {
+
+        log.info("Received file upload: name='{}', size={} bytes, type='{}'",
+                file.getOriginalFilename(), file.getSize(), file.getContentType());
+
+        if (file.isEmpty()) {
+            throw new IllegalArgumentException("File is empty");
+        }
+
+        // Use a default libraryId for simple file uploads (e.g., avatar)
+        MediaUploadResponse response = mediaAssetService.uploadImage(
+                file, null, null, -1L, authentication);
+
+        return ResponseEntity.ok(response);
+    }
+
     @PostMapping(value = "/audios/upload", consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
     public ResponseEntity<MediaUploadResponse> uploadAudio(
             @RequestPart("file") MultipartFile file,
