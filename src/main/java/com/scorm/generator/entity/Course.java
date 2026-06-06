@@ -61,6 +61,11 @@ public class Course {
     @Column(name = "text_html", columnDefinition = "TEXT")
     private String textHtml;
 
+    // Văn bản trích xuất từ file tài liệu lúc tạo khóa học (nếu có).
+    // Dùng làm nguồn dữ kiện (ground) cho việc sinh quiz bằng AI.
+    @Column(name = "source_document_text", columnDefinition = "TEXT")
+    private String sourceDocumentText;
+
     @JdbcTypeCode(SqlTypes.JSON)
     @Column(name = "theme_override", columnDefinition = "jsonb")
     private JsonNode themeOverride;

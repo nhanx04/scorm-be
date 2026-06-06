@@ -282,7 +282,7 @@ class AiQualityEvaluationTest {
                 {formatInstructions}
                 """;
 
-        BeanOutputConverter<AiCourseOutline> converter = new BeanOutputConverter<>(AiCourseOutline.class);
+        BeanOutputConverter<AiCourseOutline.Draft> converter = new BeanOutputConverter<>(AiCourseOutline.Draft.class);
 
         executeCall(doc, "outline", run, reliability, latencyCost,
                 () -> chatClient.prompt()
@@ -294,7 +294,7 @@ class AiQualityEvaluationTest {
                         .call()
                         .chatResponse(),
                 (cleaned) -> {
-                    AiCourseOutline outline = converter.convert(cleaned);
+                    AiCourseOutline.Draft outline = converter.convert(cleaned);
                     boolean schemaOk = outline != null
                             && outline.title() != null
                             && outline.sections() != null

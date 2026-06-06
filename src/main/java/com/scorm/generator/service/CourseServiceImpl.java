@@ -104,6 +104,7 @@ public class CourseServiceImpl implements CourseService {
                 .tags(request.getTags())
                 .isFavorite(false) // Khởi tạo mặc định là false
                 .textHtml(request.getTextHtml())
+                .sourceDocumentText(request.getSourceDocumentText())
                 .themeOverride(request.getThemeOverride())
                 .layoutMode(request.getLayoutMode())
                 .layoutMeta(request.getLayoutMeta())
@@ -338,6 +339,7 @@ public class CourseServiceImpl implements CourseService {
                 .description(outline.description())
                 .status("Draft") // Trạng thái nháp ban đầu
                 .isFavorite(false) // Khởi tạo mặc định là false cho khóa học AI sinh
+                .sourceDocumentText(outline.sourceDocumentText()) // Lưu văn bản gốc để AI tạo quiz sau này
                 .user(currentUser)
                 .build();
         Course savedCourse = courseRepository.save(course);
@@ -389,6 +391,12 @@ public class CourseServiceImpl implements CourseService {
 
         // Trả về response chứa thông tin khoá học vừa được tạo
         return CourseResponse.fromEntity(savedCourse, parseJson(savedCourse.getExtraInfor()));
+    }
+
+    @Override
+    public String getCourseSourceDocument(Long courseId, Authentication authentication) {
+        Course course = getOwnedCourseOrThrow(courseId, authentication);
+        return course.getSourceDocumentText();
     }
 
     @Override

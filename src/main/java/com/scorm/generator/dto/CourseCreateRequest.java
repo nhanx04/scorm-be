@@ -27,6 +27,8 @@ public class CourseCreateRequest {
     private List<String> tags;
 
     private String textHtml;
+    // Văn bản trích từ file tài liệu (khi tạo khóa học từ AI) — nguồn cho quiz
+    private String sourceDocumentText;
     private JsonNode themeOverride;
     private String layoutMode;
     private JsonNode layoutMeta;

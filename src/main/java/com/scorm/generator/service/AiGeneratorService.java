@@ -14,7 +14,9 @@ import org.springframework.web.multipart.MultipartFile;
 import org.springframework.core.io.InputStreamResource;
 import org.springframework.ai.document.Document;
 import org.springframework.ai.reader.tika.TikaDocumentReader;
+import org.springframework.http.HttpStatus;
 
+import com.scorm.generator.exception.AppException;
 import com.scorm.generator.dto.ai.AiCourseOutline;
 import com.scorm.generator.dto.ai.GenerateCourseRequest;
 import com.scorm.generator.dto.ai.AiPageContentResponse;
@@ -116,8 +118,10 @@ public class AiGeneratorService {
                                 .map(Document::getText)
                                 .collect(Collectors.joining("\n"));
 
-                // 2. Cấu hình Converter để hướng dẫn AI trả về đúng định dạng JSON
-                BeanOutputConverter<AiCourseOutline> converter = new BeanOutputConverter<>(AiCourseOutline.class);
+                // 2. Cấu hình Converter để hướng dẫn AI trả về đúng định dạng JSON.
+                // Dùng Draft (không có sourceDocumentText) để LLM không echo lại tài liệu.
+                BeanOutputConverter<AiCourseOutline.Draft> converter = new BeanOutputConverter<>(
+                                AiCourseOutline.Draft.class);
                 String formatInstructions = converter.getFormat();
 
                 // 3. Soạn Prompt dành riêng cho bài toán bám sát nội dung từ tài liệu
@@ -179,9 +183,10 @@ public class AiGeneratorService {
                                 .call()
                                 .content();
 
-                // 5. Xử lý chuỗi và Convert thành Object
+                // 5. Xử lý chuỗi và Convert thành Object, đính kèm văn bản gốc để persist
                 String jsonContent = stripJsonFence(rawResponse);
-                return converter.convert(jsonContent);
+                AiCourseOutline.Draft draft = converter.convert(jsonContent);
+                return new AiCourseOutline(draft.title(), draft.description(), draft.sections(), documentContext);
         }
 
         /**
@@ -189,8 +194,9 @@ public class AiGeneratorService {
          */
         public AiCourseOutline generateCourseOutline(GenerateCourseRequest request) {
                 // 1. Cấu hình Converter để hướng dẫn AI trả về đúng định dạng JSON của Class
-                // Java
-                BeanOutputConverter<AiCourseOutline> converter = new BeanOutputConverter<>(AiCourseOutline.class);
+                // Java (dùng Draft — không tạo từ file nên không có văn bản gốc).
+                BeanOutputConverter<AiCourseOutline.Draft> converter = new BeanOutputConverter<>(
+                                AiCourseOutline.Draft.class);
                 String formatInstructions = converter.getFormat();
 
                 // 2. Soạn Prompt (kịch bản nhắc) cập nhật theo cấu trúc mới
@@ -265,8 +271,9 @@ public class AiGeneratorService {
                 // 4. Xử lý chuỗi JSON (Làm sạch Markdown nếu có)
                 String jsonContent = stripJsonFence(rawResponse);
 
-                // 5. Convert String sạch thành Object Java
-                return converter.convert(jsonContent);
+                // 5. Convert String sạch thành Object Java (không có văn bản gốc từ file)
+                AiCourseOutline.Draft draft = converter.convert(jsonContent);
+                return new AiCourseOutline(draft.title(), draft.description(), draft.sections(), null);
         }
 
         /**
@@ -425,35 +432,84 @@ public class AiGeneratorService {
                 return second;
         }
 
+        /**
+         * Tạo quiz cho một khóa học. Nguồn dữ kiện (ground) là TÀI LIỆU GỐC của
+         * khóa học (đã được nạp vào {@code request.sourceText} bởi controller);
+         * {@code focusTopic} là nội dung người dùng nhập để khoanh vùng ra đề.
+         *
+         * <p>Fallback: nếu khóa học không có tài liệu gốc, dùng chính ô nhập của
+         * người dùng làm nguồn (grounded-from-text). Cả hai nhánh đều giữ ràng
+         * buộc anti-hallucination + validate citation theo nguồn thực tế.
+         */
         public AiQuizResponse generateCourseAwareQuiz(GenerateCourseQuizRequest request) {
                 BeanOutputConverter<AiQuizResponse> converter = new BeanOutputConverter<>(AiQuizResponse.class);
                 String formatInstructions = converter.getFormat();
-                previewQuizCoverage(request.getSourceText(), request.getNumberOfQuestions());
 
-                String courseTitle = orEmpty(request.getCourseTitle());
-                String courseDescription = orEmpty(request.getCourseDescription());
-                String sectionTitle = orEmpty(request.getSectionTitle());
-                String pageTitle = orEmpty(request.getPageTitle());
-                String sourceText = orEmpty(request.getSourceText());
+                String documentText = orEmpty(request.getSourceText()).trim();
+                String focusTopic = orEmpty(request.getFocusTopic()).trim();
                 String difficulty = request.getDifficulty() != null ? request.getDifficulty() : "Trung bình";
                 String language = request.getLanguage() != null ? request.getLanguage() : "Vietnamese";
 
-                return callQuizWithRetry(converter, sourceText,
+                // Không có cả tài liệu lẫn nội dung người dùng nhập → không thể ground.
+                if (documentText.isEmpty() && focusTopic.isEmpty()) {
+                        throw new AppException(HttpStatus.BAD_REQUEST,
+                                        "Cần có tài liệu nguồn của khóa học hoặc nội dung bạn nhập để tạo quiz.");
+                }
+
+                // Fallback C: khóa học không có tài liệu gốc → dùng ô nhập làm nguồn.
+                if (documentText.isEmpty()) {
+                        previewQuizCoverage(focusTopic, request.getNumberOfQuestions());
+                        return callQuizWithRetry(converter, focusTopic,
+                                        addendum -> chatClient.prompt()
+                                                        .options(quizOptions)
+                                                        .user(u -> u.text(QuizPrompts.FROM_TEXT
+                                                                        + (addendum.isEmpty() ? "" : "\n\n" + addendum))
+                                                                        .param("sourceText", focusTopic)
+                                                                        .param("numberOfQuestions",
+                                                                                        request.getNumberOfQuestions())
+                                                                        .param("difficulty", difficulty)
+                                                                        .param("language", language)
+                                                                        .param("fewShotExamples", buildQuizFewShotBlock())
+                                                                        .param("formatInstructions", formatInstructions))
+                                                        .call()
+                                                        .content());
+                }
+
+                // Không có chủ đề trọng tâm → ra đề tổng quát trên toàn bộ tài liệu.
+                if (focusTopic.isEmpty()) {
+                        previewQuizCoverage(documentText, request.getNumberOfQuestions());
+                        return callQuizWithRetry(converter, documentText,
+                                        addendum -> chatClient.prompt()
+                                                        .options(quizOptions)
+                                                        .user(u -> u.text(QuizPrompts.FROM_TEXT
+                                                                        + (addendum.isEmpty() ? "" : "\n\n" + addendum))
+                                                                        .param("sourceText", documentText)
+                                                                        .param("numberOfQuestions",
+                                                                                        request.getNumberOfQuestions())
+                                                                        .param("difficulty", difficulty)
+                                                                        .param("language", language)
+                                                                        .param("fewShotExamples", buildQuizFewShotBlock())
+                                                                        .param("formatInstructions", formatInstructions))
+                                                        .call()
+                                                        .content());
+                }
+
+                // Đầy đủ: tài liệu gốc + chủ đề trọng tâm người dùng nhập.
+                previewQuizCoverage(documentText, request.getNumberOfQuestions());
+                return callQuizWithRetry(converter, documentText,
                                 addendum -> chatClient.prompt()
-                                .options(quizOptions)
-                                .user(u -> u.text(QuizPrompts.COURSE_AWARE + (addendum.isEmpty() ? "" : "\n\n" + addendum))
-                                                .param("courseTitle", courseTitle)
-                                                .param("courseDescription", courseDescription)
-                                                .param("sectionTitle", sectionTitle)
-                                                .param("pageTitle", pageTitle)
-                                                .param("sourceText", sourceText)
-                                                .param("numberOfQuestions", request.getNumberOfQuestions())
-                                                .param("difficulty", difficulty)
-                                                .param("language", language)
-                                                .param("fewShotExamples", buildQuizFewShotBlock())
-                                                .param("formatInstructions", formatInstructions))
-                                .call()
-                                .content());
+                                                .options(quizOptions)
+                                                .user(u -> u.text(QuizPrompts.FROM_DOCUMENT_FOCUSED
+                                                                + (addendum.isEmpty() ? "" : "\n\n" + addendum))
+                                                                .param("focusTopic", focusTopic)
+                                                                .param("sourceText", documentText)
+                                                                .param("numberOfQuestions", request.getNumberOfQuestions())
+                                                                .param("difficulty", difficulty)
+                                                                .param("language", language)
+                                                                .param("fewShotExamples", buildQuizFewShotBlock())
+                                                                .param("formatInstructions", formatInstructions))
+                                                .call()
+                                                .content());
         }
 
         private static String orEmpty(String s) {

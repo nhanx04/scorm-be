@@ -145,6 +145,50 @@ public final class QuizPrompts {
                     DIFFICULTY_RUBRIC,
                     NEGATIVE_EXAMPLES);
 
+    /**
+     * Quiz grounded on the course's source document, focused on a user-supplied
+     * topic. The document is the ONLY source of facts (anti-hallucination still
+     * applies); {focusTopic} only narrows WHICH parts of the document to test.
+     */
+    public static final String FROM_DOCUMENT_FOCUSED = """
+            Bạn là chuyên gia thiết kế kiểm tra đánh giá e-learning.
+            Người học muốn ra đề xoay quanh CHỦ ĐỀ TRỌNG TÂM dưới đây, nhưng MỌI câu hỏi và đáp án PHẢI lấy dữ kiện từ TÀI LIỆU GỐC.
+
+            CHỦ ĐỀ TRỌNG TÂM (do người dùng nhập):
+            "{focusTopic}"
+
+            TÀI LIỆU GỐC (nguồn dữ kiện DUY NHẤT):
+            "{sourceText}"
+
+            Hãy tạo đúng {numberOfQuestions} câu hỏi với độ khó {difficulty}, tập trung vào CHỦ ĐỀ TRỌNG TÂM.
+
+            %s
+            QUY TẮC TRỌNG TÂM:
+            1. Chỉ chọn những phần của TÀI LIỆU GỐC có liên quan tới CHỦ ĐỀ TRỌNG TÂM để ra đề.
+            2. Nếu TÀI LIỆU GỐC không đề cập (hoặc đề cập rất ít) tới CHỦ ĐỀ TRỌNG TÂM,
+               hãy tạo ÍT câu hơn — TUYỆT ĐỐI KHÔNG bịa kiến thức ngoài tài liệu để lấp đầy.
+            %s
+            BẮT BUỘC:
+            1. Sử dụng đa dạng 6 loại câu hỏi: MCQ_SINGLE, MCQ_MULTIPLE, TRUE_FALSE, SHORT_ANSWER, FILL_IN_THE_BLANK, MATCHING.
+            2. Nếu {numberOfQuestions} >= 6, phải có ít nhất 1 câu cho mỗi loại (trừ khi nguồn không đủ dữ kiện).
+            3. Ngôn ngữ đầu ra: {language}.
+
+            %s
+            %s
+            %s
+            %s
+            {fewShotExamples}
+
+            CHỈ trả về JSON đúng schema sau:
+            {formatInstructions}
+            """.formatted(
+                    ANTI_HALLUCINATION.formatted("TÀI LIỆU GỐC"),
+                    CONCEPT_DIVERSITY,
+                    SCHEMA_CONVENTIONS,
+                    ITEM_WRITING_STANDARDS,
+                    DIFFICULTY_RUBRIC,
+                    NEGATIVE_EXAMPLES);
+
     /** Quiz generated with full course/section/page context (course-aware). */
     public static final String COURSE_AWARE = """
             Bạn là trợ lý học tập cho khóa học dưới đây. Hãy tạo câu hỏi kiểm tra chỉ dựa trên ngữ cảnh được cung cấp.

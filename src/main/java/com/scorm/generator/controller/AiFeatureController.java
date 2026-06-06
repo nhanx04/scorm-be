@@ -116,7 +116,15 @@ public class AiFeatureController {
     }
 
     @PostMapping("/generate-course-quiz")
-    public ResponseEntity<AiQuizResponse> generateCourseQuiz(@RequestBody GenerateCourseQuizRequest request) {
+    public ResponseEntity<AiQuizResponse> generateCourseQuiz(
+            @RequestBody GenerateCourseQuizRequest request,
+            Authentication authentication) {
+        // Nạp tài liệu gốc của khóa học làm nguồn dữ kiện (ground). Người dùng chỉ
+        // nhập focusTopic; sourceText không do frontend gửi mà backend tự lấy từ DB.
+        if (request.getCourseId() != null) {
+            String sourceDocument = courseService.getCourseSourceDocument(request.getCourseId(), authentication);
+            request.setSourceText(sourceDocument);
+        }
         AiQuizResponse quizResponse = aiGeneratorService.generateCourseAwareQuiz(request);
         return ResponseEntity.ok(quizResponse);
     }
