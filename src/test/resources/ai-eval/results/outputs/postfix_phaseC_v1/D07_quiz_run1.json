@@ -1,0 +1,97 @@
+{
+  "cleaned" : "{\n  \"questions\": [\n    {\n      \"citation\": {\n        \"reasoning\": \"This quote lists the three steps of hypothesis testing, with 'Hypothesis statement' being the first.\",\n        \"sourceLocation\": \"Slide 20\",\n        \"verbatimQuote\": \"Hypothesis statement Test method Test metric & criteria\"\n      },\n      \"correctAnswer\": \"Hypothesis statement\",\n      \"options\": [\n        \"Hypothesis statement\",\n        \"Test method\",\n        \"Test metric\",\n        \"Prototyping\"\n      ],\n      \"prompt\": \"A startup team states: \\\"We believe that busy professionals will pay for a pre-packaged healthy lunch delivery service.\\\" Which step of hypothesis testing does this statement represent?\",\n      \"type\": \"MCQ_SINGLE\"\n    },\n    {\n      \"citation\": {\n        \"reasoning\": \"This quote lists the four core values of the Agile Manifesto, which are the correct answers.\",\n        \"sourceLocation\": \"Slide 24\",\n        \"verbatimQuote\": \"Individuals and interactions Customer collaboration Responding to change Working versions of products\"\n      },\n      \"correctAnswer\": [\n        \"Customer collaboration\",\n        \"Responding to change\"\n      ],\n      \"options\": [\n        \"Following a detailed plan\",\n        \"Customer collaboration\",\n        \"Comprehensive documentation\",\n        \"Responding to change\"\n      ],\n      \"prompt\": \"According to the Agile Manifesto values presented, which of the following should be prioritized in innovation? (Select all that apply)\",\n      \"type\": \"MCQ_MULTIPLE\"\n    },\n    {\n      \"citation\": {\n        \"reasoning\": \"The quote defines an MVP's goal as collecting learning with least effort, contradicting the prompt's idea of a full-featured product.\",\n        \"sourceLocation\": \"Slide 27\",\n        \"verbatimQuote\": \"A minimum viable product is that version of a new product which allows a team to collect the maximum amount of validated learning about customers with the least effort.\"\n      },\n      \"correctAnswer\": false,\n      \"prompt\": \"True or False: The primary purpose of a Minimum Viable Product (MVP) is to build a complete, feature-rich product to secure a large market share upon launch.\",\n      \"type\": \"TRUE_FALSE\"\n    },\n    {\n      \"citation\": {\n        \"reasoning\": \"This quote provides the exact phrasing needed to correctly fill in the blanks in the definition.\",\n        \"sourceLocation\": \"Slide 3\",\n        \"verbatimQuote\": \"integrate the needs of people, the possibilities of technology, and the requirements for business success.”\"\n      },\n      \"correctAnswer\": [\n        \"technology\",\n        \"business\"\n      ],\n      \"prompt\": \"Fill in the blanks to complete Tim Brown's definition of design thinking.\",\n      \"sentenceHtml\": \"<p>Design thinking is a human-centered approach that integrates the needs of people, the possibilities of ___(1)___, and the requirements for ___(2)___ success.</p>\",\n      \"type\": \"FILL_IN_THE_BLANK\"\n    },\n    {\n      \"citation\": {\n        \"reasoning\": \"This quote directly supports the description provided for the 'Sketching' technique in the matching pairs.\",\n        \"sourceLocation\": \"Slide 31\",\n        \"verbatimQuote\": \"When you sketch, you are trying to get a basic concept of how the app will work in user interface form.\"\n      },\n      \"correctAnswer\": null,\n      \"pairs\": [\n        {\n          \"left\": \"Sketching\",\n          \"right\": \"Expressing basic concepts of app flow and UI form quickly, where detail is not important.\"\n        },\n        {\n          \"left\": \"Storyboard\",\n          \"right\": \"A process illustrating time and interaction, which requires personas and scenarios as prerequisites.\"\n        },\n        {\n          \"left\": \"Observing\",\n          \"right\": \"Investigating user needs and existing solutions through qualitative and quantitative research.\"\n        },\n        {\n          \"left\": \"Ideating\",\n          \"right\": \"A discovery process often starting from external changes like new technologies or societal trends.\"\n        }\n      ],\n      \"prompt\": \"Match each Design Thinking phase or technique with its correct description from the material.\",\n      \"type\": \"MATCHING\"\n    }\n  ]\n}",
+  "completion_tokens" : 974,
+  "doc_file" : "05_Design_thinking_v3.pdf",
+  "doc_id" : "D07",
+  "doc_language" : "en",
+  "doc_pages" : 72,
+  "doc_title" : "Design Thinking & Design Principles (Electronic Commerce)",
+  "empty_field" : false,
+  "error_message" : null,
+  "error_type" : null,
+  "feature" : "quiz",
+  "json_parse_ok" : true,
+  "latency_ms" : 27481,
+  "model" : "gemini-2.5-pro",
+  "parsed" : {
+    "questions" : [ {
+      "type" : "MCQ_SINGLE",
+      "prompt" : "A startup team states: \"We believe that busy professionals will pay for a pre-packaged healthy lunch delivery service.\" Which step of hypothesis testing does this statement represent?",
+      "options" : [ "Hypothesis statement", "Test method", "Test metric", "Prototyping" ],
+      "correctAnswer" : "Hypothesis statement",
+      "citation" : {
+        "sourceLocation" : "Slide 20",
+        "verbatimQuote" : "Hypothesis statement Test method Test metric & criteria",
+        "reasoning" : "This quote lists the three steps of hypothesis testing, with 'Hypothesis statement' being the first."
+      },
+      "sentenceHtml" : null,
+      "pairs" : null
+    }, {
+      "type" : "MCQ_MULTIPLE",
+      "prompt" : "According to the Agile Manifesto values presented, which of the following should be prioritized in innovation? (Select all that apply)",
+      "options" : [ "Following a detailed plan", "Customer collaboration", "Comprehensive documentation", "Responding to change" ],
+      "correctAnswer" : [ "Customer collaboration", "Responding to change" ],
+      "citation" : {
+        "sourceLocation" : "Slide 24",
+        "verbatimQuote" : "Individuals and interactions Customer collaboration Responding to change Working versions of products",
+        "reasoning" : "This quote lists the four core values of the Agile Manifesto, which are the correct answers."
+      },
+      "sentenceHtml" : null,
+      "pairs" : null
+    }, {
+      "type" : "TRUE_FALSE",
+      "prompt" : "True or False: The primary purpose of a Minimum Viable Product (MVP) is to build a complete, feature-rich product to secure a large market share upon launch.",
+      "options" : null,
+      "correctAnswer" : false,
+      "citation" : {
+        "sourceLocation" : "Slide 27",
+        "verbatimQuote" : "A minimum viable product is that version of a new product which allows a team to collect the maximum amount of validated learning about customers with the least effort.",
+        "reasoning" : "The quote defines an MVP's goal as collecting learning with least effort, contradicting the prompt's idea of a full-featured product."
+      },
+      "sentenceHtml" : null,
+      "pairs" : null
+    }, {
+      "type" : "FILL_IN_THE_BLANK",
+      "prompt" : "Fill in the blanks to complete Tim Brown's definition of design thinking.",
+      "options" : null,
+      "correctAnswer" : [ "technology", "business" ],
+      "citation" : {
+        "sourceLocation" : "Slide 3",
+        "verbatimQuote" : "integrate the needs of people, the possibilities of technology, and the requirements for business success.”",
+        "reasoning" : "This quote provides the exact phrasing needed to correctly fill in the blanks in the definition."
+      },
+      "sentenceHtml" : "<p>Design thinking is a human-centered approach that integrates the needs of people, the possibilities of ___(1)___, and the requirements for ___(2)___ success.</p>",
+      "pairs" : null
+    }, {
+      "type" : "MATCHING",
+      "prompt" : "Match each Design Thinking phase or technique with its correct description from the material.",
+      "options" : null,
+      "correctAnswer" : null,
+      "citation" : {
+        "sourceLocation" : "Slide 31",
+        "verbatimQuote" : "When you sketch, you are trying to get a basic concept of how the app will work in user interface form.",
+        "reasoning" : "This quote directly supports the description provided for the 'Sketching' technique in the matching pairs."
+      },
+      "sentenceHtml" : null,
+      "pairs" : [ {
+        "left" : "Sketching",
+        "right" : "Expressing basic concepts of app flow and UI form quickly, where detail is not important."
+      }, {
+        "left" : "Storyboard",
+        "right" : "A process illustrating time and interaction, which requires personas and scenarios as prerequisites."
+      }, {
+        "left" : "Observing",
+        "right" : "Investigating user needs and existing solutions through qualitative and quantitative research."
+      }, {
+        "left" : "Ideating",
+        "right" : "A discovery process often starting from external changes like new technologies or societal trends."
+      } ]
+    } ]
+  },
+  "prompt_tokens" : 3667,
+  "raw" : "```json\n{\n  \"questions\": [\n    {\n      \"citation\": {\n        \"reasoning\": \"This quote lists the three steps of hypothesis testing, with 'Hypothesis statement' being the first.\",\n        \"sourceLocation\": \"Slide 20\",\n        \"verbatimQuote\": \"Hypothesis statement Test method Test metric & criteria\"\n      },\n      \"correctAnswer\": \"Hypothesis statement\",\n      \"options\": [\n        \"Hypothesis statement\",\n        \"Test method\",\n        \"Test metric\",\n        \"Prototyping\"\n      ],\n      \"prompt\": \"A startup team states: \\\"We believe that busy professionals will pay for a pre-packaged healthy lunch delivery service.\\\" Which step of hypothesis testing does this statement represent?\",\n      \"type\": \"MCQ_SINGLE\"\n    },\n    {\n      \"citation\": {\n        \"reasoning\": \"This quote lists the four core values of the Agile Manifesto, which are the correct answers.\",\n        \"sourceLocation\": \"Slide 24\",\n        \"verbatimQuote\": \"Individuals and interactions Customer collaboration Responding to change Working versions of products\"\n      },\n      \"correctAnswer\": [\n        \"Customer collaboration\",\n        \"Responding to change\"\n      ],\n      \"options\": [\n        \"Following a detailed plan\",\n        \"Customer collaboration\",\n        \"Comprehensive documentation\",\n        \"Responding to change\"\n      ],\n      \"prompt\": \"According to the Agile Manifesto values presented, which of the following should be prioritized in innovation? (Select all that apply)\",\n      \"type\": \"MCQ_MULTIPLE\"\n    },\n    {\n      \"citation\": {\n        \"reasoning\": \"The quote defines an MVP's goal as collecting learning with least effort, contradicting the prompt's idea of a full-featured product.\",\n        \"sourceLocation\": \"Slide 27\",\n        \"verbatimQuote\": \"A minimum viable product is that version of a new product which allows a team to collect the maximum amount of validated learning about customers with the least effort.\"\n      },\n      \"correctAnswer\": false,\n      \"prompt\": \"True or False: The primary purpose of a Minimum Viable Product (MVP) is to build a complete, feature-rich product to secure a large market share upon launch.\",\n      \"type\": \"TRUE_FALSE\"\n    },\n    {\n      \"citation\": {\n        \"reasoning\": \"This quote provides the exact phrasing needed to correctly fill in the blanks in the definition.\",\n        \"sourceLocation\": \"Slide 3\",\n        \"verbatimQuote\": \"integrate the needs of people, the possibilities of technology, and the requirements for business success.”\"\n      },\n      \"correctAnswer\": [\n        \"technology\",\n        \"business\"\n      ],\n      \"prompt\": \"Fill in the blanks to complete Tim Brown's definition of design thinking.\",\n      \"sentenceHtml\": \"<p>Design thinking is a human-centered approach that integrates the needs of people, the possibilities of ___(1)___, and the requirements for ___(2)___ success.</p>\",\n      \"type\": \"FILL_IN_THE_BLANK\"\n    },\n    {\n      \"citation\": {\n        \"reasoning\": \"This quote directly supports the description provided for the 'Sketching' technique in the matching pairs.\",\n        \"sourceLocation\": \"Slide 31\",\n        \"verbatimQuote\": \"When you sketch, you are trying to get a basic concept of how the app will work in user interface form.\"\n      },\n      \"correctAnswer\": null,\n      \"pairs\": [\n        {\n          \"left\": \"Sketching\",\n          \"right\": \"Expressing basic concepts of app flow and UI form quickly, where detail is not important.\"\n        },\n        {\n          \"left\": \"Storyboard\",\n          \"right\": \"A process illustrating time and interaction, which requires personas and scenarios as prerequisites.\"\n        },\n        {\n          \"left\": \"Observing\",\n          \"right\": \"Investigating user needs and existing solutions through qualitative and quantitative research.\"\n        },\n        {\n          \"left\": \"Ideating\",\n          \"right\": \"A discovery process often starting from external changes like new technologies or societal trends.\"\n        }\n      ],\n      \"prompt\": \"Match each Design Thinking phase or technique with its correct description from the material.\",\n      \"type\": \"MATCHING\"\n    }\n  ]\n}\n```",
+  "run" : 1,
+  "schema_ok" : true,
+  "temperature" : 0.2,
+  "timestamp" : "2026-06-05T20:27:45.763163"
+}

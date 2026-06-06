@@ -1,0 +1,39 @@
+{
+  "cleaned" : "{\n  \"title\": \"Đại cương về Marketing\",\n  \"description\": \"Khóa học này cung cấp kiến thức nền tảng và toàn diện về Marketing, từ các khái niệm cốt lõi, các tư tưởng chủ đạo đến quy trình quản trị Marketing chuyên nghiệp. Học viên sẽ được trang bị tư duy marketing hiện đại để phân tích cơ hội thị trường và xây dựng chiến lược hiệu quả.\",\n  \"sections\": [\n    {\n      \"title\": \"Chương 1: Cơ sở của Marketing\",\n      \"topics\": [\n        \"Bài 1: Phân biệt Nhu cầu (Needs), Mong muốn (Wants), và Đòi hỏi (Demands)\",\n        \"Bài 2: Các khái niệm cốt lõi: Sản phẩm, Giá trị, Sự thỏa mãn, Khách hàng và Người tiêu dùng\",\n        \"Bài 3: Trao đổi - Hoạt động cốt lõi của Marketing và các điều kiện\",\n        \"Bài 4: Các loại hình thị trường trong hoạt động trao đổi\",\n        \"Bài 5: Định nghĩa Marketing hiện đại và các điểm chính cần lưu ý\"\n      ]\n    },\n    {\n      \"title\": \"Chương 2: Các tư tưởng chủ đạo trong Marketing\",\n      \"topics\": [\n        \"Bài 1: Tổng quan 5 quan điểm quản trị Marketing\",\n        \"Bài 2: Quan điểm trọng Sản xuất (Production Concept)\",\n        \"Bài 3: Quan điểm trọng Sản phẩm (Product Concept)\",\n        \"Bài 4: Quan điểm trọng Bán hàng (Selling Concept)\",\n        \"Bài 5: Quan điểm trọng Marketing (Marketing Concept)\",\n        \"Bài 6: Quan điểm Marketing xã hội (Societal Marketing Concept)\",\n        \"Bài 7: So sánh sự khác biệt giữa quan điểm Bán hàng và Marketing\"\n      ]\n    },\n    {\n      \"title\": \"Chương 3: Vai trò của Marketing\",\n      \"topics\": [\n        \"Bài 1: Vai trò trung gian của Marketing giữa nhà sản xuất và người tiêu dùng\",\n        \"Bài 2: Marketing giúp giải quyết các khác biệt về không gian, thời gian, thông tin và giá trị\"\n      ]\n    },\n    {\n      \"title\": \"Chương 4: Quá trình Quản trị Marketing\",\n      \"topics\": [\n        \"Bài 1: Tổng quan 4 bước trong quy trình quản trị Marketing\",\n        \"Bài 2: Phân tích cơ hội và phát triển chiến lược thị trường (STP)\",\n        \"Bài 3: Hoạch định các chương trình Marketing (Marketing Mix - 4P)\",\n        \"Bài 4: Quản lý, triển khai và kiểm soát các hoạt động Marketing\"\n      ]\n    }\n  ]\n}",
+  "completion_tokens" : 608,
+  "doc_file" : "NVT- POM-Ch1- DAI CUONG VE TIEP THI.pdf",
+  "doc_id" : "D08",
+  "doc_language" : "vi",
+  "doc_pages" : 26,
+  "doc_title" : "Đại cương về Marketing",
+  "empty_field" : false,
+  "error_message" : null,
+  "error_type" : null,
+  "feature" : "outline",
+  "json_parse_ok" : true,
+  "latency_ms" : 16239,
+  "model" : "gemini-2.5-pro",
+  "parsed" : {
+    "title" : "Đại cương về Marketing",
+    "description" : "Khóa học này cung cấp kiến thức nền tảng và toàn diện về Marketing, từ các khái niệm cốt lõi, các tư tưởng chủ đạo đến quy trình quản trị Marketing chuyên nghiệp. Học viên sẽ được trang bị tư duy marketing hiện đại để phân tích cơ hội thị trường và xây dựng chiến lược hiệu quả.",
+    "sections" : [ {
+      "title" : "Chương 1: Cơ sở của Marketing",
+      "topics" : [ "Bài 1: Phân biệt Nhu cầu (Needs), Mong muốn (Wants), và Đòi hỏi (Demands)", "Bài 2: Các khái niệm cốt lõi: Sản phẩm, Giá trị, Sự thỏa mãn, Khách hàng và Người tiêu dùng", "Bài 3: Trao đổi - Hoạt động cốt lõi của Marketing và các điều kiện", "Bài 4: Các loại hình thị trường trong hoạt động trao đổi", "Bài 5: Định nghĩa Marketing hiện đại và các điểm chính cần lưu ý" ]
+    }, {
+      "title" : "Chương 2: Các tư tưởng chủ đạo trong Marketing",
+      "topics" : [ "Bài 1: Tổng quan 5 quan điểm quản trị Marketing", "Bài 2: Quan điểm trọng Sản xuất (Production Concept)", "Bài 3: Quan điểm trọng Sản phẩm (Product Concept)", "Bài 4: Quan điểm trọng Bán hàng (Selling Concept)", "Bài 5: Quan điểm trọng Marketing (Marketing Concept)", "Bài 6: Quan điểm Marketing xã hội (Societal Marketing Concept)", "Bài 7: So sánh sự khác biệt giữa quan điểm Bán hàng và Marketing" ]
+    }, {
+      "title" : "Chương 3: Vai trò của Marketing",
+      "topics" : [ "Bài 1: Vai trò trung gian của Marketing giữa nhà sản xuất và người tiêu dùng", "Bài 2: Marketing giúp giải quyết các khác biệt về không gian, thời gian, thông tin và giá trị" ]
+    }, {
+      "title" : "Chương 4: Quá trình Quản trị Marketing",
+      "topics" : [ "Bài 1: Tổng quan 4 bước trong quy trình quản trị Marketing", "Bài 2: Phân tích cơ hội và phát triển chiến lược thị trường (STP)", "Bài 3: Hoạch định các chương trình Marketing (Marketing Mix - 4P)", "Bài 4: Quản lý, triển khai và kiểm soát các hoạt động Marketing" ]
+    } ]
+  },
+  "prompt_tokens" : 3310,
+  "raw" : "```json\n{\n  \"title\": \"Đại cương về Marketing\",\n  \"description\": \"Khóa học này cung cấp kiến thức nền tảng và toàn diện về Marketing, từ các khái niệm cốt lõi, các tư tưởng chủ đạo đến quy trình quản trị Marketing chuyên nghiệp. Học viên sẽ được trang bị tư duy marketing hiện đại để phân tích cơ hội thị trường và xây dựng chiến lược hiệu quả.\",\n  \"sections\": [\n    {\n      \"title\": \"Chương 1: Cơ sở của Marketing\",\n      \"topics\": [\n        \"Bài 1: Phân biệt Nhu cầu (Needs), Mong muốn (Wants), và Đòi hỏi (Demands)\",\n        \"Bài 2: Các khái niệm cốt lõi: Sản phẩm, Giá trị, Sự thỏa mãn, Khách hàng và Người tiêu dùng\",\n        \"Bài 3: Trao đổi - Hoạt động cốt lõi của Marketing và các điều kiện\",\n        \"Bài 4: Các loại hình thị trường trong hoạt động trao đổi\",\n        \"Bài 5: Định nghĩa Marketing hiện đại và các điểm chính cần lưu ý\"\n      ]\n    },\n    {\n      \"title\": \"Chương 2: Các tư tưởng chủ đạo trong Marketing\",\n      \"topics\": [\n        \"Bài 1: Tổng quan 5 quan điểm quản trị Marketing\",\n        \"Bài 2: Quan điểm trọng Sản xuất (Production Concept)\",\n        \"Bài 3: Quan điểm trọng Sản phẩm (Product Concept)\",\n        \"Bài 4: Quan điểm trọng Bán hàng (Selling Concept)\",\n        \"Bài 5: Quan điểm trọng Marketing (Marketing Concept)\",\n        \"Bài 6: Quan điểm Marketing xã hội (Societal Marketing Concept)\",\n        \"Bài 7: So sánh sự khác biệt giữa quan điểm Bán hàng và Marketing\"\n      ]\n    },\n    {\n      \"title\": \"Chương 3: Vai trò của Marketing\",\n      \"topics\": [\n        \"Bài 1: Vai trò trung gian của Marketing giữa nhà sản xuất và người tiêu dùng\",\n        \"Bài 2: Marketing giúp giải quyết các khác biệt về không gian, thời gian, thông tin và giá trị\"\n      ]\n    },\n    {\n      \"title\": \"Chương 4: Quá trình Quản trị Marketing\",\n      \"topics\": [\n        \"Bài 1: Tổng quan 4 bước trong quy trình quản trị Marketing\",\n        \"Bài 2: Phân tích cơ hội và phát triển chiến lược thị trường (STP)\",\n        \"Bài 3: Hoạch định các chương trình Marketing (Marketing Mix - 4P)\",\n        \"Bài 4: Quản lý, triển khai và kiểm soát các hoạt động Marketing\"\n      ]\n    }\n  ]\n}\n```",
+  "run" : 1,
+  "schema_ok" : true,
+  "temperature" : 0.2,
+  "timestamp" : "2026-05-24T10:40:29.933559"
+}

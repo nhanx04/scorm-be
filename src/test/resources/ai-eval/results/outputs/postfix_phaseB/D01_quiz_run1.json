@@ -1,0 +1,97 @@
+{
+  "cleaned" : "{\n  \"questions\": [\n    {\n      \"citation\": {\n        \"reasoning\": \"The text explicitly lists LISP and Prolog under the Artificial Intelligence programming domain.\",\n        \"sourceLocation\": \"Introduction.4\",\n        \"verbatimQuote\": \"Artificial Intelligence: LISP, Prolog, ...\"\n      },\n      \"correctAnswer\": \"Artificial Intelligence\",\n      \"options\": [\n        \"Artificial Intelligence\",\n        \"Systems Programming\",\n        \"Scientific Applications\",\n        \"Business Applications\"\n      ],\n      \"prompt\": \"According to the document, which programming domain is primarily associated with languages like LISP and Prolog?\",\n      \"type\": \"MCQ_SINGLE\"\n    },\n    {\n      \"citation\": {\n        \"reasoning\": \"The text states that imperative languages, not declarative ones, are dominant due to the von Neumann architecture.\",\n        \"sourceLocation\": \"Introduction.8\",\n        \"verbatimQuote\": \"Imperative languages, most dominant, because of von Neumann computers.\"\n      },\n      \"correctAnswer\": false,\n      \"prompt\": \"True or False: The document states that the von Neumann computer architecture is the primary reason for the dominance of declarative languages.\",\n      \"type\": \"TRUE_FALSE\"\n    },\n    {\n      \"citation\": {\n        \"reasoning\": \"The text lists Readability, Writability, and Reliability as three of the four main evaluation criteria.\",\n        \"sourceLocation\": \"Introduction.6\",\n        \"verbatimQuote\": \"Evaluation 1 Readability 2 Writability 3 Reliability 4 Cost\"\n      },\n      \"correctAnswer\": [\n        \"Readability\",\n        \"Writability\",\n        \"Reliability\"\n      ],\n      \"options\": [\n        \"Readability\",\n        \"Writability\",\n        \"Orthogonality\",\n        \"Reliability\",\n        \"Abstraction\"\n      ],\n      \"prompt\": \"According to the \\\"Evaluation\\\" slide, which of the following are listed as criteria for language evaluation? Select all that apply.\",\n      \"type\": \"MCQ_MULTIPLE\"\n    },\n    {\n      \"citation\": {\n        \"reasoning\": \"The text provides this exact definition for the term Orthogonality.\",\n        \"sourceLocation\": \"Introduction.5\",\n        \"verbatimQuote\": \"Orthogonality: every combination of features is meaningful. Independent functions should be controlled by independent mechanisms.\"\n      },\n      \"correctAnswer\": [\n        \"Orthogonality\"\n      ],\n      \"prompt\": \"Fill in the blank with the correct term from the document.\",\n      \"sentenceHtml\": \"The language characteristic where 'every combination of features is meaningful' and 'independent functions should be controlled by independent mechanisms' is known as ___.\",\n      \"type\": \"FILL_IN_THE_BLANK\"\n    },\n    {\n      \"citation\": {\n        \"reasoning\": \"The text lists each of these languages under their respective programming methodologies.\",\n        \"sourceLocation\": \"Introduction.7\",\n        \"verbatimQuote\": \"Functional: Lisp, ML, Haskell ... Logic or constraint-based: Prolog ... Query-based: SQL, GraphQL. ... Procedural-based: Fortran, ALGOL, COBOL, PL/I, BASIC, Pascal and C.\"\n      },\n      \"correctAnswer\": null,\n      \"pairs\": [\n        {\n          \"left\": \"SQL\",\n          \"right\": \"Query-based\"\n        },\n        {\n          \"left\": \"Prolog\",\n          \"right\": \"Logic or constraint-based\"\n        },\n        {\n          \"left\": \"C\",\n          \"right\": \"Procedural-based\"\n        },\n        {\n          \"left\": \"Lisp\",\n          \"right\": \"Functional\"\n        }\n      ],\n      \"prompt\": \"Match each programming language to its corresponding methodology as described in the text.\",\n      \"type\": \"MATCHING\"\n    }\n  ]\n}",
+  "completion_tokens" : 880,
+  "doc_file" : "1-Introduction-2023.pdf",
+  "doc_id" : "D01",
+  "doc_language" : "en",
+  "doc_pages" : 36,
+  "doc_title" : "Introduction to Programming Languages and Compilers",
+  "empty_field" : false,
+  "error_message" : null,
+  "error_type" : null,
+  "feature" : "quiz",
+  "json_parse_ok" : true,
+  "latency_ms" : 24675,
+  "model" : "gemini-2.5-pro",
+  "parsed" : {
+    "questions" : [ {
+      "type" : "MCQ_SINGLE",
+      "prompt" : "According to the document, which programming domain is primarily associated with languages like LISP and Prolog?",
+      "options" : [ "Artificial Intelligence", "Systems Programming", "Scientific Applications", "Business Applications" ],
+      "correctAnswer" : "Artificial Intelligence",
+      "citation" : {
+        "sourceLocation" : "Introduction.4",
+        "verbatimQuote" : "Artificial Intelligence: LISP, Prolog, ...",
+        "reasoning" : "The text explicitly lists LISP and Prolog under the Artificial Intelligence programming domain."
+      },
+      "sentenceHtml" : null,
+      "pairs" : null
+    }, {
+      "type" : "TRUE_FALSE",
+      "prompt" : "True or False: The document states that the von Neumann computer architecture is the primary reason for the dominance of declarative languages.",
+      "options" : null,
+      "correctAnswer" : false,
+      "citation" : {
+        "sourceLocation" : "Introduction.8",
+        "verbatimQuote" : "Imperative languages, most dominant, because of von Neumann computers.",
+        "reasoning" : "The text states that imperative languages, not declarative ones, are dominant due to the von Neumann architecture."
+      },
+      "sentenceHtml" : null,
+      "pairs" : null
+    }, {
+      "type" : "MCQ_MULTIPLE",
+      "prompt" : "According to the \"Evaluation\" slide, which of the following are listed as criteria for language evaluation? Select all that apply.",
+      "options" : [ "Readability", "Writability", "Orthogonality", "Reliability", "Abstraction" ],
+      "correctAnswer" : [ "Readability", "Writability", "Reliability" ],
+      "citation" : {
+        "sourceLocation" : "Introduction.6",
+        "verbatimQuote" : "Evaluation 1 Readability 2 Writability 3 Reliability 4 Cost",
+        "reasoning" : "The text lists Readability, Writability, and Reliability as three of the four main evaluation criteria."
+      },
+      "sentenceHtml" : null,
+      "pairs" : null
+    }, {
+      "type" : "FILL_IN_THE_BLANK",
+      "prompt" : "Fill in the blank with the correct term from the document.",
+      "options" : null,
+      "correctAnswer" : [ "Orthogonality" ],
+      "citation" : {
+        "sourceLocation" : "Introduction.5",
+        "verbatimQuote" : "Orthogonality: every combination of features is meaningful. Independent functions should be controlled by independent mechanisms.",
+        "reasoning" : "The text provides this exact definition for the term Orthogonality."
+      },
+      "sentenceHtml" : "The language characteristic where 'every combination of features is meaningful' and 'independent functions should be controlled by independent mechanisms' is known as ___.",
+      "pairs" : null
+    }, {
+      "type" : "MATCHING",
+      "prompt" : "Match each programming language to its corresponding methodology as described in the text.",
+      "options" : null,
+      "correctAnswer" : null,
+      "citation" : {
+        "sourceLocation" : "Introduction.7",
+        "verbatimQuote" : "Functional: Lisp, ML, Haskell ... Logic or constraint-based: Prolog ... Query-based: SQL, GraphQL. ... Procedural-based: Fortran, ALGOL, COBOL, PL/I, BASIC, Pascal and C.",
+        "reasoning" : "The text lists each of these languages under their respective programming methodologies."
+      },
+      "sentenceHtml" : null,
+      "pairs" : [ {
+        "left" : "SQL",
+        "right" : "Query-based"
+      }, {
+        "left" : "Prolog",
+        "right" : "Logic or constraint-based"
+      }, {
+        "left" : "C",
+        "right" : "Procedural-based"
+      }, {
+        "left" : "Lisp",
+        "right" : "Functional"
+      } ]
+    } ]
+  },
+  "prompt_tokens" : 2929,
+  "raw" : "```json\n{\n  \"questions\": [\n    {\n      \"citation\": {\n        \"reasoning\": \"The text explicitly lists LISP and Prolog under the Artificial Intelligence programming domain.\",\n        \"sourceLocation\": \"Introduction.4\",\n        \"verbatimQuote\": \"Artificial Intelligence: LISP, Prolog, ...\"\n      },\n      \"correctAnswer\": \"Artificial Intelligence\",\n      \"options\": [\n        \"Artificial Intelligence\",\n        \"Systems Programming\",\n        \"Scientific Applications\",\n        \"Business Applications\"\n      ],\n      \"prompt\": \"According to the document, which programming domain is primarily associated with languages like LISP and Prolog?\",\n      \"type\": \"MCQ_SINGLE\"\n    },\n    {\n      \"citation\": {\n        \"reasoning\": \"The text states that imperative languages, not declarative ones, are dominant due to the von Neumann architecture.\",\n        \"sourceLocation\": \"Introduction.8\",\n        \"verbatimQuote\": \"Imperative languages, most dominant, because of von Neumann computers.\"\n      },\n      \"correctAnswer\": false,\n      \"prompt\": \"True or False: The document states that the von Neumann computer architecture is the primary reason for the dominance of declarative languages.\",\n      \"type\": \"TRUE_FALSE\"\n    },\n    {\n      \"citation\": {\n        \"reasoning\": \"The text lists Readability, Writability, and Reliability as three of the four main evaluation criteria.\",\n        \"sourceLocation\": \"Introduction.6\",\n        \"verbatimQuote\": \"Evaluation 1 Readability 2 Writability 3 Reliability 4 Cost\"\n      },\n      \"correctAnswer\": [\n        \"Readability\",\n        \"Writability\",\n        \"Reliability\"\n      ],\n      \"options\": [\n        \"Readability\",\n        \"Writability\",\n        \"Orthogonality\",\n        \"Reliability\",\n        \"Abstraction\"\n      ],\n      \"prompt\": \"According to the \\\"Evaluation\\\" slide, which of the following are listed as criteria for language evaluation? Select all that apply.\",\n      \"type\": \"MCQ_MULTIPLE\"\n    },\n    {\n      \"citation\": {\n        \"reasoning\": \"The text provides this exact definition for the term Orthogonality.\",\n        \"sourceLocation\": \"Introduction.5\",\n        \"verbatimQuote\": \"Orthogonality: every combination of features is meaningful. Independent functions should be controlled by independent mechanisms.\"\n      },\n      \"correctAnswer\": [\n        \"Orthogonality\"\n      ],\n      \"prompt\": \"Fill in the blank with the correct term from the document.\",\n      \"sentenceHtml\": \"The language characteristic where 'every combination of features is meaningful' and 'independent functions should be controlled by independent mechanisms' is known as ___.\",\n      \"type\": \"FILL_IN_THE_BLANK\"\n    },\n    {\n      \"citation\": {\n        \"reasoning\": \"The text lists each of these languages under their respective programming methodologies.\",\n        \"sourceLocation\": \"Introduction.7\",\n        \"verbatimQuote\": \"Functional: Lisp, ML, Haskell ... Logic or constraint-based: Prolog ... Query-based: SQL, GraphQL. ... Procedural-based: Fortran, ALGOL, COBOL, PL/I, BASIC, Pascal and C.\"\n      },\n      \"correctAnswer\": null,\n      \"pairs\": [\n        {\n          \"left\": \"SQL\",\n          \"right\": \"Query-based\"\n        },\n        {\n          \"left\": \"Prolog\",\n          \"right\": \"Logic or constraint-based\"\n        },\n        {\n          \"left\": \"C\",\n          \"right\": \"Procedural-based\"\n        },\n        {\n          \"left\": \"Lisp\",\n          \"right\": \"Functional\"\n        }\n      ],\n      \"prompt\": \"Match each programming language to its corresponding methodology as described in the text.\",\n      \"type\": \"MATCHING\"\n    }\n  ]\n}\n```",
+  "run" : 1,
+  "schema_ok" : true,
+  "temperature" : 0.2,
+  "timestamp" : "2026-06-05T13:01:32.130338"
+}

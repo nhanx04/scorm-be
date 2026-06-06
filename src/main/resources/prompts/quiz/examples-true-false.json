@@ -1,12 +1,16 @@
 {
   "type": "TRUE_FALSE",
   "description": "Câu hỏi đúng/sai. correctAnswer LUÔN là giá trị BOOLEAN nguyên thủy (true hoặc false trong JSON), KHÔNG được trả về dưới dạng chuỗi \"true\"/\"false\" hay \"Đúng\"/\"Sai\". Trường options nên để null vì giao diện hiển thị 2 nút Đúng/Sai cố định.",
-  "sourceContext": "HTTP là giao thức không trạng thái (stateless), nghĩa là mỗi yêu cầu (request) độc lập với nhau và máy chủ không lưu thông tin về phiên giữa các request. Cookie và session được sử dụng để bù đắp đặc tính này.",
+  "sourceContext": "Slide 12: HTTP là giao thức không trạng thái (stateless), nghĩa là mỗi yêu cầu (request) độc lập với nhau và máy chủ không lưu thông tin về phiên giữa các request. Cookie và session được sử dụng để bù đắp đặc tính này.",
   "expectedOutput": {
     "type": "TRUE_FALSE",
     "prompt": "HTTP là giao thức có trạng thái (stateful), tự động lưu thông tin phiên giữa các request.",
     "options": null,
     "correctAnswer": false,
-    "explanation": "Sai. Theo tài liệu, HTTP là giao thức KHÔNG trạng thái (stateless). Mỗi request độc lập và máy chủ không tự lưu thông tin phiên — phải dùng cookie/session để bù đắp."
+    "citation": {
+      "sourceLocation": "Slide 12",
+      "verbatimQuote": "HTTP là giao thức không trạng thái (stateless)",
+      "reasoning": "Quote khẳng định HTTP là stateless nên claim 'stateful' trong câu hỏi là sai."
+    }
   }
 }

@@ -1,0 +1,1198 @@
+{
+  "schema_version" : "2.1",
+  "extracted_at" : "2026-06-06T12:41:48.690241",
+  "description" : "Expanded ground truth (Option A): manual + AI-extracted facts, target ~25/doc, D05 ~30. Each AI fact's verbatim_quote substring-verified against source.",
+  "extraction_notes" : [ "Original 5 manual facts/doc preserved with source=manual.", "AI-extracted facts: source=ai_extracted with verbatim_quote field.", "Each round of extraction passes existing quotes to the model as an avoidance list, so additive runs accumulate diverse facts.", "Targets: 25 facts/doc; D05 (360p): 30 facts." ],
+  "documents" : [ {
+    "doc_id" : "D01",
+    "file" : "1-Introduction-2023.pdf",
+    "title" : "Introduction to Programming Languages and Compilers",
+    "language" : "en",
+    "total_facts_count" : 24,
+    "key_facts" : [ {
+      "id" : "D01-F1",
+      "fact" : "Programming languages are notations for describing computations to people and to machines.",
+      "source" : "manual"
+    }, {
+      "id" : "D01-F2",
+      "fact" : "Programming domains mentioned in this material include Scientific Applications (Fortran, ALGOL 60, Julia, MATLAB), Business Applications (COBOL, DATABUS, PL/B), Artificial Intelligence (LISP, Prolog), Systems Programming (PL/S, BLISS, C), and Web Software (XHTML, JavaScript, PHP, Java, C#).",
+      "source" : "manual"
+    }, {
+      "id" : "D01-F3",
+      "fact" : "Language evaluation criteria include: clarity/simplicity/unity, orthogonality, support of abstraction (control and data), and safety.",
+      "source" : "manual"
+    }, {
+      "id" : "D01-F4",
+      "fact" : "Orthogonality in language design means every combination of features is meaningful, and independent functions should be controlled by independent mechanisms.",
+      "source" : "manual"
+    }, {
+      "id" : "D01-F5",
+      "fact" : "The document is authored by Dr. Nguyen Hua Phung and MEng. Tran Ngoc Bao Duy from the Faculty of Computer Science and Engineering, Ho Chi Minh University of Technology, VNU-HCM.",
+      "source" : "manual"
+    }, {
+      "id" : "D01-F6",
+      "fact" : "Fortran and MATLAB are examples of programming languages used for Scientific Applications.",
+      "verbatim_quote" : "Scientific Applications: Fortran, ALGOL 60, Julia, MATLAB.",
+      "source" : "ai_extracted"
+    }, {
+      "id" : "D01-F7",
+      "fact" : "LISP and Prolog are programming languages categorized under the Artificial Intelligence domain.",
+      "verbatim_quote" : "Artificial Intelligence: LISP, Prolog, ...",
+      "source" : "ai_extracted"
+    }, {
+      "id" : "D01-F8",
+      "fact" : "Imperative languages are the most dominant programming methodology due to the von Neumann computer architecture.",
+      "verbatim_quote" : "Imperative languages, most dominant, because of von Neumann computers.",
+      "source" : "ai_extracted"
+    }, {
+      "id" : "D01-F9",
+      "fact" : "A key advantage of an interpreter is its ability to provide better error diagnostics than a compiler.",
+      "verbatim_quote" : "An interpreter, however, can usually give better error diagnostics than a compiler",
+      "source" : "ai_extracted"
+    }, {
+      "id" : "D01-F10",
+      "fact" : "The first phase of a compiler is called lexical analysis or scanning.",
+      "verbatim_quote" : "The first phase of a compiler is called lexical analysis or scanning.",
+      "source" : "ai_extracted"
+    }, {
+      "id" : "D01-F11",
+      "fact" : "The second phase of a compiler, which creates a syntax tree, is known as syntax analysis or parsing.",
+      "verbatim_quote" : "The second phase of the compiler is syntax analysis or parsing.",
+      "source" : "ai_extracted"
+    }, {
+      "id" : "D01-F12",
+      "fact" : "COBOL is an example of a programming language used for Business Applications.",
+      "verbatim_quote" : "Business Applications: COBOL, DATABUS, PL/B, ...",
+      "source" : "ai_extracted"
+    }, {
+      "id" : "D01-F13",
+      "fact" : "JavaScript and PHP are languages used for Web Software development.",
+      "verbatim_quote" : "Web Software: XHTML, JavaScript, PHP, Java, C# (ASP.NET), ...",
+      "source" : "ai_extracted"
+    }, {
+      "id" : "D01-F14",
+      "fact" : "Language evaluation criteria include readability, writability, reliability, and cost.",
+      "verbatim_quote" : "Evaluation 1 Readability 2 Writability 3 Reliability 4 Cost",
+      "source" : "ai_extracted"
+    }, {
+      "id" : "D01-F15",
+      "fact" : "The declarative programming methodology focuses on what the computer is to do.",
+      "verbatim_quote" : "Declarative: on what the computer is to do.",
+      "source" : "ai_extracted"
+    }, {
+      "id" : "D01-F16",
+      "fact" : "The imperative programming methodology focuses on how the computer should perform a task.",
+      "verbatim_quote" : "Imperative: on how the computer should do it.",
+      "source" : "ai_extracted"
+    }, {
+      "id" : "D01-F17",
+      "fact" : "Lisp, ML, and Haskell are examples of functional programming languages.",
+      "verbatim_quote" : "Functional: Lisp, ML, Haskell",
+      "source" : "ai_extracted"
+    }, {
+      "id" : "D01-F18",
+      "fact" : "The von Neumann architecture is a well-known computer architecture influencing language design.",
+      "verbatim_quote" : "Well-known computer architecture: von Neumann.",
+      "source" : "ai_extracted"
+    }, {
+      "id" : "D01-F19",
+      "fact" : "In the von Neumann architecture, both data and programs are stored in memory.",
+      "verbatim_quote" : "Data and programs stored in memory",
+      "source" : "ai_extracted"
+    }, {
+      "id" : "D01-F20",
+      "fact" : "A language design trade-off exists between readability and writability.",
+      "verbatim_quote" : "Readability vs. writability",
+      "source" : "ai_extracted"
+    }, {
+      "id" : "D01-F21",
+      "fact" : "Software systems that translate programs into an executable form are called translators.",
+      "verbatim_quote" : "software systems that do this translation are called translators.",
+      "source" : "ai_extracted"
+    }, {
+      "id" : "D01-F22",
+      "fact" : "Just-in-time (JIT) compilers compile methods that are frequently executed, known as 'hot' methods.",
+      "verbatim_quote" : "Methods that are found commonly executed (hot) are JIT compiled.",
+      "source" : "ai_extracted"
+    }, {
+      "id" : "D01-F23",
+      "fact" : "An abstract syntax tree (AST) is generated by removing irrelevant nodes from a parse tree.",
+      "verbatim_quote" : "Removing most of the “artificial” nodes in the tree’s interior and returning an abstract syntax tree (AST).",
+      "source" : "ai_extracted"
+    }, {
+      "id" : "D01-F24",
+      "fact" : "Static checks are consistency checks that are performed during the compilation process.",
+      "verbatim_quote" : "Static checks are consistency checks that are done during compilation.",
+      "source" : "ai_extracted"
+    } ]
+  }, {
+    "doc_id" : "D02",
+    "file" : "4-1_SQL.pdf",
+    "title" : "Structured Query Language (DDL/DML/DCL)",
+    "language" : "en",
+    "total_facts_count" : 15,
+    "key_facts" : [ {
+      "id" : "D02-F1",
+      "fact" : "SQL is a standard computer language for relational database management and data manipulation.",
+      "source" : "manual"
+    }, {
+      "id" : "D02-F2",
+      "fact" : "SQL is divided into three sub-languages: DDL (Data Definition Language with CREATE/ALTER/DROP), DML (Data Manipulation Language with SELECT/INSERT/UPDATE/DELETE), and DCL (Data Control Language with COMMIT/ROLLBACK/GRANT/REVOKE).",
+      "source" : "manual"
+    }, {
+      "id" : "D02-F3",
+      "fact" : "A schema in SQL is a group of tables and other constructs that belong to the same database application, created via 'CREATE SCHEMA Schema_Name AUTHORIZATION Authorization_Identifier'.",
+      "source" : "manual"
+    }, {
+      "id" : "D02-F4",
+      "fact" : "A catalog in SQL is a named collection of schemas.",
+      "source" : "manual"
+    }, {
+      "id" : "D02-F5",
+      "fact" : "CREATE TABLE supports column constraints (NOT NULL, UNIQUE, PRIMARY KEY, DEFAULT, CHECK) and table-level constraints including FOREIGN KEY with referential actions ON UPDATE and ON DELETE.",
+      "source" : "manual"
+    }, {
+      "id" : "D02-F6",
+      "fact" : "Structured Query Language (SQL) is a standard computer language for relational database management and data manipulation.",
+      "verbatim_quote" : "Structured Query Language (SQL) is a standard computer language for relational database management and data manipulation.",
+      "source" : "ai_extracted"
+    }, {
+      "id" : "D02-F7",
+      "fact" : "A schema is a group of tables and other constructs that belong to the same database application.",
+      "verbatim_quote" : "Schema: a group of tables and other constructs that belong to the same database application",
+      "source" : "ai_extracted"
+    }, {
+      "id" : "D02-F8",
+      "fact" : "Base tables are relations whose tuples are actually created and stored as a file by the DBMS.",
+      "verbatim_quote" : "Relation and its tuples are actually created and stored as a file by the DBMS.",
+      "source" : "ai_extracted"
+    }, {
+      "id" : "D02-F9",
+      "fact" : "The PRIMARY KEY clause specifies one or more attributes that make up the primary key of a relation.",
+      "verbatim_quote" : "specifies one or more attributes that make up the primary key of a relation.",
+      "source" : "ai_extracted"
+    }, {
+      "id" : "D02-F10",
+      "fact" : "The ALTER command is used to change the definition of a base table or other named schema elements.",
+      "verbatim_quote" : "ALTER command: change the definition of a base table or of other named schema elements",
+      "source" : "ai_extracted"
+    }, {
+      "id" : "D02-F11",
+      "fact" : "An SQL relation is a multi-set of tuples, not a set, meaning it can have identical tuples.",
+      "verbatim_quote" : "SQL relation (table) is a multi-set (sometimes called a bag) of tuples; it is not a set of tuples",
+      "source" : "ai_extracted"
+    }, {
+      "id" : "D02-F12",
+      "fact" : "The GROUP BY clause forms groups of rows that have the same column value.",
+      "verbatim_quote" : "GROUP BY : Forms groups of rows with same column value",
+      "source" : "ai_extracted"
+    }, {
+      "id" : "D02-F13",
+      "fact" : "The HAVING-clause is used for specifying a selection condition on groups rather than on individual tuples.",
+      "verbatim_quote" : "The HAVING-clause is used for specifying a selection condition on groups (rather than on individual tuples)",
+      "source" : "ai_extracted"
+    }, {
+      "id" : "D02-F14",
+      "fact" : "The DELETE command removes tuples from a relation.",
+      "verbatim_quote" : "Removes tuples from a relation",
+      "source" : "ai_extracted"
+    }, {
+      "id" : "D02-F15",
+      "fact" : "A view is a virtual table that is derived from other tables.",
+      "verbatim_quote" : "A view is a “virtual” table that is derived from other tables",
+      "source" : "ai_extracted"
+    } ]
+  }, {
+    "doc_id" : "D03",
+    "file" : "201_DSA___Chapter_7__Hash___Search__new_.pdf",
+    "title" : "Searching Algorithms and Hash Tables",
+    "language" : "en",
+    "total_facts_count" : 25,
+    "key_facts" : [ {
+      "id" : "D03-F1",
+      "fact" : "Searching algorithms are designed to check for or retrieve an element from a data structure, and are classified into two categories: Sequential Search and Interval Search.",
+      "source" : "manual"
+    }, {
+      "id" : "D03-F2",
+      "fact" : "Linear Search starts from the leftmost element of the list, compares the target x with each element one by one, returning the index if matched or -1 if no element matches.",
+      "source" : "manual"
+    }, {
+      "id" : "D03-F3",
+      "fact" : "Interval Search algorithms are specifically designed for searching in sorted data structures.",
+      "source" : "manual"
+    }, {
+      "id" : "D03-F4",
+      "fact" : "The hash table section covers basic concepts, direct-address tables, hash tables, hash functions, and open addressing as a collision-resolution technique.",
+      "source" : "manual"
+    }, {
+      "id" : "D03-F5",
+      "fact" : "The document is authored by Tran Ngoc Bao Duy from the Faculty of Computer Science and Engineering, Ho Chi Minh University of Technology, VNU-HCM, as Chapter 7 of a Data Structures and Algorithms course.",
+      "source" : "manual"
+    }, {
+      "id" : "D03-F6",
+      "fact" : "The time complexity of the Linear Search algorithm is O(n).",
+      "verbatim_quote" : "The time complexity of the above algorithm is O(n).",
+      "source" : "ai_extracted"
+    }, {
+      "id" : "D03-F7",
+      "fact" : "Jump Search is a searching algorithm designed for sorted arrays.",
+      "verbatim_quote" : "Jump Search is a searching algorithm for sorted arrays.",
+      "source" : "ai_extracted"
+    }, {
+      "id" : "D03-F8",
+      "fact" : "In the worst case, the time complexity of Interpolation Search can be up to O(n).",
+      "verbatim_quote" : "In worst case, it can take up to O(n).",
+      "source" : "ai_extracted"
+    }, {
+      "id" : "D03-F9",
+      "fact" : "The operations in a direct-address table, such as search and insert, take only O(1) time.",
+      "verbatim_quote" : "Each of these operations takes only O(1) time.",
+      "source" : "ai_extracted"
+    }, {
+      "id" : "D03-F10",
+      "fact" : "With hashing, an element with key k is stored in the slot designated by h(k).",
+      "verbatim_quote" : "With hashing, this element is stored in slot h(k).",
+      "source" : "ai_extracted"
+    }, {
+      "id" : "D03-F11",
+      "fact" : "A collision in a hash table occurs when two keys hash to the same slot.",
+      "verbatim_quote" : "two keys may hash to the same slot. We call this situation a collision.",
+      "source" : "ai_extracted"
+    }, {
+      "id" : "D03-F12",
+      "fact" : "In chaining, all elements that hash to the same slot are placed into the same linked list.",
+      "verbatim_quote" : "In chaining, we place all the elements that hash to the same slot into the same linked list.",
+      "source" : "ai_extracted"
+    }, {
+      "id" : "D03-F13",
+      "fact" : "The hash function for the division method is defined as h(k) = k mod m.",
+      "verbatim_quote" : "the hash function is h(k) = k mod m",
+      "source" : "ai_extracted"
+    }, {
+      "id" : "D03-F14",
+      "fact" : "In Sequential Search, the list or array is traversed sequentially and every element is checked.",
+      "verbatim_quote" : "In this, the list or array is traversed sequentially and every element is checked.",
+      "source" : "ai_extracted"
+    }, {
+      "id" : "D03-F15",
+      "fact" : "Linear Search returns -1 if the target element 'x' does not match any elements in the list.",
+      "verbatim_quote" : "If x doesn’t match with any of elements, return -1.",
+      "source" : "ai_extracted"
+    }, {
+      "id" : "D03-F16",
+      "fact" : "The time complexity of the Binary Search algorithm is O(log n).",
+      "verbatim_quote" : "Time complexity: O(log n)",
+      "source" : "ai_extracted"
+    }, {
+      "id" : "D03-F17",
+      "fact" : "The time complexity of the Jump Search algorithm is O(sqrt(n)).",
+      "verbatim_quote" : "Time complexity: √ n.",
+      "source" : "ai_extracted"
+    }, {
+      "id" : "D03-F18",
+      "fact" : "Interpolation Search is an improvement over Binary Search when values in a sorted array are uniformly distributed.",
+      "verbatim_quote" : "Interpolation Search is an improvement over Binary Search for instances, where the values in a sorted array are uniformly distributed.",
+      "source" : "ai_extracted"
+    }, {
+      "id" : "D03-F19",
+      "fact" : "If elements are uniformly distributed, the time complexity of Interpolation Search is O(log log n).",
+      "verbatim_quote" : "If elements are uniformly distributed, then O(log log n)).",
+      "source" : "ai_extracted"
+    }, {
+      "id" : "D03-F20",
+      "fact" : "A downside of direct addressing is that storing a table for a large universe U may be impractical.",
+      "verbatim_quote" : "If the universe U is large, storing a table T of size |U | may be impractical",
+      "source" : "ai_extracted"
+    }, {
+      "id" : "D03-F21",
+      "fact" : "A hash function maps the universe of keys U into the slots of a hash table.",
+      "verbatim_quote" : "maps the universe keys U into the slots of a hash table T [0 . . .m− 1]",
+      "source" : "ai_extracted"
+    }, {
+      "id" : "D03-F22",
+      "fact" : "The simplest solution for resolving hash collisions is by chaining.",
+      "verbatim_quote" : "Simplest solution: collision resolution by chaining.",
+      "source" : "ai_extracted"
+    }, {
+      "id" : "D03-F23",
+      "fact" : "The worst-case behavior of hashing with chaining is when all n keys hash to the same slot.",
+      "verbatim_quote" : "The worst-case behavior of hashing with chaining is terrible: all n keys hash to the same slot",
+      "source" : "ai_extracted"
+    }, {
+      "id" : "D03-F24",
+      "fact" : "In the division method, the value of m should be a prime not too close to an exact power of 2.",
+      "verbatim_quote" : "m should be a prime not too close to an exact power of 2.",
+      "source" : "ai_extracted"
+    }, {
+      "id" : "D03-F25",
+      "fact" : "The multiplication method for hashing involves multiplying the key by a constant A in the range (0, 1).",
+      "verbatim_quote" : "Multiply the key k by a constant A in the range (0, 1)",
+      "source" : "ai_extracted"
+    } ]
+  }, {
+    "doc_id" : "D04",
+    "file" : "Chapter_5 - Transaction Processing.pdf",
+    "title" : "Introduction to Transaction Processing Concepts and Theory",
+    "language" : "en",
+    "total_facts_count" : 25,
+    "key_facts" : [ {
+      "id" : "D04-F1",
+      "fact" : "A transaction is a logical unit of database processing that includes one or more access operations: read (retrieval), write (insert or update), and delete.",
+      "source" : "manual"
+    }, {
+      "id" : "D04-F2",
+      "fact" : "Transaction boundaries are defined by 'Begin Transaction' and 'End Transaction'; an application program may contain several transactions separated by these boundaries.",
+      "source" : "manual"
+    }, {
+      "id" : "D04-F3",
+      "fact" : "A single-user system allows at most one user at a time, while a multiuser system allows many users to access the system concurrently.",
+      "source" : "manual"
+    }, {
+      "id" : "D04-F4",
+      "fact" : "Concurrency can be implemented via interleaved processing (concurrent execution interleaved on a single CPU) or parallel processing (concurrent execution on multiple CPUs).",
+      "source" : "manual"
+    }, {
+      "id" : "D04-F5",
+      "fact" : "The basic database operations are read_item(X) - which finds the disk block containing X, copies it into a main-memory buffer, then copies X to a program variable - and write_item(X) - which writes the program variable's value back into the database item.",
+      "source" : "manual"
+    }, {
+      "id" : "D04-F6",
+      "fact" : "In a single-user system, a maximum of one user can utilize the system at any given time.",
+      "verbatim_quote" : "Single-User System: At most one user at a time can use the system.",
+      "source" : "ai_extracted"
+    }, {
+      "id" : "D04-F7",
+      "fact" : "A transaction is considered a logical unit of database processing, which encompasses one or more access operations.",
+      "verbatim_quote" : "A Transaction: logical unit of database processing that includes one or more access operations",
+      "source" : "ai_extracted"
+    }, {
+      "id" : "D04-F8",
+      "fact" : "The Lost Update Problem occurs when two transactions access the same database items, leading to an incorrect item value.",
+      "verbatim_quote" : "makes the value of some database item incorrect.",
+      "source" : "ai_extracted"
+    }, {
+      "id" : "D04-F9",
+      "fact" : "The Incorrect Summary Problem may arise when one transaction calculates an aggregate function while other transactions are updating the same records.",
+      "verbatim_quote" : "one transaction is calculating an aggregate summary function on a number of records while other transactions are updating some of these records",
+      "source" : "ai_extracted"
+    }, {
+      "id" : "D04-F10",
+      "fact" : "Atomicity dictates that a transaction is an indivisible unit of work, which is either fully completed or not performed at all.",
+      "verbatim_quote" : "A transaction is an atomic unit of processing; it is either performed in its entirety or not performed at all.",
+      "source" : "ai_extracted"
+    }, {
+      "id" : "D04-F11",
+      "fact" : "The system log, or journal, is responsible for tracking all transaction operations that modify the values of database items.",
+      "verbatim_quote" : "The log keeps track of all transaction operations that affect the values of database items.",
+      "source" : "ai_extracted"
+    }, {
+      "id" : "D04-F12",
+      "fact" : "The durability property ensures that once a transaction's changes are committed, they will not be lost due to a subsequent failure.",
+      "verbatim_quote" : "Once a transaction changes the database and the changes are committed, these changes must never be lost because of subsequent failure.",
+      "source" : "ai_extracted"
+    }, {
+      "id" : "D04-F13",
+      "fact" : "A schedule is classified as serial if all operations for every participating transaction are executed consecutively.",
+      "verbatim_quote" : "A schedule S is serial if, for every transaction T participating in the schedule, all the operations of T are executed consecutively",
+      "source" : "ai_extracted"
+    }, {
+      "id" : "D04-F14",
+      "fact" : "Two schedules are considered conflict equivalent if the relative order of any two conflicting operations is the same in both.",
+      "verbatim_quote" : "Two schedules are said to be conflict equivalent if the order of any two conflicting operations is the same in both schedules.",
+      "source" : "ai_extracted"
+    }, {
+      "id" : "D04-F15",
+      "fact" : "A multiuser system allows many users to access the system concurrently.",
+      "verbatim_quote" : "Multiuser System: Many users can access the system concurrently.",
+      "source" : "ai_extracted"
+    }, {
+      "id" : "D04-F16",
+      "fact" : "In interleaved processing, the concurrent execution of processes is interleaved within a single CPU.",
+      "verbatim_quote" : "Interleaved processing: concurrent execution of processes is interleaved in a single CPU",
+      "source" : "ai_extracted"
+    }, {
+      "id" : "D04-F17",
+      "fact" : "Parallel processing involves processes being concurrently executed in multiple CPUs.",
+      "verbatim_quote" : "Parallel processing: processes are concurrently executed in multiple CPUs.",
+      "source" : "ai_extracted"
+    }, {
+      "id" : "D04-F18",
+      "fact" : "The boundaries of a transaction are defined by a 'Begin' and 'End transaction' marker.",
+      "verbatim_quote" : "Transaction boundaries: Begin and End transaction.",
+      "source" : "ai_extracted"
+    }, {
+      "id" : "D04-F19",
+      "fact" : "The read_item(X) operation reads a database item named X into a program variable.",
+      "verbatim_quote" : "read_item(X): Reads a database item named X into a program variable.",
+      "source" : "ai_extracted"
+    }, {
+      "id" : "D04-F20",
+      "fact" : "The write_item(X) operation writes the value from a program variable X into the database item named X.",
+      "verbatim_quote" : "write_item(X): Writes the value of program variable X into the database item named X.",
+      "source" : "ai_extracted"
+    }, {
+      "id" : "D04-F21",
+      "fact" : "The basic unit of data transfer from the disk to the computer's main memory is one block.",
+      "verbatim_quote" : "Basic unit of data transfer from the disk to the computer main memory is one block.",
+      "source" : "ai_extracted"
+    }, {
+      "id" : "D04-F22",
+      "fact" : "The Temporary Update problem occurs when an updated item is accessed by another transaction before it is reverted.",
+      "verbatim_quote" : "The updated item is accessed by another transaction before it is changed back to its original value.",
+      "source" : "ai_extracted"
+    }, {
+      "id" : "D04-F23",
+      "fact" : "The Unrepeatable Read Problem occurs when a transaction reads an item twice and it is changed by another transaction between reads.",
+      "verbatim_quote" : "Transaction T reads the same item twice and the item is changed by another transaction T’ between the two reads.",
+      "source" : "ai_extracted"
+    }, {
+      "id" : "D04-F24",
+      "fact" : "A computer failure or system crash is a hardware or software error occurring during transaction execution.",
+      "verbatim_quote" : "A computer failure (system crash): A hardware or software error occurs in the computer system during transaction execution.",
+      "source" : "ai_extracted"
+    }, {
+      "id" : "D04-F25",
+      "fact" : "The commit_transaction operation signals a successful end of a transaction, allowing its updates to be safely committed.",
+      "verbatim_quote" : "commit_transaction: This signals a successful end of the transaction so that any changes (updates) executed by the transaction can be safely committed",
+      "source" : "ai_extracted"
+    } ]
+  }, {
+    "doc_id" : "D05",
+    "file" : "ds10connectivity.pdf",
+    "title" : "Graph Connectivity (Discrete Structures - Chapter 9)",
+    "language" : "en",
+    "total_facts_count" : 21,
+    "key_facts" : [ {
+      "id" : "D05-F1",
+      "fact" : "The chapter covers: Connectivity (Paths and Circuits), Euler and Hamilton Paths, the Shortest Path Problem (Dijkstra's, Bellman-Ford, Floyd-Warshall, Ford's algorithm), and Graph Coloring.",
+      "source" : "manual"
+    }, {
+      "id" : "D05-F2",
+      "fact" : "A cut vertex (articulation point) is a vertex whose removal disconnects the graph; in Vietnamese: 'đỉnh cắt' hay 'điểm khớp'.",
+      "source" : "manual"
+    }, {
+      "id" : "D05-F3",
+      "fact" : "An Euler path is a path that traverses every edge of the graph exactly once; a Hamilton path visits every vertex exactly once.",
+      "source" : "manual"
+    }, {
+      "id" : "D05-F4",
+      "fact" : "Shortest path algorithms covered include Dijkstra's algorithm, Bellman-Ford algorithm, and Floyd-Warshall algorithm.",
+      "source" : "manual"
+    }, {
+      "id" : "D05-F5",
+      "fact" : "The material is authored by Huynh Tuong Nguyen, Tran Tuan Anh, Nguyen An Khuong, and Le Hong Trang from the Faculty of Computer Science and Engineering, University of Technology - VNUHCM, dated August 16, 2021.",
+      "source" : "manual"
+    }, {
+      "id" : "D05-F6",
+      "fact" : "A Hamilton circuit is defined as a circuit that visits each vertex in a graph exactly once.",
+      "source" : "manual"
+    }, {
+      "id" : "D05-F7",
+      "fact" : "Three rules of Hamilton Circuits are taught: (Rule 1) if deg(v) = 2, both edges incident to v must be used; (Rule 2) no subcircuit can be formed; (Rule 3) once two edges at a vertex v are determined, all other edges incident at v must be removed.",
+      "source" : "manual"
+    }, {
+      "id" : "D05-F8",
+      "fact" : "Property of Dijkstra's Algorithm: applicable for any graph G with any edge length ℓ(vi) ≥ 0, one-to-all shortest paths, time complexity O(|V|²).",
+      "source" : "manual"
+    }, {
+      "id" : "D05-F9",
+      "fact" : "Dijkstra's algorithm CAN be used on directed graphs (digraphs), but CANNOT be used on graphs with negative edge weights.",
+      "source" : "manual"
+    }, {
+      "id" : "D05-F10",
+      "fact" : "An application of Hamilton circuits is generating Gray Code: an n-digit Gray code can be generated by finding Hamilton circuits of an n-dimensional hypercube; Gray code is used in digital communication to reduce the effect of noise.",
+      "source" : "manual"
+    }, {
+      "id" : "D05-F11",
+      "fact" : "In a directed graph, a path is a sequence of ordered pairs representing directed edges.",
+      "verbatim_quote" : "Path is a sequence of (x0, x1), (x1, x2), . . . , (xn−1, xn)",
+      "source" : "ai_extracted"
+    }, {
+      "id" : "D05-F12",
+      "fact" : "In a connected undirected graph, a simple path exists between any two distinct vertices.",
+      "verbatim_quote" : "There is a simple path between every pair of distinct vertices of a connected undirected graph.",
+      "source" : "ai_extracted"
+    }, {
+      "id" : "D05-F13",
+      "fact" : "A graph that does not have any cut vertices is called a nonseparable graph.",
+      "verbatim_quote" : "This graph doesn't have cut vertices: nonseparable graph",
+      "source" : "ai_extracted"
+    }, {
+      "id" : "D05-F14",
+      "fact" : "Some slides in the document about Euler and Hamilton circuits were created by Chung Ki-hong and Hur Joon-seok from KAIST.",
+      "verbatim_quote" : "Some slides about Euler and Hamilton circuits are created by Chung Ki-hong and Hur Joon-seok from KAIST.",
+      "source" : "ai_extracted"
+    }, {
+      "id" : "D05-F15",
+      "fact" : "The document on graph connectivity is part of the 'Discrete Structures for Computing' course, dated August 16, 2021.",
+      "verbatim_quote" : "Discrete Structures for Computing on August 16, 2021",
+      "source" : "ai_extracted"
+    }, {
+      "id" : "D05-F16",
+      "fact" : "The authors of the material are affiliated with the Faculty of Computer Science and Engineering at the University of Technology - VNUHCM.",
+      "verbatim_quote" : "Faculty of Computer Science and Engineering University of Technology - VNUHCM",
+      "source" : "ai_extracted"
+    }, {
+      "id" : "D05-F17",
+      "fact" : "A learning outcome of the course is to define basic discrete structures, including sets, mappings, and graphs.",
+      "verbatim_quote" : "Define basic discrete structures: set, mapping, graphs",
+      "source" : "ai_extracted"
+    }, {
+      "id" : "D05-F18",
+      "fact" : "Vertex connectivity is applied to network reliability to determine the minimum number of routers that can disconnect the network.",
+      "verbatim_quote" : "Minimum number of routers that disconnect the network",
+      "source" : "ai_extracted"
+    }, {
+      "id" : "D05-F19",
+      "fact" : "Edge connectivity can be applied to highway networks to find the minimum number of roads that can be closed.",
+      "verbatim_quote" : "Minimum number of roads that can be closed",
+      "source" : "ai_extracted"
+    }, {
+      "id" : "D05-F20",
+      "fact" : "One of the course outcomes is to explain how to model problems using discrete structures.",
+      "verbatim_quote" : "Explain problem modeling using discrete structures",
+      "source" : "ai_extracted"
+    }, {
+      "id" : "D05-F21",
+      "fact" : "The course aims for students to understand basic probability theory and discrete random variables.",
+      "verbatim_quote" : "Define basic probability theory",
+      "source" : "ai_extracted"
+    } ]
+  }, {
+    "doc_id" : "D06",
+    "file" : "BayesianLearning.pdf",
+    "title" : "Bayesian Learning",
+    "language" : "en",
+    "total_facts_count" : 25,
+    "key_facts" : [ {
+      "id" : "D06-F1",
+      "fact" : "In Bayesian learning, all quantities of interest (parameters, hypotheses, predictions) are represented as probability distributions.",
+      "source" : "manual"
+    }, {
+      "id" : "D06-F2",
+      "fact" : "Bayesian learning is formulated as the manipulation of probabilities to evaluate and compare hypotheses; optimal decisions are derived by reasoning about posterior probabilities or expected utilities.",
+      "source" : "manual"
+    }, {
+      "id" : "D06-F3",
+      "fact" : "Each training example can incrementally update the hypothesis probability; combining prior knowledge with data yields the final posterior probability.",
+      "source" : "manual"
+    }, {
+      "id" : "D06-F4",
+      "fact" : "The Learning-Inference-Decision pipeline: Learning produces a posterior P(H|D) from prior P(H) and likelihood P(D|H); Inference computes the posterior predictive P(y|x,D); Decision selects the action a* = arg max_a E[U|a,D].",
+      "source" : "manual"
+    }, {
+      "id" : "D06-F5",
+      "fact" : "The chapter outline covers: Introduction, Bayes Rule, Parameter Estimation, Parameter Estimation Example, Priors in Bayesian Learning, and a Short Intro to Naive Bayes; authored by Thanh-Sach LE (ltsach@hcmut.edu.vn) at HCMUT, August 23, 2025.",
+      "source" : "manual"
+    }, {
+      "id" : "D06-F6",
+      "fact" : "In Bayesian Learning, learning is formulated as the manipulation of probabilities to evaluate and compare hypotheses.",
+      "verbatim_quote" : "Learning is formulated as the manipulation of probabilities to evaluate and compare hypotheses.",
+      "source" : "ai_extracted"
+    }, {
+      "id" : "D06-F7",
+      "fact" : "A prior distribution, denoted P(θ), expresses beliefs about parameters before any data is observed.",
+      "verbatim_quote" : "Prior distribution P(θ) expresses beliefs about parameters before observing data.",
+      "source" : "ai_extracted"
+    }, {
+      "id" : "D06-F8",
+      "fact" : "Conjugate priors are chosen so that the posterior distribution is in the same family as the prior, which simplifies computation.",
+      "verbatim_quote" : "Conjugate priors: chosen so posterior is in the same family, simplifying computation.",
+      "source" : "ai_extracted"
+    }, {
+      "id" : "D06-F9",
+      "fact" : "In machine learning, using an L2 penalty on weights is equivalent to placing a Gaussian prior on those weights in a Bayesian framework.",
+      "verbatim_quote" : "L2 penalty ∼ Gaussian prior on weights.",
+      "source" : "ai_extracted"
+    }, {
+      "id" : "D06-F10",
+      "fact" : "The Naive Bayes classifier is a form of MAP classification that relies on a conditional independence assumption among features.",
+      "verbatim_quote" : "MAP classification with conditional independence assumption.",
+      "source" : "ai_extracted"
+    }, {
+      "id" : "D06-F11",
+      "fact" : "In Bayesian learning, all quantities of interest, such as parameters and predictions, are represented as probability distributions.",
+      "verbatim_quote" : "All quantities of interest (parameters, hypotheses, predictions) are represented as probability distributions.",
+      "source" : "ai_extracted"
+    }, {
+      "id" : "D06-F12",
+      "fact" : "Optimal decisions in Bayesian learning are derived by reasoning about posterior probabilities or expected utilities.",
+      "verbatim_quote" : "Optimal decisions are derived by reasoning about posterior probabilities or expected utilities.",
+      "source" : "ai_extracted"
+    }, {
+      "id" : "D06-F13",
+      "fact" : "Bayesian learning provides a principled probabilistic framework that unifies the processes of learning and inference.",
+      "verbatim_quote" : "provide a principled probabilistic framework that unifies learning and inference.",
+      "source" : "ai_extracted"
+    }, {
+      "id" : "D06-F14",
+      "fact" : "In Bayesian learning, each training example can be used to incrementally update the probability of a hypothesis.",
+      "verbatim_quote" : "Each training example can incrementally update hypothesis probability",
+      "source" : "ai_extracted"
+    }, {
+      "id" : "D06-F15",
+      "fact" : "The Bayesian learning process combines prior knowledge with data to determine a final posterior probability.",
+      "verbatim_quote" : "Prior knowledge + data → final posterior probability",
+      "source" : "ai_extracted"
+    }, {
+      "id" : "D06-F16",
+      "fact" : "The prior probability, denoted P(H), represents the initial belief before any data is observed.",
+      "verbatim_quote" : "Prior P(H): initial belief",
+      "source" : "ai_extracted"
+    }, {
+      "id" : "D06-F17",
+      "fact" : "The likelihood, denoted P(D|H), quantifies the evidence for a hypothesis provided by the data.",
+      "verbatim_quote" : "Likelihood P(D|H): evidence from data",
+      "source" : "ai_extracted"
+    }, {
+      "id" : "D06-F18",
+      "fact" : "The posterior probability, P(H|D), is the updated belief about a hypothesis after observing the data.",
+      "verbatim_quote" : "Posterior P(H|D): updated belief",
+      "source" : "ai_extracted"
+    }, {
+      "id" : "D06-F19",
+      "fact" : "The core idea of the Bayesian learning pipeline is that learning is equivalent to belief updating.",
+      "verbatim_quote" : "Key idea: learning = belief update",
+      "source" : "ai_extracted"
+    }, {
+      "id" : "D06-F20",
+      "fact" : "In the Bayesian framework, inference involves calculating the posterior predictive distribution P(y | x, D).",
+      "verbatim_quote" : "Inference: posterior predictive P(y | x ,D)",
+      "source" : "ai_extracted"
+    }, {
+      "id" : "D06-F21",
+      "fact" : "In Bayes' theorem, P(h) is the prior probability of a specific hypothesis h.",
+      "verbatim_quote" : "P(h): prior probability of hypothesis h",
+      "source" : "ai_extracted"
+    }, {
+      "id" : "D06-F22",
+      "fact" : "The two primary approaches for parameter estimation are Maximum Likelihood Estimation (MLE) and Maximum A Posteriori (MAP) Estimation.",
+      "verbatim_quote" : "Two main approaches: • Maximum Likelihood Estimation (MLE) • Maximum A Posteriori Estimation (MAP)",
+      "source" : "ai_extracted"
+    }, {
+      "id" : "D06-F23",
+      "fact" : "Maximum Likelihood Estimation (MLE) finds the parameter θ that maximizes the likelihood of the observed data, P(D | θ).",
+      "verbatim_quote" : "Choose parameter θ that maximizes likelihood of observed data: θ̂MLE = argmax θ P(D | θ)",
+      "source" : "ai_extracted"
+    }, {
+      "id" : "D06-F24",
+      "fact" : "In regression, minimizing Mean Squared Error (MSE) is equivalent to MLE under the assumption of Gaussian noise.",
+      "verbatim_quote" : "minimizing MSE corresponds to MLE under Gaussian noise.",
+      "source" : "ai_extracted"
+    }, {
+      "id" : "D06-F25",
+      "fact" : "Maximum A Posteriori (MAP) estimation incorporates both data and prior knowledge to find the most probable parameter.",
+      "verbatim_quote" : "Incorporates both data and prior knowledge",
+      "source" : "ai_extracted"
+    } ]
+  }, {
+    "doc_id" : "D07",
+    "file" : "05_Design_thinking_v3.pdf",
+    "title" : "Design Thinking & Design Principles (Electronic Commerce)",
+    "language" : "en",
+    "total_facts_count" : 25,
+    "key_facts" : [ {
+      "id" : "D07-F1",
+      "fact" : "Per Tim Brown (President & CEO of IDEO), design thinking is a human-centered approach to innovation that integrates the needs of people, the possibilities of technology, and the requirements for business success.",
+      "source" : "manual"
+    }, {
+      "id" : "D07-F2",
+      "fact" : "The chapter outline covers: What is design thinking, Business Model Canvas, Hypothesis Testing for Value Creation, Prototyping, Information Architecture, and Fundamentals of Visual Design.",
+      "source" : "manual"
+    }, {
+      "id" : "D07-F3",
+      "fact" : "Hypothesis Testing for Value Creation consists of three components: a hypothesis statement, a test method, and a test metric & criteria.",
+      "source" : "manual"
+    }, {
+      "id" : "D07-F4",
+      "fact" : "Key phases of design thinking include Observing (study current market/users/competitors using qualitative and quantitative research), Ideating (discovery and creation), and Implementation (design experiments, test, iterate).",
+      "source" : "manual"
+    }, {
+      "id" : "D07-F5",
+      "fact" : "A Business Model (per David Teece) articulates the logic and provides data and other evidence demonstrating how a business creates and delivers value to customers; the Business Model Canvas is used to describe and design a value creation system.",
+      "source" : "manual"
+    }, {
+      "id" : "D07-F6",
+      "fact" : "Design thinking is a human-centered innovation approach integrating people's needs, technology's possibilities, and business requirements.",
+      "verbatim_quote" : "“Design thinking” is a human-centered approach to innovation that draws from the designer's toolkit to integrate the needs of people",
+      "source" : "ai_extracted"
+    }, {
+      "id" : "D07-F7",
+      "fact" : "A business model demonstrates how a business creates and delivers value to its customers.",
+      "verbatim_quote" : "how a business creates and delivers value to customers",
+      "source" : "ai_extracted"
+    }, {
+      "id" : "D07-F8",
+      "fact" : "The Agile Manifesto, from 2001, provides a set of values and principles for conducting innovation.",
+      "verbatim_quote" : "Agile is a set of values and principles that guide how you should conduct innovation (from 2001)",
+      "source" : "ai_extracted"
+    }, {
+      "id" : "D07-F9",
+      "fact" : "A Minimum Viable Product (MVP) allows a team to gather maximum validated customer learning with the least effort.",
+      "verbatim_quote" : "collect the maximum amount of validated learning about customers with the least effort",
+      "source" : "ai_extracted"
+    }, {
+      "id" : "D07-F10",
+      "fact" : "A wireframe is a schematic or blueprint used to communicate the structure of a website or software.",
+      "verbatim_quote" : "A wireframe is a schematic or blueprint that is useful for helping you, your programmers and designers think and communicate",
+      "source" : "ai_extracted"
+    }, {
+      "id" : "D07-F11",
+      "fact" : "The IA principle of front doors assumes at least 50% of users will enter a site through a page other than the home page.",
+      "verbatim_quote" : "Assume that at least 50% of users will use a different entry point than the home page",
+      "source" : "ai_extracted"
+    }, {
+      "id" : "D07-F12",
+      "fact" : "Gestalt is a group of visual perception principles developed by German psychologists in the 1920s.",
+      "verbatim_quote" : "Gestalt (form, shape in German) is a group of visual perception principles developed by German psychologists in 1920s",
+      "source" : "ai_extracted"
+    }, {
+      "id" : "D07-F13",
+      "fact" : "The principle of proximity states that objects close together appear more related than those spaced farther apart.",
+      "verbatim_quote" : "things that are close together appear to be more related than things that are spaced farther apart",
+      "source" : "ai_extracted"
+    }, {
+      "id" : "D07-F14",
+      "fact" : "The principle of closure suggests people tend to see a single, recognizable pattern in complex visual arrangements.",
+      "verbatim_quote" : "we tend to look for a single, recognizable pattern",
+      "source" : "ai_extracted"
+    }, {
+      "id" : "D07-F15",
+      "fact" : "For accessibility, foreground text under 18pt should have a minimum color contrast ratio of 4.5:1.",
+      "verbatim_quote" : "Foreground text below 18pt should have a minimum colour contrast ratio of 4.5:1",
+      "source" : "ai_extracted"
+    }, {
+      "id" : "D07-F16",
+      "fact" : "Design thinking is a skill that aligns what people want with what can be done to create a viable business strategy.",
+      "verbatim_quote" : "A skill that allows a designer to align what people want with what can be done",
+      "source" : "ai_extracted"
+    }, {
+      "id" : "D07-F17",
+      "fact" : "Qualitative research techniques for investigating user needs include interviews and contextual inquiry.",
+      "verbatim_quote" : "Qualitative research techniques: interviews, contextual inquiry, etc.",
+      "source" : "ai_extracted"
+    }, {
+      "id" : "D07-F18",
+      "fact" : "The creation process in ideating emphasizes the actions entrepreneurs take to create new products for new markets.",
+      "verbatim_quote" : "Emphasis on the actions entrepreneurs take to create new products for new markets",
+      "source" : "ai_extracted"
+    }, {
+      "id" : "D07-F19",
+      "fact" : "A prototype is defined as an interactive version of a wireframe.",
+      "verbatim_quote" : "Prototype: An interactive version of wireframe",
+      "source" : "ai_extracted"
+    }, {
+      "id" : "D07-F20",
+      "fact" : "A Minimum Viable Product (MVP) is a fast and cheap way for a team to reduce risk.",
+      "verbatim_quote" : "FAST and CHEAP way to REDUCE our RISK",
+      "source" : "ai_extracted"
+    }, {
+      "id" : "D07-F21",
+      "fact" : "Prerequisites for creating a storyboard include having established personas, scenarios, and the project scope.",
+      "verbatim_quote" : "Prerequisites: personas, scenarios, the scope",
+      "source" : "ai_extracted"
+    }, {
+      "id" : "D07-F22",
+      "fact" : "Sketching is used to quickly express ideas and establish the basic flow of a user interface.",
+      "verbatim_quote" : "Express your ideas quickly and involve others in creating the user experience",
+      "source" : "ai_extracted"
+    }, {
+      "id" : "D07-F23",
+      "fact" : "The IA principle of objects states that content should be treated as a living entity with lifecycles and behaviors.",
+      "verbatim_quote" : "Content should be treated as a living, breathing thing. It has lifecycles, behaviors, and attributes.",
+      "source" : "ai_extracted"
+    }, {
+      "id" : "D07-F24",
+      "fact" : "The IA principle of growth requires that a website be scalable, assuming its content will increase over time.",
+      "verbatim_quote" : "Assume that the content on the website will grow. Make sure the website is scalable.",
+      "source" : "ai_extracted"
+    }, {
+      "id" : "D07-F25",
+      "fact" : "One of the four main types of user needs is exploratory seeking, where users look for inspiration.",
+      "verbatim_quote" : "Exploratory seeking: Users will come to the website looking for inspiration.",
+      "source" : "ai_extracted"
+    } ]
+  }, {
+    "doc_id" : "D08",
+    "file" : "NVT- POM-Ch1- DAI CUONG VE TIEP THI.pdf",
+    "title" : "Đại cương về Marketing",
+    "language" : "vi",
+    "total_facts_count" : 25,
+    "key_facts" : [ {
+      "id" : "D08-F1",
+      "fact" : "Nhu cầu (Needs) là trạng thái thiếu hụt thứ gì đó cần được thỏa mãn của con người.",
+      "source" : "manual"
+    }, {
+      "id" : "D08-F2",
+      "fact" : "Mong muốn (Wants) là một hình thái của nhu cầu ở mức độ cụ thể hơn, được hình thành do các yếu tố văn hóa, tôn giáo, tính cách.",
+      "source" : "manual"
+    }, {
+      "id" : "D08-F3",
+      "fact" : "Đòi hỏi (Demands) là mong muốn mà người ta có khả năng mua và sẵn lòng mua.",
+      "source" : "manual"
+    }, {
+      "id" : "D08-F4",
+      "fact" : "Theo Kotler (2018): Marketing là một tiến trình mà các công ty tạo ra giá trị cho khách hàng và xây dựng mối quan hệ khách hàng bền chặt nhằm thu lại giá trị từ khách hàng.",
+      "source" : "manual"
+    }, {
+      "id" : "D08-F5",
+      "fact" : "Để có trao đổi (exchange) cần đủ 5 điều kiện: (1) ít nhất 2 bên biết nhau; (2) mỗi bên muốn trao đổi; (3) mỗi bên có cái để trao đổi; (4) mỗi bên có khả năng giao dịch và trao đổi sản phẩm của mình; (5) mỗi bên có quyền tự do chấp nhận hay từ chối đề nghị của bên kia.",
+      "source" : "manual"
+    }, {
+      "id" : "D08-F6",
+      "fact" : "Nhu cầu (Needs) được định nghĩa là trạng thái thiếu hụt một thứ gì đó cần được thỏa mãn của con người.",
+      "verbatim_quote" : "trạng thái thiếu hụt thứ gì đó cần được thỏa mãn của con người",
+      "source" : "ai_extracted"
+    }, {
+      "id" : "D08-F7",
+      "fact" : "Đòi hỏi (Demands) là những mong muốn mà con người có khả năng và sẵn lòng mua.",
+      "verbatim_quote" : "mong muốn mà người ta có khả năng mua và sẵn lòng mua",
+      "source" : "ai_extracted"
+    }, {
+      "id" : "D08-F8",
+      "fact" : "Một trong những điều kiện để trao đổi diễn ra là mỗi bên phải có quyền tự do chấp nhận hay từ chối đề nghị.",
+      "verbatim_quote" : "Mỗi bên có quyền tự do chấp nhận hay từ chối đề nghị của bên kia",
+      "source" : "ai_extracted"
+    }, {
+      "id" : "D08-F9",
+      "fact" : "Một trong những điểm chính của khái niệm marketing là nó được xem như một tiến trình quản trị.",
+      "verbatim_quote" : "Marketing là một tiến trình quản trị",
+      "source" : "ai_extracted"
+    }, {
+      "id" : "D08-F10",
+      "fact" : "Theo quan điểm trọng sản xuất, doanh nghiệp cần tập trung tăng quy mô sản xuất và mở rộng phạm vi tiêu thụ.",
+      "verbatim_quote" : "Doanh nghiệp cần tập trung tăng qui mô sản xuất và mở rộng phạm vi tiêu thụ",
+      "source" : "ai_extracted"
+    }, {
+      "id" : "D08-F11",
+      "fact" : "Quan điểm trọng sản phẩm cho rằng người tiêu dùng sẽ thích những sản phẩm có chất lượng tốt và kiểu dáng độc đáo.",
+      "verbatim_quote" : "Người tiêu dùng thích sản phẩm tốt, kiểu dáng độc đáo",
+      "source" : "ai_extracted"
+    }, {
+      "id" : "D08-F12",
+      "fact" : "Theo quan điểm trọng bán hàng, doanh nghiệp cần có các nỗ lực xúc tiến bán hàng để thành công.",
+      "verbatim_quote" : "Doanh nghiệp cần các nỗ lực xúc tiến bán hàng",
+      "source" : "ai_extracted"
+    }, {
+      "id" : "D08-F13",
+      "fact" : "Quan điểm tiếp thị xã hội yêu cầu doanh nghiệp thỏa mãn nhu cầu khách hàng đồng thời thể hiện trách nhiệm xã hội.",
+      "verbatim_quote" : "Doanh nghiệp thỏa mãn nhu cầu khách hàng và thể hiện trách nhiệm xã hội",
+      "source" : "ai_extracted"
+    }, {
+      "id" : "D08-F14",
+      "fact" : "Marketing có vai trò trung gian giúp làm giảm thiểu sự khác biệt giữa nhà sản xuất và người tiêu dùng.",
+      "verbatim_quote" : "Đóng vai trò trung gian làm giảm thiểu sự khác biệt giữa nhà sản xuất và người tiêu dùng",
+      "source" : "ai_extracted"
+    }, {
+      "id" : "D08-F15",
+      "fact" : "Mong muốn là một hình thái của nhu cầu ở mức độ cụ thể hơn, được hình thành bởi các yếu tố như văn hóa và tính cách.",
+      "verbatim_quote" : "Một hình thái của nhu cầu ở mức độ cụ thể hơn, được hình thành do các yếu tố văn hóa, tôn giáo, tính cách,…",
+      "source" : "ai_extracted"
+    }, {
+      "id" : "D08-F16",
+      "fact" : "Một trong những điều kiện để có trao đổi là ít nhất phải có hai bên biết nhau.",
+      "verbatim_quote" : "Ít nhất phải 2 bên biết nhau",
+      "source" : "ai_extracted"
+    }, {
+      "id" : "D08-F17",
+      "fact" : "Để có trao đổi, mỗi bên tham gia phải có mong muốn trao đổi với nhau.",
+      "verbatim_quote" : "Mỗi bên muốn trao đổi",
+      "source" : "ai_extracted"
+    }, {
+      "id" : "D08-F18",
+      "fact" : "Một điều kiện cần cho trao đổi là mỗi bên phải sở hữu một thứ gì đó để trao đổi.",
+      "verbatim_quote" : "Mỗi bên có cái để trao đổi",
+      "source" : "ai_extracted"
+    }, {
+      "id" : "D08-F19",
+      "fact" : "Để trao đổi diễn ra, mỗi bên phải có khả năng giao dịch và trao đổi sản phẩm của mình.",
+      "verbatim_quote" : "Mỗi bên có khả năng giao dịch và trao đổi sản phẩm của mình",
+      "source" : "ai_extracted"
+    }, {
+      "id" : "D08-F20",
+      "fact" : "Theo Kotler (2018), marketing là quá trình các công ty tạo ra giá trị cho khách hàng để nhận lại giá trị từ họ.",
+      "verbatim_quote" : "create value for customers and build strong customer relationships in order to capture value from customers in return",
+      "source" : "ai_extracted"
+    }, {
+      "id" : "D08-F21",
+      "fact" : "Một trong những điểm chính của marketing là hoạt động này phải hướng đến khách hàng.",
+      "verbatim_quote" : "Marketing là hoạt động hướng khách hàng",
+      "source" : "ai_extracted"
+    }, {
+      "id" : "D08-F22",
+      "fact" : "Marketing đòi hỏi sự phối hợp đồng bộ giữa các hoạt động liên quan.",
+      "verbatim_quote" : "Marketing cần phối hợp đồng bộ các hoạt động",
+      "source" : "ai_extracted"
+    }, {
+      "id" : "D08-F23",
+      "fact" : "Mục tiêu mà marketing giúp tổ chức đạt được thường là lợi nhuận trong dài hạn.",
+      "verbatim_quote" : "Marketing giúp tổ chức đạt mục tiêu (thường lợi nhuận trong dài hạn)",
+      "source" : "ai_extracted"
+    }, {
+      "id" : "D08-F24",
+      "fact" : "Quan điểm trọng sản phẩm tập trung vào việc cải tiến sản phẩm để có chất lượng tốt và mẫu mã đẹp.",
+      "verbatim_quote" : "Sản phẩm chất lượng, mẫu mã đẹp, khác lạ  quản lý tập trung cải tiến sản phẩm",
+      "source" : "ai_extracted"
+    }, {
+      "id" : "D08-F25",
+      "fact" : "Quan điểm trọng bán hàng tập trung vào các nỗ lực khuyến mãi và chính sách bán hàng hấp dẫn.",
+      "verbatim_quote" : "Chính sách bán hàng hấp dẫn, thu hút  quản lý tập trung nỗ lực khuyến mãi",
+      "source" : "ai_extracted"
+    } ]
+  }, {
+    "doc_id" : "D09",
+    "file" : "Chương 6.pdf",
+    "title" : "Trường tĩnh điện trong chân không",
+    "language" : "vi",
+    "total_facts_count" : 25,
+    "key_facts" : [ {
+      "id" : "D09-F1",
+      "fact" : "Cường độ điện trường do điện tích điểm gây ra được xác định theo công thức E = k·q/r²·er (V/m hoặc N/C), trong đó k = 1/(4πε₀) ≈ 9·10⁹ N·m²/C² và ε₀ ≈ 8,86·10⁻¹² C²/N·m².",
+      "source" : "manual"
+    }, {
+      "id" : "D09-F2",
+      "fact" : "Vecto E hướng ra xa q nếu q > 0, và hướng về phía q nếu q < 0; trong môi trường có hằng số điện môi tương đối ε > 1, cường độ điện trường giảm đi ε lần so với trong chân không.",
+      "source" : "manual"
+    }, {
+      "id" : "D09-F3",
+      "fact" : "Điện trường do hệ điện tích điểm gây ra bằng tổng vector cường độ điện trường do các điện tích trong hệ gây ra (nguyên lý chồng chất): E = ΣEᵢ.",
+      "source" : "manual"
+    }, {
+      "id" : "D09-F4",
+      "fact" : "Đường sức điện trường là những đường cong sao cho vecto E tiếp tuyến với nó tại mọi điểm; đường sức bắt đầu từ điện tích dương và kết thúc ở điện tích âm; đường sức điện trường tĩnh không khép kín.",
+      "source" : "manual"
+    }, {
+      "id" : "D09-F5",
+      "fact" : "Hai đường sức không bao giờ cắt nhau; nếu điện trường là điện trường đều thì các đường sức là những đường thẳng song song và cách đều nhau.",
+      "source" : "manual"
+    }, {
+      "id" : "D09-F6",
+      "fact" : "Vecto cường độ điện trường hướng ra xa điện tích dương và hướng về phía điện tích âm.",
+      "verbatim_quote" : "Vecto hướng ra xa q nếu q>0, hướng về phía q nếu q<0.",
+      "source" : "ai_extracted"
+    }, {
+      "id" : "D09-F7",
+      "fact" : "Trong môi trường có hằng số điện môi tương đối ε lớn hơn 1, cường độ điện trường sẽ giảm đi ε lần.",
+      "verbatim_quote" : "Trong môi trường có hằng số điện môi tương đối ε đối với chân không (ε >1) thì cường độ điện trường giảm đi ε lần.",
+      "source" : "ai_extracted"
+    }, {
+      "id" : "D09-F8",
+      "fact" : "Đường sức của trường tĩnh điện là những đường không khép kín.",
+      "verbatim_quote" : "Đường sức điện trường tĩnh không khép kín.",
+      "source" : "ai_extracted"
+    }, {
+      "id" : "D09-F9",
+      "fact" : "Định lý Gauss phát biểu rằng thông lượng cảm ứng điện qua mặt kín bằng tổng đại số điện tích bên trong mặt đó.",
+      "verbatim_quote" : "thông lượng của vecto cảm ứng điện gửi qua mặt kín S thì bằng tổng đại số điện tích chứa bên trong mặt kín.",
+      "source" : "ai_extracted"
+    }, {
+      "id" : "D09-F10",
+      "fact" : "Một mặt phẳng rộng vô hạn tích điện sẽ sinh ra một điện trường đều.",
+      "verbatim_quote" : "Mặt phẳng rộng vô hạn: sinh ra điện trường đều.",
+      "source" : "ai_extracted"
+    }, {
+      "id" : "D09-F11",
+      "fact" : "Mặt đẳng thế được định nghĩa là quỹ tích của những điểm có cùng một giá trị điện thế.",
+      "verbatim_quote" : "Mặt đẳng thế: là quỹ tích những điểm có cùng điện thế",
+      "source" : "ai_extracted"
+    }, {
+      "id" : "D09-F12",
+      "fact" : "Thế năng của một điện tích q tại một điểm trong điện trường bằng công của lực tĩnh điện dịch chuyển q từ điểm đó ra vô cùng.",
+      "verbatim_quote" : "Thế năng của điện tích q tại điểm M trong điện trường bằng công của lực tĩnh điện dịch chuyển q từ M ra vô cùng.",
+      "source" : "ai_extracted"
+    }, {
+      "id" : "D09-F13",
+      "fact" : "Mỗi điện tích điểm q đều tạo ra một điện trường xung quanh nó với cường độ E.",
+      "verbatim_quote" : "Mỗi điện tích điểm q đều tạo ra một điện trường xung quanh nó với cường độ E được xác định theo công thức",
+      "source" : "ai_extracted"
+    }, {
+      "id" : "D09-F14",
+      "fact" : "Cường độ điện trường do hệ điện tích điểm gây ra bằng tổng vecto cường độ điện trường của các điện tích thành phần.",
+      "verbatim_quote" : "bằng tổng vecto cường độ điện trường do các điện tích trong hệ gây ra",
+      "source" : "ai_extracted"
+    }, {
+      "id" : "D09-F15",
+      "fact" : "Mật độ điện dài λ của một vật tích điện một chiều được định nghĩa là λ=dq/dl.",
+      "verbatim_quote" : "nếu vật tích điện một chiều thì nó có mật độ điện dài λ=dq/dl",
+      "source" : "ai_extracted"
+    }, {
+      "id" : "D09-F16",
+      "fact" : "Mật độ điện mặt σ của một vật tích điện hai chiều được định nghĩa là σ=dq/dS.",
+      "verbatim_quote" : "Nếu vật tích điện hai chiều thì nó có mật độ điện mặt σ=dq/dS",
+      "source" : "ai_extracted"
+    }, {
+      "id" : "D09-F17",
+      "fact" : "Mật độ điện khối ρ của một vật tích điện ba chiều được định nghĩa là ρ=dq/dV.",
+      "verbatim_quote" : "Nếu vật tích điện ba chiều thì nó có mật độ điện khối ρ=dq/dV",
+      "source" : "ai_extracted"
+    }, {
+      "id" : "D09-F18",
+      "fact" : "Chiều của đường sức điện trường chính là chiều của vecto cường độ điện trường.",
+      "verbatim_quote" : "Chiều của đường sức là chiều của vecto cường độ điện trường",
+      "source" : "ai_extracted"
+    }, {
+      "id" : "D09-F19",
+      "fact" : "Hai đường sức điện trường không bao giờ cắt nhau.",
+      "verbatim_quote" : "Hai đường sức không bao giờ cắt nhau",
+      "source" : "ai_extracted"
+    }, {
+      "id" : "D09-F20",
+      "fact" : "Vecto cảm ứng điện D được đưa vào để khử sự gián đoạn của vecto E khi đi qua mặt phân cách giữa hai môi trường.",
+      "verbatim_quote" : "Để khử sự gián đoạn đó, ta đưa vào đại lượng mới là vecto cảm ứng điện",
+      "source" : "ai_extracted"
+    }, {
+      "id" : "D09-F21",
+      "fact" : "Vecto diện tích dS có phương vuông góc với mặt dS.",
+      "verbatim_quote" : "Phương vuông góc với mặt dS",
+      "source" : "ai_extracted"
+    }, {
+      "id" : "D09-F22",
+      "fact" : "Đối với mặt S kín, chiều của vecto diện tích dS luôn hướng ra ngoài.",
+      "verbatim_quote" : "luôn hướng ra ngoài nếu mặt S kín",
+      "source" : "ai_extracted"
+    }, {
+      "id" : "D09-F23",
+      "fact" : "Bên trong một quả cầu tích điện đều trên bề mặt, cường độ điện trường bằng 0.",
+      "verbatim_quote" : "Ở bên trong quả cầu (r < R): nên E = 0",
+      "source" : "ai_extracted"
+    }, {
+      "id" : "D09-F24",
+      "fact" : "Điện thế do hệ điện tích điểm gây ra bằng tổng điện thế do các điện tích trong hệ gây ra.",
+      "verbatim_quote" : "bằng tổng điện thế do các điện tích trong hệ gây ra",
+      "source" : "ai_extracted"
+    }, {
+      "id" : "D09-F25",
+      "fact" : "Các mặt đẳng thế không bao giờ cắt nhau.",
+      "verbatim_quote" : "Các mặt đẳng thế không cắt nhau",
+      "source" : "ai_extracted"
+    } ]
+  }, {
+    "doc_id" : "D10",
+    "file" : "Chuong2_CungCauDiemCanBangGiaTranGiaSanThue_Eng.pdf",
+    "title" : "Supply, Demand and Market Equilibrium",
+    "language" : "en",
+    "total_facts_count" : 25,
+    "key_facts" : [ {
+      "id" : "D10-F1",
+      "fact" : "Demand is the ability and willingness to buy specific quantities of a good at alternative prices in a given time period, ceteris paribus.",
+      "source" : "manual"
+    }, {
+      "id" : "D10-F2",
+      "fact" : "Supply is the ability and willingness to sell (produce) specific quantities of a good at alternative prices in a given time period, ceteris paribus.",
+      "source" : "manual"
+    }, {
+      "id" : "D10-F3",
+      "fact" : "The law of demand states that the quantity of a good demanded in a given time period increases as its price falls, ceteris paribus.",
+      "source" : "manual"
+    }, {
+      "id" : "D10-F4",
+      "fact" : "The determinants of demand include: tastes (desire for this and other goods), income of the consumer, other goods (their availability and price), expectations (for income/prices/tastes), and the number of buyers.",
+      "source" : "manual"
+    }, {
+      "id" : "D10-F5",
+      "fact" : "A 'change in quantity demanded' refers to movements along a given demand curve in response to price changes of the good itself - distinct from a 'change in demand' which shifts the entire curve.",
+      "source" : "manual"
+    }, {
+      "id" : "D10-F6",
+      "fact" : "Demand is the ability and willingness to purchase specific quantities of a good at various prices within a given time, ceteris paribus.",
+      "verbatim_quote" : "The ability and willingness to buy specific quantities of a good at alternative prices in a given time period, ceteris paribus.",
+      "source" : "ai_extracted"
+    }, {
+      "id" : "D10-F7",
+      "fact" : "The law of demand states that the quantity of a good demanded increases as its price falls, assuming other factors remain constant.",
+      "verbatim_quote" : "The quantity of a good demanded in a given time period increases as its price falls, ceteris paribus.",
+      "source" : "ai_extracted"
+    }, {
+      "id" : "D10-F8",
+      "fact" : "The law of supply indicates that the quantity of a good supplied within a specific period rises as its price increases, ceteris paribus.",
+      "verbatim_quote" : "The quantity of a good supplied in a given time period increases as its price increases, ceteris paribus.",
+      "source" : "ai_extracted"
+    }, {
+      "id" : "D10-F9",
+      "fact" : "The equilibrium price is the specific price point where the quantity supplied is equal to the quantity demanded.",
+      "verbatim_quote" : "price where Q supplied = Q demanded",
+      "source" : "ai_extracted"
+    }, {
+      "id" : "D10-F10",
+      "fact" : "A surplus, or excess supply, occurs when the quantity supplied of a good is greater than the quantity demanded.",
+      "verbatim_quote" : "Surplus (excess supply): quantity supplied is greater than quantity demanded",
+      "source" : "ai_extracted"
+    }, {
+      "id" : "D10-F11",
+      "fact" : "A shortage, or excess demand, happens when the quantity demanded for a good exceeds the quantity supplied.",
+      "verbatim_quote" : "Shortage (excess demand): quantity demanded is greater than quantity supplied",
+      "source" : "ai_extracted"
+    }, {
+      "id" : "D10-F12",
+      "fact" : "A price ceiling set above the equilibrium price is considered not binding and does not affect the market outcome.",
+      "verbatim_quote" : "A price ceiling above the equilibrium price is not binding— has no effect on the market outcome.",
+      "source" : "ai_extracted"
+    }, {
+      "id" : "D10-F13",
+      "fact" : "A binding price floor is set above the equilibrium wage and results in a labor surplus.",
+      "verbatim_quote" : "The price floor is binding, causes a surplus.",
+      "source" : "ai_extracted"
+    }, {
+      "id" : "D10-F14",
+      "fact" : "The two sides of every market transaction are referred to as supply and demand.",
+      "verbatim_quote" : "The two sides of each market transaction are called supply and demand.",
+      "source" : "ai_extracted"
+    }, {
+      "id" : "D10-F15",
+      "fact" : "Supply is defined as the ability and willingness to sell or produce specific quantities of a good.",
+      "verbatim_quote" : "Supply: The ability and willingness to sell (produce) specific quantities of a good",
+      "source" : "ai_extracted"
+    }, {
+      "id" : "D10-F16",
+      "fact" : "Changes in quantity demanded are represented by movements along a given demand curve.",
+      "verbatim_quote" : "Movements along a given demand curve in response to price changes of the good.",
+      "source" : "ai_extracted"
+    }, {
+      "id" : "D10-F17",
+      "fact" : "Market supply reflects sellers' intentions and willingness to sell, not a record of actual sales.",
+      "verbatim_quote" : "Market supply is an expression of sellers’ intentions, of the ability and willingness to sell",
+      "source" : "ai_extracted"
+    }, {
+      "id" : "D10-F18",
+      "fact" : "A change in quantity supplied is illustrated by a movement along a given supply curve.",
+      "verbatim_quote" : "Changes in a quantity supplied: Movement along a given supply curve.",
+      "source" : "ai_extracted"
+    }, {
+      "id" : "D10-F19",
+      "fact" : "The determinants of supply include input prices, technology, expectations, and the number of sellers.",
+      "verbatim_quote" : "determinant of supply • input prices, • technology, • expectations, • number of sellers",
+      "source" : "ai_extracted"
+    }, {
+      "id" : "D10-F20",
+      "fact" : "Equilibrium quantity is the amount of a good that is both supplied and demanded at the equilibrium price.",
+      "verbatim_quote" : "Equilibrium quantity: Q supplied and demanded at the equilibrium price",
+      "source" : "ai_extracted"
+    }, {
+      "id" : "D10-F21",
+      "fact" : "When facing a surplus, sellers typically try to increase sales by cutting the price of their goods.",
+      "verbatim_quote" : "Facing a surplus, sellers try to increase sales by cutting price.",
+      "source" : "ai_extracted"
+    }, {
+      "id" : "D10-F22",
+      "fact" : "Cutting prices during a surplus causes the quantity demanded to rise while the quantity supplied falls.",
+      "verbatim_quote" : "This causes QD to rise and QS to fall",
+      "source" : "ai_extracted"
+    }, {
+      "id" : "D10-F23",
+      "fact" : "In a market with a surplus, prices will continue to fall until the market reaches equilibrium.",
+      "verbatim_quote" : "Prices continue to fall until market reaches equilibrium.",
+      "source" : "ai_extracted"
+    }, {
+      "id" : "D10-F24",
+      "fact" : "A high price for gasoline makes hybrid cars a more attractive option relative to other cars.",
+      "verbatim_quote" : "high gas price makes hybrids more attractive relative to other cars.",
+      "source" : "ai_extracted"
+    }, {
+      "id" : "D10-F25",
+      "fact" : "An event that reduces production costs, making it more profitable, will shift the supply curve to the right.",
+      "verbatim_quote" : "S shifts right because event reduces cost, makes production more profitable",
+      "source" : "ai_extracted"
+    } ]
+  } ],
+  "totals" : "manual=55, ai_extracted_existing=76, ai_new=104 (from 211 new candidates, survival 49%), total=235"
+}

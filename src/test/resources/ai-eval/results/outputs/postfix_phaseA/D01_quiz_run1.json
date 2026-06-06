@@ -1,0 +1,77 @@
+{
+  "cleaned" : "{\n  \"questions\": [\n    {\n      \"type\": \"MCQ_SINGLE\",\n      \"prompt\": \"Which language characteristic is defined as 'every combination of features is meaningful'?\",\n      \"options\": [\n        \"Orthogonality\",\n        \"Clarity and unity\",\n        \"Support of abstraction\",\n        \"Safety\"\n      ],\n      \"correctAnswer\": \"Orthogonality\",\n      \"explanation\": \"Slide 5: 'Orthogonality: every combination of features is meaningful. Independent functions should be controlled by independent mechanisms.'. This definition directly matches the concept of orthogonality.\"\n    },\n    {\n      \"type\": \"TRUE_FALSE\",\n      \"prompt\": \"True or False: According to the document, SQL is an example of an imperative programming methodology.\",\n      \"correctAnswer\": false,\n      \"explanation\": \"Slide 7: 'Declarative: ... Query-based: SQL, GraphQL.'. The document lists SQL under the declarative methodology, not the imperative one.\"\n    },\n    {\n      \"type\": \"SHORT_ANSWER\",\n      \"prompt\": \"What well-known computer architecture is mentioned as a major influence on the design of imperative languages?\",\n      \"correctAnswer\": [\n        \"von Neumann\",\n        \"von Neumann architecture\"\n      ],\n      \"explanation\": \"Slide 8: 'Well-known computer architecture: von Neumann. Imperative languages, most dominant, because of von Neumann computers.'. The text explicitly links this architecture to imperative languages.\"\n    },\n    {\n      \"type\": \"FILL_IN_THE_BLANK\",\n      \"prompt\": \"Fill in the blank based on the evolution of programming methodologies:\",\n      \"sentenceHtml\": \"In the late 1970s, the focus shifted from process-oriented to data-oriented, leading to the development of ___.\",\n      \"correctAnswer\": [\n        \"data abstraction\"\n      ],\n      \"explanation\": \"Slide 9: 'Late 1970s: Process-oriented to data-oriented data abstraction'. This slide directly states that data abstraction was the key concept of this era.\"\n    },\n    {\n      \"type\": \"MATCHING\",\n      \"prompt\": \"Match each programming domain to an example language provided in the text.\",\n      \"pairs\": [\n        {\n          \"left\": \"Scientific Applications\",\n          \"right\": \"Fortran\"\n        },\n        {\n          \"left\": \"Business Applications\",\n          \"right\": \"COBOL\"\n        },\n        {\n          \"left\": \"Artificial Intelligence\",\n          \"right\": \"LISP\"\n        },\n        {\n          \"left\": \"Systems Programming\",\n          \"right\": \"C\"\n        }\n      ],\n      \"correctAnswer\": null,\n      \"explanation\": \"Slide 4: 'Scientific Applications: Fortran, ... Business Applications: COBOL, ... Artificial Intelligence: LISP, ... Systems Programming: ... C, ...'. The slide lists these languages as examples for their respective domains.\"\n    }\n  ]\n}",
+  "completion_tokens" : 668,
+  "doc_file" : "1-Introduction-2023.pdf",
+  "doc_id" : "D01",
+  "doc_language" : "en",
+  "doc_pages" : 36,
+  "doc_title" : "Introduction to Programming Languages and Compilers",
+  "empty_field" : false,
+  "error_message" : null,
+  "error_type" : null,
+  "feature" : "quiz",
+  "json_parse_ok" : true,
+  "latency_ms" : 23852,
+  "model" : "gemini-2.5-pro",
+  "parsed" : {
+    "questions" : [ {
+      "type" : "MCQ_SINGLE",
+      "prompt" : "Which language characteristic is defined as 'every combination of features is meaningful'?",
+      "options" : [ "Orthogonality", "Clarity and unity", "Support of abstraction", "Safety" ],
+      "correctAnswer" : "Orthogonality",
+      "explanation" : "Slide 5: 'Orthogonality: every combination of features is meaningful. Independent functions should be controlled by independent mechanisms.'. This definition directly matches the concept of orthogonality.",
+      "sentenceHtml" : null,
+      "pairs" : null
+    }, {
+      "type" : "TRUE_FALSE",
+      "prompt" : "True or False: According to the document, SQL is an example of an imperative programming methodology.",
+      "options" : null,
+      "correctAnswer" : false,
+      "explanation" : "Slide 7: 'Declarative: ... Query-based: SQL, GraphQL.'. The document lists SQL under the declarative methodology, not the imperative one.",
+      "sentenceHtml" : null,
+      "pairs" : null
+    }, {
+      "type" : "SHORT_ANSWER",
+      "prompt" : "What well-known computer architecture is mentioned as a major influence on the design of imperative languages?",
+      "options" : null,
+      "correctAnswer" : [ "von Neumann", "von Neumann architecture" ],
+      "explanation" : "Slide 8: 'Well-known computer architecture: von Neumann. Imperative languages, most dominant, because of von Neumann computers.'. The text explicitly links this architecture to imperative languages.",
+      "sentenceHtml" : null,
+      "pairs" : null
+    }, {
+      "type" : "FILL_IN_THE_BLANK",
+      "prompt" : "Fill in the blank based on the evolution of programming methodologies:",
+      "options" : null,
+      "correctAnswer" : [ "data abstraction" ],
+      "explanation" : "Slide 9: 'Late 1970s: Process-oriented to data-oriented data abstraction'. This slide directly states that data abstraction was the key concept of this era.",
+      "sentenceHtml" : "In the late 1970s, the focus shifted from process-oriented to data-oriented, leading to the development of ___.",
+      "pairs" : null
+    }, {
+      "type" : "MATCHING",
+      "prompt" : "Match each programming domain to an example language provided in the text.",
+      "options" : null,
+      "correctAnswer" : null,
+      "explanation" : "Slide 4: 'Scientific Applications: Fortran, ... Business Applications: COBOL, ... Artificial Intelligence: LISP, ... Systems Programming: ... C, ...'. The slide lists these languages as examples for their respective domains.",
+      "sentenceHtml" : null,
+      "pairs" : [ {
+        "left" : "Scientific Applications",
+        "right" : "Fortran"
+      }, {
+        "left" : "Business Applications",
+        "right" : "COBOL"
+      }, {
+        "left" : "Artificial Intelligence",
+        "right" : "LISP"
+      }, {
+        "left" : "Systems Programming",
+        "right" : "C"
+      } ]
+    } ]
+  },
+  "prompt_tokens" : 2839,
+  "raw" : "```json\n{\n  \"questions\": [\n    {\n      \"type\": \"MCQ_SINGLE\",\n      \"prompt\": \"Which language characteristic is defined as 'every combination of features is meaningful'?\",\n      \"options\": [\n        \"Orthogonality\",\n        \"Clarity and unity\",\n        \"Support of abstraction\",\n        \"Safety\"\n      ],\n      \"correctAnswer\": \"Orthogonality\",\n      \"explanation\": \"Slide 5: 'Orthogonality: every combination of features is meaningful. Independent functions should be controlled by independent mechanisms.'. This definition directly matches the concept of orthogonality.\"\n    },\n    {\n      \"type\": \"TRUE_FALSE\",\n      \"prompt\": \"True or False: According to the document, SQL is an example of an imperative programming methodology.\",\n      \"correctAnswer\": false,\n      \"explanation\": \"Slide 7: 'Declarative: ... Query-based: SQL, GraphQL.'. The document lists SQL under the declarative methodology, not the imperative one.\"\n    },\n    {\n      \"type\": \"SHORT_ANSWER\",\n      \"prompt\": \"What well-known computer architecture is mentioned as a major influence on the design of imperative languages?\",\n      \"correctAnswer\": [\n        \"von Neumann\",\n        \"von Neumann architecture\"\n      ],\n      \"explanation\": \"Slide 8: 'Well-known computer architecture: von Neumann. Imperative languages, most dominant, because of von Neumann computers.'. The text explicitly links this architecture to imperative languages.\"\n    },\n    {\n      \"type\": \"FILL_IN_THE_BLANK\",\n      \"prompt\": \"Fill in the blank based on the evolution of programming methodologies:\",\n      \"sentenceHtml\": \"In the late 1970s, the focus shifted from process-oriented to data-oriented, leading to the development of ___.\",\n      \"correctAnswer\": [\n        \"data abstraction\"\n      ],\n      \"explanation\": \"Slide 9: 'Late 1970s: Process-oriented to data-oriented data abstraction'. This slide directly states that data abstraction was the key concept of this era.\"\n    },\n    {\n      \"type\": \"MATCHING\",\n      \"prompt\": \"Match each programming domain to an example language provided in the text.\",\n      \"pairs\": [\n        {\n          \"left\": \"Scientific Applications\",\n          \"right\": \"Fortran\"\n        },\n        {\n          \"left\": \"Business Applications\",\n          \"right\": \"COBOL\"\n        },\n        {\n          \"left\": \"Artificial Intelligence\",\n          \"right\": \"LISP\"\n        },\n        {\n          \"left\": \"Systems Programming\",\n          \"right\": \"C\"\n        }\n      ],\n      \"correctAnswer\": null,\n      \"explanation\": \"Slide 4: 'Scientific Applications: Fortran, ... Business Applications: COBOL, ... Artificial Intelligence: LISP, ... Systems Programming: ... C, ...'. The slide lists these languages as examples for their respective domains.\"\n    }\n  ]\n}\n```",
+  "run" : 1,
+  "schema_ok" : true,
+  "temperature" : 0.2,
+  "timestamp" : "2026-06-05T12:50:45.199992"
+}

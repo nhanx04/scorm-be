@@ -1,0 +1,65 @@
+{
+  "cleaned" : "{\n  \"questions\": [\n    {\n      \"type\": \"MCQ_SINGLE\",\n      \"prompt\": \"In the Bayesian Learning Pipeline, what is the direct output of combining the Prior P(H) with the Likelihood P(D|H) using Bayes' rule?\",\n      \"options\": [\n        \"A new Prior\",\n        \"The Posterior P(H|D)\",\n        \"The final Decision\",\n        \"The Likelihood of new data\"\n      ],\n      \"correctAnswer\": \"The Posterior P(H|D)\",\n      \"explanation\": \"Based on the 'Bayesian Learning Pipeline' diagram on slide 6, the Prior P(H) and Likelihood P(D|H) are combined via Bayes' rule to produce the Posterior P(H|D).\"\n    },\n    {\n      \"type\": \"MCQ_MULTIPLE\",\n      \"prompt\": \"According to the material, which of the following are described as features or motivations for using Bayesian Learning? (Select all that apply)\",\n      \"options\": [\n        \"It provides a principled probabilistic framework that unifies learning and inference.\",\n        \"It requires all training data to be processed at once in a single batch.\",\n        \"It can handle multiple hypotheses by assigning them probabilities.\",\n        \"It is designed for learning problems where probabilities cannot be explicitly manipulated.\"\n      ],\n      \"correctAnswer\": [\n        \"It provides a principled probabilistic framework that unifies learning and inference.\",\n        \"It can handle multiple hypotheses by assigning them probabilities.\"\n      ],\n      \"explanation\": \"Slide 4 lists 'provide a principled probabilistic framework that unifies learning and inference' as a key motivation. Slide 5 states that a feature is it 'Can handle multiple hypotheses with probabilities'. The material also mentions incremental updates, contradicting the batch processing option.\"\n    },\n    {\n      \"type\": \"TRUE_FALSE\",\n      \"prompt\": \"True or False: The material defines 'Learning' as the process of choosing an action to maximize expected utility, represented by a* = argmax_a E[U | a,D].\",\n      \"correctAnswer\": false,\n      \"explanation\": \"According to the 'Learning vs. Inference and Decision' diagram on slide 7, choosing a* = argmax_a E[U | a,D] is part of the 'Decision' step, not the 'Learning' step. The 'Learning' step is defined as combining the prior and likelihood to get the posterior.\"\n    },\n    {\n      \"type\": \"SHORT_ANSWER\",\n      \"prompt\": \"In Bayes' Theorem, P(D|h) represents the probability of observing the training data D given that hypothesis h is true. What is the specific term for P(D|h)?\",\n      \"correctAnswer\": [\n        \"Likelihood\"\n      ],\n      \"explanation\": \"Slide 9, which defines the components of Bayes' Theorem, explicitly labels P(D|h) as the 'likelihood of observing D given h'.\"\n    },\n    {\n      \"type\": \"FILL_IN_THE_BLANK\",\n      \"sentenceHtml\": \"The core idea of Bayesian Learning is that learning is formulated as the manipulation of ___(1)___ to evaluate and compare hypotheses, and the process can be summarized as belief ___(2)___.\",\n      \"correctAnswer\": [\n        \"probabilities\",\n        \"update\"\n      ],\n      \"explanation\": \"Slide 3 states that 'Learning is formulated as the manipulation of probabilities...'. Slide 6 presents the key idea of the pipeline as 'learning = belief update'.\"\n    }\n  ]\n}",
+  "completion_tokens" : 789,
+  "doc_file" : "BayesianLearning.pdf",
+  "doc_id" : "D06",
+  "doc_language" : "en",
+  "doc_pages" : 36,
+  "doc_title" : "Bayesian Learning",
+  "empty_field" : true,
+  "error_message" : null,
+  "error_type" : null,
+  "feature" : "quiz",
+  "json_parse_ok" : true,
+  "latency_ms" : 22541,
+  "model" : "gemini-2.5-pro",
+  "parsed" : {
+    "questions" : [ {
+      "type" : "MCQ_SINGLE",
+      "prompt" : "In the Bayesian Learning Pipeline, what is the direct output of combining the Prior P(H) with the Likelihood P(D|H) using Bayes' rule?",
+      "options" : [ "A new Prior", "The Posterior P(H|D)", "The final Decision", "The Likelihood of new data" ],
+      "correctAnswer" : "The Posterior P(H|D)",
+      "explanation" : "Based on the 'Bayesian Learning Pipeline' diagram on slide 6, the Prior P(H) and Likelihood P(D|H) are combined via Bayes' rule to produce the Posterior P(H|D).",
+      "sentenceHtml" : null,
+      "pairs" : null
+    }, {
+      "type" : "MCQ_MULTIPLE",
+      "prompt" : "According to the material, which of the following are described as features or motivations for using Bayesian Learning? (Select all that apply)",
+      "options" : [ "It provides a principled probabilistic framework that unifies learning and inference.", "It requires all training data to be processed at once in a single batch.", "It can handle multiple hypotheses by assigning them probabilities.", "It is designed for learning problems where probabilities cannot be explicitly manipulated." ],
+      "correctAnswer" : [ "It provides a principled probabilistic framework that unifies learning and inference.", "It can handle multiple hypotheses by assigning them probabilities." ],
+      "explanation" : "Slide 4 lists 'provide a principled probabilistic framework that unifies learning and inference' as a key motivation. Slide 5 states that a feature is it 'Can handle multiple hypotheses with probabilities'. The material also mentions incremental updates, contradicting the batch processing option.",
+      "sentenceHtml" : null,
+      "pairs" : null
+    }, {
+      "type" : "TRUE_FALSE",
+      "prompt" : "True or False: The material defines 'Learning' as the process of choosing an action to maximize expected utility, represented by a* = argmax_a E[U | a,D].",
+      "options" : null,
+      "correctAnswer" : false,
+      "explanation" : "According to the 'Learning vs. Inference and Decision' diagram on slide 7, choosing a* = argmax_a E[U | a,D] is part of the 'Decision' step, not the 'Learning' step. The 'Learning' step is defined as combining the prior and likelihood to get the posterior.",
+      "sentenceHtml" : null,
+      "pairs" : null
+    }, {
+      "type" : "SHORT_ANSWER",
+      "prompt" : "In Bayes' Theorem, P(D|h) represents the probability of observing the training data D given that hypothesis h is true. What is the specific term for P(D|h)?",
+      "options" : null,
+      "correctAnswer" : [ "Likelihood" ],
+      "explanation" : "Slide 9, which defines the components of Bayes' Theorem, explicitly labels P(D|h) as the 'likelihood of observing D given h'.",
+      "sentenceHtml" : null,
+      "pairs" : null
+    }, {
+      "type" : "FILL_IN_THE_BLANK",
+      "prompt" : null,
+      "options" : null,
+      "correctAnswer" : [ "probabilities", "update" ],
+      "explanation" : "Slide 3 states that 'Learning is formulated as the manipulation of probabilities...'. Slide 6 presents the key idea of the pipeline as 'learning = belief update'.",
+      "sentenceHtml" : "The core idea of Bayesian Learning is that learning is formulated as the manipulation of ___(1)___ to evaluate and compare hypotheses, and the process can be summarized as belief ___(2)___.",
+      "pairs" : null
+    } ]
+  },
+  "prompt_tokens" : 2542,
+  "raw" : "```json\n{\n  \"questions\": [\n    {\n      \"type\": \"MCQ_SINGLE\",\n      \"prompt\": \"In the Bayesian Learning Pipeline, what is the direct output of combining the Prior P(H) with the Likelihood P(D|H) using Bayes' rule?\",\n      \"options\": [\n        \"A new Prior\",\n        \"The Posterior P(H|D)\",\n        \"The final Decision\",\n        \"The Likelihood of new data\"\n      ],\n      \"correctAnswer\": \"The Posterior P(H|D)\",\n      \"explanation\": \"Based on the 'Bayesian Learning Pipeline' diagram on slide 6, the Prior P(H) and Likelihood P(D|H) are combined via Bayes' rule to produce the Posterior P(H|D).\"\n    },\n    {\n      \"type\": \"MCQ_MULTIPLE\",\n      \"prompt\": \"According to the material, which of the following are described as features or motivations for using Bayesian Learning? (Select all that apply)\",\n      \"options\": [\n        \"It provides a principled probabilistic framework that unifies learning and inference.\",\n        \"It requires all training data to be processed at once in a single batch.\",\n        \"It can handle multiple hypotheses by assigning them probabilities.\",\n        \"It is designed for learning problems where probabilities cannot be explicitly manipulated.\"\n      ],\n      \"correctAnswer\": [\n        \"It provides a principled probabilistic framework that unifies learning and inference.\",\n        \"It can handle multiple hypotheses by assigning them probabilities.\"\n      ],\n      \"explanation\": \"Slide 4 lists 'provide a principled probabilistic framework that unifies learning and inference' as a key motivation. Slide 5 states that a feature is it 'Can handle multiple hypotheses with probabilities'. The material also mentions incremental updates, contradicting the batch processing option.\"\n    },\n    {\n      \"type\": \"TRUE_FALSE\",\n      \"prompt\": \"True or False: The material defines 'Learning' as the process of choosing an action to maximize expected utility, represented by a* = argmax_a E[U | a,D].\",\n      \"correctAnswer\": false,\n      \"explanation\": \"According to the 'Learning vs. Inference and Decision' diagram on slide 7, choosing a* = argmax_a E[U | a,D] is part of the 'Decision' step, not the 'Learning' step. The 'Learning' step is defined as combining the prior and likelihood to get the posterior.\"\n    },\n    {\n      \"type\": \"SHORT_ANSWER\",\n      \"prompt\": \"In Bayes' Theorem, P(D|h) represents the probability of observing the training data D given that hypothesis h is true. What is the specific term for P(D|h)?\",\n      \"correctAnswer\": [\n        \"Likelihood\"\n      ],\n      \"explanation\": \"Slide 9, which defines the components of Bayes' Theorem, explicitly labels P(D|h) as the 'likelihood of observing D given h'.\"\n    },\n    {\n      \"type\": \"FILL_IN_THE_BLANK\",\n      \"sentenceHtml\": \"The core idea of Bayesian Learning is that learning is formulated as the manipulation of ___(1)___ to evaluate and compare hypotheses, and the process can be summarized as belief ___(2)___.\",\n      \"correctAnswer\": [\n        \"probabilities\",\n        \"update\"\n      ],\n      \"explanation\": \"Slide 3 states that 'Learning is formulated as the manipulation of probabilities...'. Slide 6 presents the key idea of the pipeline as 'learning = belief update'.\"\n    }\n  ]\n}\n```",
+  "run" : 1,
+  "schema_ok" : true,
+  "temperature" : 0.2,
+  "timestamp" : "2026-05-24T10:39:06.586425"
+}

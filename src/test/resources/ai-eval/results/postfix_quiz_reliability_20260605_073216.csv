@@ -1,0 +1,11 @@
+timestamp,doc_id,doc_file,doc_pages,doc_language,feature,run,api_ok,json_parse_ok,schema_ok,empty_field,used_markdown_fence,raw_length,error_type,error_message
+2026-06-05T07:32:17.010503,D01,1-Introduction-2023.pdf,36,en,quiz,1,true,true,true,false,true,3633,,
+2026-06-05T07:32:36.816899,D02,4-1_SQL.pdf,114,en,quiz,1,true,true,true,false,true,3081,,
+2026-06-05T07:32:56.550985,D03,201_DSA___Chapter_7__Hash___Search__new_.pdf,124,en,quiz,1,true,true,true,false,true,2609,,
+2026-06-05T07:33:15.871718,D04,Chapter_5 - Transaction Processing.pdf,65,en,quiz,1,true,true,true,false,true,4277,,
+2026-06-05T07:33:41.038822,D05,ds10connectivity.pdf,360,en,quiz,1,true,true,true,false,true,3056,,
+2026-06-05T07:34:01.620556,D06,BayesianLearning.pdf,36,en,quiz,1,true,true,true,false,true,3414,,
+2026-06-05T07:34:26.151970,D07,05_Design_thinking_v3.pdf,72,en,quiz,1,true,true,true,false,true,3475,,
+2026-06-05T07:34:43.495916,D08,NVT- POM-Ch1- DAI CUONG VE TIEP THI.pdf,26,vi,quiz,1,true,true,true,false,true,3287,,
+2026-06-05T07:35:05.371537,D09,Chương 6.pdf,25,vi,quiz,1,true,true,true,false,true,2879,,
+2026-06-05T07:35:23.355625,D10,Chuong2_CungCauDiemCanBangGiaTranGiaSanThue_Eng.pdf,57,en,quiz,1,true,true,true,false,true,3428,,

@@ -1,0 +1,151 @@
+{
+  "schema_version": "1.2",
+  "extracted_at": "2026-05-23",
+  "description": "Ground truth - 5 key facts per document (10 cho D05 vì tài liệu dài 360 trang). Mỗi fact là sự kiện/định nghĩa/công thức không thể sai theo tài liệu nguồn. Dùng để đo hallucination ở mục 5.4.5: khi AI sinh nội dung, đối chiếu xem các fact này có bị bóp méo/bịa hay không.",
+  "extraction_notes": [
+    "Facts được bóc tay sau khi đọc tài liệu bằng pdftotext.",
+    "Mỗi fact viết bằng ngôn ngữ của tài liệu nguồn (8 EN, 2 VI).",
+    "Ưu tiên fact có thể verify yes/no rõ ràng, tránh quan điểm chủ quan.",
+    "D05 (360 trang) được bóc 10 fact thay vì 5 để giữ tỉ lệ phủ tương đương các doc khác — xem extended_facts_note trong document D05."
+  ],
+  "total_facts": 55,
+
+  "documents": [
+    {
+      "doc_id": "D01",
+      "file": "1-Introduction-2023.pdf",
+      "title": "Introduction to Programming Languages and Compilers",
+      "language": "en",
+      "key_facts": [
+        { "id": "D01-F1", "fact": "Programming languages are notations for describing computations to people and to machines." },
+        { "id": "D01-F2", "fact": "Programming domains mentioned in this material include Scientific Applications (Fortran, ALGOL 60, Julia, MATLAB), Business Applications (COBOL, DATABUS, PL/B), Artificial Intelligence (LISP, Prolog), Systems Programming (PL/S, BLISS, C), and Web Software (XHTML, JavaScript, PHP, Java, C#)." },
+        { "id": "D01-F3", "fact": "Language evaluation criteria include: clarity/simplicity/unity, orthogonality, support of abstraction (control and data), and safety." },
+        { "id": "D01-F4", "fact": "Orthogonality in language design means every combination of features is meaningful, and independent functions should be controlled by independent mechanisms." },
+        { "id": "D01-F5", "fact": "The document is authored by Dr. Nguyen Hua Phung and MEng. Tran Ngoc Bao Duy from the Faculty of Computer Science and Engineering, Ho Chi Minh University of Technology, VNU-HCM." }
+      ]
+    },
+    {
+      "doc_id": "D02",
+      "file": "4-1_SQL.pdf",
+      "title": "Structured Query Language (DDL/DML/DCL)",
+      "language": "en",
+      "key_facts": [
+        { "id": "D02-F1", "fact": "SQL is a standard computer language for relational database management and data manipulation." },
+        { "id": "D02-F2", "fact": "SQL is divided into three sub-languages: DDL (Data Definition Language with CREATE/ALTER/DROP), DML (Data Manipulation Language with SELECT/INSERT/UPDATE/DELETE), and DCL (Data Control Language with COMMIT/ROLLBACK/GRANT/REVOKE)." },
+        { "id": "D02-F3", "fact": "A schema in SQL is a group of tables and other constructs that belong to the same database application, created via 'CREATE SCHEMA Schema_Name AUTHORIZATION Authorization_Identifier'." },
+        { "id": "D02-F4", "fact": "A catalog in SQL is a named collection of schemas." },
+        { "id": "D02-F5", "fact": "CREATE TABLE supports column constraints (NOT NULL, UNIQUE, PRIMARY KEY, DEFAULT, CHECK) and table-level constraints including FOREIGN KEY with referential actions ON UPDATE and ON DELETE." }
+      ]
+    },
+    {
+      "doc_id": "D03",
+      "file": "201_DSA___Chapter_7__Hash___Search__new_.pdf",
+      "title": "Searching Algorithms and Hash Tables",
+      "language": "en",
+      "key_facts": [
+        { "id": "D03-F1", "fact": "Searching algorithms are designed to check for or retrieve an element from a data structure, and are classified into two categories: Sequential Search and Interval Search." },
+        { "id": "D03-F2", "fact": "Linear Search starts from the leftmost element of the list, compares the target x with each element one by one, returning the index if matched or -1 if no element matches." },
+        { "id": "D03-F3", "fact": "Interval Search algorithms are specifically designed for searching in sorted data structures." },
+        { "id": "D03-F4", "fact": "The hash table section covers basic concepts, direct-address tables, hash tables, hash functions, and open addressing as a collision-resolution technique." },
+        { "id": "D03-F5", "fact": "The document is authored by Tran Ngoc Bao Duy from the Faculty of Computer Science and Engineering, Ho Chi Minh University of Technology, VNU-HCM, as Chapter 7 of a Data Structures and Algorithms course." }
+      ]
+    },
+    {
+      "doc_id": "D04",
+      "file": "Chapter_5 - Transaction Processing.pdf",
+      "title": "Introduction to Transaction Processing Concepts and Theory",
+      "language": "en",
+      "key_facts": [
+        { "id": "D04-F1", "fact": "A transaction is a logical unit of database processing that includes one or more access operations: read (retrieval), write (insert or update), and delete." },
+        { "id": "D04-F2", "fact": "Transaction boundaries are defined by 'Begin Transaction' and 'End Transaction'; an application program may contain several transactions separated by these boundaries." },
+        { "id": "D04-F3", "fact": "A single-user system allows at most one user at a time, while a multiuser system allows many users to access the system concurrently." },
+        { "id": "D04-F4", "fact": "Concurrency can be implemented via interleaved processing (concurrent execution interleaved on a single CPU) or parallel processing (concurrent execution on multiple CPUs)." },
+        { "id": "D04-F5", "fact": "The basic database operations are read_item(X) - which finds the disk block containing X, copies it into a main-memory buffer, then copies X to a program variable - and write_item(X) - which writes the program variable's value back into the database item." }
+      ]
+    },
+    {
+      "doc_id": "D05",
+      "file": "ds10connectivity.pdf",
+      "title": "Graph Connectivity (Discrete Structures - Chapter 9)",
+      "language": "en",
+      "extended_facts_note": "D05 có 10 fact thay vì 5 vì tài liệu dài 360 trang — cần phủ rộng hơn để đo faithfulness có ý nghĩa. Xem mục 5.4.7 báo cáo.",
+      "key_facts": [
+        { "id": "D05-F1", "fact": "The chapter covers: Connectivity (Paths and Circuits), Euler and Hamilton Paths, the Shortest Path Problem (Dijkstra's, Bellman-Ford, Floyd-Warshall, Ford's algorithm), and Graph Coloring." },
+        { "id": "D05-F2", "fact": "A cut vertex (articulation point) is a vertex whose removal disconnects the graph; in Vietnamese: 'đỉnh cắt' hay 'điểm khớp'." },
+        { "id": "D05-F3", "fact": "An Euler path is a path that traverses every edge of the graph exactly once; a Hamilton path visits every vertex exactly once." },
+        { "id": "D05-F4", "fact": "Shortest path algorithms covered include Dijkstra's algorithm, Bellman-Ford algorithm, and Floyd-Warshall algorithm." },
+        { "id": "D05-F5", "fact": "The material is authored by Huynh Tuong Nguyen, Tran Tuan Anh, Nguyen An Khuong, and Le Hong Trang from the Faculty of Computer Science and Engineering, University of Technology - VNUHCM, dated August 16, 2021." },
+        { "id": "D05-F6", "fact": "A Hamilton circuit is defined as a circuit that visits each vertex in a graph exactly once." },
+        { "id": "D05-F7", "fact": "Three rules of Hamilton Circuits are taught: (Rule 1) if deg(v) = 2, both edges incident to v must be used; (Rule 2) no subcircuit can be formed; (Rule 3) once two edges at a vertex v are determined, all other edges incident at v must be removed." },
+        { "id": "D05-F8", "fact": "Property of Dijkstra's Algorithm: applicable for any graph G with any edge length ℓ(vi) ≥ 0, one-to-all shortest paths, time complexity O(|V|²)." },
+        { "id": "D05-F9", "fact": "Dijkstra's algorithm CAN be used on directed graphs (digraphs), but CANNOT be used on graphs with negative edge weights." },
+        { "id": "D05-F10", "fact": "An application of Hamilton circuits is generating Gray Code: an n-digit Gray code can be generated by finding Hamilton circuits of an n-dimensional hypercube; Gray code is used in digital communication to reduce the effect of noise." }
+      ]
+    },
+    {
+      "doc_id": "D06",
+      "file": "BayesianLearning.pdf",
+      "title": "Bayesian Learning",
+      "language": "en",
+      "key_facts": [
+        { "id": "D06-F1", "fact": "In Bayesian learning, all quantities of interest (parameters, hypotheses, predictions) are represented as probability distributions." },
+        { "id": "D06-F2", "fact": "Bayesian learning is formulated as the manipulation of probabilities to evaluate and compare hypotheses; optimal decisions are derived by reasoning about posterior probabilities or expected utilities." },
+        { "id": "D06-F3", "fact": "Each training example can incrementally update the hypothesis probability; combining prior knowledge with data yields the final posterior probability." },
+        { "id": "D06-F4", "fact": "The Learning-Inference-Decision pipeline: Learning produces a posterior P(H|D) from prior P(H) and likelihood P(D|H); Inference computes the posterior predictive P(y|x,D); Decision selects the action a* = arg max_a E[U|a,D]." },
+        { "id": "D06-F5", "fact": "The chapter outline covers: Introduction, Bayes Rule, Parameter Estimation, Parameter Estimation Example, Priors in Bayesian Learning, and a Short Intro to Naive Bayes; authored by Thanh-Sach LE (ltsach@hcmut.edu.vn) at HCMUT, August 23, 2025." }
+      ]
+    },
+    {
+      "doc_id": "D07",
+      "file": "05_Design_thinking_v3.pdf",
+      "title": "Design Thinking & Design Principles (Electronic Commerce)",
+      "language": "en",
+      "key_facts": [
+        { "id": "D07-F1", "fact": "Per Tim Brown (President & CEO of IDEO), design thinking is a human-centered approach to innovation that integrates the needs of people, the possibilities of technology, and the requirements for business success." },
+        { "id": "D07-F2", "fact": "The chapter outline covers: What is design thinking, Business Model Canvas, Hypothesis Testing for Value Creation, Prototyping, Information Architecture, and Fundamentals of Visual Design." },
+        { "id": "D07-F3", "fact": "Hypothesis Testing for Value Creation consists of three components: a hypothesis statement, a test method, and a test metric & criteria." },
+        { "id": "D07-F4", "fact": "Key phases of design thinking include Observing (study current market/users/competitors using qualitative and quantitative research), Ideating (discovery and creation), and Implementation (design experiments, test, iterate)." },
+        { "id": "D07-F5", "fact": "A Business Model (per David Teece) articulates the logic and provides data and other evidence demonstrating how a business creates and delivers value to customers; the Business Model Canvas is used to describe and design a value creation system." }
+      ]
+    },
+    {
+      "doc_id": "D08",
+      "file": "NVT- POM-Ch1- DAI CUONG VE TIEP THI.pdf",
+      "title": "Đại cương về Marketing",
+      "language": "vi",
+      "key_facts": [
+        { "id": "D08-F1", "fact": "Nhu cầu (Needs) là trạng thái thiếu hụt thứ gì đó cần được thỏa mãn của con người." },
+        { "id": "D08-F2", "fact": "Mong muốn (Wants) là một hình thái của nhu cầu ở mức độ cụ thể hơn, được hình thành do các yếu tố văn hóa, tôn giáo, tính cách." },
+        { "id": "D08-F3", "fact": "Đòi hỏi (Demands) là mong muốn mà người ta có khả năng mua và sẵn lòng mua." },
+        { "id": "D08-F4", "fact": "Theo Kotler (2018): Marketing là một tiến trình mà các công ty tạo ra giá trị cho khách hàng và xây dựng mối quan hệ khách hàng bền chặt nhằm thu lại giá trị từ khách hàng." },
+        { "id": "D08-F5", "fact": "Để có trao đổi (exchange) cần đủ 5 điều kiện: (1) ít nhất 2 bên biết nhau; (2) mỗi bên muốn trao đổi; (3) mỗi bên có cái để trao đổi; (4) mỗi bên có khả năng giao dịch và trao đổi sản phẩm của mình; (5) mỗi bên có quyền tự do chấp nhận hay từ chối đề nghị của bên kia." }
+      ]
+    },
+    {
+      "doc_id": "D09",
+      "file": "Chương 6.pdf",
+      "title": "Trường tĩnh điện trong chân không",
+      "language": "vi",
+      "key_facts": [
+        { "id": "D09-F1", "fact": "Cường độ điện trường do điện tích điểm gây ra được xác định theo công thức E = k·q/r²·er (V/m hoặc N/C), trong đó k = 1/(4πε₀) ≈ 9·10⁹ N·m²/C² và ε₀ ≈ 8,86·10⁻¹² C²/N·m²." },
+        { "id": "D09-F2", "fact": "Vecto E hướng ra xa q nếu q > 0, và hướng về phía q nếu q < 0; trong môi trường có hằng số điện môi tương đối ε > 1, cường độ điện trường giảm đi ε lần so với trong chân không." },
+        { "id": "D09-F3", "fact": "Điện trường do hệ điện tích điểm gây ra bằng tổng vector cường độ điện trường do các điện tích trong hệ gây ra (nguyên lý chồng chất): E = ΣEᵢ." },
+        { "id": "D09-F4", "fact": "Đường sức điện trường là những đường cong sao cho vecto E tiếp tuyến với nó tại mọi điểm; đường sức bắt đầu từ điện tích dương và kết thúc ở điện tích âm; đường sức điện trường tĩnh không khép kín." },
+        { "id": "D09-F5", "fact": "Hai đường sức không bao giờ cắt nhau; nếu điện trường là điện trường đều thì các đường sức là những đường thẳng song song và cách đều nhau." }
+      ]
+    },
+    {
+      "doc_id": "D10",
+      "file": "Chuong2_CungCauDiemCanBangGiaTranGiaSanThue_Eng.pdf",
+      "title": "Supply, Demand and Market Equilibrium",
+      "language": "en",
+      "key_facts": [
+        { "id": "D10-F1", "fact": "Demand is the ability and willingness to buy specific quantities of a good at alternative prices in a given time period, ceteris paribus." },
+        { "id": "D10-F2", "fact": "Supply is the ability and willingness to sell (produce) specific quantities of a good at alternative prices in a given time period, ceteris paribus." },
+        { "id": "D10-F3", "fact": "The law of demand states that the quantity of a good demanded in a given time period increases as its price falls, ceteris paribus." },
+        { "id": "D10-F4", "fact": "The determinants of demand include: tastes (desire for this and other goods), income of the consumer, other goods (their availability and price), expectations (for income/prices/tastes), and the number of buyers." },
+        { "id": "D10-F5", "fact": "A 'change in quantity demanded' refers to movements along a given demand curve in response to price changes of the good itself - distinct from a 'change in demand' which shifts the entire curve." }
+      ]
+    }
+  ]
+}

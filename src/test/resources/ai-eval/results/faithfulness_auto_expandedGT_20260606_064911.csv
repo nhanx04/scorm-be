@@ -1,0 +1,11 @@
+timestamp,doc_id,feature,run,judge_model,faithfulness_score,hallucination,unsupported_claims_count,reasoning,judge_latency_ms,judge_input_tokens,judge_output_tokens,judge_cost_usd,judge_parse_ok,error_type
+2026-06-06T06:49:13.236234,D01,quiz,1,gemini-2.5-flash,2,true,3,Nhiều câu hỏi trong nội dung được tạo ra không được hỗ trợ bởi các sự kiện cơ bản đã cho.,2176,728,131,0.000546,true,
+2026-06-06T06:49:14.806660,D02,quiz,1,gemini-2.5-flash,3,false,2,Nội dung được tạo có một số câu hỏi không được hỗ trợ bởi các sự kiện cơ bản đã cho.,1568,771,108,0.000501,true,
+2026-06-06T06:49:16.139483,D03,quiz,1,gemini-2.5-flash,2,true,2,Nội dung được tạo ra chứa một câu hỏi về Jump Search mà không có thông tin hỗ trợ trong văn bản nguồn.,1329,773,107,0.000499,true,
+2026-06-06T06:49:17.830923,D04,quiz,1,gemini-2.5-flash,3,true,3,"Nội dung AI tạo ra có một số câu hỏi không được hỗ trợ trực tiếp bởi các sự kiện cơ bản đã cho, đặc biệt là các nguyên nhân gây ra lỗi giao dịch.",1687,973,117,0.000584,true,
+2026-06-06T06:49:19.823838,D05,quiz,1,gemini-2.5-flash,2,true,1,Nội dung được tạo bởi AI chứa các câu hỏi về 'kết quả học tập của khóa học' và 'ví dụ trực quan trên slide 9.5' không có trong thông tin nguồn được cung cấp.,1988,921,156,0.000666,true,
+2026-06-06T06:49:21.359969,D06,quiz,1,gemini-2.5-flash,4,false,1,"Nội dung được tạo ra chủ yếu trung thực với nguồn, chỉ có một chi tiết nhỏ không được hỗ trợ.",1532,836,73,0.000433,true,
+2026-06-06T06:49:22.429724,D07,quiz,1,gemini-2.5-flash,5,false,0,Tất cả các câu hỏi và đáp án đều được hỗ trợ trực tiếp bởi các thông tin trong tài liệu nguồn.,1065,924,63,0.000435,true,
+2026-06-06T06:49:23.533275,D08,quiz,1,gemini-2.5-flash,5,false,0,Tất cả các câu hỏi và đáp án được tạo ra đều được hỗ trợ hoặc nhất quán với các thông tin trong tài liệu nguồn.,1101,1020,67,0.000474,true,
+2026-06-06T06:49:25.661249,D09,quiz,1,gemini-2.5-flash,2,true,2,Nội dung AI tạo ra chứa nhiều thông tin không có trong tài liệu nguồn và một câu trả lời sai.,2125,949,219,0.000832,true,
+2026-06-06T06:49:27.705199,D10,quiz,1,gemini-2.5-flash,3,false,3,Nội dung được tạo có một số tuyên bố không được hỗ trợ bởi các sự kiện cơ bản.,2041,893,263,0.000925,true,

@@ -1,0 +1,42 @@
+{
+  "cleaned" : "{\n  \"title\": \"Trường tĩnh điện trong chân không\",\n  \"description\": \"Khóa học này cung cấp kiến thức nền tảng và chuyên sâu về trường tĩnh điện trong chân không, được thiết kế cho sinh viên đại học. Học viên sẽ tìm hiểu các khái niệm cốt lõi như cường độ điện trường, điện thế, định lý Gauss, và tương tác giữa điện trường và điện tích, đi kèm với các ví dụ và bài tập ứng dụng thực tế.\",\n  \"sections\": [\n    {\n      \"title\": \"Module 1: Các khái niệm cơ bản về Điện trường\",\n      \"topics\": [\n        \"Bài 1.1: Giới thiệu về Cường độ điện trường\",\n        \"Bài 1.2: Điện trường do điện tích điểm và hệ điện tích điểm gây ra\",\n        \"Bài 1.3: Điện trường do hệ điện tích phân bố liên tục (dài, mặt, khối)\",\n        \"Bài 1.4: Bài tập ứng dụng - Tính điện trường của thanh tích điện thẳng\",\n        \"Bài 1.5: Đường sức điện trường - Đặc điểm và ý nghĩa\"\n      ]\n    },\n    {\n      \"title\": \"Module 2: Định lý Gauss và Ứng dụng\",\n      \"topics\": [\n        \"Bài 2.1: Vecto cảm ứng điện và Thông lượng điện trường\",\n        \"Bài 2.2: Phát biểu Định lý Gauss trong chân không và môi trường bất kỳ\",\n        \"Bài 2.3: Bài tập ứng dụng - Dùng Định lý Gauss xác định điện trường của quả cầu tích điện\",\n        \"Bài 2.4: Tổng hợp công thức điện trường của một số vật tích điện cơ bản (thanh, cung tròn, đĩa tròn, mặt phẳng, mặt cầu, mặt trụ)\"\n      ]\n    },\n    {\n      \"title\": \"Module 3: Điện thế và Năng lượng Điện trường\",\n      \"topics\": [\n        \"Bài 3.1: Khái niệm Điện thế - Điện thế do các loại điện tích gây ra\",\n        \"Bài 3.2: Mặt đẳng thế và mối liên hệ giữa Cường độ điện trường và Điện thế (E = -gradV)\",\n        \"Bài 3.3: Bài tập ứng dụng - Tính điện thế của thanh tích điện\",\n        \"Bài 3.4: Năng lượng và Mật độ năng lượng điện trường\"\n      ]\n    },\n    {\n      \"title\": \"Module 4: Tương tác giữa Điện trường và Điện tích\",\n      \"topics\": [\n        \"Bài 4.1: Lực tương tác tĩnh điện (Lực Coulomb) và Nguyên lý chồng chất lực\",\n        \"Bài 4.2: Thế năng của điện tích trong trường tĩnh điện\",\n        \"Bài 4.3: Công của lực tĩnh điện và tính chất của trường lực thế\",\n        \"Bài 4.4: Mối liên hệ giữa Công và Thế năng\",\n        \"Bài 4.5: Tính chất không xoáy của trường tĩnh điện\"\n      ]\n    },\n    {\n      \"title\": \"Module 5: Bài toán ứng dụng và Tổng kết\",\n      \"topics\": [\n        \"Bài 5.1: Khảo sát chuyển động của lưỡng cực điện trong điện trường đều\",\n        \"Bài 5.2: Ôn tập toàn bộ kiến thức chương\",\n        \"Bài 5.3: Bài kiểm tra cuối khóa\"\n      ]\n    }\n  ]\n}",
+  "completion_tokens" : 776,
+  "doc_file" : "Chương 6.pdf",
+  "doc_id" : "D09",
+  "doc_language" : "vi",
+  "doc_pages" : 25,
+  "doc_title" : "Trường tĩnh điện trong chân không",
+  "empty_field" : false,
+  "error_message" : null,
+  "error_type" : null,
+  "feature" : "outline",
+  "json_parse_ok" : true,
+  "latency_ms" : 16592,
+  "model" : "gemini-2.5-pro",
+  "parsed" : {
+    "title" : "Trường tĩnh điện trong chân không",
+    "description" : "Khóa học này cung cấp kiến thức nền tảng và chuyên sâu về trường tĩnh điện trong chân không, được thiết kế cho sinh viên đại học. Học viên sẽ tìm hiểu các khái niệm cốt lõi như cường độ điện trường, điện thế, định lý Gauss, và tương tác giữa điện trường và điện tích, đi kèm với các ví dụ và bài tập ứng dụng thực tế.",
+    "sections" : [ {
+      "title" : "Module 1: Các khái niệm cơ bản về Điện trường",
+      "topics" : [ "Bài 1.1: Giới thiệu về Cường độ điện trường", "Bài 1.2: Điện trường do điện tích điểm và hệ điện tích điểm gây ra", "Bài 1.3: Điện trường do hệ điện tích phân bố liên tục (dài, mặt, khối)", "Bài 1.4: Bài tập ứng dụng - Tính điện trường của thanh tích điện thẳng", "Bài 1.5: Đường sức điện trường - Đặc điểm và ý nghĩa" ]
+    }, {
+      "title" : "Module 2: Định lý Gauss và Ứng dụng",
+      "topics" : [ "Bài 2.1: Vecto cảm ứng điện và Thông lượng điện trường", "Bài 2.2: Phát biểu Định lý Gauss trong chân không và môi trường bất kỳ", "Bài 2.3: Bài tập ứng dụng - Dùng Định lý Gauss xác định điện trường của quả cầu tích điện", "Bài 2.4: Tổng hợp công thức điện trường của một số vật tích điện cơ bản (thanh, cung tròn, đĩa tròn, mặt phẳng, mặt cầu, mặt trụ)" ]
+    }, {
+      "title" : "Module 3: Điện thế và Năng lượng Điện trường",
+      "topics" : [ "Bài 3.1: Khái niệm Điện thế - Điện thế do các loại điện tích gây ra", "Bài 3.2: Mặt đẳng thế và mối liên hệ giữa Cường độ điện trường và Điện thế (E = -gradV)", "Bài 3.3: Bài tập ứng dụng - Tính điện thế của thanh tích điện", "Bài 3.4: Năng lượng và Mật độ năng lượng điện trường" ]
+    }, {
+      "title" : "Module 4: Tương tác giữa Điện trường và Điện tích",
+      "topics" : [ "Bài 4.1: Lực tương tác tĩnh điện (Lực Coulomb) và Nguyên lý chồng chất lực", "Bài 4.2: Thế năng của điện tích trong trường tĩnh điện", "Bài 4.3: Công của lực tĩnh điện và tính chất của trường lực thế", "Bài 4.4: Mối liên hệ giữa Công và Thế năng", "Bài 4.5: Tính chất không xoáy của trường tĩnh điện" ]
+    }, {
+      "title" : "Module 5: Bài toán ứng dụng và Tổng kết",
+      "topics" : [ "Bài 5.1: Khảo sát chuyển động của lưỡng cực điện trong điện trường đều", "Bài 5.2: Ôn tập toàn bộ kiến thức chương", "Bài 5.3: Bài kiểm tra cuối khóa" ]
+    } ]
+  },
+  "prompt_tokens" : 6193,
+  "raw" : "```json\n{\n  \"title\": \"Trường tĩnh điện trong chân không\",\n  \"description\": \"Khóa học này cung cấp kiến thức nền tảng và chuyên sâu về trường tĩnh điện trong chân không, được thiết kế cho sinh viên đại học. Học viên sẽ tìm hiểu các khái niệm cốt lõi như cường độ điện trường, điện thế, định lý Gauss, và tương tác giữa điện trường và điện tích, đi kèm với các ví dụ và bài tập ứng dụng thực tế.\",\n  \"sections\": [\n    {\n      \"title\": \"Module 1: Các khái niệm cơ bản về Điện trường\",\n      \"topics\": [\n        \"Bài 1.1: Giới thiệu về Cường độ điện trường\",\n        \"Bài 1.2: Điện trường do điện tích điểm và hệ điện tích điểm gây ra\",\n        \"Bài 1.3: Điện trường do hệ điện tích phân bố liên tục (dài, mặt, khối)\",\n        \"Bài 1.4: Bài tập ứng dụng - Tính điện trường của thanh tích điện thẳng\",\n        \"Bài 1.5: Đường sức điện trường - Đặc điểm và ý nghĩa\"\n      ]\n    },\n    {\n      \"title\": \"Module 2: Định lý Gauss và Ứng dụng\",\n      \"topics\": [\n        \"Bài 2.1: Vecto cảm ứng điện và Thông lượng điện trường\",\n        \"Bài 2.2: Phát biểu Định lý Gauss trong chân không và môi trường bất kỳ\",\n        \"Bài 2.3: Bài tập ứng dụng - Dùng Định lý Gauss xác định điện trường của quả cầu tích điện\",\n        \"Bài 2.4: Tổng hợp công thức điện trường của một số vật tích điện cơ bản (thanh, cung tròn, đĩa tròn, mặt phẳng, mặt cầu, mặt trụ)\"\n      ]\n    },\n    {\n      \"title\": \"Module 3: Điện thế và Năng lượng Điện trường\",\n      \"topics\": [\n        \"Bài 3.1: Khái niệm Điện thế - Điện thế do các loại điện tích gây ra\",\n        \"Bài 3.2: Mặt đẳng thế và mối liên hệ giữa Cường độ điện trường và Điện thế (E = -gradV)\",\n        \"Bài 3.3: Bài tập ứng dụng - Tính điện thế của thanh tích điện\",\n        \"Bài 3.4: Năng lượng và Mật độ năng lượng điện trường\"\n      ]\n    },\n    {\n      \"title\": \"Module 4: Tương tác giữa Điện trường và Điện tích\",\n      \"topics\": [\n        \"Bài 4.1: Lực tương tác tĩnh điện (Lực Coulomb) và Nguyên lý chồng chất lực\",\n        \"Bài 4.2: Thế năng của điện tích trong trường tĩnh điện\",\n        \"Bài 4.3: Công của lực tĩnh điện và tính chất của trường lực thế\",\n        \"Bài 4.4: Mối liên hệ giữa Công và Thế năng\",\n        \"Bài 4.5: Tính chất không xoáy của trường tĩnh điện\"\n      ]\n    },\n    {\n      \"title\": \"Module 5: Bài toán ứng dụng và Tổng kết\",\n      \"topics\": [\n        \"Bài 5.1: Khảo sát chuyển động của lưỡng cực điện trong điện trường đều\",\n        \"Bài 5.2: Ôn tập toàn bộ kiến thức chương\",\n        \"Bài 5.3: Bài kiểm tra cuối khóa\"\n      ]\n    }\n  ]\n}\n```",
+  "run" : 1,
+  "schema_ok" : true,
+  "temperature" : 0.2,
+  "timestamp" : "2026-05-24T10:41:36.427581"
+}

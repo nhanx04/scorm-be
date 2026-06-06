@@ -1,0 +1,74 @@
+{
+  "cleaned" : "{\n  \"questions\": [\n    {\n      \"type\": \"MCQ_SINGLE\",\n      \"prompt\": \"Which of the following problems occurs when a transaction reads the same item twice, and the item is changed by another transaction between the two reads?\",\n      \"options\": [\n        \"The Lost Update Problem\",\n        \"The Temporary Update Problem\",\n        \"The Incorrect Summary Problem\",\n        \"The Unrepeatable Read Problem\"\n      ],\n      \"correctAnswer\": \"The Unrepeatable Read Problem\",\n      \"explanation\": \"Slide 12: The document defines 'The unrepeatable Read Problem' as: 'Transaction T reads the same item twice and the item is changed by another transaction T’ between the two reads.'\"\n    },\n    {\n      \"type\": \"MATCHING\",\n      \"prompt\": \"Match each concurrency problem with its correct description.\",\n      \"pairs\": [\n        {\n          \"left\": \"The Lost Update Problem\",\n          \"right\": \"Two transactions access the same database items, and their operations are interleaved in a way that makes the value of an item incorrect.\"\n        },\n        {\n          \"left\": \"The Temporary Update Problem\",\n          \"right\": \"One transaction accesses an item that was updated by another transaction which then fails and has its changes reversed.\"\n        },\n        {\n          \"left\": \"The Incorrect Summary Problem\",\n          \"right\": \"An aggregate function calculates some values before they are updated by other transactions and other values after they are updated.\"\n        }\n      ],\n      \"correctAnswer\": null,\n      \"explanation\": \"Slide 9 & 12: The descriptions are taken directly from the definitions provided for 'The Lost Update Problem', 'The Temporary Update (or Dirty Read) Problem', and 'The Incorrect Summary Problem'.\"\n    },\n    {\n      \"type\": \"MCQ_MULTIPLE\",\n      \"prompt\": \"According to the material, which of the following are listed as potential causes for a transaction to fail? (Select all that apply)\",\n      \"options\": [\n        \"A hardware or software error in the computer system.\",\n        \"A logical programming error, such as division by zero.\",\n        \"The concurrency control method deciding to abort the transaction.\",\n        \"A successful backup of the database.\"\n      ],\n      \"correctAnswer\": [\n        \"A hardware or software error in the computer system.\",\n        \"A logical programming error, such as division by zero.\",\n        \"The concurrency control method deciding to abort the transaction.\"\n      ],\n      \"explanation\": \"Slide 14 & 15: The document lists several reasons for transaction failure, including: 'A computer failure (system crash): A hardware or software error...', 'A transaction or system error : Some operation in the transaction may cause it to fail, such as... division by zero.', and 'Concurrency control enforcement: The concurrency control method may decide to abort the transaction...'\"\n    },\n    {\n      \"type\": \"TRUE_FALSE\",\n      \"prompt\": \"True or False: In a multiuser system, parallel processing means that the concurrent execution of processes is interleaved in a single CPU.\",\n      \"correctAnswer\": false,\n      \"explanation\": \"Slide 3: The document defines interleaved processing for a single CPU. It defines parallel processing as when 'processes are concurrently executed in multiple CPUs.' Therefore, the statement is false.\"\n    },\n    {\n      \"type\": \"SHORT_ANSWER\",\n      \"prompt\": \"What is the term for a logical unit of database processing that includes one or more access operations like read, write, or delete?\",\n      \"correctAnswer\": [\n        \"Transaction\",\n        \"A Transaction\"\n      ],\n      \"explanation\": \"Slide 4: The document states, 'A Transaction: logical unit of database processing that includes one or more access operations (read -retrieval, write - insert or update, delete).'\"\n    }\n  ]\n}",
+  "completion_tokens" : 856,
+  "doc_file" : "Chapter_5 - Transaction Processing.pdf",
+  "doc_id" : "D04",
+  "doc_language" : "en",
+  "doc_pages" : 65,
+  "doc_title" : "Introduction to Transaction Processing Concepts and Theory",
+  "empty_field" : false,
+  "error_message" : null,
+  "error_type" : null,
+  "feature" : "quiz",
+  "json_parse_ok" : true,
+  "latency_ms" : 23111,
+  "model" : "gemini-2.5-pro",
+  "parsed" : {
+    "questions" : [ {
+      "type" : "MCQ_SINGLE",
+      "prompt" : "Which of the following problems occurs when a transaction reads the same item twice, and the item is changed by another transaction between the two reads?",
+      "options" : [ "The Lost Update Problem", "The Temporary Update Problem", "The Incorrect Summary Problem", "The Unrepeatable Read Problem" ],
+      "correctAnswer" : "The Unrepeatable Read Problem",
+      "explanation" : "Slide 12: The document defines 'The unrepeatable Read Problem' as: 'Transaction T reads the same item twice and the item is changed by another transaction T’ between the two reads.'",
+      "sentenceHtml" : null,
+      "pairs" : null
+    }, {
+      "type" : "MATCHING",
+      "prompt" : "Match each concurrency problem with its correct description.",
+      "options" : null,
+      "correctAnswer" : null,
+      "explanation" : "Slide 9 & 12: The descriptions are taken directly from the definitions provided for 'The Lost Update Problem', 'The Temporary Update (or Dirty Read) Problem', and 'The Incorrect Summary Problem'.",
+      "sentenceHtml" : null,
+      "pairs" : [ {
+        "left" : "The Lost Update Problem",
+        "right" : "Two transactions access the same database items, and their operations are interleaved in a way that makes the value of an item incorrect."
+      }, {
+        "left" : "The Temporary Update Problem",
+        "right" : "One transaction accesses an item that was updated by another transaction which then fails and has its changes reversed."
+      }, {
+        "left" : "The Incorrect Summary Problem",
+        "right" : "An aggregate function calculates some values before they are updated by other transactions and other values after they are updated."
+      } ]
+    }, {
+      "type" : "MCQ_MULTIPLE",
+      "prompt" : "According to the material, which of the following are listed as potential causes for a transaction to fail? (Select all that apply)",
+      "options" : [ "A hardware or software error in the computer system.", "A logical programming error, such as division by zero.", "The concurrency control method deciding to abort the transaction.", "A successful backup of the database." ],
+      "correctAnswer" : [ "A hardware or software error in the computer system.", "A logical programming error, such as division by zero.", "The concurrency control method deciding to abort the transaction." ],
+      "explanation" : "Slide 14 & 15: The document lists several reasons for transaction failure, including: 'A computer failure (system crash): A hardware or software error...', 'A transaction or system error : Some operation in the transaction may cause it to fail, such as... division by zero.', and 'Concurrency control enforcement: The concurrency control method may decide to abort the transaction...'",
+      "sentenceHtml" : null,
+      "pairs" : null
+    }, {
+      "type" : "TRUE_FALSE",
+      "prompt" : "True or False: In a multiuser system, parallel processing means that the concurrent execution of processes is interleaved in a single CPU.",
+      "options" : null,
+      "correctAnswer" : false,
+      "explanation" : "Slide 3: The document defines interleaved processing for a single CPU. It defines parallel processing as when 'processes are concurrently executed in multiple CPUs.' Therefore, the statement is false.",
+      "sentenceHtml" : null,
+      "pairs" : null
+    }, {
+      "type" : "SHORT_ANSWER",
+      "prompt" : "What is the term for a logical unit of database processing that includes one or more access operations like read, write, or delete?",
+      "options" : null,
+      "correctAnswer" : [ "Transaction", "A Transaction" ],
+      "explanation" : "Slide 4: The document states, 'A Transaction: logical unit of database processing that includes one or more access operations (read -retrieval, write - insert or update, delete).'",
+      "sentenceHtml" : null,
+      "pairs" : null
+    } ]
+  },
+  "prompt_tokens" : 2370,
+  "raw" : "```json\n{\n  \"questions\": [\n    {\n      \"type\": \"MCQ_SINGLE\",\n      \"prompt\": \"Which of the following problems occurs when a transaction reads the same item twice, and the item is changed by another transaction between the two reads?\",\n      \"options\": [\n        \"The Lost Update Problem\",\n        \"The Temporary Update Problem\",\n        \"The Incorrect Summary Problem\",\n        \"The Unrepeatable Read Problem\"\n      ],\n      \"correctAnswer\": \"The Unrepeatable Read Problem\",\n      \"explanation\": \"Slide 12: The document defines 'The unrepeatable Read Problem' as: 'Transaction T reads the same item twice and the item is changed by another transaction T’ between the two reads.'\"\n    },\n    {\n      \"type\": \"MATCHING\",\n      \"prompt\": \"Match each concurrency problem with its correct description.\",\n      \"pairs\": [\n        {\n          \"left\": \"The Lost Update Problem\",\n          \"right\": \"Two transactions access the same database items, and their operations are interleaved in a way that makes the value of an item incorrect.\"\n        },\n        {\n          \"left\": \"The Temporary Update Problem\",\n          \"right\": \"One transaction accesses an item that was updated by another transaction which then fails and has its changes reversed.\"\n        },\n        {\n          \"left\": \"The Incorrect Summary Problem\",\n          \"right\": \"An aggregate function calculates some values before they are updated by other transactions and other values after they are updated.\"\n        }\n      ],\n      \"correctAnswer\": null,\n      \"explanation\": \"Slide 9 & 12: The descriptions are taken directly from the definitions provided for 'The Lost Update Problem', 'The Temporary Update (or Dirty Read) Problem', and 'The Incorrect Summary Problem'.\"\n    },\n    {\n      \"type\": \"MCQ_MULTIPLE\",\n      \"prompt\": \"According to the material, which of the following are listed as potential causes for a transaction to fail? (Select all that apply)\",\n      \"options\": [\n        \"A hardware or software error in the computer system.\",\n        \"A logical programming error, such as division by zero.\",\n        \"The concurrency control method deciding to abort the transaction.\",\n        \"A successful backup of the database.\"\n      ],\n      \"correctAnswer\": [\n        \"A hardware or software error in the computer system.\",\n        \"A logical programming error, such as division by zero.\",\n        \"The concurrency control method deciding to abort the transaction.\"\n      ],\n      \"explanation\": \"Slide 14 & 15: The document lists several reasons for transaction failure, including: 'A computer failure (system crash): A hardware or software error...', 'A transaction or system error : Some operation in the transaction may cause it to fail, such as... division by zero.', and 'Concurrency control enforcement: The concurrency control method may decide to abort the transaction...'\"\n    },\n    {\n      \"type\": \"TRUE_FALSE\",\n      \"prompt\": \"True or False: In a multiuser system, parallel processing means that the concurrent execution of processes is interleaved in a single CPU.\",\n      \"correctAnswer\": false,\n      \"explanation\": \"Slide 3: The document defines interleaved processing for a single CPU. It defines parallel processing as when 'processes are concurrently executed in multiple CPUs.' Therefore, the statement is false.\"\n    },\n    {\n      \"type\": \"SHORT_ANSWER\",\n      \"prompt\": \"What is the term for a logical unit of database processing that includes one or more access operations like read, write, or delete?\",\n      \"correctAnswer\": [\n        \"Transaction\",\n        \"A Transaction\"\n      ],\n      \"explanation\": \"Slide 4: The document states, 'A Transaction: logical unit of database processing that includes one or more access operations (read -retrieval, write - insert or update, delete).'\"\n    }\n  ]\n}\n```",
+  "run" : 1,
+  "schema_ok" : true,
+  "temperature" : 0.2,
+  "timestamp" : "2026-06-04T22:15:03.358834"
+}

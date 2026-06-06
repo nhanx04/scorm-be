@@ -1,0 +1,97 @@
+{
+  "cleaned" : "{\n  \"questions\": [\n    {\n      \"citation\": {\n        \"reasoning\": \"This quote directly links the SQL commands to their respective language categories, which is required to correctly match the pairs.\",\n        \"sourceLocation\": \"Slide 4\",\n        \"verbatimQuote\": \"Data Definition Language (DDL) } Create, Alter, Drop\"\n      },\n      \"correctAnswer\": null,\n      \"pairs\": [\n        {\n          \"left\": \"CREATE\",\n          \"right\": \"Data Definition Language (DDL)\"\n        },\n        {\n          \"left\": \"SELECT\",\n          \"right\": \"Data Manipulation Language (DML)\"\n        },\n        {\n          \"left\": \"GRANT\",\n          \"right\": \"Data Control Language (DCL)\"\n        },\n        {\n          \"left\": \"UPDATE\",\n          \"right\": \"Data Manipulation Language (DML)\"\n        }\n      ],\n      \"prompt\": \"Match each SQL command to its correct language category.\",\n      \"type\": \"MATCHING\"\n    },\n    {\n      \"citation\": {\n        \"reasoning\": \"The quote defines the purpose of the PRIMARY KEY clause, which is to uniquely identify records in a relation.\",\n        \"sourceLocation\": \"Slide 15\",\n        \"verbatimQuote\": \"PRIMARY KEY clause: specifies one or more attributes that make up the primary key of a relation.\"\n      },\n      \"correctAnswer\": \"PRIMARY KEY\",\n      \"options\": [\n        \"PRIMARY KEY\",\n        \"FOREIGN KEY\",\n        \"CHECK\",\n        \"DEFAULT\"\n      ],\n      \"prompt\": \"A developer needs to ensure a column uniquely identifies each record in a table and cannot be null. Which constraint should be applied?\",\n      \"type\": \"MCQ_SINGLE\"\n    },\n    {\n      \"citation\": {\n        \"reasoning\": \"This quote explicitly states that RESTRICT is the default behavior for the DROP TABLE command, making the statement false.\",\n        \"sourceLocation\": \"Slide 25\",\n        \"verbatimQuote\": \"RESTRICT (default): dropped on if it is not referenced in any constraints or views\"\n      },\n      \"correctAnswer\": false,\n      \"prompt\": \"True or False: When using the `DROP TABLE` command without specifying a behavior, the default action is `CASCADE`.\",\n      \"type\": \"TRUE_FALSE\"\n    },\n    {\n      \"citation\": {\n        \"reasoning\": \"The quote provides the exact definition of a Catalog, which is the correct answer to the question.\",\n        \"sourceLocation\": \"Slide 8\",\n        \"verbatimQuote\": \"Catalog: a named collection of schemas\"\n      },\n      \"correctAnswer\": [\n        \"Catalog\"\n      ],\n      \"prompt\": \"In SQL, what is the term for a named collection of schemas?\",\n      \"type\": \"SHORT_ANSWER\"\n    },\n    {\n      \"citation\": {\n        \"reasoning\": \"This quote shows an example of creating a domain for an SSN, specifying CHAR(9) as the appropriate data type.\",\n        \"sourceLocation\": \"Slide 13\",\n        \"verbatimQuote\": \"CREATE DOMAIN SSN_TYPE AS CHAR(9);\"\n      },\n      \"correctAnswer\": [\n        \"CHAR(9)\"\n      ],\n      \"prompt\": \"Fill in the blank with the most appropriate data type based on the provided examples.\",\n      \"sentenceHtml\": \"<p>To define a domain for a 9-digit Social Security Number that will not be used in mathematical calculations, the correct data type is ___(1)___.</p>\",\n      \"type\": \"FILL_IN_THE_BLANK\"\n    }\n  ]\n}",
+  "completion_tokens" : 830,
+  "doc_file" : "4-1_SQL.pdf",
+  "doc_id" : "D02",
+  "doc_language" : "en",
+  "doc_pages" : 114,
+  "doc_title" : "Structured Query Language (DDL/DML/DCL)",
+  "empty_field" : false,
+  "error_message" : null,
+  "error_type" : null,
+  "feature" : "quiz",
+  "json_parse_ok" : true,
+  "latency_ms" : 19502,
+  "model" : "gemini-2.5-pro",
+  "parsed" : {
+    "questions" : [ {
+      "type" : "MATCHING",
+      "prompt" : "Match each SQL command to its correct language category.",
+      "options" : null,
+      "correctAnswer" : null,
+      "citation" : {
+        "sourceLocation" : "Slide 4",
+        "verbatimQuote" : "Data Definition Language (DDL) } Create, Alter, Drop",
+        "reasoning" : "This quote directly links the SQL commands to their respective language categories, which is required to correctly match the pairs."
+      },
+      "sentenceHtml" : null,
+      "pairs" : [ {
+        "left" : "CREATE",
+        "right" : "Data Definition Language (DDL)"
+      }, {
+        "left" : "SELECT",
+        "right" : "Data Manipulation Language (DML)"
+      }, {
+        "left" : "GRANT",
+        "right" : "Data Control Language (DCL)"
+      }, {
+        "left" : "UPDATE",
+        "right" : "Data Manipulation Language (DML)"
+      } ]
+    }, {
+      "type" : "MCQ_SINGLE",
+      "prompt" : "A developer needs to ensure a column uniquely identifies each record in a table and cannot be null. Which constraint should be applied?",
+      "options" : [ "PRIMARY KEY", "FOREIGN KEY", "CHECK", "DEFAULT" ],
+      "correctAnswer" : "PRIMARY KEY",
+      "citation" : {
+        "sourceLocation" : "Slide 15",
+        "verbatimQuote" : "PRIMARY KEY clause: specifies one or more attributes that make up the primary key of a relation.",
+        "reasoning" : "The quote defines the purpose of the PRIMARY KEY clause, which is to uniquely identify records in a relation."
+      },
+      "sentenceHtml" : null,
+      "pairs" : null
+    }, {
+      "type" : "TRUE_FALSE",
+      "prompt" : "True or False: When using the `DROP TABLE` command without specifying a behavior, the default action is `CASCADE`.",
+      "options" : null,
+      "correctAnswer" : false,
+      "citation" : {
+        "sourceLocation" : "Slide 25",
+        "verbatimQuote" : "RESTRICT (default): dropped on if it is not referenced in any constraints or views",
+        "reasoning" : "This quote explicitly states that RESTRICT is the default behavior for the DROP TABLE command, making the statement false."
+      },
+      "sentenceHtml" : null,
+      "pairs" : null
+    }, {
+      "type" : "SHORT_ANSWER",
+      "prompt" : "In SQL, what is the term for a named collection of schemas?",
+      "options" : null,
+      "correctAnswer" : [ "Catalog" ],
+      "citation" : {
+        "sourceLocation" : "Slide 8",
+        "verbatimQuote" : "Catalog: a named collection of schemas",
+        "reasoning" : "The quote provides the exact definition of a Catalog, which is the correct answer to the question."
+      },
+      "sentenceHtml" : null,
+      "pairs" : null
+    }, {
+      "type" : "FILL_IN_THE_BLANK",
+      "prompt" : "Fill in the blank with the most appropriate data type based on the provided examples.",
+      "options" : null,
+      "correctAnswer" : [ "CHAR(9)" ],
+      "citation" : {
+        "sourceLocation" : "Slide 13",
+        "verbatimQuote" : "CREATE DOMAIN SSN_TYPE AS CHAR(9);",
+        "reasoning" : "This quote shows an example of creating a domain for an SSN, specifying CHAR(9) as the appropriate data type."
+      },
+      "sentenceHtml" : "<p>To define a domain for a 9-digit Social Security Number that will not be used in mathematical calculations, the correct data type is ___(1)___.</p>",
+      "pairs" : null
+    } ]
+  },
+  "prompt_tokens" : 4384,
+  "raw" : "```json\n{\n  \"questions\": [\n    {\n      \"citation\": {\n        \"reasoning\": \"This quote directly links the SQL commands to their respective language categories, which is required to correctly match the pairs.\",\n        \"sourceLocation\": \"Slide 4\",\n        \"verbatimQuote\": \"Data Definition Language (DDL) } Create, Alter, Drop\"\n      },\n      \"correctAnswer\": null,\n      \"pairs\": [\n        {\n          \"left\": \"CREATE\",\n          \"right\": \"Data Definition Language (DDL)\"\n        },\n        {\n          \"left\": \"SELECT\",\n          \"right\": \"Data Manipulation Language (DML)\"\n        },\n        {\n          \"left\": \"GRANT\",\n          \"right\": \"Data Control Language (DCL)\"\n        },\n        {\n          \"left\": \"UPDATE\",\n          \"right\": \"Data Manipulation Language (DML)\"\n        }\n      ],\n      \"prompt\": \"Match each SQL command to its correct language category.\",\n      \"type\": \"MATCHING\"\n    },\n    {\n      \"citation\": {\n        \"reasoning\": \"The quote defines the purpose of the PRIMARY KEY clause, which is to uniquely identify records in a relation.\",\n        \"sourceLocation\": \"Slide 15\",\n        \"verbatimQuote\": \"PRIMARY KEY clause: specifies one or more attributes that make up the primary key of a relation.\"\n      },\n      \"correctAnswer\": \"PRIMARY KEY\",\n      \"options\": [\n        \"PRIMARY KEY\",\n        \"FOREIGN KEY\",\n        \"CHECK\",\n        \"DEFAULT\"\n      ],\n      \"prompt\": \"A developer needs to ensure a column uniquely identifies each record in a table and cannot be null. Which constraint should be applied?\",\n      \"type\": \"MCQ_SINGLE\"\n    },\n    {\n      \"citation\": {\n        \"reasoning\": \"This quote explicitly states that RESTRICT is the default behavior for the DROP TABLE command, making the statement false.\",\n        \"sourceLocation\": \"Slide 25\",\n        \"verbatimQuote\": \"RESTRICT (default): dropped on if it is not referenced in any constraints or views\"\n      },\n      \"correctAnswer\": false,\n      \"prompt\": \"True or False: When using the `DROP TABLE` command without specifying a behavior, the default action is `CASCADE`.\",\n      \"type\": \"TRUE_FALSE\"\n    },\n    {\n      \"citation\": {\n        \"reasoning\": \"The quote provides the exact definition of a Catalog, which is the correct answer to the question.\",\n        \"sourceLocation\": \"Slide 8\",\n        \"verbatimQuote\": \"Catalog: a named collection of schemas\"\n      },\n      \"correctAnswer\": [\n        \"Catalog\"\n      ],\n      \"prompt\": \"In SQL, what is the term for a named collection of schemas?\",\n      \"type\": \"SHORT_ANSWER\"\n    },\n    {\n      \"citation\": {\n        \"reasoning\": \"This quote shows an example of creating a domain for an SSN, specifying CHAR(9) as the appropriate data type.\",\n        \"sourceLocation\": \"Slide 13\",\n        \"verbatimQuote\": \"CREATE DOMAIN SSN_TYPE AS CHAR(9);\"\n      },\n      \"correctAnswer\": [\n        \"CHAR(9)\"\n      ],\n      \"prompt\": \"Fill in the blank with the most appropriate data type based on the provided examples.\",\n      \"sentenceHtml\": \"<p>To define a domain for a 9-digit Social Security Number that will not be used in mathematical calculations, the correct data type is ___(1)___.</p>\",\n      \"type\": \"FILL_IN_THE_BLANK\"\n    }\n  ]\n}\n```",
+  "run" : 1,
+  "schema_ok" : true,
+  "temperature" : 0.2,
+  "timestamp" : "2026-06-05T20:41:42.918634"
+}

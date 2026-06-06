@@ -1,0 +1,74 @@
+{
+  "cleaned" : "{\n  \"questions\": [\n    {\n      \"type\": \"MCQ_SINGLE\",\n      \"prompt\": \"According to the document, what is a fundamental requirement for using the Binary Search algorithm?\",\n      \"options\": [\n        \"The data structure must be a sorted array.\",\n        \"The search must begin from the first element.\",\n        \"The array is divided into blocks of a fixed size.\",\n        \"The implementation must be done recursively.\"\n      ],\n      \"correctAnswer\": \"The data structure must be a sorted array.\",\n      \"explanation\": \"Slide 6: 'Search a sorted array by repeatedly dividing the search interval in half.'. This statement specifies that the array must be sorted beforehand.\"\n    },\n    {\n      \"type\": \"TRUE_FALSE\",\n      \"prompt\": \"True or False: Interval Search algorithms are designed specifically for searching in any type of data structure, regardless of its order.\",\n      \"correctAnswer\": false,\n      \"explanation\": \"Slide 4: 'Interval Search: These algorithms are specifically designed for searching in sorted data-structures.'. This directly contradicts the idea that they work on any data structure.\"\n    },\n    {\n      \"type\": \"FILL_IN_THE_BLANK\",\n      \"prompt\": \"Complete the sentence describing the two main categories of searching algorithms.\",\n      \"sentenceHtml\": \"Searching algorithms are generally classified into two categories: <input> Search and <input> Search.\",\n      \"correctAnswer\": [\n        \"Sequential\",\n        \"Interval\"\n      ],\n      \"explanation\": \"Slide 4: '...these algorithms are generally classified into two categories: 1 Sequential Search... 2 Interval Search.'. The document explicitly names these two classifications.\"\n    },\n    {\n      \"type\": \"SHORT_ANSWER\",\n      \"prompt\": \"In a Jump Search, after the correct block is identified, which search algorithm is then performed on that specific block?\",\n      \"correctAnswer\": [\n        \"Linear search\"\n      ],\n      \"explanation\": \"Slide 7: 'Perform the linear search on the block k.'. This step is explicitly mentioned in the approach for Jump Search.\"\n    },\n    {\n      \"type\": \"MATCHING\",\n      \"prompt\": \"Match each searching algorithm to its time complexity as stated in the material.\",\n      \"pairs\": [\n        {\n          \"left\": \"Linear Search\",\n          \"right\": \"O(n)\"\n        },\n        {\n          \"left\": \"Binary Search\",\n          \"right\": \"O(log n)\"\n        },\n        {\n          \"left\": \"Jump Search\",\n          \"right\": \"O(√n)\"\n        }\n      ],\n      \"correctAnswer\": null,\n      \"explanation\": \"Slides 5, 6, and 7: 'The time complexity of [Linear Search] is O(n).', 'Time complexity: O(log n)', and 'Time complexity: √n.'. Each slide provides the direct time complexity for the respective algorithm.\"\n    }\n  ]\n}",
+  "completion_tokens" : 666,
+  "doc_file" : "201_DSA___Chapter_7__Hash___Search__new_.pdf",
+  "doc_id" : "D03",
+  "doc_language" : "en",
+  "doc_pages" : 124,
+  "doc_title" : "Searching Algorithms and Hash Tables",
+  "empty_field" : false,
+  "error_message" : null,
+  "error_type" : null,
+  "feature" : "quiz",
+  "json_parse_ok" : true,
+  "latency_ms" : 19031,
+  "model" : "gemini-2.5-pro",
+  "parsed" : {
+    "questions" : [ {
+      "type" : "MCQ_SINGLE",
+      "prompt" : "According to the document, what is a fundamental requirement for using the Binary Search algorithm?",
+      "options" : [ "The data structure must be a sorted array.", "The search must begin from the first element.", "The array is divided into blocks of a fixed size.", "The implementation must be done recursively." ],
+      "correctAnswer" : "The data structure must be a sorted array.",
+      "explanation" : "Slide 6: 'Search a sorted array by repeatedly dividing the search interval in half.'. This statement specifies that the array must be sorted beforehand.",
+      "sentenceHtml" : null,
+      "pairs" : null
+    }, {
+      "type" : "TRUE_FALSE",
+      "prompt" : "True or False: Interval Search algorithms are designed specifically for searching in any type of data structure, regardless of its order.",
+      "options" : null,
+      "correctAnswer" : false,
+      "explanation" : "Slide 4: 'Interval Search: These algorithms are specifically designed for searching in sorted data-structures.'. This directly contradicts the idea that they work on any data structure.",
+      "sentenceHtml" : null,
+      "pairs" : null
+    }, {
+      "type" : "FILL_IN_THE_BLANK",
+      "prompt" : "Complete the sentence describing the two main categories of searching algorithms.",
+      "options" : null,
+      "correctAnswer" : [ "Sequential", "Interval" ],
+      "explanation" : "Slide 4: '...these algorithms are generally classified into two categories: 1 Sequential Search... 2 Interval Search.'. The document explicitly names these two classifications.",
+      "sentenceHtml" : "Searching algorithms are generally classified into two categories: <input> Search and <input> Search.",
+      "pairs" : null
+    }, {
+      "type" : "SHORT_ANSWER",
+      "prompt" : "In a Jump Search, after the correct block is identified, which search algorithm is then performed on that specific block?",
+      "options" : null,
+      "correctAnswer" : [ "Linear search" ],
+      "explanation" : "Slide 7: 'Perform the linear search on the block k.'. This step is explicitly mentioned in the approach for Jump Search.",
+      "sentenceHtml" : null,
+      "pairs" : null
+    }, {
+      "type" : "MATCHING",
+      "prompt" : "Match each searching algorithm to its time complexity as stated in the material.",
+      "options" : null,
+      "correctAnswer" : null,
+      "explanation" : "Slides 5, 6, and 7: 'The time complexity of [Linear Search] is O(n).', 'Time complexity: O(log n)', and 'Time complexity: √n.'. Each slide provides the direct time complexity for the respective algorithm.",
+      "sentenceHtml" : null,
+      "pairs" : [ {
+        "left" : "Linear Search",
+        "right" : "O(n)"
+      }, {
+        "left" : "Binary Search",
+        "right" : "O(log n)"
+      }, {
+        "left" : "Jump Search",
+        "right" : "O(√n)"
+      } ]
+    } ]
+  },
+  "prompt_tokens" : 2752,
+  "raw" : "```json\n{\n  \"questions\": [\n    {\n      \"type\": \"MCQ_SINGLE\",\n      \"prompt\": \"According to the document, what is a fundamental requirement for using the Binary Search algorithm?\",\n      \"options\": [\n        \"The data structure must be a sorted array.\",\n        \"The search must begin from the first element.\",\n        \"The array is divided into blocks of a fixed size.\",\n        \"The implementation must be done recursively.\"\n      ],\n      \"correctAnswer\": \"The data structure must be a sorted array.\",\n      \"explanation\": \"Slide 6: 'Search a sorted array by repeatedly dividing the search interval in half.'. This statement specifies that the array must be sorted beforehand.\"\n    },\n    {\n      \"type\": \"TRUE_FALSE\",\n      \"prompt\": \"True or False: Interval Search algorithms are designed specifically for searching in any type of data structure, regardless of its order.\",\n      \"correctAnswer\": false,\n      \"explanation\": \"Slide 4: 'Interval Search: These algorithms are specifically designed for searching in sorted data-structures.'. This directly contradicts the idea that they work on any data structure.\"\n    },\n    {\n      \"type\": \"FILL_IN_THE_BLANK\",\n      \"prompt\": \"Complete the sentence describing the two main categories of searching algorithms.\",\n      \"sentenceHtml\": \"Searching algorithms are generally classified into two categories: <input> Search and <input> Search.\",\n      \"correctAnswer\": [\n        \"Sequential\",\n        \"Interval\"\n      ],\n      \"explanation\": \"Slide 4: '...these algorithms are generally classified into two categories: 1 Sequential Search... 2 Interval Search.'. The document explicitly names these two classifications.\"\n    },\n    {\n      \"type\": \"SHORT_ANSWER\",\n      \"prompt\": \"In a Jump Search, after the correct block is identified, which search algorithm is then performed on that specific block?\",\n      \"correctAnswer\": [\n        \"Linear search\"\n      ],\n      \"explanation\": \"Slide 7: 'Perform the linear search on the block k.'. This step is explicitly mentioned in the approach for Jump Search.\"\n    },\n    {\n      \"type\": \"MATCHING\",\n      \"prompt\": \"Match each searching algorithm to its time complexity as stated in the material.\",\n      \"pairs\": [\n        {\n          \"left\": \"Linear Search\",\n          \"right\": \"O(n)\"\n        },\n        {\n          \"left\": \"Binary Search\",\n          \"right\": \"O(log n)\"\n        },\n        {\n          \"left\": \"Jump Search\",\n          \"right\": \"O(√n)\"\n        }\n      ],\n      \"correctAnswer\": null,\n      \"explanation\": \"Slides 5, 6, and 7: 'The time complexity of [Linear Search] is O(n).', 'Time complexity: O(log n)', and 'Time complexity: √n.'. Each slide provides the direct time complexity for the respective algorithm.\"\n    }\n  ]\n}\n```",
+  "run" : 1,
+  "schema_ok" : true,
+  "temperature" : 0.2,
+  "timestamp" : "2026-06-05T12:51:32.734491"
+}

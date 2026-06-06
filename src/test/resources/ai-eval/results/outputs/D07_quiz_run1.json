@@ -1,0 +1,77 @@
+{
+  "cleaned" : "{\n  \"questions\": [\n    {\n      \"type\": \"MCQ_SINGLE\",\n      \"prompt\": \"According to the provided material, what is the primary goal of creating a Minimum Viable Product (MVP)?\",\n      \"options\": [\n        \"To launch a fully-featured product to the market as quickly as possible.\",\n        \"To collect the maximum amount of validated learning about customers with the least effort.\",\n        \"To build a perfect, bug-free version of the product before showing it to any users.\",\n        \"To combine the Business Model Canvas, customer development, and agile development into one product.\"\n      ],\n      \"correctAnswer\": \"To collect the maximum amount of validated learning about customers with the least effort.\",\n      \"explanation\": \"Slide 27 defines an MVP as 'that version of a new product which allows a team to collect the maximum amount of validated learning about customers with the least effort.'\"\n    },\n    {\n      \"type\": \"TRUE_FALSE\",\n      \"prompt\": \"True or False: Design Thinking is a technology-centered approach that primarily focuses on what is technically possible, with business success being a secondary consideration.\",\n      \"correctAnswer\": false,\n      \"explanation\": \"Slide 3 defines Design Thinking as a 'human-centered approach' that integrates 'the needs of people, the possibilities of technology, and the requirements for business success,' giving equal importance to all three.\"\n    },\n    {\n      \"type\": \"SHORT_ANSWER\",\n      \"prompt\": \"According to the 'Hypothesis Testing for Value Creation' section, what are the three essential components or steps of a hypothesis test?\",\n      \"correctAnswer\": [\n        \"Hypothesis statement, Test method, Test metric & criteria\",\n        \"Statement, method, metric & criteria\"\n      ],\n      \"explanation\": \"Slide 20 explicitly lists the three steps as: 'Hypothesis statement', 'Test method', and 'Test metric & criteria'.\"\n    },\n    {\n      \"type\": \"FILL_IN_THE_BLANK\",\n      \"prompt\": \"The Agile Manifesto introduces four core values: Individuals and interactions, Customer collaboration, Responding to change, and a focus on working versions of products.\",\n      \"sentenceHtml\": \"The Agile Manifesto brings four values: Individuals and interactions, Customer collaboration, Responding to change, and <input />.\",\n      \"correctAnswer\": [\n        \"Working versions of products\"\n      ],\n      \"explanation\": \"Slide 24 lists the four values of the Agile Manifesto, with the fourth one being 'Working versions of products'.\"\n    },\n    {\n      \"type\": \"MATCHING\",\n      \"prompt\": \"Match each term with its correct description based on the provided material.\",\n      \"pairs\": [\n        {\n          \"left\": \"Sketching\",\n          \"right\": \"A way to express ideas quickly where detail is not important, often done on a whiteboard or paper.\"\n        },\n        {\n          \"left\": \"Storyboarding\",\n          \"right\": \"A process of time and interaction that uses elements like images, transitions, and voiceover.\"\n        },\n        {\n          \"left\": \"Lean Startup Program\",\n          \"right\": \"A methodology that combines the Business Model Canvas, customer development, and agile development.\"\n        },\n        {\n          \"left\": \"Design Thinking\",\n          \"right\": \"A human-centered approach to innovation that integrates the needs of people, technology, and business.\"\n        }\n      ],\n      \"correctAnswer\": null,\n      \"explanation\": \"This question combines definitions from multiple slides: Sketching (Slide 31), Storyboarding (Slide 30), Lean Startup Program (Slide 26), and Design Thinking (Slide 3).\"\n    }\n  ]\n}",
+  "completion_tokens" : 825,
+  "doc_file" : "05_Design_thinking_v3.pdf",
+  "doc_id" : "D07",
+  "doc_language" : "en",
+  "doc_pages" : 72,
+  "doc_title" : "Design Thinking & Design Principles (Electronic Commerce)",
+  "empty_field" : false,
+  "error_message" : null,
+  "error_type" : null,
+  "feature" : "quiz",
+  "json_parse_ok" : true,
+  "latency_ms" : 19576,
+  "model" : "gemini-2.5-pro",
+  "parsed" : {
+    "questions" : [ {
+      "type" : "MCQ_SINGLE",
+      "prompt" : "According to the provided material, what is the primary goal of creating a Minimum Viable Product (MVP)?",
+      "options" : [ "To launch a fully-featured product to the market as quickly as possible.", "To collect the maximum amount of validated learning about customers with the least effort.", "To build a perfect, bug-free version of the product before showing it to any users.", "To combine the Business Model Canvas, customer development, and agile development into one product." ],
+      "correctAnswer" : "To collect the maximum amount of validated learning about customers with the least effort.",
+      "explanation" : "Slide 27 defines an MVP as 'that version of a new product which allows a team to collect the maximum amount of validated learning about customers with the least effort.'",
+      "sentenceHtml" : null,
+      "pairs" : null
+    }, {
+      "type" : "TRUE_FALSE",
+      "prompt" : "True or False: Design Thinking is a technology-centered approach that primarily focuses on what is technically possible, with business success being a secondary consideration.",
+      "options" : null,
+      "correctAnswer" : false,
+      "explanation" : "Slide 3 defines Design Thinking as a 'human-centered approach' that integrates 'the needs of people, the possibilities of technology, and the requirements for business success,' giving equal importance to all three.",
+      "sentenceHtml" : null,
+      "pairs" : null
+    }, {
+      "type" : "SHORT_ANSWER",
+      "prompt" : "According to the 'Hypothesis Testing for Value Creation' section, what are the three essential components or steps of a hypothesis test?",
+      "options" : null,
+      "correctAnswer" : [ "Hypothesis statement, Test method, Test metric & criteria", "Statement, method, metric & criteria" ],
+      "explanation" : "Slide 20 explicitly lists the three steps as: 'Hypothesis statement', 'Test method', and 'Test metric & criteria'.",
+      "sentenceHtml" : null,
+      "pairs" : null
+    }, {
+      "type" : "FILL_IN_THE_BLANK",
+      "prompt" : "The Agile Manifesto introduces four core values: Individuals and interactions, Customer collaboration, Responding to change, and a focus on working versions of products.",
+      "options" : null,
+      "correctAnswer" : [ "Working versions of products" ],
+      "explanation" : "Slide 24 lists the four values of the Agile Manifesto, with the fourth one being 'Working versions of products'.",
+      "sentenceHtml" : "The Agile Manifesto brings four values: Individuals and interactions, Customer collaboration, Responding to change, and <input />.",
+      "pairs" : null
+    }, {
+      "type" : "MATCHING",
+      "prompt" : "Match each term with its correct description based on the provided material.",
+      "options" : null,
+      "correctAnswer" : null,
+      "explanation" : "This question combines definitions from multiple slides: Sketching (Slide 31), Storyboarding (Slide 30), Lean Startup Program (Slide 26), and Design Thinking (Slide 3).",
+      "sentenceHtml" : null,
+      "pairs" : [ {
+        "left" : "Sketching",
+        "right" : "A way to express ideas quickly where detail is not important, often done on a whiteboard or paper."
+      }, {
+        "left" : "Storyboarding",
+        "right" : "A process of time and interaction that uses elements like images, transitions, and voiceover."
+      }, {
+        "left" : "Lean Startup Program",
+        "right" : "A methodology that combines the Business Model Canvas, customer development, and agile development."
+      }, {
+        "left" : "Design Thinking",
+        "right" : "A human-centered approach to innovation that integrates the needs of people, technology, and business."
+      } ]
+    } ]
+  },
+  "prompt_tokens" : 2206,
+  "raw" : "```json\n{\n  \"questions\": [\n    {\n      \"type\": \"MCQ_SINGLE\",\n      \"prompt\": \"According to the provided material, what is the primary goal of creating a Minimum Viable Product (MVP)?\",\n      \"options\": [\n        \"To launch a fully-featured product to the market as quickly as possible.\",\n        \"To collect the maximum amount of validated learning about customers with the least effort.\",\n        \"To build a perfect, bug-free version of the product before showing it to any users.\",\n        \"To combine the Business Model Canvas, customer development, and agile development into one product.\"\n      ],\n      \"correctAnswer\": \"To collect the maximum amount of validated learning about customers with the least effort.\",\n      \"explanation\": \"Slide 27 defines an MVP as 'that version of a new product which allows a team to collect the maximum amount of validated learning about customers with the least effort.'\"\n    },\n    {\n      \"type\": \"TRUE_FALSE\",\n      \"prompt\": \"True or False: Design Thinking is a technology-centered approach that primarily focuses on what is technically possible, with business success being a secondary consideration.\",\n      \"correctAnswer\": false,\n      \"explanation\": \"Slide 3 defines Design Thinking as a 'human-centered approach' that integrates 'the needs of people, the possibilities of technology, and the requirements for business success,' giving equal importance to all three.\"\n    },\n    {\n      \"type\": \"SHORT_ANSWER\",\n      \"prompt\": \"According to the 'Hypothesis Testing for Value Creation' section, what are the three essential components or steps of a hypothesis test?\",\n      \"correctAnswer\": [\n        \"Hypothesis statement, Test method, Test metric & criteria\",\n        \"Statement, method, metric & criteria\"\n      ],\n      \"explanation\": \"Slide 20 explicitly lists the three steps as: 'Hypothesis statement', 'Test method', and 'Test metric & criteria'.\"\n    },\n    {\n      \"type\": \"FILL_IN_THE_BLANK\",\n      \"prompt\": \"The Agile Manifesto introduces four core values: Individuals and interactions, Customer collaboration, Responding to change, and a focus on working versions of products.\",\n      \"sentenceHtml\": \"The Agile Manifesto brings four values: Individuals and interactions, Customer collaboration, Responding to change, and <input />.\",\n      \"correctAnswer\": [\n        \"Working versions of products\"\n      ],\n      \"explanation\": \"Slide 24 lists the four values of the Agile Manifesto, with the fourth one being 'Working versions of products'.\"\n    },\n    {\n      \"type\": \"MATCHING\",\n      \"prompt\": \"Match each term with its correct description based on the provided material.\",\n      \"pairs\": [\n        {\n          \"left\": \"Sketching\",\n          \"right\": \"A way to express ideas quickly where detail is not important, often done on a whiteboard or paper.\"\n        },\n        {\n          \"left\": \"Storyboarding\",\n          \"right\": \"A process of time and interaction that uses elements like images, transitions, and voiceover.\"\n        },\n        {\n          \"left\": \"Lean Startup Program\",\n          \"right\": \"A methodology that combines the Business Model Canvas, customer development, and agile development.\"\n        },\n        {\n          \"left\": \"Design Thinking\",\n          \"right\": \"A human-centered approach to innovation that integrates the needs of people, technology, and business.\"\n        }\n      ],\n      \"correctAnswer\": null,\n      \"explanation\": \"This question combines definitions from multiple slides: Sketching (Slide 31), Storyboarding (Slide 30), Lean Startup Program (Slide 26), and Design Thinking (Slide 3).\"\n    }\n  ]\n}\n```",
+  "run" : 1,
+  "schema_ok" : true,
+  "temperature" : 0.2,
+  "timestamp" : "2026-05-24T10:40:10.278519"
+}

@@ -1,0 +1,94 @@
+{
+  "cleaned" : "{\n  \"questions\": [\n    {\n      \"citation\": {\n        \"reasoning\": \"This quote explains that a surplus occurs when quantity supplied exceeds quantity demanded, which is the scenario described.\",\n        \"sourceLocation\": \"Slide 14\",\n        \"verbatimQuote\": \"Surplus (excess supply): quantity supplied is greater than quantity demanded\"\n      },\n      \"correctAnswer\": [\n        \"surplus\"\n      ],\n      \"prompt\": \"Fill in the blank based on the provided market data.\",\n      \"sentenceHtml\": \"If the market price for a good is set at $5, leading to a quantity demanded of 9 and a quantity supplied of 25, the market will experience a(n) ___.\",\n      \"type\": \"FILL_IN_THE_BLANK\"\n    },\n    {\n      \"citation\": {\n        \"reasoning\": \"This quote directly lists the non-price determinants that cause the supply curve to shift, which are the correct answers.\",\n        \"sourceLocation\": \"Slide 12\",\n        \"verbatimQuote\": \"Changes in supply: Shifts due to some change in a determinant of supply • input prices, • technology, • expectations, • number of sellers\"\n      },\n      \"correctAnswer\": [\n        \"A decrease in input prices\",\n        \"An improvement in technology\",\n        \"An increase in the number of sellers\"\n      ],\n      \"prompt\": \"A new manufacturing process allows car companies to produce more vehicles at every price point. Based on the text, what is a possible cause for this rightward shift in the supply curve?\",\n      \"type\": \"SHORT_ANSWER\"\n    },\n    {\n      \"citation\": {\n        \"reasoning\": \"The quote confirms that a change in a non-price determinant like tastes shifts the entire demand curve, rather than causing movement along it.\",\n        \"sourceLocation\": \"Slide 8\",\n        \"verbatimQuote\": \"Changes in demand: Shifts of the demand curve due to changes in non-price determinants of demand\"\n      },\n      \"correctAnswer\": \"A shift of the entire demand curve to the right.\",\n      \"options\": [\n        \"A shift of the entire demand curve to the right.\",\n        \"A movement down along the existing demand curve.\",\n        \"A shift of the entire supply curve to the left.\",\n        \"A movement up along the existing supply curve.\"\n      ],\n      \"prompt\": \"A popular celebrity endorses a brand of sneakers, significantly increasing consumers' desire for them. How is this event represented on a supply and demand graph?\",\n      \"type\": \"MCQ_SINGLE\"\n    },\n    {\n      \"citation\": {\n        \"reasoning\": \"The quote explains that a price change causes movement along the curve, which is the second event in the prompt's scenario.\",\n        \"sourceLocation\": \"Slide 7\",\n        \"verbatimQuote\": \"Movements along a given demand curve in response to price changes of the good.\"\n      },\n      \"correctAnswer\": true,\n      \"prompt\": \"True or False: If consumer incomes increase, shifting the demand curve for a good, a subsequent increase in that good's price would be shown as a movement along the new demand curve.\",\n      \"type\": \"TRUE_FALSE\"\n    },\n    {\n      \"citation\": {\n        \"reasoning\": \"This quote identifies 'input prices' as a determinant that causes a shift in supply, justifying the match for the first pair.\",\n        \"sourceLocation\": \"Slide 12\",\n        \"verbatimQuote\": \"Changes in supply: Shifts due to some change in a determinant of supply • input prices\"\n      },\n      \"correctAnswer\": null,\n      \"pairs\": [\n        {\n          \"left\": \"The price of steel, an input for car manufacturing, rises.\",\n          \"right\": \"Causes a change in supply\"\n        },\n        {\n          \"left\": \"The market price of cars falls.\",\n          \"right\": \"Causes a change in quantity demanded\"\n        },\n        {\n          \"left\": \"A successful advertising campaign makes cars more desirable.\",\n          \"right\": \"Causes a change in demand\"\n        }\n      ],\n      \"prompt\": \"Match each event in the car market to its correct economic description.\",\n      \"type\": \"MATCHING\"\n    }\n  ]\n}",
+  "completion_tokens" : 962,
+  "doc_file" : "Chuong2_CungCauDiemCanBangGiaTranGiaSanThue_Eng.pdf",
+  "doc_id" : "D10",
+  "doc_language" : "en",
+  "doc_pages" : 57,
+  "doc_title" : "Supply, Demand and Market Equilibrium",
+  "empty_field" : false,
+  "error_message" : null,
+  "error_type" : null,
+  "feature" : "quiz",
+  "json_parse_ok" : true,
+  "latency_ms" : 37281,
+  "model" : "gemini-2.5-pro",
+  "parsed" : {
+    "questions" : [ {
+      "type" : "FILL_IN_THE_BLANK",
+      "prompt" : "Fill in the blank based on the provided market data.",
+      "options" : null,
+      "correctAnswer" : [ "surplus" ],
+      "citation" : {
+        "sourceLocation" : "Slide 14",
+        "verbatimQuote" : "Surplus (excess supply): quantity supplied is greater than quantity demanded",
+        "reasoning" : "This quote explains that a surplus occurs when quantity supplied exceeds quantity demanded, which is the scenario described."
+      },
+      "sentenceHtml" : "If the market price for a good is set at $5, leading to a quantity demanded of 9 and a quantity supplied of 25, the market will experience a(n) ___.",
+      "pairs" : null
+    }, {
+      "type" : "SHORT_ANSWER",
+      "prompt" : "A new manufacturing process allows car companies to produce more vehicles at every price point. Based on the text, what is a possible cause for this rightward shift in the supply curve?",
+      "options" : null,
+      "correctAnswer" : [ "A decrease in input prices", "An improvement in technology", "An increase in the number of sellers" ],
+      "citation" : {
+        "sourceLocation" : "Slide 12",
+        "verbatimQuote" : "Changes in supply: Shifts due to some change in a determinant of supply • input prices, • technology, • expectations, • number of sellers",
+        "reasoning" : "This quote directly lists the non-price determinants that cause the supply curve to shift, which are the correct answers."
+      },
+      "sentenceHtml" : null,
+      "pairs" : null
+    }, {
+      "type" : "MCQ_SINGLE",
+      "prompt" : "A popular celebrity endorses a brand of sneakers, significantly increasing consumers' desire for them. How is this event represented on a supply and demand graph?",
+      "options" : [ "A shift of the entire demand curve to the right.", "A movement down along the existing demand curve.", "A shift of the entire supply curve to the left.", "A movement up along the existing supply curve." ],
+      "correctAnswer" : "A shift of the entire demand curve to the right.",
+      "citation" : {
+        "sourceLocation" : "Slide 8",
+        "verbatimQuote" : "Changes in demand: Shifts of the demand curve due to changes in non-price determinants of demand",
+        "reasoning" : "The quote confirms that a change in a non-price determinant like tastes shifts the entire demand curve, rather than causing movement along it."
+      },
+      "sentenceHtml" : null,
+      "pairs" : null
+    }, {
+      "type" : "TRUE_FALSE",
+      "prompt" : "True or False: If consumer incomes increase, shifting the demand curve for a good, a subsequent increase in that good's price would be shown as a movement along the new demand curve.",
+      "options" : null,
+      "correctAnswer" : true,
+      "citation" : {
+        "sourceLocation" : "Slide 7",
+        "verbatimQuote" : "Movements along a given demand curve in response to price changes of the good.",
+        "reasoning" : "The quote explains that a price change causes movement along the curve, which is the second event in the prompt's scenario."
+      },
+      "sentenceHtml" : null,
+      "pairs" : null
+    }, {
+      "type" : "MATCHING",
+      "prompt" : "Match each event in the car market to its correct economic description.",
+      "options" : null,
+      "correctAnswer" : null,
+      "citation" : {
+        "sourceLocation" : "Slide 12",
+        "verbatimQuote" : "Changes in supply: Shifts due to some change in a determinant of supply • input prices",
+        "reasoning" : "This quote identifies 'input prices' as a determinant that causes a shift in supply, justifying the match for the first pair."
+      },
+      "sentenceHtml" : null,
+      "pairs" : [ {
+        "left" : "The price of steel, an input for car manufacturing, rises.",
+        "right" : "Causes a change in supply"
+      }, {
+        "left" : "The market price of cars falls.",
+        "right" : "Causes a change in quantity demanded"
+      }, {
+        "left" : "A successful advertising campaign makes cars more desirable.",
+        "right" : "Causes a change in demand"
+      } ]
+    } ]
+  },
+  "prompt_tokens" : 4250,
+  "raw" : "```json\n{\n  \"questions\": [\n    {\n      \"citation\": {\n        \"reasoning\": \"This quote explains that a surplus occurs when quantity supplied exceeds quantity demanded, which is the scenario described.\",\n        \"sourceLocation\": \"Slide 14\",\n        \"verbatimQuote\": \"Surplus (excess supply): quantity supplied is greater than quantity demanded\"\n      },\n      \"correctAnswer\": [\n        \"surplus\"\n      ],\n      \"prompt\": \"Fill in the blank based on the provided market data.\",\n      \"sentenceHtml\": \"If the market price for a good is set at $5, leading to a quantity demanded of 9 and a quantity supplied of 25, the market will experience a(n) ___.\",\n      \"type\": \"FILL_IN_THE_BLANK\"\n    },\n    {\n      \"citation\": {\n        \"reasoning\": \"This quote directly lists the non-price determinants that cause the supply curve to shift, which are the correct answers.\",\n        \"sourceLocation\": \"Slide 12\",\n        \"verbatimQuote\": \"Changes in supply: Shifts due to some change in a determinant of supply • input prices, • technology, • expectations, • number of sellers\"\n      },\n      \"correctAnswer\": [\n        \"A decrease in input prices\",\n        \"An improvement in technology\",\n        \"An increase in the number of sellers\"\n      ],\n      \"prompt\": \"A new manufacturing process allows car companies to produce more vehicles at every price point. Based on the text, what is a possible cause for this rightward shift in the supply curve?\",\n      \"type\": \"SHORT_ANSWER\"\n    },\n    {\n      \"citation\": {\n        \"reasoning\": \"The quote confirms that a change in a non-price determinant like tastes shifts the entire demand curve, rather than causing movement along it.\",\n        \"sourceLocation\": \"Slide 8\",\n        \"verbatimQuote\": \"Changes in demand: Shifts of the demand curve due to changes in non-price determinants of demand\"\n      },\n      \"correctAnswer\": \"A shift of the entire demand curve to the right.\",\n      \"options\": [\n        \"A shift of the entire demand curve to the right.\",\n        \"A movement down along the existing demand curve.\",\n        \"A shift of the entire supply curve to the left.\",\n        \"A movement up along the existing supply curve.\"\n      ],\n      \"prompt\": \"A popular celebrity endorses a brand of sneakers, significantly increasing consumers' desire for them. How is this event represented on a supply and demand graph?\",\n      \"type\": \"MCQ_SINGLE\"\n    },\n    {\n      \"citation\": {\n        \"reasoning\": \"The quote explains that a price change causes movement along the curve, which is the second event in the prompt's scenario.\",\n        \"sourceLocation\": \"Slide 7\",\n        \"verbatimQuote\": \"Movements along a given demand curve in response to price changes of the good.\"\n      },\n      \"correctAnswer\": true,\n      \"prompt\": \"True or False: If consumer incomes increase, shifting the demand curve for a good, a subsequent increase in that good's price would be shown as a movement along the new demand curve.\",\n      \"type\": \"TRUE_FALSE\"\n    },\n    {\n      \"citation\": {\n        \"reasoning\": \"This quote identifies 'input prices' as a determinant that causes a shift in supply, justifying the match for the first pair.\",\n        \"sourceLocation\": \"Slide 12\",\n        \"verbatimQuote\": \"Changes in supply: Shifts due to some change in a determinant of supply • input prices\"\n      },\n      \"correctAnswer\": null,\n      \"pairs\": [\n        {\n          \"left\": \"The price of steel, an input for car manufacturing, rises.\",\n          \"right\": \"Causes a change in supply\"\n        },\n        {\n          \"left\": \"The market price of cars falls.\",\n          \"right\": \"Causes a change in quantity demanded\"\n        },\n        {\n          \"left\": \"A successful advertising campaign makes cars more desirable.\",\n          \"right\": \"Causes a change in demand\"\n        }\n      ],\n      \"prompt\": \"Match each event in the car market to its correct economic description.\",\n      \"type\": \"MATCHING\"\n    }\n  ]\n}\n```",
+  "run" : 1,
+  "schema_ok" : true,
+  "temperature" : 0.2,
+  "timestamp" : "2026-06-05T20:44:44.158415"
+}

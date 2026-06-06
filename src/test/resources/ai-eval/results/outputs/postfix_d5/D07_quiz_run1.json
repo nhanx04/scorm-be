@@ -1,0 +1,74 @@
+{
+  "cleaned" : "{\n  \"questions\": [\n    {\n      \"type\": \"MCQ_SINGLE\",\n      \"prompt\": \"According to the provided material, what is the primary goal of creating a Minimum Viable Product (MVP)?\",\n      \"options\": [\n        \"To launch a fully-featured product to the market as quickly as possible.\",\n        \"To collect the maximum amount of validated learning about customers with the least effort.\",\n        \"To build a product using the Agile development process and a business model canvas.\",\n        \"To create a detailed storyboard and wireframe for user testing.\"\n      ],\n      \"correctAnswer\": \"To collect the maximum amount of validated learning about customers with the least effort.\",\n      \"explanation\": \"Slide 27: The definition by Eric Ries states, “A minimum viable product is that version of a new product which allows a team to collect the maximum amount of validated learning about customers with the least effort.”\"\n    },\n    {\n      \"type\": \"MCQ_MULTIPLE\",\n      \"prompt\": \"Based on the \\\"Agile Manifesto\\\" slide, which of the following are listed as its core values? (Select all that apply)\",\n      \"options\": [\n        \"Individuals and interactions\",\n        \"Comprehensive documentation\",\n        \"Responding to change\",\n        \"Contract negotiation\",\n        \"Working versions of products\"\n      ],\n      \"correctAnswer\": [\n        \"Individuals and interactions\",\n        \"Responding to change\",\n        \"Working versions of products\"\n      ],\n      \"explanation\": \"Slide 24: The slide lists four values for the Agile Manifesto: \\\"Individuals and interactions\\\", \\\"Customer collaboration\\\", \\\"Responding to change\\\", and \\\"Working versions of products\\\". The other options are not mentioned in the provided material.\"\n    },\n    {\n      \"type\": \"TRUE_FALSE\",\n      \"prompt\": \"True or False: When sketching user interfaces, it is important to focus on high detail to establish the final look and feel of the application.\",\n      \"correctAnswer\": false,\n      \"explanation\": \"Slide 31: Under the 'Sketching' section, the material states, \\\"Detail is not important, your trying to establish flow\\\".\"\n    },\n    {\n      \"type\": \"FILL_IN_THE_BLANK\",\n      \"prompt\": \"Fill in the blanks to complete the definition of \\\"design thinking\\\" by Tim Brown.\",\n      \"sentenceHtml\": \"“Design thinking” is a ___(1)___ approach to innovation that draws from the designer's toolkit to integrate the needs of people, the possibilities of ___(2)___, and the requirements for ___(3)___ success.”\",\n      \"correctAnswer\": [\n        \"human-centered\",\n        \"technology\",\n        \"business\"\n      ],\n      \"explanation\": \"Slide 3: The quote from Tim Brown is provided in full: “'Design thinking' is a human-centered approach to innovation that draws from the designer's toolkit to integrate the needs of people, the possibilities of technology, and the requirements for business success.”\"\n    },\n    {\n      \"type\": \"MATCHING\",\n      \"prompt\": \"Match each phase of the Design Thinking process with its corresponding description from the material.\",\n      \"pairs\": [\n        {\n          \"left\": \"Observing\",\n          \"right\": \"Investigating user needs and studying the current market.\"\n        },\n        {\n          \"left\": \"Ideating\",\n          \"right\": \"A discovery and creation process, often starting from changes in the external environment.\"\n        },\n        {\n          \"left\": \"Implementing\",\n          \"right\": \"Involves designing experiments, testing, and iterating on the solution.\"\n        }\n      ],\n      \"correctAnswer\": null,\n      \"explanation\": \"Theo tài liệu: Slide 7 describes 'Observing' as involving 'Investigating user needs' and 'Study current market'. Slide 9 describes 'Ideating' as a 'Discovery process' and 'Creation process' that can start from 'changes in the external environment'. Slide 10 describes 'Implementation' as involving 'Design experiments', 'Test', and 'Iterate'.\"\n    }\n  ]\n}",
+  "completion_tokens" : 913,
+  "doc_file" : "05_Design_thinking_v3.pdf",
+  "doc_id" : "D07",
+  "doc_language" : "en",
+  "doc_pages" : 72,
+  "doc_title" : "Design Thinking & Design Principles (Electronic Commerce)",
+  "empty_field" : false,
+  "error_message" : null,
+  "error_type" : null,
+  "feature" : "quiz",
+  "json_parse_ok" : true,
+  "latency_ms" : 30079,
+  "model" : "gemini-2.5-pro",
+  "parsed" : {
+    "questions" : [ {
+      "type" : "MCQ_SINGLE",
+      "prompt" : "According to the provided material, what is the primary goal of creating a Minimum Viable Product (MVP)?",
+      "options" : [ "To launch a fully-featured product to the market as quickly as possible.", "To collect the maximum amount of validated learning about customers with the least effort.", "To build a product using the Agile development process and a business model canvas.", "To create a detailed storyboard and wireframe for user testing." ],
+      "correctAnswer" : "To collect the maximum amount of validated learning about customers with the least effort.",
+      "explanation" : "Slide 27: The definition by Eric Ries states, “A minimum viable product is that version of a new product which allows a team to collect the maximum amount of validated learning about customers with the least effort.”",
+      "sentenceHtml" : null,
+      "pairs" : null
+    }, {
+      "type" : "MCQ_MULTIPLE",
+      "prompt" : "Based on the \"Agile Manifesto\" slide, which of the following are listed as its core values? (Select all that apply)",
+      "options" : [ "Individuals and interactions", "Comprehensive documentation", "Responding to change", "Contract negotiation", "Working versions of products" ],
+      "correctAnswer" : [ "Individuals and interactions", "Responding to change", "Working versions of products" ],
+      "explanation" : "Slide 24: The slide lists four values for the Agile Manifesto: \"Individuals and interactions\", \"Customer collaboration\", \"Responding to change\", and \"Working versions of products\". The other options are not mentioned in the provided material.",
+      "sentenceHtml" : null,
+      "pairs" : null
+    }, {
+      "type" : "TRUE_FALSE",
+      "prompt" : "True or False: When sketching user interfaces, it is important to focus on high detail to establish the final look and feel of the application.",
+      "options" : null,
+      "correctAnswer" : false,
+      "explanation" : "Slide 31: Under the 'Sketching' section, the material states, \"Detail is not important, your trying to establish flow\".",
+      "sentenceHtml" : null,
+      "pairs" : null
+    }, {
+      "type" : "FILL_IN_THE_BLANK",
+      "prompt" : "Fill in the blanks to complete the definition of \"design thinking\" by Tim Brown.",
+      "options" : null,
+      "correctAnswer" : [ "human-centered", "technology", "business" ],
+      "explanation" : "Slide 3: The quote from Tim Brown is provided in full: “'Design thinking' is a human-centered approach to innovation that draws from the designer's toolkit to integrate the needs of people, the possibilities of technology, and the requirements for business success.”",
+      "sentenceHtml" : "“Design thinking” is a ___(1)___ approach to innovation that draws from the designer's toolkit to integrate the needs of people, the possibilities of ___(2)___, and the requirements for ___(3)___ success.”",
+      "pairs" : null
+    }, {
+      "type" : "MATCHING",
+      "prompt" : "Match each phase of the Design Thinking process with its corresponding description from the material.",
+      "options" : null,
+      "correctAnswer" : null,
+      "explanation" : "Theo tài liệu: Slide 7 describes 'Observing' as involving 'Investigating user needs' and 'Study current market'. Slide 9 describes 'Ideating' as a 'Discovery process' and 'Creation process' that can start from 'changes in the external environment'. Slide 10 describes 'Implementation' as involving 'Design experiments', 'Test', and 'Iterate'.",
+      "sentenceHtml" : null,
+      "pairs" : [ {
+        "left" : "Observing",
+        "right" : "Investigating user needs and studying the current market."
+      }, {
+        "left" : "Ideating",
+        "right" : "A discovery and creation process, often starting from changes in the external environment."
+      }, {
+        "left" : "Implementing",
+        "right" : "Involves designing experiments, testing, and iterating on the solution."
+      } ]
+    } ]
+  },
+  "prompt_tokens" : 2457,
+  "raw" : "```json\n{\n  \"questions\": [\n    {\n      \"type\": \"MCQ_SINGLE\",\n      \"prompt\": \"According to the provided material, what is the primary goal of creating a Minimum Viable Product (MVP)?\",\n      \"options\": [\n        \"To launch a fully-featured product to the market as quickly as possible.\",\n        \"To collect the maximum amount of validated learning about customers with the least effort.\",\n        \"To build a product using the Agile development process and a business model canvas.\",\n        \"To create a detailed storyboard and wireframe for user testing.\"\n      ],\n      \"correctAnswer\": \"To collect the maximum amount of validated learning about customers with the least effort.\",\n      \"explanation\": \"Slide 27: The definition by Eric Ries states, “A minimum viable product is that version of a new product which allows a team to collect the maximum amount of validated learning about customers with the least effort.”\"\n    },\n    {\n      \"type\": \"MCQ_MULTIPLE\",\n      \"prompt\": \"Based on the \\\"Agile Manifesto\\\" slide, which of the following are listed as its core values? (Select all that apply)\",\n      \"options\": [\n        \"Individuals and interactions\",\n        \"Comprehensive documentation\",\n        \"Responding to change\",\n        \"Contract negotiation\",\n        \"Working versions of products\"\n      ],\n      \"correctAnswer\": [\n        \"Individuals and interactions\",\n        \"Responding to change\",\n        \"Working versions of products\"\n      ],\n      \"explanation\": \"Slide 24: The slide lists four values for the Agile Manifesto: \\\"Individuals and interactions\\\", \\\"Customer collaboration\\\", \\\"Responding to change\\\", and \\\"Working versions of products\\\". The other options are not mentioned in the provided material.\"\n    },\n    {\n      \"type\": \"TRUE_FALSE\",\n      \"prompt\": \"True or False: When sketching user interfaces, it is important to focus on high detail to establish the final look and feel of the application.\",\n      \"correctAnswer\": false,\n      \"explanation\": \"Slide 31: Under the 'Sketching' section, the material states, \\\"Detail is not important, your trying to establish flow\\\".\"\n    },\n    {\n      \"type\": \"FILL_IN_THE_BLANK\",\n      \"prompt\": \"Fill in the blanks to complete the definition of \\\"design thinking\\\" by Tim Brown.\",\n      \"sentenceHtml\": \"“Design thinking” is a ___(1)___ approach to innovation that draws from the designer's toolkit to integrate the needs of people, the possibilities of ___(2)___, and the requirements for ___(3)___ success.”\",\n      \"correctAnswer\": [\n        \"human-centered\",\n        \"technology\",\n        \"business\"\n      ],\n      \"explanation\": \"Slide 3: The quote from Tim Brown is provided in full: “'Design thinking' is a human-centered approach to innovation that draws from the designer's toolkit to integrate the needs of people, the possibilities of technology, and the requirements for business success.”\"\n    },\n    {\n      \"type\": \"MATCHING\",\n      \"prompt\": \"Match each phase of the Design Thinking process with its corresponding description from the material.\",\n      \"pairs\": [\n        {\n          \"left\": \"Observing\",\n          \"right\": \"Investigating user needs and studying the current market.\"\n        },\n        {\n          \"left\": \"Ideating\",\n          \"right\": \"A discovery and creation process, often starting from changes in the external environment.\"\n        },\n        {\n          \"left\": \"Implementing\",\n          \"right\": \"Involves designing experiments, testing, and iterating on the solution.\"\n        }\n      ],\n      \"correctAnswer\": null,\n      \"explanation\": \"Theo tài liệu: Slide 7 describes 'Observing' as involving 'Investigating user needs' and 'Study current market'. Slide 9 describes 'Ideating' as a 'Discovery process' and 'Creation process' that can start from 'changes in the external environment'. Slide 10 describes 'Implementation' as involving 'Design experiments', 'Test', and 'Iterate'.\"\n    }\n  ]\n}\n```",
+  "run" : 1,
+  "schema_ok" : true,
+  "temperature" : 0.2,
+  "timestamp" : "2026-06-04T22:16:12.448696"
+}

@@ -1,0 +1,77 @@
+{
+  "cleaned" : "{\n  \"questions\": [\n    {\n      \"type\": \"MCQ_SINGLE\",\n      \"prompt\": \"Theo định lý Gauss, cường độ điện trường bên trong một quả cầu tích điện đều trên bề mặt (với r < R) là bao nhiêu?\",\n      \"options\": [\n        \"E = 0\",\n        \"E tỉ lệ nghịch với bình phương khoảng cách r\",\n        \"E có độ lớn không đổi và khác không\",\n        \"E tỉ lệ thuận với khoảng cách r\"\n      ],\n      \"correctAnswer\": \"E = 0\",\n      \"explanation\": \"Slide 8: 'Ở bên trong quả cầu (r < R): Σqi = 0 nên E = 0.'. Điều này cho thấy điện trường bằng không bên trong quả cầu.\"\n    },\n    {\n      \"type\": \"TRUE_FALSE\",\n      \"prompt\": \"Đúng hay sai: Đường sức của một điện trường tĩnh có thể là những đường cong khép kín.\",\n      \"correctAnswer\": false,\n      \"explanation\": \"Slide 4: 'Đường sức điện trường tĩnh không khép kín.'. Phát biểu này khẳng định rằng đường sức điện trường tĩnh không bao giờ khép kín.\"\n    },\n    {\n      \"type\": \"FILL_IN_THE_BLANK\",\n      \"prompt\": \"Điền vào chỗ trống để hoàn thành phát biểu về định lý Gauss trong chân không.\",\n      \"sentenceHtml\": \"Trong chân không, thông lượng của vectơ cường độ điện trường gửi qua mặt kín S thì bằng tổng đại số điện tích chứa bên trong mặt kín chia cho <input>.\",\n      \"correctAnswer\": [\n        \"ε₀\"\n      ],\n      \"explanation\": \"Slide 7: 'Trong chân không, thông lượng của vectơ cường độ điện trường gửi qua mặt kín S thì bằng tổng đại số điện tích chứa bên trong mặt kín chia cho ε₀.'. Câu này mô tả chính xác định lý Gauss trong chân không.\"\n    },\n    {\n      \"type\": \"SHORT_ANSWER\",\n      \"prompt\": \"Để khử sự gián đoạn của vecto cường độ điện trường khi đi qua mặt phân cách giữa hai môi trường, người ta đưa vào đại lượng vật lý nào?\",\n      \"correctAnswer\": [\n        \"vecto cảm ứng điện\",\n        \"vectơ cảm ứng điện\",\n        \"Vecto cảm ứng điện D\"\n      ],\n      \"explanation\": \"Slide 5: 'Để khử sự gián đoạn đó, ta đưa vào đại lượng mới là vecto cảm ứng điện D = ε₀εE.'. Tài liệu giới thiệu vecto cảm ứng điện để giải quyết vấn đề gián đoạn.\"\n    },\n    {\n      \"type\": \"MATCHING\",\n      \"prompt\": \"Ghép mỗi vật tích điện với đặc điểm cường độ điện trường tương ứng tại điểm được chỉ định.\",\n      \"pairs\": [\n        {\n          \"left\": \"Vòng tròn tích điện đều\",\n          \"right\": \"Điện trường tại tâm bằng không\"\n        },\n        {\n          \"left\": \"Mặt phẳng rộng vô hạn, tích điện đều\",\n          \"right\": \"Sinh ra điện trường đều\"\n        },\n        {\n          \"left\": \"Thanh dài vô hạn, tích điện đều\",\n          \"right\": \"Cường độ điện trường tỉ lệ nghịch với khoảng cách đến thanh\"\n        },\n        {\n          \"left\": \"Quả cầu tích điện đều trong toàn bộ thể tích\",\n          \"right\": \"Cường độ điện trường bên trong (r < R) tỉ lệ thuận với khoảng cách đến tâm\"\n        }\n      ],\n      \"correctAnswer\": null,\n      \"explanation\": \"Slide 9, 10, 12: 'Vòng tròn... E_O = 0', 'Mặt phẳng rộng vô hạn: sinh ra điện trường đều', 'Thanh dài vô hạn... E_N = 2kλ/h * e_y', 'Quả cầu... E = (ρ/(3ε₀ε)) * r * e_r (r < R)'. Các công thức này xác nhận mối liên hệ giữa vật thể và đặc điểm điện trường.\"\n    }\n  ]\n}",
+  "completion_tokens" : 918,
+  "doc_file" : "Chương 6.pdf",
+  "doc_id" : "D09",
+  "doc_language" : "vi",
+  "doc_pages" : 25,
+  "doc_title" : "Trường tĩnh điện trong chân không",
+  "empty_field" : false,
+  "error_message" : null,
+  "error_type" : null,
+  "feature" : "quiz",
+  "json_parse_ok" : true,
+  "latency_ms" : 23606,
+  "model" : "gemini-2.5-pro",
+  "parsed" : {
+    "questions" : [ {
+      "type" : "MCQ_SINGLE",
+      "prompt" : "Theo định lý Gauss, cường độ điện trường bên trong một quả cầu tích điện đều trên bề mặt (với r < R) là bao nhiêu?",
+      "options" : [ "E = 0", "E tỉ lệ nghịch với bình phương khoảng cách r", "E có độ lớn không đổi và khác không", "E tỉ lệ thuận với khoảng cách r" ],
+      "correctAnswer" : "E = 0",
+      "explanation" : "Slide 8: 'Ở bên trong quả cầu (r < R): Σqi = 0 nên E = 0.'. Điều này cho thấy điện trường bằng không bên trong quả cầu.",
+      "sentenceHtml" : null,
+      "pairs" : null
+    }, {
+      "type" : "TRUE_FALSE",
+      "prompt" : "Đúng hay sai: Đường sức của một điện trường tĩnh có thể là những đường cong khép kín.",
+      "options" : null,
+      "correctAnswer" : false,
+      "explanation" : "Slide 4: 'Đường sức điện trường tĩnh không khép kín.'. Phát biểu này khẳng định rằng đường sức điện trường tĩnh không bao giờ khép kín.",
+      "sentenceHtml" : null,
+      "pairs" : null
+    }, {
+      "type" : "FILL_IN_THE_BLANK",
+      "prompt" : "Điền vào chỗ trống để hoàn thành phát biểu về định lý Gauss trong chân không.",
+      "options" : null,
+      "correctAnswer" : [ "ε₀" ],
+      "explanation" : "Slide 7: 'Trong chân không, thông lượng của vectơ cường độ điện trường gửi qua mặt kín S thì bằng tổng đại số điện tích chứa bên trong mặt kín chia cho ε₀.'. Câu này mô tả chính xác định lý Gauss trong chân không.",
+      "sentenceHtml" : "Trong chân không, thông lượng của vectơ cường độ điện trường gửi qua mặt kín S thì bằng tổng đại số điện tích chứa bên trong mặt kín chia cho <input>.",
+      "pairs" : null
+    }, {
+      "type" : "SHORT_ANSWER",
+      "prompt" : "Để khử sự gián đoạn của vecto cường độ điện trường khi đi qua mặt phân cách giữa hai môi trường, người ta đưa vào đại lượng vật lý nào?",
+      "options" : null,
+      "correctAnswer" : [ "vecto cảm ứng điện", "vectơ cảm ứng điện", "Vecto cảm ứng điện D" ],
+      "explanation" : "Slide 5: 'Để khử sự gián đoạn đó, ta đưa vào đại lượng mới là vecto cảm ứng điện D = ε₀εE.'. Tài liệu giới thiệu vecto cảm ứng điện để giải quyết vấn đề gián đoạn.",
+      "sentenceHtml" : null,
+      "pairs" : null
+    }, {
+      "type" : "MATCHING",
+      "prompt" : "Ghép mỗi vật tích điện với đặc điểm cường độ điện trường tương ứng tại điểm được chỉ định.",
+      "options" : null,
+      "correctAnswer" : null,
+      "explanation" : "Slide 9, 10, 12: 'Vòng tròn... E_O = 0', 'Mặt phẳng rộng vô hạn: sinh ra điện trường đều', 'Thanh dài vô hạn... E_N = 2kλ/h * e_y', 'Quả cầu... E = (ρ/(3ε₀ε)) * r * e_r (r < R)'. Các công thức này xác nhận mối liên hệ giữa vật thể và đặc điểm điện trường.",
+      "sentenceHtml" : null,
+      "pairs" : [ {
+        "left" : "Vòng tròn tích điện đều",
+        "right" : "Điện trường tại tâm bằng không"
+      }, {
+        "left" : "Mặt phẳng rộng vô hạn, tích điện đều",
+        "right" : "Sinh ra điện trường đều"
+      }, {
+        "left" : "Thanh dài vô hạn, tích điện đều",
+        "right" : "Cường độ điện trường tỉ lệ nghịch với khoảng cách đến thanh"
+      }, {
+        "left" : "Quả cầu tích điện đều trong toàn bộ thể tích",
+        "right" : "Cường độ điện trường bên trong (r < R) tỉ lệ thuận với khoảng cách đến tâm"
+      } ]
+    } ]
+  },
+  "prompt_tokens" : 4136,
+  "raw" : "```json\n{\n  \"questions\": [\n    {\n      \"type\": \"MCQ_SINGLE\",\n      \"prompt\": \"Theo định lý Gauss, cường độ điện trường bên trong một quả cầu tích điện đều trên bề mặt (với r < R) là bao nhiêu?\",\n      \"options\": [\n        \"E = 0\",\n        \"E tỉ lệ nghịch với bình phương khoảng cách r\",\n        \"E có độ lớn không đổi và khác không\",\n        \"E tỉ lệ thuận với khoảng cách r\"\n      ],\n      \"correctAnswer\": \"E = 0\",\n      \"explanation\": \"Slide 8: 'Ở bên trong quả cầu (r < R): Σqi = 0 nên E = 0.'. Điều này cho thấy điện trường bằng không bên trong quả cầu.\"\n    },\n    {\n      \"type\": \"TRUE_FALSE\",\n      \"prompt\": \"Đúng hay sai: Đường sức của một điện trường tĩnh có thể là những đường cong khép kín.\",\n      \"correctAnswer\": false,\n      \"explanation\": \"Slide 4: 'Đường sức điện trường tĩnh không khép kín.'. Phát biểu này khẳng định rằng đường sức điện trường tĩnh không bao giờ khép kín.\"\n    },\n    {\n      \"type\": \"FILL_IN_THE_BLANK\",\n      \"prompt\": \"Điền vào chỗ trống để hoàn thành phát biểu về định lý Gauss trong chân không.\",\n      \"sentenceHtml\": \"Trong chân không, thông lượng của vectơ cường độ điện trường gửi qua mặt kín S thì bằng tổng đại số điện tích chứa bên trong mặt kín chia cho <input>.\",\n      \"correctAnswer\": [\n        \"ε₀\"\n      ],\n      \"explanation\": \"Slide 7: 'Trong chân không, thông lượng của vectơ cường độ điện trường gửi qua mặt kín S thì bằng tổng đại số điện tích chứa bên trong mặt kín chia cho ε₀.'. Câu này mô tả chính xác định lý Gauss trong chân không.\"\n    },\n    {\n      \"type\": \"SHORT_ANSWER\",\n      \"prompt\": \"Để khử sự gián đoạn của vecto cường độ điện trường khi đi qua mặt phân cách giữa hai môi trường, người ta đưa vào đại lượng vật lý nào?\",\n      \"correctAnswer\": [\n        \"vecto cảm ứng điện\",\n        \"vectơ cảm ứng điện\",\n        \"Vecto cảm ứng điện D\"\n      ],\n      \"explanation\": \"Slide 5: 'Để khử sự gián đoạn đó, ta đưa vào đại lượng mới là vecto cảm ứng điện D = ε₀εE.'. Tài liệu giới thiệu vecto cảm ứng điện để giải quyết vấn đề gián đoạn.\"\n    },\n    {\n      \"type\": \"MATCHING\",\n      \"prompt\": \"Ghép mỗi vật tích điện với đặc điểm cường độ điện trường tương ứng tại điểm được chỉ định.\",\n      \"pairs\": [\n        {\n          \"left\": \"Vòng tròn tích điện đều\",\n          \"right\": \"Điện trường tại tâm bằng không\"\n        },\n        {\n          \"left\": \"Mặt phẳng rộng vô hạn, tích điện đều\",\n          \"right\": \"Sinh ra điện trường đều\"\n        },\n        {\n          \"left\": \"Thanh dài vô hạn, tích điện đều\",\n          \"right\": \"Cường độ điện trường tỉ lệ nghịch với khoảng cách đến thanh\"\n        },\n        {\n          \"left\": \"Quả cầu tích điện đều trong toàn bộ thể tích\",\n          \"right\": \"Cường độ điện trường bên trong (r < R) tỉ lệ thuận với khoảng cách đến tâm\"\n        }\n      ],\n      \"correctAnswer\": null,\n      \"explanation\": \"Slide 9, 10, 12: 'Vòng tròn... E_O = 0', 'Mặt phẳng rộng vô hạn: sinh ra điện trường đều', 'Thanh dài vô hạn... E_N = 2kλ/h * e_y', 'Quả cầu... E = (ρ/(3ε₀ε)) * r * e_r (r < R)'. Các công thức này xác nhận mối liên hệ giữa vật thể và đặc điểm điện trường.\"\n    }\n  ]\n}\n```",
+  "run" : 1,
+  "schema_ok" : true,
+  "temperature" : 0.2,
+  "timestamp" : "2026-06-05T12:53:57.066905"
+}

@@ -1,0 +1,77 @@
+{
+  "cleaned" : "{\n  \"questions\": [\n    {\n      \"type\": \"MCQ_SINGLE\",\n      \"prompt\": \"According to the material, what happens if you execute `DROP TABLE Department RESTRICT;` and the `Department` table is referenced by a foreign key in another table?\",\n      \"options\": [\n        \"The `Department` table and the referencing foreign key are both dropped.\",\n        \"The command fails because the table is referenced.\",\n        \"Only the `Department` table is dropped, leaving an invalid foreign key.\",\n        \"The user is prompted to choose between CASCADE and RESTRICT.\"\n      ],\n      \"correctAnswer\": \"The command fails because the table is referenced.\",\n      \"explanation\": \"Slide 25 states that with the RESTRICT option (which is the default), a table is dropped only if it is not referenced in any constraints or views.\"\n    },\n    {\n      \"type\": \"TRUE_FALSE\",\n      \"prompt\": \"The `CHECK` constraint can only be used to validate the value of a single attribute and cannot compare values across different attributes within the same tuple.\",\n      \"correctAnswer\": false,\n      \"explanation\": \"Slide 23 provides an example of a tuple-based constraint, `CHECK (DEPT_CREATE_DATE < MGRSTARTDATE);`, which compares two different attributes in the same tuple.\"\n    },\n    {\n      \"type\": \"FILL_IN_THE_BLANK\",\n      \"sentenceHtml\": \"SQL commands are categorized into three basic languages: Data Definition Language (DDL), which includes commands like `CREATE`; ___ , which includes commands like `SELECT` and `INSERT`; and Data Control Language (DCL), which includes commands like `GRANT`.\",\n      \"correctAnswer\": [\n        \"Data Manipulation Language (DML)\"\n      ],\n      \"explanation\": \"Slide 4 explicitly lists the three basic SQL languages: Data Definition Language (DDL), Data Manipulation Language (DML), and Data Control Language (DCL), along with their associated commands.\"\n    },\n    {\n      \"type\": \"MATCHING\",\n      \"prompt\": \"Match the SQL data type with its correct description.\",\n      \"pairs\": [\n        {\n          \"left\": \"VARCHAR(n)\",\n          \"right\": \"A varying-length character string.\"\n        },\n        {\n          \"left\": \"TIMESTAMP\",\n          \"right\": \"Includes DATE and TIME fields plus fractions of seconds.\"\n        },\n        {\n          \"left\": \"INTEGER\",\n          \"right\": \"A numeric data type for whole numbers.\"\n        },\n        {\n          \"left\": \"BOOLEAN\",\n          \"right\": \"Can hold values of TRUE, FALSE, or NULL.\"\n        }\n      ],\n      \"correctAnswer\": null,\n      \"explanation\": \"The descriptions for these data types are provided on Slides 11 and 12.\"\n    },\n    {\n      \"type\": \"SHORT_ANSWER\",\n      \"prompt\": \"What is the default referential triggered action for a `FOREIGN KEY` if no action is explicitly specified?\",\n      \"correctAnswer\": [\n        \"RESTRICT\"\n      ],\n      \"explanation\": \"Slide 16 lists the referential triggered actions and explicitly states: 'RESTRICT (default), SET NULL, CASCADE, and SET DEFAULT'.\"\n    }\n  ]\n}",
+  "completion_tokens" : 735,
+  "doc_file" : "4-1_SQL.pdf",
+  "doc_id" : "D02",
+  "doc_language" : "en",
+  "doc_pages" : 114,
+  "doc_title" : "Structured Query Language (DDL/DML/DCL)",
+  "empty_field" : true,
+  "error_message" : null,
+  "error_type" : null,
+  "feature" : "quiz",
+  "json_parse_ok" : true,
+  "latency_ms" : 23940,
+  "model" : "gemini-2.5-pro",
+  "parsed" : {
+    "questions" : [ {
+      "type" : "MCQ_SINGLE",
+      "prompt" : "According to the material, what happens if you execute `DROP TABLE Department RESTRICT;` and the `Department` table is referenced by a foreign key in another table?",
+      "options" : [ "The `Department` table and the referencing foreign key are both dropped.", "The command fails because the table is referenced.", "Only the `Department` table is dropped, leaving an invalid foreign key.", "The user is prompted to choose between CASCADE and RESTRICT." ],
+      "correctAnswer" : "The command fails because the table is referenced.",
+      "explanation" : "Slide 25 states that with the RESTRICT option (which is the default), a table is dropped only if it is not referenced in any constraints or views.",
+      "sentenceHtml" : null,
+      "pairs" : null
+    }, {
+      "type" : "TRUE_FALSE",
+      "prompt" : "The `CHECK` constraint can only be used to validate the value of a single attribute and cannot compare values across different attributes within the same tuple.",
+      "options" : null,
+      "correctAnswer" : false,
+      "explanation" : "Slide 23 provides an example of a tuple-based constraint, `CHECK (DEPT_CREATE_DATE < MGRSTARTDATE);`, which compares two different attributes in the same tuple.",
+      "sentenceHtml" : null,
+      "pairs" : null
+    }, {
+      "type" : "FILL_IN_THE_BLANK",
+      "prompt" : null,
+      "options" : null,
+      "correctAnswer" : [ "Data Manipulation Language (DML)" ],
+      "explanation" : "Slide 4 explicitly lists the three basic SQL languages: Data Definition Language (DDL), Data Manipulation Language (DML), and Data Control Language (DCL), along with their associated commands.",
+      "sentenceHtml" : "SQL commands are categorized into three basic languages: Data Definition Language (DDL), which includes commands like `CREATE`; ___ , which includes commands like `SELECT` and `INSERT`; and Data Control Language (DCL), which includes commands like `GRANT`.",
+      "pairs" : null
+    }, {
+      "type" : "MATCHING",
+      "prompt" : "Match the SQL data type with its correct description.",
+      "options" : null,
+      "correctAnswer" : null,
+      "explanation" : "The descriptions for these data types are provided on Slides 11 and 12.",
+      "sentenceHtml" : null,
+      "pairs" : [ {
+        "left" : "VARCHAR(n)",
+        "right" : "A varying-length character string."
+      }, {
+        "left" : "TIMESTAMP",
+        "right" : "Includes DATE and TIME fields plus fractions of seconds."
+      }, {
+        "left" : "INTEGER",
+        "right" : "A numeric data type for whole numbers."
+      }, {
+        "left" : "BOOLEAN",
+        "right" : "Can hold values of TRUE, FALSE, or NULL."
+      } ]
+    }, {
+      "type" : "SHORT_ANSWER",
+      "prompt" : "What is the default referential triggered action for a `FOREIGN KEY` if no action is explicitly specified?",
+      "options" : null,
+      "correctAnswer" : [ "RESTRICT" ],
+      "explanation" : "Slide 16 lists the referential triggered actions and explicitly states: 'RESTRICT (default), SET NULL, CASCADE, and SET DEFAULT'.",
+      "sentenceHtml" : null,
+      "pairs" : null
+    } ]
+  },
+  "prompt_tokens" : 2881,
+  "raw" : "```json\n{\n  \"questions\": [\n    {\n      \"type\": \"MCQ_SINGLE\",\n      \"prompt\": \"According to the material, what happens if you execute `DROP TABLE Department RESTRICT;` and the `Department` table is referenced by a foreign key in another table?\",\n      \"options\": [\n        \"The `Department` table and the referencing foreign key are both dropped.\",\n        \"The command fails because the table is referenced.\",\n        \"Only the `Department` table is dropped, leaving an invalid foreign key.\",\n        \"The user is prompted to choose between CASCADE and RESTRICT.\"\n      ],\n      \"correctAnswer\": \"The command fails because the table is referenced.\",\n      \"explanation\": \"Slide 25 states that with the RESTRICT option (which is the default), a table is dropped only if it is not referenced in any constraints or views.\"\n    },\n    {\n      \"type\": \"TRUE_FALSE\",\n      \"prompt\": \"The `CHECK` constraint can only be used to validate the value of a single attribute and cannot compare values across different attributes within the same tuple.\",\n      \"correctAnswer\": false,\n      \"explanation\": \"Slide 23 provides an example of a tuple-based constraint, `CHECK (DEPT_CREATE_DATE < MGRSTARTDATE);`, which compares two different attributes in the same tuple.\"\n    },\n    {\n      \"type\": \"FILL_IN_THE_BLANK\",\n      \"sentenceHtml\": \"SQL commands are categorized into three basic languages: Data Definition Language (DDL), which includes commands like `CREATE`; ___ , which includes commands like `SELECT` and `INSERT`; and Data Control Language (DCL), which includes commands like `GRANT`.\",\n      \"correctAnswer\": [\n        \"Data Manipulation Language (DML)\"\n      ],\n      \"explanation\": \"Slide 4 explicitly lists the three basic SQL languages: Data Definition Language (DDL), Data Manipulation Language (DML), and Data Control Language (DCL), along with their associated commands.\"\n    },\n    {\n      \"type\": \"MATCHING\",\n      \"prompt\": \"Match the SQL data type with its correct description.\",\n      \"pairs\": [\n        {\n          \"left\": \"VARCHAR(n)\",\n          \"right\": \"A varying-length character string.\"\n        },\n        {\n          \"left\": \"TIMESTAMP\",\n          \"right\": \"Includes DATE and TIME fields plus fractions of seconds.\"\n        },\n        {\n          \"left\": \"INTEGER\",\n          \"right\": \"A numeric data type for whole numbers.\"\n        },\n        {\n          \"left\": \"BOOLEAN\",\n          \"right\": \"Can hold values of TRUE, FALSE, or NULL.\"\n        }\n      ],\n      \"correctAnswer\": null,\n      \"explanation\": \"The descriptions for these data types are provided on Slides 11 and 12.\"\n    },\n    {\n      \"type\": \"SHORT_ANSWER\",\n      \"prompt\": \"What is the default referential triggered action for a `FOREIGN KEY` if no action is explicitly specified?\",\n      \"correctAnswer\": [\n        \"RESTRICT\"\n      ],\n      \"explanation\": \"Slide 16 lists the referential triggered actions and explicitly states: 'RESTRICT (default), SET NULL, CASCADE, and SET DEFAULT'.\"\n    }\n  ]\n}\n```",
+  "run" : 1,
+  "schema_ok" : true,
+  "temperature" : 0.2,
+  "timestamp" : "2026-05-24T10:34:41.356387"
+}

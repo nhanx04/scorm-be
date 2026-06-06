@@ -1,0 +1,97 @@
+{
+  "cleaned" : "{\n  \"questions\": [\n    {\n      \"citation\": {\n        \"reasoning\": \"Tài liệu mô tả quan điểm trọng sản phẩm là tập trung vào chất lượng và sự khác biệt của sản phẩm.\",\n        \"sourceLocation\": \"Slide 13\",\n        \"verbatimQuote\": \"Trọng Sản phẩm: Sản phẩm chất lượng, mẫu mã đẹp, khác lạ  quản lý tập trung cải tiến sản phẩm\"\n      },\n      \"correctAnswer\": \"Quan điểm trọng Sản phẩm\",\n      \"options\": [\n        \"Quan điểm trọng Sản xuất\",\n        \"Quan điểm trọng Sản phẩm\",\n        \"Quan điểm trọng Bán hàng\",\n        \"Quan điểm trọng Tiếp thị xã hội\"\n      ],\n      \"prompt\": \"Một công ty công nghệ luôn nỗ lực cải tiến sản phẩm, bổ sung các tính năng mới và tin rằng một sản phẩm vượt trội sẽ tự thu hút khách hàng. Cách tiếp cận này thể hiện tư tưởng chủ đạo nào trong marketing?\",\n      \"type\": \"MCQ_SINGLE\"\n    },\n    {\n      \"citation\": {\n        \"reasoning\": \"Tài liệu phân biệt rõ ràng giữa hai quan điểm, trong đó quan điểm marketing bắt đầu từ thị trường và nhu cầu.\",\n        \"sourceLocation\": \"Slide 20\",\n        \"verbatimQuote\": \"Quản điểm marketing: Thị trường mục tiêu, Nhu cầu, Tổ hợp tiếp thị, Thỏa mãn cao nhất nhu cầu -> Lợi nhuận\"\n      },\n      \"correctAnswer\": false,\n      \"prompt\": \"Đúng hay sai: Theo tài liệu, quan điểm bán hàng và quan điểm marketing đều có chung điểm xuất phát là tập trung vào nhu cầu của thị trường mục tiêu.\",\n      \"type\": \"TRUE_FALSE\"\n    },\n    {\n      \"citation\": {\n        \"reasoning\": \"Tài liệu định nghĩa \\\"Đòi hỏi\\\" là mong muốn đi kèm với khả năng và sự sẵn lòng mua.\",\n        \"sourceLocation\": \"Slide 3\",\n        \"verbatimQuote\": \"Đòi hỏi (Demands): mong muốn mà người ta có khả năng mua và sẵn lòng mua\"\n      },\n      \"correctAnswer\": [\n        \"Khả năng mua và sẵn lòng mua\",\n        \"Có khả năng mua và sẵn lòng mua\",\n        \"Khả năng mua\",\n        \"Sẵn lòng mua\"\n      ],\n      \"prompt\": \"Theo tài liệu, yếu tố nào biến một \\\"Mong muốn\\\" (Want) trở thành một \\\"Đòi hỏi\\\" (Demand)?\",\n      \"type\": \"SHORT_ANSWER\"\n    },\n    {\n      \"citation\": {\n        \"reasoning\": \"Tài liệu liệt kê các yếu tố mà marketing giúp kết nối giữa nhà sản xuất và người tiêu dùng.\",\n        \"sourceLocation\": \"Slide 22\",\n        \"verbatimQuote\": \"Tiếp thị: 1.Không gian 2. Thời gian 3. Thông tin 4. Giá trị 5. Sở hữu 6. Số lượng 7. Chủng loại\"\n      },\n      \"correctAnswer\": [\n        \"Không gian\",\n        \"Thông tin\"\n      ],\n      \"prompt\": \"Điền vào chỗ trống:\",\n      \"sentenceHtml\": \"<p>Trong vai trò trung gian, marketing giúp làm giảm thiểu sự khác biệt về ___(1)___ (nhà sản xuất ở nơi khác người tiêu dùng) và ___(2)___ (người tiêu dùng không biết về sản phẩm).</p>\",\n      \"type\": \"FILL_IN_THE_BLANK\"\n    },\n    {\n      \"citation\": {\n        \"reasoning\": \"Tài liệu mô tả trọng tâm của từng quan điểm marketing, cho phép ghép nối chính xác.\",\n        \"sourceLocation\": \"Slide 13\",\n        \"verbatimQuote\": \"1. Trọng Sản xuất: Sản phẩm nhiều, giá thấp ... 3. Trọng Bán hàng: Chính sách bán hàng hấp dẫn, thu hút ... 4. Trọng Tiếp thị: Hoạt động hiệu quả hơn đối thủ cạnh tranh\"\n      },\n      \"correctAnswer\": null,\n      \"pairs\": [\n        {\n          \"left\": \"Quan điểm trọng Sản xuất\",\n          \"right\": \"Tập trung vào việc tăng hiệu quả sản xuất và mở rộng phân phối để có giá thấp.\"\n        },\n        {\n          \"left\": \"Quan điểm trọng Bán hàng\",\n          \"right\": \"Tập trung vào các nỗ lực khuyến mãi và chính sách bán hàng để thu hút khách hàng.\"\n        },\n        {\n          \"left\": \"Quan điểm trọng Tiếp thị\",\n          \"right\": \"Tập trung vào việc xác định và thỏa mãn nhu cầu của thị trường mục tiêu hiệu quả hơn đối thủ.\"\n        },\n        {\n          \"left\": \"Quan điểm trọng Sản phẩm\",\n          \"right\": \"Tập trung vào việc liên tục cải tiến chất lượng và mẫu mã của sản phẩm.\"\n        }\n      ],\n      \"prompt\": \"Hãy ghép mỗi quan điểm marketing với mô tả trọng tâm tương ứng của nó.\",\n      \"type\": \"MATCHING\"\n    }\n  ]\n}",
+  "completion_tokens" : 1131,
+  "doc_file" : "NVT- POM-Ch1- DAI CUONG VE TIEP THI.pdf",
+  "doc_id" : "D08",
+  "doc_language" : "vi",
+  "doc_pages" : 26,
+  "doc_title" : "Đại cương về Marketing",
+  "empty_field" : false,
+  "error_message" : null,
+  "error_type" : null,
+  "feature" : "quiz",
+  "json_parse_ok" : true,
+  "latency_ms" : 24401,
+  "model" : "gemini-2.5-pro",
+  "parsed" : {
+    "questions" : [ {
+      "type" : "MCQ_SINGLE",
+      "prompt" : "Một công ty công nghệ luôn nỗ lực cải tiến sản phẩm, bổ sung các tính năng mới và tin rằng một sản phẩm vượt trội sẽ tự thu hút khách hàng. Cách tiếp cận này thể hiện tư tưởng chủ đạo nào trong marketing?",
+      "options" : [ "Quan điểm trọng Sản xuất", "Quan điểm trọng Sản phẩm", "Quan điểm trọng Bán hàng", "Quan điểm trọng Tiếp thị xã hội" ],
+      "correctAnswer" : "Quan điểm trọng Sản phẩm",
+      "citation" : {
+        "sourceLocation" : "Slide 13",
+        "verbatimQuote" : "Trọng Sản phẩm: Sản phẩm chất lượng, mẫu mã đẹp, khác lạ  quản lý tập trung cải tiến sản phẩm",
+        "reasoning" : "Tài liệu mô tả quan điểm trọng sản phẩm là tập trung vào chất lượng và sự khác biệt của sản phẩm."
+      },
+      "sentenceHtml" : null,
+      "pairs" : null
+    }, {
+      "type" : "TRUE_FALSE",
+      "prompt" : "Đúng hay sai: Theo tài liệu, quan điểm bán hàng và quan điểm marketing đều có chung điểm xuất phát là tập trung vào nhu cầu của thị trường mục tiêu.",
+      "options" : null,
+      "correctAnswer" : false,
+      "citation" : {
+        "sourceLocation" : "Slide 20",
+        "verbatimQuote" : "Quản điểm marketing: Thị trường mục tiêu, Nhu cầu, Tổ hợp tiếp thị, Thỏa mãn cao nhất nhu cầu -> Lợi nhuận",
+        "reasoning" : "Tài liệu phân biệt rõ ràng giữa hai quan điểm, trong đó quan điểm marketing bắt đầu từ thị trường và nhu cầu."
+      },
+      "sentenceHtml" : null,
+      "pairs" : null
+    }, {
+      "type" : "SHORT_ANSWER",
+      "prompt" : "Theo tài liệu, yếu tố nào biến một \"Mong muốn\" (Want) trở thành một \"Đòi hỏi\" (Demand)?",
+      "options" : null,
+      "correctAnswer" : [ "Khả năng mua và sẵn lòng mua", "Có khả năng mua và sẵn lòng mua", "Khả năng mua", "Sẵn lòng mua" ],
+      "citation" : {
+        "sourceLocation" : "Slide 3",
+        "verbatimQuote" : "Đòi hỏi (Demands): mong muốn mà người ta có khả năng mua và sẵn lòng mua",
+        "reasoning" : "Tài liệu định nghĩa \"Đòi hỏi\" là mong muốn đi kèm với khả năng và sự sẵn lòng mua."
+      },
+      "sentenceHtml" : null,
+      "pairs" : null
+    }, {
+      "type" : "FILL_IN_THE_BLANK",
+      "prompt" : "Điền vào chỗ trống:",
+      "options" : null,
+      "correctAnswer" : [ "Không gian", "Thông tin" ],
+      "citation" : {
+        "sourceLocation" : "Slide 22",
+        "verbatimQuote" : "Tiếp thị: 1.Không gian 2. Thời gian 3. Thông tin 4. Giá trị 5. Sở hữu 6. Số lượng 7. Chủng loại",
+        "reasoning" : "Tài liệu liệt kê các yếu tố mà marketing giúp kết nối giữa nhà sản xuất và người tiêu dùng."
+      },
+      "sentenceHtml" : "<p>Trong vai trò trung gian, marketing giúp làm giảm thiểu sự khác biệt về ___(1)___ (nhà sản xuất ở nơi khác người tiêu dùng) và ___(2)___ (người tiêu dùng không biết về sản phẩm).</p>",
+      "pairs" : null
+    }, {
+      "type" : "MATCHING",
+      "prompt" : "Hãy ghép mỗi quan điểm marketing với mô tả trọng tâm tương ứng của nó.",
+      "options" : null,
+      "correctAnswer" : null,
+      "citation" : {
+        "sourceLocation" : "Slide 13",
+        "verbatimQuote" : "1. Trọng Sản xuất: Sản phẩm nhiều, giá thấp ... 3. Trọng Bán hàng: Chính sách bán hàng hấp dẫn, thu hút ... 4. Trọng Tiếp thị: Hoạt động hiệu quả hơn đối thủ cạnh tranh",
+        "reasoning" : "Tài liệu mô tả trọng tâm của từng quan điểm marketing, cho phép ghép nối chính xác."
+      },
+      "sentenceHtml" : null,
+      "pairs" : [ {
+        "left" : "Quan điểm trọng Sản xuất",
+        "right" : "Tập trung vào việc tăng hiệu quả sản xuất và mở rộng phân phối để có giá thấp."
+      }, {
+        "left" : "Quan điểm trọng Bán hàng",
+        "right" : "Tập trung vào các nỗ lực khuyến mãi và chính sách bán hàng để thu hút khách hàng."
+      }, {
+        "left" : "Quan điểm trọng Tiếp thị",
+        "right" : "Tập trung vào việc xác định và thỏa mãn nhu cầu của thị trường mục tiêu hiệu quả hơn đối thủ."
+      }, {
+        "left" : "Quan điểm trọng Sản phẩm",
+        "right" : "Tập trung vào việc liên tục cải tiến chất lượng và mẫu mã của sản phẩm."
+      } ]
+    } ]
+  },
+  "prompt_tokens" : 4574,
+  "raw" : "```json\n{\n  \"questions\": [\n    {\n      \"citation\": {\n        \"reasoning\": \"Tài liệu mô tả quan điểm trọng sản phẩm là tập trung vào chất lượng và sự khác biệt của sản phẩm.\",\n        \"sourceLocation\": \"Slide 13\",\n        \"verbatimQuote\": \"Trọng Sản phẩm: Sản phẩm chất lượng, mẫu mã đẹp, khác lạ  quản lý tập trung cải tiến sản phẩm\"\n      },\n      \"correctAnswer\": \"Quan điểm trọng Sản phẩm\",\n      \"options\": [\n        \"Quan điểm trọng Sản xuất\",\n        \"Quan điểm trọng Sản phẩm\",\n        \"Quan điểm trọng Bán hàng\",\n        \"Quan điểm trọng Tiếp thị xã hội\"\n      ],\n      \"prompt\": \"Một công ty công nghệ luôn nỗ lực cải tiến sản phẩm, bổ sung các tính năng mới và tin rằng một sản phẩm vượt trội sẽ tự thu hút khách hàng. Cách tiếp cận này thể hiện tư tưởng chủ đạo nào trong marketing?\",\n      \"type\": \"MCQ_SINGLE\"\n    },\n    {\n      \"citation\": {\n        \"reasoning\": \"Tài liệu phân biệt rõ ràng giữa hai quan điểm, trong đó quan điểm marketing bắt đầu từ thị trường và nhu cầu.\",\n        \"sourceLocation\": \"Slide 20\",\n        \"verbatimQuote\": \"Quản điểm marketing: Thị trường mục tiêu, Nhu cầu, Tổ hợp tiếp thị, Thỏa mãn cao nhất nhu cầu -> Lợi nhuận\"\n      },\n      \"correctAnswer\": false,\n      \"prompt\": \"Đúng hay sai: Theo tài liệu, quan điểm bán hàng và quan điểm marketing đều có chung điểm xuất phát là tập trung vào nhu cầu của thị trường mục tiêu.\",\n      \"type\": \"TRUE_FALSE\"\n    },\n    {\n      \"citation\": {\n        \"reasoning\": \"Tài liệu định nghĩa \\\"Đòi hỏi\\\" là mong muốn đi kèm với khả năng và sự sẵn lòng mua.\",\n        \"sourceLocation\": \"Slide 3\",\n        \"verbatimQuote\": \"Đòi hỏi (Demands): mong muốn mà người ta có khả năng mua và sẵn lòng mua\"\n      },\n      \"correctAnswer\": [\n        \"Khả năng mua và sẵn lòng mua\",\n        \"Có khả năng mua và sẵn lòng mua\",\n        \"Khả năng mua\",\n        \"Sẵn lòng mua\"\n      ],\n      \"prompt\": \"Theo tài liệu, yếu tố nào biến một \\\"Mong muốn\\\" (Want) trở thành một \\\"Đòi hỏi\\\" (Demand)?\",\n      \"type\": \"SHORT_ANSWER\"\n    },\n    {\n      \"citation\": {\n        \"reasoning\": \"Tài liệu liệt kê các yếu tố mà marketing giúp kết nối giữa nhà sản xuất và người tiêu dùng.\",\n        \"sourceLocation\": \"Slide 22\",\n        \"verbatimQuote\": \"Tiếp thị: 1.Không gian 2. Thời gian 3. Thông tin 4. Giá trị 5. Sở hữu 6. Số lượng 7. Chủng loại\"\n      },\n      \"correctAnswer\": [\n        \"Không gian\",\n        \"Thông tin\"\n      ],\n      \"prompt\": \"Điền vào chỗ trống:\",\n      \"sentenceHtml\": \"<p>Trong vai trò trung gian, marketing giúp làm giảm thiểu sự khác biệt về ___(1)___ (nhà sản xuất ở nơi khác người tiêu dùng) và ___(2)___ (người tiêu dùng không biết về sản phẩm).</p>\",\n      \"type\": \"FILL_IN_THE_BLANK\"\n    },\n    {\n      \"citation\": {\n        \"reasoning\": \"Tài liệu mô tả trọng tâm của từng quan điểm marketing, cho phép ghép nối chính xác.\",\n        \"sourceLocation\": \"Slide 13\",\n        \"verbatimQuote\": \"1. Trọng Sản xuất: Sản phẩm nhiều, giá thấp ... 3. Trọng Bán hàng: Chính sách bán hàng hấp dẫn, thu hút ... 4. Trọng Tiếp thị: Hoạt động hiệu quả hơn đối thủ cạnh tranh\"\n      },\n      \"correctAnswer\": null,\n      \"pairs\": [\n        {\n          \"left\": \"Quan điểm trọng Sản xuất\",\n          \"right\": \"Tập trung vào việc tăng hiệu quả sản xuất và mở rộng phân phối để có giá thấp.\"\n        },\n        {\n          \"left\": \"Quan điểm trọng Bán hàng\",\n          \"right\": \"Tập trung vào các nỗ lực khuyến mãi và chính sách bán hàng để thu hút khách hàng.\"\n        },\n        {\n          \"left\": \"Quan điểm trọng Tiếp thị\",\n          \"right\": \"Tập trung vào việc xác định và thỏa mãn nhu cầu của thị trường mục tiêu hiệu quả hơn đối thủ.\"\n        },\n        {\n          \"left\": \"Quan điểm trọng Sản phẩm\",\n          \"right\": \"Tập trung vào việc liên tục cải tiến chất lượng và mẫu mã của sản phẩm.\"\n        }\n      ],\n      \"prompt\": \"Hãy ghép mỗi quan điểm marketing với mô tả trọng tâm tương ứng của nó.\",\n      \"type\": \"MATCHING\"\n    }\n  ]\n}\n```",
+  "run" : 1,
+  "schema_ok" : true,
+  "temperature" : 0.2,
+  "timestamp" : "2026-06-05T20:28:13.315531"
+}

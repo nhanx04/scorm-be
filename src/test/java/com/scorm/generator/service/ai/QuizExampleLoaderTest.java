@@ -83,13 +83,37 @@ class QuizExampleLoaderTest {
     }
 
     @Test
-    void everyExampleHasPromptAndExplanation() {
+    void everyExampleHasPromptAndCitation() {
         for (Map.Entry<String, AiQuestion> entry : questionByType.entrySet()) {
             AiQuestion q = entry.getValue();
             assertFalse(q.prompt() == null || q.prompt().isBlank(),
                     "Trường prompt rỗng cho loại " + entry.getKey());
-            assertFalse(q.explanation() == null || q.explanation().isBlank(),
-                    "Trường explanation rỗng cho loại " + entry.getKey());
+            assertNotNull(q.citation(), "Trường citation null cho loại " + entry.getKey());
+            assertFalse(q.citation().sourceLocation() == null
+                            || q.citation().sourceLocation().isBlank(),
+                    "citation.sourceLocation rỗng cho loại " + entry.getKey());
+            assertFalse(q.citation().verbatimQuote() == null
+                            || q.citation().verbatimQuote().isBlank(),
+                    "citation.verbatimQuote rỗng cho loại " + entry.getKey());
+            assertFalse(q.citation().reasoning() == null
+                            || q.citation().reasoning().isBlank(),
+                    "citation.reasoning rỗng cho loại " + entry.getKey());
+        }
+    }
+
+    @Test
+    void everyExampleQuoteAppearsInSourceContext() {
+        // The whole point of P6: verbatimQuote MUST be a substring of sourceContext.
+        // If this test fails, the example file lies about being "verbatim".
+        for (Map.Entry<String, JsonNode> entry : rootByType.entrySet()) {
+            String src = entry.getValue().path("sourceContext").asText("").toLowerCase();
+            String quote = entry.getValue().path("expectedOutput").path("citation")
+                    .path("verbatimQuote").asText("").toLowerCase();
+            assertFalse(src.isBlank() || quote.isBlank(),
+                    "Missing sourceContext/citation in " + entry.getKey());
+            assertTrue(src.replaceAll("\\s+", " ").contains(quote.replaceAll("\\s+", " ")),
+                    "citation.verbatimQuote không xuất hiện trong sourceContext cho loại "
+                            + entry.getKey() + " — example self-inconsistent");
         }
     }
 

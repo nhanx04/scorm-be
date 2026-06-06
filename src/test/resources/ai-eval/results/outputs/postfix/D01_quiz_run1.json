@@ -1,0 +1,97 @@
+{
+  "cleaned" : "{\n  \"questions\": [\n    {\n      \"citation\": {\n        \"reasoning\": \"The source text explicitly lists COBOL as an example under the Business Applications domain.\",\n        \"sourceLocation\": \"Introduction.4\",\n        \"verbatimQuote\": \"Business Applications: COBOL, DATABUS, PL/B, ...\"\n      },\n      \"correctAnswer\": \"Business Applications\",\n      \"options\": [\n        \"Business Applications\",\n        \"Scientific Applications\",\n        \"Artificial Intelligence\",\n        \"Systems Programming\"\n      ],\n      \"prompt\": \"Based on the provided examples, which programming domain is most associated with the language COBOL?\",\n      \"type\": \"MCQ_SINGLE\"\n    },\n    {\n      \"citation\": {\n        \"reasoning\": \"The quote defines Orthogonality, which is different from the concept described in the prompt (which is Support of abstraction).\",\n        \"sourceLocation\": \"Introduction.5\",\n        \"verbatimQuote\": \"Orthogonality: every combination of features is meaningful.\"\n      },\n      \"correctAnswer\": false,\n      \"prompt\": \"True or False: The language characteristic 'Orthogonality' means that a program's structure should reflect the logical structure of its algorithm.\",\n      \"type\": \"TRUE_FALSE\"\n    },\n    {\n      \"citation\": {\n        \"reasoning\": \"The source text provides specific examples of languages for each programming methodology, allowing for this matching.\",\n        \"sourceLocation\": \"Introduction.7\",\n        \"verbatimQuote\": \"Logic or constraint-based: Prolog\"\n      },\n      \"correctAnswer\": null,\n      \"pairs\": [\n        {\n          \"left\": \"Prolog\",\n          \"right\": \"Logic or constraint-based\"\n        },\n        {\n          \"left\": \"Lisp\",\n          \"right\": \"Functional\"\n        },\n        {\n          \"left\": \"C\",\n          \"right\": \"Procedural-based\"\n        },\n        {\n          \"left\": \"SQL\",\n          \"right\": \"Query-based\"\n        }\n      ],\n      \"prompt\": \"Match each programming language to its corresponding methodology.\",\n      \"type\": \"MATCHING\"\n    },\n    {\n      \"citation\": {\n        \"reasoning\": \"The text explicitly states that Object-oriented programming emerged in the middle 1980s.\",\n        \"sourceLocation\": \"Introduction.9\",\n        \"verbatimQuote\": \"Middle 1980s: Object-oriented programming\"\n      },\n      \"correctAnswer\": [\n        \"Object-oriented programming\",\n        \"OOP\"\n      ],\n      \"prompt\": \"According to the timeline of programming methodologies, what paradigm that builds on data abstraction emerged in the middle 1980s?\",\n      \"type\": \"SHORT_ANSWER\"\n    },\n    {\n      \"citation\": {\n        \"reasoning\": \"This quote directly states the relationship between variables and memory cells in the context of imperative languages.\",\n        \"sourceLocation\": \"Introduction.8\",\n        \"verbatimQuote\": \"Variables model memory cells\"\n      },\n      \"correctAnswer\": [\n        \"Variables\"\n      ],\n      \"prompt\": \"Fill in the blank based on the influence of von Neumann architecture on language design.\",\n      \"sentenceHtml\": \"<p>In imperative languages, ___ model memory cells.</p>\",\n      \"type\": \"FILL_IN_THE_BLANK\"\n    }\n  ]\n}",
+  "completion_tokens" : 778,
+  "doc_file" : "1-Introduction-2023.pdf",
+  "doc_id" : "D01",
+  "doc_language" : "en",
+  "doc_pages" : 36,
+  "doc_title" : "Introduction to Programming Languages and Compilers",
+  "empty_field" : false,
+  "error_message" : null,
+  "error_type" : null,
+  "feature" : "quiz",
+  "json_parse_ok" : true,
+  "latency_ms" : 28713,
+  "model" : "gemini-2.5-pro",
+  "parsed" : {
+    "questions" : [ {
+      "type" : "MCQ_SINGLE",
+      "prompt" : "Based on the provided examples, which programming domain is most associated with the language COBOL?",
+      "options" : [ "Business Applications", "Scientific Applications", "Artificial Intelligence", "Systems Programming" ],
+      "correctAnswer" : "Business Applications",
+      "citation" : {
+        "sourceLocation" : "Introduction.4",
+        "verbatimQuote" : "Business Applications: COBOL, DATABUS, PL/B, ...",
+        "reasoning" : "The source text explicitly lists COBOL as an example under the Business Applications domain."
+      },
+      "sentenceHtml" : null,
+      "pairs" : null
+    }, {
+      "type" : "TRUE_FALSE",
+      "prompt" : "True or False: The language characteristic 'Orthogonality' means that a program's structure should reflect the logical structure of its algorithm.",
+      "options" : null,
+      "correctAnswer" : false,
+      "citation" : {
+        "sourceLocation" : "Introduction.5",
+        "verbatimQuote" : "Orthogonality: every combination of features is meaningful.",
+        "reasoning" : "The quote defines Orthogonality, which is different from the concept described in the prompt (which is Support of abstraction)."
+      },
+      "sentenceHtml" : null,
+      "pairs" : null
+    }, {
+      "type" : "MATCHING",
+      "prompt" : "Match each programming language to its corresponding methodology.",
+      "options" : null,
+      "correctAnswer" : null,
+      "citation" : {
+        "sourceLocation" : "Introduction.7",
+        "verbatimQuote" : "Logic or constraint-based: Prolog",
+        "reasoning" : "The source text provides specific examples of languages for each programming methodology, allowing for this matching."
+      },
+      "sentenceHtml" : null,
+      "pairs" : [ {
+        "left" : "Prolog",
+        "right" : "Logic or constraint-based"
+      }, {
+        "left" : "Lisp",
+        "right" : "Functional"
+      }, {
+        "left" : "C",
+        "right" : "Procedural-based"
+      }, {
+        "left" : "SQL",
+        "right" : "Query-based"
+      } ]
+    }, {
+      "type" : "SHORT_ANSWER",
+      "prompt" : "According to the timeline of programming methodologies, what paradigm that builds on data abstraction emerged in the middle 1980s?",
+      "options" : null,
+      "correctAnswer" : [ "Object-oriented programming", "OOP" ],
+      "citation" : {
+        "sourceLocation" : "Introduction.9",
+        "verbatimQuote" : "Middle 1980s: Object-oriented programming",
+        "reasoning" : "The text explicitly states that Object-oriented programming emerged in the middle 1980s."
+      },
+      "sentenceHtml" : null,
+      "pairs" : null
+    }, {
+      "type" : "FILL_IN_THE_BLANK",
+      "prompt" : "Fill in the blank based on the influence of von Neumann architecture on language design.",
+      "options" : null,
+      "correctAnswer" : [ "Variables" ],
+      "citation" : {
+        "sourceLocation" : "Introduction.8",
+        "verbatimQuote" : "Variables model memory cells",
+        "reasoning" : "This quote directly states the relationship between variables and memory cells in the context of imperative languages."
+      },
+      "sentenceHtml" : "<p>In imperative languages, ___ model memory cells.</p>",
+      "pairs" : null
+    } ]
+  },
+  "prompt_tokens" : 3690,
+  "raw" : "```json\n{\n  \"questions\": [\n    {\n      \"citation\": {\n        \"reasoning\": \"The source text explicitly lists COBOL as an example under the Business Applications domain.\",\n        \"sourceLocation\": \"Introduction.4\",\n        \"verbatimQuote\": \"Business Applications: COBOL, DATABUS, PL/B, ...\"\n      },\n      \"correctAnswer\": \"Business Applications\",\n      \"options\": [\n        \"Business Applications\",\n        \"Scientific Applications\",\n        \"Artificial Intelligence\",\n        \"Systems Programming\"\n      ],\n      \"prompt\": \"Based on the provided examples, which programming domain is most associated with the language COBOL?\",\n      \"type\": \"MCQ_SINGLE\"\n    },\n    {\n      \"citation\": {\n        \"reasoning\": \"The quote defines Orthogonality, which is different from the concept described in the prompt (which is Support of abstraction).\",\n        \"sourceLocation\": \"Introduction.5\",\n        \"verbatimQuote\": \"Orthogonality: every combination of features is meaningful.\"\n      },\n      \"correctAnswer\": false,\n      \"prompt\": \"True or False: The language characteristic 'Orthogonality' means that a program's structure should reflect the logical structure of its algorithm.\",\n      \"type\": \"TRUE_FALSE\"\n    },\n    {\n      \"citation\": {\n        \"reasoning\": \"The source text provides specific examples of languages for each programming methodology, allowing for this matching.\",\n        \"sourceLocation\": \"Introduction.7\",\n        \"verbatimQuote\": \"Logic or constraint-based: Prolog\"\n      },\n      \"correctAnswer\": null,\n      \"pairs\": [\n        {\n          \"left\": \"Prolog\",\n          \"right\": \"Logic or constraint-based\"\n        },\n        {\n          \"left\": \"Lisp\",\n          \"right\": \"Functional\"\n        },\n        {\n          \"left\": \"C\",\n          \"right\": \"Procedural-based\"\n        },\n        {\n          \"left\": \"SQL\",\n          \"right\": \"Query-based\"\n        }\n      ],\n      \"prompt\": \"Match each programming language to its corresponding methodology.\",\n      \"type\": \"MATCHING\"\n    },\n    {\n      \"citation\": {\n        \"reasoning\": \"The text explicitly states that Object-oriented programming emerged in the middle 1980s.\",\n        \"sourceLocation\": \"Introduction.9\",\n        \"verbatimQuote\": \"Middle 1980s: Object-oriented programming\"\n      },\n      \"correctAnswer\": [\n        \"Object-oriented programming\",\n        \"OOP\"\n      ],\n      \"prompt\": \"According to the timeline of programming methodologies, what paradigm that builds on data abstraction emerged in the middle 1980s?\",\n      \"type\": \"SHORT_ANSWER\"\n    },\n    {\n      \"citation\": {\n        \"reasoning\": \"This quote directly states the relationship between variables and memory cells in the context of imperative languages.\",\n        \"sourceLocation\": \"Introduction.8\",\n        \"verbatimQuote\": \"Variables model memory cells\"\n      },\n      \"correctAnswer\": [\n        \"Variables\"\n      ],\n      \"prompt\": \"Fill in the blank based on the influence of von Neumann architecture on language design.\",\n      \"sentenceHtml\": \"<p>In imperative languages, ___ model memory cells.</p>\",\n      \"type\": \"FILL_IN_THE_BLANK\"\n    }\n  ]\n}\n```",
+  "run" : 1,
+  "schema_ok" : true,
+  "temperature" : 0.2,
+  "timestamp" : "2026-06-05T20:41:14.032644"
+}

@@ -1,0 +1,74 @@
+{
+  "cleaned" : "{\n  \"questions\": [\n    {\n      \"type\": \"MCQ_SINGLE\",\n      \"prompt\": \"In the context of Bayes' Theorem, what does the term P(D | h) represent?\",\n      \"options\": [\n        \"The likelihood of observing the data D given that hypothesis h is true.\",\n        \"The prior probability of the training data D before any observation.\",\n        \"The posterior probability of hypothesis h after observing the data D.\",\n        \"The initial belief or prior probability assigned to the hypothesis h.\"\n      ],\n      \"correctAnswer\": \"The likelihood of observing the data D given that hypothesis h is true.\",\n      \"explanation\": \"Slide 9: 'P(D | h): likelihood of observing D given h'. This term is explicitly defined as the likelihood in the theorem's component list.\"\n    },\n    {\n      \"type\": \"TRUE_FALSE\",\n      \"prompt\": \"True or False: A key feature of Bayesian Learning is that each training example can incrementally update the probability of a hypothesis.\",\n      \"correctAnswer\": true,\n      \"explanation\": \"Slide 5: 'Each training example can incrementally update hypothesis probability'. The statement accurately reflects one of the listed features of Bayesian Learning.\"\n    },\n    {\n      \"type\": \"MATCHING\",\n      \"prompt\": \"Match each component of the Bayesian Learning Pipeline with its corresponding probabilistic notation.\",\n      \"pairs\": [\n        {\n          \"left\": \"Initial belief\",\n          \"right\": \"P(H)\"\n        },\n        {\n          \"left\": \"Evidence from data\",\n          \"right\": \"P(D | H)\"\n        },\n        {\n          \"left\": \"Updated belief\",\n          \"right\": \"P(H | D)\"\n        }\n      ],\n      \"correctAnswer\": null,\n      \"explanation\": \"Slide 6: 'Prior P(H): initial belief Likelihood P(D|H): evidence from data Posterior P(H|D): updated belief'. The slide directly maps these terms to their notations.\"\n    },\n    {\n      \"type\": \"FILL_IN_THE_BLANK\",\n      \"prompt\": \"Complete the sentence describing the core iterative process in Bayesian learning.\",\n      \"sentenceHtml\": \"The Bayesian learning pipeline features an iterative loop where the posterior from one step becomes the new <input> for the next step.\",\n      \"correctAnswer\": [\n        \"prior\"\n      ],\n      \"explanation\": \"Slide 6: 'Loop: posterior → new prior'. This note explicitly states that the posterior is used as the new prior in the learning cycle.\"\n    },\n    {\n      \"type\": \"SHORT_ANSWER\",\n      \"prompt\": \"According to the 'Learning vs. Inference and Decision' diagram, what is the final step after inference?\",\n      \"correctAnswer\": [\n        \"Decision by Expected Utility\",\n        \"Decision by Expected Utility choose a* = argmaxa E[U | a,D]\"\n      ],\n      \"explanation\": \"Slide 7: 'Decision by Expected Utility choose a∗ = argmaxa E[U | a,D]'. The diagram clearly shows this as the final action in the process.\"\n    }\n  ]\n}",
+  "completion_tokens" : 709,
+  "doc_file" : "BayesianLearning.pdf",
+  "doc_id" : "D06",
+  "doc_language" : "en",
+  "doc_pages" : 36,
+  "doc_title" : "Bayesian Learning",
+  "empty_field" : false,
+  "error_message" : null,
+  "error_type" : null,
+  "feature" : "quiz",
+  "json_parse_ok" : true,
+  "latency_ms" : 27241,
+  "model" : "gemini-2.5-pro",
+  "parsed" : {
+    "questions" : [ {
+      "type" : "MCQ_SINGLE",
+      "prompt" : "In the context of Bayes' Theorem, what does the term P(D | h) represent?",
+      "options" : [ "The likelihood of observing the data D given that hypothesis h is true.", "The prior probability of the training data D before any observation.", "The posterior probability of hypothesis h after observing the data D.", "The initial belief or prior probability assigned to the hypothesis h." ],
+      "correctAnswer" : "The likelihood of observing the data D given that hypothesis h is true.",
+      "explanation" : "Slide 9: 'P(D | h): likelihood of observing D given h'. This term is explicitly defined as the likelihood in the theorem's component list.",
+      "sentenceHtml" : null,
+      "pairs" : null
+    }, {
+      "type" : "TRUE_FALSE",
+      "prompt" : "True or False: A key feature of Bayesian Learning is that each training example can incrementally update the probability of a hypothesis.",
+      "options" : null,
+      "correctAnswer" : true,
+      "explanation" : "Slide 5: 'Each training example can incrementally update hypothesis probability'. The statement accurately reflects one of the listed features of Bayesian Learning.",
+      "sentenceHtml" : null,
+      "pairs" : null
+    }, {
+      "type" : "MATCHING",
+      "prompt" : "Match each component of the Bayesian Learning Pipeline with its corresponding probabilistic notation.",
+      "options" : null,
+      "correctAnswer" : null,
+      "explanation" : "Slide 6: 'Prior P(H): initial belief Likelihood P(D|H): evidence from data Posterior P(H|D): updated belief'. The slide directly maps these terms to their notations.",
+      "sentenceHtml" : null,
+      "pairs" : [ {
+        "left" : "Initial belief",
+        "right" : "P(H)"
+      }, {
+        "left" : "Evidence from data",
+        "right" : "P(D | H)"
+      }, {
+        "left" : "Updated belief",
+        "right" : "P(H | D)"
+      } ]
+    }, {
+      "type" : "FILL_IN_THE_BLANK",
+      "prompt" : "Complete the sentence describing the core iterative process in Bayesian learning.",
+      "options" : null,
+      "correctAnswer" : [ "prior" ],
+      "explanation" : "Slide 6: 'Loop: posterior → new prior'. This note explicitly states that the posterior is used as the new prior in the learning cycle.",
+      "sentenceHtml" : "The Bayesian learning pipeline features an iterative loop where the posterior from one step becomes the new <input> for the next step.",
+      "pairs" : null
+    }, {
+      "type" : "SHORT_ANSWER",
+      "prompt" : "According to the 'Learning vs. Inference and Decision' diagram, what is the final step after inference?",
+      "options" : null,
+      "correctAnswer" : [ "Decision by Expected Utility", "Decision by Expected Utility choose a* = argmaxa E[U | a,D]" ],
+      "explanation" : "Slide 7: 'Decision by Expected Utility choose a∗ = argmaxa E[U | a,D]'. The diagram clearly shows this as the final action in the process.",
+      "sentenceHtml" : null,
+      "pairs" : null
+    } ]
+  },
+  "prompt_tokens" : 3194,
+  "raw" : "```json\n{\n  \"questions\": [\n    {\n      \"type\": \"MCQ_SINGLE\",\n      \"prompt\": \"In the context of Bayes' Theorem, what does the term P(D | h) represent?\",\n      \"options\": [\n        \"The likelihood of observing the data D given that hypothesis h is true.\",\n        \"The prior probability of the training data D before any observation.\",\n        \"The posterior probability of hypothesis h after observing the data D.\",\n        \"The initial belief or prior probability assigned to the hypothesis h.\"\n      ],\n      \"correctAnswer\": \"The likelihood of observing the data D given that hypothesis h is true.\",\n      \"explanation\": \"Slide 9: 'P(D | h): likelihood of observing D given h'. This term is explicitly defined as the likelihood in the theorem's component list.\"\n    },\n    {\n      \"type\": \"TRUE_FALSE\",\n      \"prompt\": \"True or False: A key feature of Bayesian Learning is that each training example can incrementally update the probability of a hypothesis.\",\n      \"correctAnswer\": true,\n      \"explanation\": \"Slide 5: 'Each training example can incrementally update hypothesis probability'. The statement accurately reflects one of the listed features of Bayesian Learning.\"\n    },\n    {\n      \"type\": \"MATCHING\",\n      \"prompt\": \"Match each component of the Bayesian Learning Pipeline with its corresponding probabilistic notation.\",\n      \"pairs\": [\n        {\n          \"left\": \"Initial belief\",\n          \"right\": \"P(H)\"\n        },\n        {\n          \"left\": \"Evidence from data\",\n          \"right\": \"P(D | H)\"\n        },\n        {\n          \"left\": \"Updated belief\",\n          \"right\": \"P(H | D)\"\n        }\n      ],\n      \"correctAnswer\": null,\n      \"explanation\": \"Slide 6: 'Prior P(H): initial belief Likelihood P(D|H): evidence from data Posterior P(H|D): updated belief'. The slide directly maps these terms to their notations.\"\n    },\n    {\n      \"type\": \"FILL_IN_THE_BLANK\",\n      \"prompt\": \"Complete the sentence describing the core iterative process in Bayesian learning.\",\n      \"sentenceHtml\": \"The Bayesian learning pipeline features an iterative loop where the posterior from one step becomes the new <input> for the next step.\",\n      \"correctAnswer\": [\n        \"prior\"\n      ],\n      \"explanation\": \"Slide 6: 'Loop: posterior → new prior'. This note explicitly states that the posterior is used as the new prior in the learning cycle.\"\n    },\n    {\n      \"type\": \"SHORT_ANSWER\",\n      \"prompt\": \"According to the 'Learning vs. Inference and Decision' diagram, what is the final step after inference?\",\n      \"correctAnswer\": [\n        \"Decision by Expected Utility\",\n        \"Decision by Expected Utility choose a* = argmaxa E[U | a,D]\"\n      ],\n      \"explanation\": \"Slide 7: 'Decision by Expected Utility choose a∗ = argmaxa E[U | a,D]'. The diagram clearly shows this as the final action in the process.\"\n    }\n  ]\n}\n```",
+  "run" : 1,
+  "schema_ok" : true,
+  "temperature" : 0.2,
+  "timestamp" : "2026-06-05T12:52:41.030824"
+}
