@@ -1,0 +1,77 @@
+{
+  "cleaned" : "{\n  \"questions\": [\n    {\n      \"type\": \"MCQ_SINGLE\",\n      \"prompt\": \"Xét một quả cầu tâm O, bán kính R, tích điện đều trên bề mặt với điện tích q > 0. Theo định lý Gauss, cường độ điện trường tại một điểm bên trong quả cầu (với khoảng cách r < R) là bao nhiêu?\",\n      \"options\": [\n        \"E = 0\",\n        \"E = k * q / r²\",\n        \"E = k * q / R²\",\n        \"E = σ / (2ε₀)\"\n      ],\n      \"correctAnswer\": \"E = 0\",\n      \"explanation\": \"Dựa vào Bài tập ví dụ 2 (trang 8), tài liệu chỉ rõ: 'Ở bên trong quả cầu (r < R): Σqi = 0 nên E = 0'.\"\n    },\n    {\n      \"type\": \"TRUE_FALSE\",\n      \"prompt\": \"Theo tài liệu, đường sức của một điện trường tĩnh luôn là những đường cong khép kín.\",\n      \"correctAnswer\": false,\n      \"explanation\": \"Trang 4 của tài liệu ghi rõ: 'Đường sức điện trường tĩnh không khép kín'.\"\n    },\n    {\n      \"type\": \"FILL_IN_THE_BLANK\",\n      \"prompt\": \"Điền vào chỗ trống để hoàn thành phát biểu của Định lý Gauss tổng quát.\",\n      \"sentenceHtml\": \"Trong môi trường bất kỳ, thông lượng của vecto [BLANK] gửi qua mặt kín S thì bằng tổng đại số [BLANK] chứa bên trong mặt kín.\",\n      \"correctAnswer\": [\n        \"cảm ứng điện\",\n        \"điện tích\"\n      ],\n      \"explanation\": \"Trang 7, mục 'Định lý Gauss tổng quát' nêu rõ: 'Trong môi trường bất kỳ, thông lượng của vecto cảm ứng điện gửi qua mặt kín S thì bằng tổng đại số điện tích chứa bên trong mặt kín'.\"\n    },\n    {\n      \"type\": \"SHORT_ANSWER\",\n      \"prompt\": \"Theo tài liệu, vecto cảm ứng điện D được đưa vào để khử sự gián đoạn của đại lượng vật lý nào khi đi qua mặt phân cách giữa hai môi trường có hằng số điện môi khác nhau?\",\n      \"correctAnswer\": [\n        \"vecto cường độ điện trường\",\n        \"cường độ điện trường\",\n        \"E\"\n      ],\n      \"explanation\": \"Trang 5, mục 'Vecto cảm ứng điện' giải thích rằng vecto cường độ điện trường E bị thay đổi đột ngột (gián đoạn) khi qua mặt phân cách, và 'Để khử sự gián đoạn đó, ta đưa vào đại lượng mới là vecto cảm ứng điện D'.\"\n    },\n    {\n      \"type\": \"MATCHING\",\n      \"prompt\": \"Ghép nối mỗi vật tích điện với công thức tính độ lớn cường độ điện trường tương ứng tại điểm xét phù hợp được nêu trong tài liệu.\",\n      \"pairs\": [\n        {\n          \"left\": \"Mặt phẳng rộng vô hạn\",\n          \"right\": \"E = σ / (2ε₀ε)\"\n        },\n        {\n          \"left\": \"Bên ngoài mặt cầu bán kính R (r ≥ R)\",\n          \"right\": \"E = k * q / r²\"\n        },\n        {\n          \"left\": \"Tại tâm của một vòng tròn tích điện đều\",\n          \"right\": \"E = 0\"\n        },\n        {\n          \"left\": \"Thanh dài vô hạn (tại điểm cách thanh một đoạn h)\",\n          \"right\": \"E = 2kλ / h\"\n        }\n      ],\n      \"correctAnswer\": null,\n      \"explanation\": \"Các công thức được tổng hợp từ mục 'ĐIỆN TRƯỜNG CỦA MỘT SỐ VẬT TÍCH ĐIỆN' tại các trang 9, 10 và 11 của tài liệu.\"\n    }\n  ]\n}",
+  "completion_tokens" : 899,
+  "doc_file" : "Chương 6.pdf",
+  "doc_id" : "D09",
+  "doc_language" : "vi",
+  "doc_pages" : 25,
+  "doc_title" : "Trường tĩnh điện trong chân không",
+  "empty_field" : false,
+  "error_message" : null,
+  "error_type" : null,
+  "feature" : "quiz",
+  "json_parse_ok" : true,
+  "latency_ms" : 19078,
+  "model" : "gemini-2.5-pro",
+  "parsed" : {
+    "questions" : [ {
+      "type" : "MCQ_SINGLE",
+      "prompt" : "Xét một quả cầu tâm O, bán kính R, tích điện đều trên bề mặt với điện tích q > 0. Theo định lý Gauss, cường độ điện trường tại một điểm bên trong quả cầu (với khoảng cách r < R) là bao nhiêu?",
+      "options" : [ "E = 0", "E = k * q / r²", "E = k * q / R²", "E = σ / (2ε₀)" ],
+      "correctAnswer" : "E = 0",
+      "explanation" : "Dựa vào Bài tập ví dụ 2 (trang 8), tài liệu chỉ rõ: 'Ở bên trong quả cầu (r < R): Σqi = 0 nên E = 0'.",
+      "sentenceHtml" : null,
+      "pairs" : null
+    }, {
+      "type" : "TRUE_FALSE",
+      "prompt" : "Theo tài liệu, đường sức của một điện trường tĩnh luôn là những đường cong khép kín.",
+      "options" : null,
+      "correctAnswer" : false,
+      "explanation" : "Trang 4 của tài liệu ghi rõ: 'Đường sức điện trường tĩnh không khép kín'.",
+      "sentenceHtml" : null,
+      "pairs" : null
+    }, {
+      "type" : "FILL_IN_THE_BLANK",
+      "prompt" : "Điền vào chỗ trống để hoàn thành phát biểu của Định lý Gauss tổng quát.",
+      "options" : null,
+      "correctAnswer" : [ "cảm ứng điện", "điện tích" ],
+      "explanation" : "Trang 7, mục 'Định lý Gauss tổng quát' nêu rõ: 'Trong môi trường bất kỳ, thông lượng của vecto cảm ứng điện gửi qua mặt kín S thì bằng tổng đại số điện tích chứa bên trong mặt kín'.",
+      "sentenceHtml" : "Trong môi trường bất kỳ, thông lượng của vecto [BLANK] gửi qua mặt kín S thì bằng tổng đại số [BLANK] chứa bên trong mặt kín.",
+      "pairs" : null
+    }, {
+      "type" : "SHORT_ANSWER",
+      "prompt" : "Theo tài liệu, vecto cảm ứng điện D được đưa vào để khử sự gián đoạn của đại lượng vật lý nào khi đi qua mặt phân cách giữa hai môi trường có hằng số điện môi khác nhau?",
+      "options" : null,
+      "correctAnswer" : [ "vecto cường độ điện trường", "cường độ điện trường", "E" ],
+      "explanation" : "Trang 5, mục 'Vecto cảm ứng điện' giải thích rằng vecto cường độ điện trường E bị thay đổi đột ngột (gián đoạn) khi qua mặt phân cách, và 'Để khử sự gián đoạn đó, ta đưa vào đại lượng mới là vecto cảm ứng điện D'.",
+      "sentenceHtml" : null,
+      "pairs" : null
+    }, {
+      "type" : "MATCHING",
+      "prompt" : "Ghép nối mỗi vật tích điện với công thức tính độ lớn cường độ điện trường tương ứng tại điểm xét phù hợp được nêu trong tài liệu.",
+      "options" : null,
+      "correctAnswer" : null,
+      "explanation" : "Các công thức được tổng hợp từ mục 'ĐIỆN TRƯỜNG CỦA MỘT SỐ VẬT TÍCH ĐIỆN' tại các trang 9, 10 và 11 của tài liệu.",
+      "sentenceHtml" : null,
+      "pairs" : [ {
+        "left" : "Mặt phẳng rộng vô hạn",
+        "right" : "E = σ / (2ε₀ε)"
+      }, {
+        "left" : "Bên ngoài mặt cầu bán kính R (r ≥ R)",
+        "right" : "E = k * q / r²"
+      }, {
+        "left" : "Tại tâm của một vòng tròn tích điện đều",
+        "right" : "E = 0"
+      }, {
+        "left" : "Thanh dài vô hạn (tại điểm cách thanh một đoạn h)",
+        "right" : "E = 2kλ / h"
+      } ]
+    } ]
+  },
+  "prompt_tokens" : 3484,
+  "raw" : "```json\n{\n  \"questions\": [\n    {\n      \"type\": \"MCQ_SINGLE\",\n      \"prompt\": \"Xét một quả cầu tâm O, bán kính R, tích điện đều trên bề mặt với điện tích q > 0. Theo định lý Gauss, cường độ điện trường tại một điểm bên trong quả cầu (với khoảng cách r < R) là bao nhiêu?\",\n      \"options\": [\n        \"E = 0\",\n        \"E = k * q / r²\",\n        \"E = k * q / R²\",\n        \"E = σ / (2ε₀)\"\n      ],\n      \"correctAnswer\": \"E = 0\",\n      \"explanation\": \"Dựa vào Bài tập ví dụ 2 (trang 8), tài liệu chỉ rõ: 'Ở bên trong quả cầu (r < R): Σqi = 0 nên E = 0'.\"\n    },\n    {\n      \"type\": \"TRUE_FALSE\",\n      \"prompt\": \"Theo tài liệu, đường sức của một điện trường tĩnh luôn là những đường cong khép kín.\",\n      \"correctAnswer\": false,\n      \"explanation\": \"Trang 4 của tài liệu ghi rõ: 'Đường sức điện trường tĩnh không khép kín'.\"\n    },\n    {\n      \"type\": \"FILL_IN_THE_BLANK\",\n      \"prompt\": \"Điền vào chỗ trống để hoàn thành phát biểu của Định lý Gauss tổng quát.\",\n      \"sentenceHtml\": \"Trong môi trường bất kỳ, thông lượng của vecto [BLANK] gửi qua mặt kín S thì bằng tổng đại số [BLANK] chứa bên trong mặt kín.\",\n      \"correctAnswer\": [\n        \"cảm ứng điện\",\n        \"điện tích\"\n      ],\n      \"explanation\": \"Trang 7, mục 'Định lý Gauss tổng quát' nêu rõ: 'Trong môi trường bất kỳ, thông lượng của vecto cảm ứng điện gửi qua mặt kín S thì bằng tổng đại số điện tích chứa bên trong mặt kín'.\"\n    },\n    {\n      \"type\": \"SHORT_ANSWER\",\n      \"prompt\": \"Theo tài liệu, vecto cảm ứng điện D được đưa vào để khử sự gián đoạn của đại lượng vật lý nào khi đi qua mặt phân cách giữa hai môi trường có hằng số điện môi khác nhau?\",\n      \"correctAnswer\": [\n        \"vecto cường độ điện trường\",\n        \"cường độ điện trường\",\n        \"E\"\n      ],\n      \"explanation\": \"Trang 5, mục 'Vecto cảm ứng điện' giải thích rằng vecto cường độ điện trường E bị thay đổi đột ngột (gián đoạn) khi qua mặt phân cách, và 'Để khử sự gián đoạn đó, ta đưa vào đại lượng mới là vecto cảm ứng điện D'.\"\n    },\n    {\n      \"type\": \"MATCHING\",\n      \"prompt\": \"Ghép nối mỗi vật tích điện với công thức tính độ lớn cường độ điện trường tương ứng tại điểm xét phù hợp được nêu trong tài liệu.\",\n      \"pairs\": [\n        {\n          \"left\": \"Mặt phẳng rộng vô hạn\",\n          \"right\": \"E = σ / (2ε₀ε)\"\n        },\n        {\n          \"left\": \"Bên ngoài mặt cầu bán kính R (r ≥ R)\",\n          \"right\": \"E = k * q / r²\"\n        },\n        {\n          \"left\": \"Tại tâm của một vòng tròn tích điện đều\",\n          \"right\": \"E = 0\"\n        },\n        {\n          \"left\": \"Thanh dài vô hạn (tại điểm cách thanh một đoạn h)\",\n          \"right\": \"E = 2kλ / h\"\n        }\n      ],\n      \"correctAnswer\": null,\n      \"explanation\": \"Các công thức được tổng hợp từ mục 'ĐIỆN TRƯỜNG CỦA MỘT SỐ VẬT TÍCH ĐIỆN' tại các trang 9, 10 và 11 của tài liệu.\"\n    }\n  ]\n}\n```",
+  "run" : 1,
+  "schema_ok" : true,
+  "temperature" : 0.2,
+  "timestamp" : "2026-05-24T10:42:30.228712"
+}

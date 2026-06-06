@@ -1,0 +1,77 @@
+{
+  "cleaned" : "{\n  \"questions\": [\n    {\n      \"type\": \"MCQ_SINGLE\",\n      \"prompt\": \"Assume coffee and tea are substitute goods. If the price of coffee significantly increases, what is the most likely immediate effect on the market for tea, ceteris paribus?\",\n      \"options\": [\n        \"A movement down along the tea demand curve.\",\n        \"A shift of the tea demand curve to the right.\",\n        \"A shift of the tea supply curve to the left.\",\n        \"A movement up along the tea demand curve.\"\n      ],\n      \"correctAnswer\": \"A shift of the tea demand curve to the right.\",\n      \"explanation\": \"The price of 'Other goods' is listed as a non-price determinant of demand that causes a shift in the demand curve. An increase in the price of a substitute (coffee) makes tea more desirable at any given price, resulting in a 'Change in Demand'.\"\n    },\n    {\n      \"type\": \"TRUE_FALSE\",\n      \"prompt\": \"According to the lecture material, an increase in the market price of a good will cause the supply curve for that good to shift to the right.\",\n      \"correctAnswer\": false,\n      \"explanation\": \"An increase in price causes a 'Change in quantity supplied,' which is defined as a 'Movement along a given supply curve.' A shift of the curve is a 'Change in supply' caused by non-price determinants like input prices or technology.\"\n    },\n    {\n      \"type\": \"SHORT_ANSWER\",\n      \"prompt\": \"Based on the provided graphs and definitions, what is the economic term for a situation where the quantity supplied of a good is greater than the quantity demanded?\",\n      \"correctAnswer\": [\n        \"Surplus\",\n        \"excess supply\"\n      ],\n      \"explanation\": \"The slide titled 'Markets Not in Equilibrium: Surplus' explicitly defines a surplus (or excess supply) as a situation where 'quantity supplied is greater than quantity demanded'.\"\n    },\n    {\n      \"type\": \"FILL_IN_THE_BLANK\",\n      \"prompt\": \"Complete the definition of the Law of Demand based on the lecture.\",\n      \"sentenceHtml\": \"The Law of demand states that the quantity of a good demanded in a given time period <input> as its price falls, <input>.\",\n      \"correctAnswer\": [\n        \"increases\",\n        \"ceteris paribus\"\n      ],\n      \"explanation\": \"The slide on 'Demand' explicitly states the Law of demand: 'The quantity of a good demanded in a given time period increases as its price falls, ceteris paribus.'\"\n    },\n    {\n      \"type\": \"MATCHING\",\n      \"prompt\": \"Match each term to its correct description based on the lecture material.\",\n      \"pairs\": [\n        {\n          \"left\": \"Change in Quantity Demanded\",\n          \"right\": \"A movement along a given demand curve in response to price changes of the good.\"\n        },\n        {\n          \"left\": \"Change in Demand\",\n          \"right\": \"A shift of the demand curve due to changes in non-price determinants.\"\n        },\n        {\n          \"left\": \"Surplus\",\n          \"right\": \"A situation where quantity supplied is greater than quantity demanded.\"\n        },\n        {\n          \"left\": \"Law of Supply\",\n          \"right\": \"The quantity of a good supplied in a given time period increases as its price increases, ceteris paribus.\"\n        }\n      ],\n      \"correctAnswer\": null,\n      \"explanation\": \"These definitions are taken directly from the slides discussing the demand curve, supply law, and market equilibrium. The key distinction is between a 'change in quantity demanded' (movement along the curve) and a 'change in demand' (shift of the curve).\"\n    }\n  ]\n}",
+  "completion_tokens" : 846,
+  "doc_file" : "Chuong2_CungCauDiemCanBangGiaTranGiaSanThue_Eng.pdf",
+  "doc_id" : "D10",
+  "doc_language" : "en",
+  "doc_pages" : 57,
+  "doc_title" : "Supply, Demand and Market Equilibrium",
+  "empty_field" : false,
+  "error_message" : null,
+  "error_type" : null,
+  "feature" : "quiz",
+  "json_parse_ok" : true,
+  "latency_ms" : 25222,
+  "model" : "gemini-2.5-pro",
+  "parsed" : {
+    "questions" : [ {
+      "type" : "MCQ_SINGLE",
+      "prompt" : "Assume coffee and tea are substitute goods. If the price of coffee significantly increases, what is the most likely immediate effect on the market for tea, ceteris paribus?",
+      "options" : [ "A movement down along the tea demand curve.", "A shift of the tea demand curve to the right.", "A shift of the tea supply curve to the left.", "A movement up along the tea demand curve." ],
+      "correctAnswer" : "A shift of the tea demand curve to the right.",
+      "explanation" : "The price of 'Other goods' is listed as a non-price determinant of demand that causes a shift in the demand curve. An increase in the price of a substitute (coffee) makes tea more desirable at any given price, resulting in a 'Change in Demand'.",
+      "sentenceHtml" : null,
+      "pairs" : null
+    }, {
+      "type" : "TRUE_FALSE",
+      "prompt" : "According to the lecture material, an increase in the market price of a good will cause the supply curve for that good to shift to the right.",
+      "options" : null,
+      "correctAnswer" : false,
+      "explanation" : "An increase in price causes a 'Change in quantity supplied,' which is defined as a 'Movement along a given supply curve.' A shift of the curve is a 'Change in supply' caused by non-price determinants like input prices or technology.",
+      "sentenceHtml" : null,
+      "pairs" : null
+    }, {
+      "type" : "SHORT_ANSWER",
+      "prompt" : "Based on the provided graphs and definitions, what is the economic term for a situation where the quantity supplied of a good is greater than the quantity demanded?",
+      "options" : null,
+      "correctAnswer" : [ "Surplus", "excess supply" ],
+      "explanation" : "The slide titled 'Markets Not in Equilibrium: Surplus' explicitly defines a surplus (or excess supply) as a situation where 'quantity supplied is greater than quantity demanded'.",
+      "sentenceHtml" : null,
+      "pairs" : null
+    }, {
+      "type" : "FILL_IN_THE_BLANK",
+      "prompt" : "Complete the definition of the Law of Demand based on the lecture.",
+      "options" : null,
+      "correctAnswer" : [ "increases", "ceteris paribus" ],
+      "explanation" : "The slide on 'Demand' explicitly states the Law of demand: 'The quantity of a good demanded in a given time period increases as its price falls, ceteris paribus.'",
+      "sentenceHtml" : "The Law of demand states that the quantity of a good demanded in a given time period <input> as its price falls, <input>.",
+      "pairs" : null
+    }, {
+      "type" : "MATCHING",
+      "prompt" : "Match each term to its correct description based on the lecture material.",
+      "options" : null,
+      "correctAnswer" : null,
+      "explanation" : "These definitions are taken directly from the slides discussing the demand curve, supply law, and market equilibrium. The key distinction is between a 'change in quantity demanded' (movement along the curve) and a 'change in demand' (shift of the curve).",
+      "sentenceHtml" : null,
+      "pairs" : [ {
+        "left" : "Change in Quantity Demanded",
+        "right" : "A movement along a given demand curve in response to price changes of the good."
+      }, {
+        "left" : "Change in Demand",
+        "right" : "A shift of the demand curve due to changes in non-price determinants."
+      }, {
+        "left" : "Surplus",
+        "right" : "A situation where quantity supplied is greater than quantity demanded."
+      }, {
+        "left" : "Law of Supply",
+        "right" : "The quantity of a good supplied in a given time period increases as its price increases, ceteris paribus."
+      } ]
+    } ]
+  },
+  "prompt_tokens" : 2747,
+  "raw" : "```json\n{\n  \"questions\": [\n    {\n      \"type\": \"MCQ_SINGLE\",\n      \"prompt\": \"Assume coffee and tea are substitute goods. If the price of coffee significantly increases, what is the most likely immediate effect on the market for tea, ceteris paribus?\",\n      \"options\": [\n        \"A movement down along the tea demand curve.\",\n        \"A shift of the tea demand curve to the right.\",\n        \"A shift of the tea supply curve to the left.\",\n        \"A movement up along the tea demand curve.\"\n      ],\n      \"correctAnswer\": \"A shift of the tea demand curve to the right.\",\n      \"explanation\": \"The price of 'Other goods' is listed as a non-price determinant of demand that causes a shift in the demand curve. An increase in the price of a substitute (coffee) makes tea more desirable at any given price, resulting in a 'Change in Demand'.\"\n    },\n    {\n      \"type\": \"TRUE_FALSE\",\n      \"prompt\": \"According to the lecture material, an increase in the market price of a good will cause the supply curve for that good to shift to the right.\",\n      \"correctAnswer\": false,\n      \"explanation\": \"An increase in price causes a 'Change in quantity supplied,' which is defined as a 'Movement along a given supply curve.' A shift of the curve is a 'Change in supply' caused by non-price determinants like input prices or technology.\"\n    },\n    {\n      \"type\": \"SHORT_ANSWER\",\n      \"prompt\": \"Based on the provided graphs and definitions, what is the economic term for a situation where the quantity supplied of a good is greater than the quantity demanded?\",\n      \"correctAnswer\": [\n        \"Surplus\",\n        \"excess supply\"\n      ],\n      \"explanation\": \"The slide titled 'Markets Not in Equilibrium: Surplus' explicitly defines a surplus (or excess supply) as a situation where 'quantity supplied is greater than quantity demanded'.\"\n    },\n    {\n      \"type\": \"FILL_IN_THE_BLANK\",\n      \"prompt\": \"Complete the definition of the Law of Demand based on the lecture.\",\n      \"sentenceHtml\": \"The Law of demand states that the quantity of a good demanded in a given time period <input> as its price falls, <input>.\",\n      \"correctAnswer\": [\n        \"increases\",\n        \"ceteris paribus\"\n      ],\n      \"explanation\": \"The slide on 'Demand' explicitly states the Law of demand: 'The quantity of a good demanded in a given time period increases as its price falls, ceteris paribus.'\"\n    },\n    {\n      \"type\": \"MATCHING\",\n      \"prompt\": \"Match each term to its correct description based on the lecture material.\",\n      \"pairs\": [\n        {\n          \"left\": \"Change in Quantity Demanded\",\n          \"right\": \"A movement along a given demand curve in response to price changes of the good.\"\n        },\n        {\n          \"left\": \"Change in Demand\",\n          \"right\": \"A shift of the demand curve due to changes in non-price determinants.\"\n        },\n        {\n          \"left\": \"Surplus\",\n          \"right\": \"A situation where quantity supplied is greater than quantity demanded.\"\n        },\n        {\n          \"left\": \"Law of Supply\",\n          \"right\": \"The quantity of a good supplied in a given time period increases as its price increases, ceteris paribus.\"\n        }\n      ],\n      \"correctAnswer\": null,\n      \"explanation\": \"These definitions are taken directly from the slides discussing the demand curve, supply law, and market equilibrium. The key distinction is between a 'change in quantity demanded' (movement along the curve) and a 'change in demand' (shift of the curve).\"\n    }\n  ]\n}\n```",
+  "run" : 1,
+  "schema_ok" : true,
+  "temperature" : 0.2,
+  "timestamp" : "2026-05-24T10:43:33.440117"
+}

@@ -1,0 +1,94 @@
+{
+  "cleaned" : "{\n  \"questions\": [\n    {\n      \"type\": \"MCQ_SINGLE\",\n      \"prompt\": \"According to the text, what is a necessary condition for performing a Binary Search?\",\n      \"options\": [\n        \"The array must be sorted.\",\n        \"The array must contain only integers.\",\n        \"The search must be implemented recursively.\",\n        \"The array size must be a power of two.\"\n      ],\n      \"correctAnswer\": \"The array must be sorted.\",\n      \"citation\": {\n        \"sourceLocation\": \"Search + Hash.6\",\n        \"verbatimQuote\": \"Search a sorted array by repeatedly dividing the search interval in half.\",\n        \"reasoning\": \"The quote explicitly states that Binary Search operates on a 'sorted array'.\"\n      }\n    },\n    {\n      \"type\": \"TRUE_FALSE\",\n      \"prompt\": \"True or False: According to the document, Interval Search algorithms are specifically designed for searching in unsorted data structures.\",\n      \"correctAnswer\": false,\n      \"citation\": {\n        \"sourceLocation\": \"Search + Hash.5\",\n        \"verbatimQuote\": \"Interval Search: These algorithms are specifically designed for searching in sorted data-structures.\",\n        \"reasoning\": \"The quote specifies that Interval Search is designed for 'sorted data-structures', making the statement false.\"\n      }\n    },\n    {\n      \"type\": \"SHORT_ANSWER\",\n      \"prompt\": \"Based on the described approach for Linear Search, what specific value is returned if the target element 'x' is not found in the list?\",\n      \"correctAnswer\": [\n        \"-1\"\n      ],\n      \"citation\": {\n        \"sourceLocation\": \"Search + Hash.5\",\n        \"verbatimQuote\": \"If x doesn’t match with any of elements, return -1.\",\n        \"reasoning\": \"The quote directly states the return value is -1 when no match is found.\"\n      }\n    },\n    {\n      \"type\": \"MATCHING\",\n      \"prompt\": \"Match each searching algorithm with its corresponding time complexity as mentioned in the text.\",\n      \"pairs\": [\n        {\n          \"left\": \"Linear Search\",\n          \"right\": \"O(n)\"\n        },\n        {\n          \"left\": \"Binary Search\",\n          \"right\": \"O(log n)\"\n        },\n        {\n          \"left\": \"Jump Search\",\n          \"right\": \"O(√n)\"\n        }\n      ],\n      \"correctAnswer\": null,\n      \"citation\": {\n        \"sourceLocation\": \"Search + Hash.6\",\n        \"verbatimQuote\": \"Time complexity: O(log n)\",\n        \"reasoning\": \"This quote provides one of the correct pairings (Binary Search), and the others are found on slides 5 and 7.\"\n      }\n    },\n    {\n      \"type\": \"FILL_IN_THE_BLANK\",\n      \"prompt\": \"Complete the sentence describing the core idea of Jump Search.\",\n      \"sentenceHtml\": \"In Jump Search, the basic idea is to check fewer elements than linear search by jumping ahead by ___ or skipping some elements.\",\n      \"correctAnswer\": [\n        \"fixed steps\"\n      ],\n      \"citation\": {\n        \"sourceLocation\": \"Search + Hash.7\",\n        \"verbatimQuote\": \"The basic idea is to check fewer elements (than linear search) by jumping ahead by fixed steps or skipping some elements...\",\n        \"reasoning\": \"The quote provides the exact phrase 'fixed steps' needed to complete the sentence.\"\n      }\n    }\n  ]\n}",
+  "completion_tokens" : 806,
+  "doc_file" : "201_DSA___Chapter_7__Hash___Search__new_.pdf",
+  "doc_id" : "D03",
+  "doc_language" : "en",
+  "doc_pages" : 124,
+  "doc_title" : "Searching Algorithms and Hash Tables",
+  "empty_field" : false,
+  "error_message" : null,
+  "error_type" : null,
+  "feature" : "quiz",
+  "json_parse_ok" : true,
+  "latency_ms" : 25332,
+  "model" : "gemini-2.5-pro",
+  "parsed" : {
+    "questions" : [ {
+      "type" : "MCQ_SINGLE",
+      "prompt" : "According to the text, what is a necessary condition for performing a Binary Search?",
+      "options" : [ "The array must be sorted.", "The array must contain only integers.", "The search must be implemented recursively.", "The array size must be a power of two." ],
+      "correctAnswer" : "The array must be sorted.",
+      "citation" : {
+        "sourceLocation" : "Search + Hash.6",
+        "verbatimQuote" : "Search a sorted array by repeatedly dividing the search interval in half.",
+        "reasoning" : "The quote explicitly states that Binary Search operates on a 'sorted array'."
+      },
+      "sentenceHtml" : null,
+      "pairs" : null
+    }, {
+      "type" : "TRUE_FALSE",
+      "prompt" : "True or False: According to the document, Interval Search algorithms are specifically designed for searching in unsorted data structures.",
+      "options" : null,
+      "correctAnswer" : false,
+      "citation" : {
+        "sourceLocation" : "Search + Hash.5",
+        "verbatimQuote" : "Interval Search: These algorithms are specifically designed for searching in sorted data-structures.",
+        "reasoning" : "The quote specifies that Interval Search is designed for 'sorted data-structures', making the statement false."
+      },
+      "sentenceHtml" : null,
+      "pairs" : null
+    }, {
+      "type" : "SHORT_ANSWER",
+      "prompt" : "Based on the described approach for Linear Search, what specific value is returned if the target element 'x' is not found in the list?",
+      "options" : null,
+      "correctAnswer" : [ "-1" ],
+      "citation" : {
+        "sourceLocation" : "Search + Hash.5",
+        "verbatimQuote" : "If x doesn’t match with any of elements, return -1.",
+        "reasoning" : "The quote directly states the return value is -1 when no match is found."
+      },
+      "sentenceHtml" : null,
+      "pairs" : null
+    }, {
+      "type" : "MATCHING",
+      "prompt" : "Match each searching algorithm with its corresponding time complexity as mentioned in the text.",
+      "options" : null,
+      "correctAnswer" : null,
+      "citation" : {
+        "sourceLocation" : "Search + Hash.6",
+        "verbatimQuote" : "Time complexity: O(log n)",
+        "reasoning" : "This quote provides one of the correct pairings (Binary Search), and the others are found on slides 5 and 7."
+      },
+      "sentenceHtml" : null,
+      "pairs" : [ {
+        "left" : "Linear Search",
+        "right" : "O(n)"
+      }, {
+        "left" : "Binary Search",
+        "right" : "O(log n)"
+      }, {
+        "left" : "Jump Search",
+        "right" : "O(√n)"
+      } ]
+    }, {
+      "type" : "FILL_IN_THE_BLANK",
+      "prompt" : "Complete the sentence describing the core idea of Jump Search.",
+      "options" : null,
+      "correctAnswer" : [ "fixed steps" ],
+      "citation" : {
+        "sourceLocation" : "Search + Hash.7",
+        "verbatimQuote" : "The basic idea is to check fewer elements (than linear search) by jumping ahead by fixed steps or skipping some elements...",
+        "reasoning" : "The quote provides the exact phrase 'fixed steps' needed to complete the sentence."
+      },
+      "sentenceHtml" : "In Jump Search, the basic idea is to check fewer elements than linear search by jumping ahead by ___ or skipping some elements.",
+      "pairs" : null
+    } ]
+  },
+  "prompt_tokens" : 3561,
+  "raw" : "```json\n{\n  \"questions\": [\n    {\n      \"type\": \"MCQ_SINGLE\",\n      \"prompt\": \"According to the text, what is a necessary condition for performing a Binary Search?\",\n      \"options\": [\n        \"The array must be sorted.\",\n        \"The array must contain only integers.\",\n        \"The search must be implemented recursively.\",\n        \"The array size must be a power of two.\"\n      ],\n      \"correctAnswer\": \"The array must be sorted.\",\n      \"citation\": {\n        \"sourceLocation\": \"Search + Hash.6\",\n        \"verbatimQuote\": \"Search a sorted array by repeatedly dividing the search interval in half.\",\n        \"reasoning\": \"The quote explicitly states that Binary Search operates on a 'sorted array'.\"\n      }\n    },\n    {\n      \"type\": \"TRUE_FALSE\",\n      \"prompt\": \"True or False: According to the document, Interval Search algorithms are specifically designed for searching in unsorted data structures.\",\n      \"correctAnswer\": false,\n      \"citation\": {\n        \"sourceLocation\": \"Search + Hash.5\",\n        \"verbatimQuote\": \"Interval Search: These algorithms are specifically designed for searching in sorted data-structures.\",\n        \"reasoning\": \"The quote specifies that Interval Search is designed for 'sorted data-structures', making the statement false.\"\n      }\n    },\n    {\n      \"type\": \"SHORT_ANSWER\",\n      \"prompt\": \"Based on the described approach for Linear Search, what specific value is returned if the target element 'x' is not found in the list?\",\n      \"correctAnswer\": [\n        \"-1\"\n      ],\n      \"citation\": {\n        \"sourceLocation\": \"Search + Hash.5\",\n        \"verbatimQuote\": \"If x doesn’t match with any of elements, return -1.\",\n        \"reasoning\": \"The quote directly states the return value is -1 when no match is found.\"\n      }\n    },\n    {\n      \"type\": \"MATCHING\",\n      \"prompt\": \"Match each searching algorithm with its corresponding time complexity as mentioned in the text.\",\n      \"pairs\": [\n        {\n          \"left\": \"Linear Search\",\n          \"right\": \"O(n)\"\n        },\n        {\n          \"left\": \"Binary Search\",\n          \"right\": \"O(log n)\"\n        },\n        {\n          \"left\": \"Jump Search\",\n          \"right\": \"O(√n)\"\n        }\n      ],\n      \"correctAnswer\": null,\n      \"citation\": {\n        \"sourceLocation\": \"Search + Hash.6\",\n        \"verbatimQuote\": \"Time complexity: O(log n)\",\n        \"reasoning\": \"This quote provides one of the correct pairings (Binary Search), and the others are found on slides 5 and 7.\"\n      }\n    },\n    {\n      \"type\": \"FILL_IN_THE_BLANK\",\n      \"prompt\": \"Complete the sentence describing the core idea of Jump Search.\",\n      \"sentenceHtml\": \"In Jump Search, the basic idea is to check fewer elements than linear search by jumping ahead by ___ or skipping some elements.\",\n      \"correctAnswer\": [\n        \"fixed steps\"\n      ],\n      \"citation\": {\n        \"sourceLocation\": \"Search + Hash.7\",\n        \"verbatimQuote\": \"The basic idea is to check fewer elements (than linear search) by jumping ahead by fixed steps or skipping some elements...\",\n        \"reasoning\": \"The quote provides the exact phrase 'fixed steps' needed to complete the sentence.\"\n      }\n    }\n  ]\n}\n```",
+  "run" : 1,
+  "schema_ok" : true,
+  "temperature" : 0.2,
+  "timestamp" : "2026-06-05T20:26:07.550746"
+}

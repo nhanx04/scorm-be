@@ -1,0 +1,74 @@
+{
+  "cleaned" : "{\n  \"questions\": [\n    {\n      \"type\": \"MCQ_SINGLE\",\n      \"prompt\": \"A transaction T1 updates an item, but then fails. Before T1 can roll back the change, another transaction T2 reads the updated (but uncommitted) item. Which concurrency problem does this scenario describe?\",\n      \"options\": [\n        \"The Lost Update Problem\",\n        \"The Temporary Update (Dirty Read) Problem\",\n        \"The Incorrect Summary Problem\",\n        \"The Unrepeatable Read Problem\"\n      ],\n      \"correctAnswer\": \"The Temporary Update (Dirty Read) Problem\",\n      \"explanation\": \"This scenario directly matches the definition of 'The Temporary Update (or Dirty Read) Problem' from Slide 9, which states it occurs when one transaction updates an item and then fails, and the updated item is accessed by another transaction before it is changed back.\"\n    },\n    {\n      \"type\": \"TRUE_FALSE\",\n      \"prompt\": \"According to the provided material, the `write_item(X)` command always immediately stores the updated block from the buffer back to disk after copying the item into the buffer.\",\n      \"correctAnswer\": false,\n      \"explanation\": \"Slide 7, step 4 for the write_item(X) command states that the updated block is stored back to disk 'either immediately or at some later point in time'. The word 'always immediately' in the question makes the statement false.\"\n    },\n    {\n      \"type\": \"SHORT_ANSWER\",\n      \"prompt\": \"Based on the text, what is the term for a system where many users can access the system concurrently?\",\n      \"correctAnswer\": [\n        \"Multiuser System\",\n        \"Multiuser system\"\n      ],\n      \"explanation\": \"Slide 3 defines a 'Multiuser System' as one where 'Many users can access the system concurrently.'\"\n    },\n    {\n      \"type\": \"FILL_IN_THE_BLANK\",\n      \"prompt\": \"Fill in the blanks to complete the definition.\",\n      \"sentenceHtml\": \"A transaction is a <input> unit of database processing that includes one or more access operations, and its boundaries are marked by <input> and End transaction commands.\",\n      \"correctAnswer\": [\n        \"logical\",\n        \"Begin\"\n      ],\n      \"explanation\": \"Slide 4 states: 'A Transaction: logical unit of database processing...' and 'Transaction boundaries: Begin and End transaction.'\"\n    },\n    {\n      \"type\": \"MATCHING\",\n      \"prompt\": \"Match each concurrency problem with its correct description.\",\n      \"pairs\": [\n        {\n          \"left\": \"The Lost Update Problem\",\n          \"right\": \"Occurs when two transactions access the same items and their operations are interleaved in a way that makes an item's value incorrect.\"\n        },\n        {\n          \"left\": \"The Unrepeatable Read Problem\",\n          \"right\": \"Occurs when a transaction reads the same item twice, but the item is changed by another transaction between the two reads.\"\n        },\n        {\n          \"left\": \"The Incorrect Summary Problem\",\n          \"right\": \"Occurs when one transaction calculates an aggregate function while other transactions are updating the records being aggregated.\"\n        }\n      ],\n      \"correctAnswer\": null,\n      \"explanation\": \"The descriptions are based on the definitions provided in Slides 9 and 12 for each respective concurrency control problem.\"\n    }\n  ]\n}",
+  "completion_tokens" : 764,
+  "doc_file" : "Chapter_5 - Transaction Processing.pdf",
+  "doc_id" : "D04",
+  "doc_language" : "en",
+  "doc_pages" : 65,
+  "doc_title" : "Introduction to Transaction Processing Concepts and Theory",
+  "empty_field" : false,
+  "error_message" : null,
+  "error_type" : null,
+  "feature" : "quiz",
+  "json_parse_ok" : true,
+  "latency_ms" : 18741,
+  "model" : "gemini-2.5-pro",
+  "parsed" : {
+    "questions" : [ {
+      "type" : "MCQ_SINGLE",
+      "prompt" : "A transaction T1 updates an item, but then fails. Before T1 can roll back the change, another transaction T2 reads the updated (but uncommitted) item. Which concurrency problem does this scenario describe?",
+      "options" : [ "The Lost Update Problem", "The Temporary Update (Dirty Read) Problem", "The Incorrect Summary Problem", "The Unrepeatable Read Problem" ],
+      "correctAnswer" : "The Temporary Update (Dirty Read) Problem",
+      "explanation" : "This scenario directly matches the definition of 'The Temporary Update (or Dirty Read) Problem' from Slide 9, which states it occurs when one transaction updates an item and then fails, and the updated item is accessed by another transaction before it is changed back.",
+      "sentenceHtml" : null,
+      "pairs" : null
+    }, {
+      "type" : "TRUE_FALSE",
+      "prompt" : "According to the provided material, the `write_item(X)` command always immediately stores the updated block from the buffer back to disk after copying the item into the buffer.",
+      "options" : null,
+      "correctAnswer" : false,
+      "explanation" : "Slide 7, step 4 for the write_item(X) command states that the updated block is stored back to disk 'either immediately or at some later point in time'. The word 'always immediately' in the question makes the statement false.",
+      "sentenceHtml" : null,
+      "pairs" : null
+    }, {
+      "type" : "SHORT_ANSWER",
+      "prompt" : "Based on the text, what is the term for a system where many users can access the system concurrently?",
+      "options" : null,
+      "correctAnswer" : [ "Multiuser System", "Multiuser system" ],
+      "explanation" : "Slide 3 defines a 'Multiuser System' as one where 'Many users can access the system concurrently.'",
+      "sentenceHtml" : null,
+      "pairs" : null
+    }, {
+      "type" : "FILL_IN_THE_BLANK",
+      "prompt" : "Fill in the blanks to complete the definition.",
+      "options" : null,
+      "correctAnswer" : [ "logical", "Begin" ],
+      "explanation" : "Slide 4 states: 'A Transaction: logical unit of database processing...' and 'Transaction boundaries: Begin and End transaction.'",
+      "sentenceHtml" : "A transaction is a <input> unit of database processing that includes one or more access operations, and its boundaries are marked by <input> and End transaction commands.",
+      "pairs" : null
+    }, {
+      "type" : "MATCHING",
+      "prompt" : "Match each concurrency problem with its correct description.",
+      "options" : null,
+      "correctAnswer" : null,
+      "explanation" : "The descriptions are based on the definitions provided in Slides 9 and 12 for each respective concurrency control problem.",
+      "sentenceHtml" : null,
+      "pairs" : [ {
+        "left" : "The Lost Update Problem",
+        "right" : "Occurs when two transactions access the same items and their operations are interleaved in a way that makes an item's value incorrect."
+      }, {
+        "left" : "The Unrepeatable Read Problem",
+        "right" : "Occurs when a transaction reads the same item twice, but the item is changed by another transaction between the two reads."
+      }, {
+        "left" : "The Incorrect Summary Problem",
+        "right" : "Occurs when one transaction calculates an aggregate function while other transactions are updating the records being aggregated."
+      } ]
+    } ]
+  },
+  "prompt_tokens" : 2119,
+  "raw" : "```json\n{\n  \"questions\": [\n    {\n      \"type\": \"MCQ_SINGLE\",\n      \"prompt\": \"A transaction T1 updates an item, but then fails. Before T1 can roll back the change, another transaction T2 reads the updated (but uncommitted) item. Which concurrency problem does this scenario describe?\",\n      \"options\": [\n        \"The Lost Update Problem\",\n        \"The Temporary Update (Dirty Read) Problem\",\n        \"The Incorrect Summary Problem\",\n        \"The Unrepeatable Read Problem\"\n      ],\n      \"correctAnswer\": \"The Temporary Update (Dirty Read) Problem\",\n      \"explanation\": \"This scenario directly matches the definition of 'The Temporary Update (or Dirty Read) Problem' from Slide 9, which states it occurs when one transaction updates an item and then fails, and the updated item is accessed by another transaction before it is changed back.\"\n    },\n    {\n      \"type\": \"TRUE_FALSE\",\n      \"prompt\": \"According to the provided material, the `write_item(X)` command always immediately stores the updated block from the buffer back to disk after copying the item into the buffer.\",\n      \"correctAnswer\": false,\n      \"explanation\": \"Slide 7, step 4 for the write_item(X) command states that the updated block is stored back to disk 'either immediately or at some later point in time'. The word 'always immediately' in the question makes the statement false.\"\n    },\n    {\n      \"type\": \"SHORT_ANSWER\",\n      \"prompt\": \"Based on the text, what is the term for a system where many users can access the system concurrently?\",\n      \"correctAnswer\": [\n        \"Multiuser System\",\n        \"Multiuser system\"\n      ],\n      \"explanation\": \"Slide 3 defines a 'Multiuser System' as one where 'Many users can access the system concurrently.'\"\n    },\n    {\n      \"type\": \"FILL_IN_THE_BLANK\",\n      \"prompt\": \"Fill in the blanks to complete the definition.\",\n      \"sentenceHtml\": \"A transaction is a <input> unit of database processing that includes one or more access operations, and its boundaries are marked by <input> and End transaction commands.\",\n      \"correctAnswer\": [\n        \"logical\",\n        \"Begin\"\n      ],\n      \"explanation\": \"Slide 4 states: 'A Transaction: logical unit of database processing...' and 'Transaction boundaries: Begin and End transaction.'\"\n    },\n    {\n      \"type\": \"MATCHING\",\n      \"prompt\": \"Match each concurrency problem with its correct description.\",\n      \"pairs\": [\n        {\n          \"left\": \"The Lost Update Problem\",\n          \"right\": \"Occurs when two transactions access the same items and their operations are interleaved in a way that makes an item's value incorrect.\"\n        },\n        {\n          \"left\": \"The Unrepeatable Read Problem\",\n          \"right\": \"Occurs when a transaction reads the same item twice, but the item is changed by another transaction between the two reads.\"\n        },\n        {\n          \"left\": \"The Incorrect Summary Problem\",\n          \"right\": \"Occurs when one transaction calculates an aggregate function while other transactions are updating the records being aggregated.\"\n        }\n      ],\n      \"correctAnswer\": null,\n      \"explanation\": \"The descriptions are based on the definitions provided in Slides 9 and 12 for each respective concurrency control problem.\"\n    }\n  ]\n}\n```",
+  "run" : 1,
+  "schema_ok" : true,
+  "temperature" : 0.2,
+  "timestamp" : "2026-05-24T10:36:56.165201"
+}

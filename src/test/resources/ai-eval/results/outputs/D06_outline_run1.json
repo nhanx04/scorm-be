@@ -1,0 +1,45 @@
+{
+  "cleaned" : "{\n  \"title\": \"Bayesian Learning\",\n  \"description\": \"An intermediate course for university students on the principles and applications of Bayesian Learning. This course covers the foundational Bayes' Theorem, parameter estimation techniques like MLE and MAP, the role of priors, and the implementation of the Naive Bayes classifier.\",\n  \"sections\": [\n    {\n      \"title\": \"Section 1: Foundations of Bayesian Learning\",\n      \"topics\": [\n        \"What is Bayesian Learning?\",\n        \"Why Use Bayesian Methods? Key Motivations\",\n        \"Core Features of the Bayesian Approach\",\n        \"The Bayesian Learning Pipeline: From Prior to Posterior\",\n        \"Distinguishing Learning, Inference, and Decision Making\"\n      ]\n    },\n    {\n      \"title\": \"Section 2: The Core Engine: Bayes' Theorem\",\n      \"topics\": [\n        \"Understanding Bayes' Theorem and Its Components\",\n        \"Defining Prior, Likelihood, Posterior, and Evidence\",\n        \"Practical Application: Spam Detection Concept\",\n        \"Calculation Walkthrough: A Numerical Example with Spam Filtering\"\n      ]\n    },\n    {\n      \"title\": \"Section 3: Estimating Model Parameters\",\n      \"topics\": [\n        \"Introduction to Parameter Estimation\",\n        \"Maximum Likelihood Estimation (MLE)\",\n        \"Maximum A Posteriori (MAP) Estimation\",\n        \"Connecting MLE, MAP, and Bayes' Rule\",\n        \"Comparing MLE vs. MAP: The Role of Data and Priors\"\n      ]\n    },\n    {\n      \"title\": \"Section 4: Parameter Estimation in Practice: A Coin Toss Example\",\n      \"topics\": [\n        \"Setting up the Problem: The Bernoulli/Binomial Model\",\n        \"Deriving the MLE for a Coin Bias\",\n        \"Introducing the Beta Prior for MAP Estimation\",\n        \"Deriving the MAP Estimate for a Coin Bias\",\n        \"Review and Comparison: Analyzing MLE vs. MAP Results\"\n      ]\n    },\n    {\n      \"title\": \"Section 5: The Role of Prior Knowledge\",\n      \"topics\": [\n        \"What is a Prior Distribution?\",\n        \"Types of Priors: Informative, Non-informative, and Conjugate\",\n        \"The Impact of Priors on Learning Outcomes\",\n        \"The Connection Between Priors and Regularization in Machine Learning\"\n      ]\n    },\n    {\n      \"title\": \"Section 6: Application: The Naive Bayes Classifier\",\n      \"topics\": [\n        \"Introduction to the Naive Bayes Algorithm\",\n        \"The 'Naive' Assumption: Conditional Independence\",\n        \"Strengths and Weaknesses of Naive Bayes\",\n        \"Worked Example: Classifying a Spam Email with Naive Bayes\"\n      ]\n    }\n  ]\n}",
+  "completion_tokens" : 609,
+  "doc_file" : "BayesianLearning.pdf",
+  "doc_id" : "D06",
+  "doc_language" : "en",
+  "doc_pages" : 36,
+  "doc_title" : "Bayesian Learning",
+  "empty_field" : false,
+  "error_message" : null,
+  "error_type" : null,
+  "feature" : "outline",
+  "json_parse_ok" : true,
+  "latency_ms" : 17842,
+  "model" : "gemini-2.5-pro",
+  "parsed" : {
+    "title" : "Bayesian Learning",
+    "description" : "An intermediate course for university students on the principles and applications of Bayesian Learning. This course covers the foundational Bayes' Theorem, parameter estimation techniques like MLE and MAP, the role of priors, and the implementation of the Naive Bayes classifier.",
+    "sections" : [ {
+      "title" : "Section 1: Foundations of Bayesian Learning",
+      "topics" : [ "What is Bayesian Learning?", "Why Use Bayesian Methods? Key Motivations", "Core Features of the Bayesian Approach", "The Bayesian Learning Pipeline: From Prior to Posterior", "Distinguishing Learning, Inference, and Decision Making" ]
+    }, {
+      "title" : "Section 2: The Core Engine: Bayes' Theorem",
+      "topics" : [ "Understanding Bayes' Theorem and Its Components", "Defining Prior, Likelihood, Posterior, and Evidence", "Practical Application: Spam Detection Concept", "Calculation Walkthrough: A Numerical Example with Spam Filtering" ]
+    }, {
+      "title" : "Section 3: Estimating Model Parameters",
+      "topics" : [ "Introduction to Parameter Estimation", "Maximum Likelihood Estimation (MLE)", "Maximum A Posteriori (MAP) Estimation", "Connecting MLE, MAP, and Bayes' Rule", "Comparing MLE vs. MAP: The Role of Data and Priors" ]
+    }, {
+      "title" : "Section 4: Parameter Estimation in Practice: A Coin Toss Example",
+      "topics" : [ "Setting up the Problem: The Bernoulli/Binomial Model", "Deriving the MLE for a Coin Bias", "Introducing the Beta Prior for MAP Estimation", "Deriving the MAP Estimate for a Coin Bias", "Review and Comparison: Analyzing MLE vs. MAP Results" ]
+    }, {
+      "title" : "Section 5: The Role of Prior Knowledge",
+      "topics" : [ "What is a Prior Distribution?", "Types of Priors: Informative, Non-informative, and Conjugate", "The Impact of Priors on Learning Outcomes", "The Connection Between Priors and Regularization in Machine Learning" ]
+    }, {
+      "title" : "Section 6: Application: The Naive Bayes Classifier",
+      "topics" : [ "Introduction to the Naive Bayes Algorithm", "The 'Naive' Assumption: Conditional Independence", "Strengths and Weaknesses of Naive Bayes", "Worked Example: Classifying a Spam Email with Naive Bayes" ]
+    } ]
+  },
+  "prompt_tokens" : 6771,
+  "raw" : "```json\n{\n  \"title\": \"Bayesian Learning\",\n  \"description\": \"An intermediate course for university students on the principles and applications of Bayesian Learning. This course covers the foundational Bayes' Theorem, parameter estimation techniques like MLE and MAP, the role of priors, and the implementation of the Naive Bayes classifier.\",\n  \"sections\": [\n    {\n      \"title\": \"Section 1: Foundations of Bayesian Learning\",\n      \"topics\": [\n        \"What is Bayesian Learning?\",\n        \"Why Use Bayesian Methods? Key Motivations\",\n        \"Core Features of the Bayesian Approach\",\n        \"The Bayesian Learning Pipeline: From Prior to Posterior\",\n        \"Distinguishing Learning, Inference, and Decision Making\"\n      ]\n    },\n    {\n      \"title\": \"Section 2: The Core Engine: Bayes' Theorem\",\n      \"topics\": [\n        \"Understanding Bayes' Theorem and Its Components\",\n        \"Defining Prior, Likelihood, Posterior, and Evidence\",\n        \"Practical Application: Spam Detection Concept\",\n        \"Calculation Walkthrough: A Numerical Example with Spam Filtering\"\n      ]\n    },\n    {\n      \"title\": \"Section 3: Estimating Model Parameters\",\n      \"topics\": [\n        \"Introduction to Parameter Estimation\",\n        \"Maximum Likelihood Estimation (MLE)\",\n        \"Maximum A Posteriori (MAP) Estimation\",\n        \"Connecting MLE, MAP, and Bayes' Rule\",\n        \"Comparing MLE vs. MAP: The Role of Data and Priors\"\n      ]\n    },\n    {\n      \"title\": \"Section 4: Parameter Estimation in Practice: A Coin Toss Example\",\n      \"topics\": [\n        \"Setting up the Problem: The Bernoulli/Binomial Model\",\n        \"Deriving the MLE for a Coin Bias\",\n        \"Introducing the Beta Prior for MAP Estimation\",\n        \"Deriving the MAP Estimate for a Coin Bias\",\n        \"Review and Comparison: Analyzing MLE vs. MAP Results\"\n      ]\n    },\n    {\n      \"title\": \"Section 5: The Role of Prior Knowledge\",\n      \"topics\": [\n        \"What is a Prior Distribution?\",\n        \"Types of Priors: Informative, Non-informative, and Conjugate\",\n        \"The Impact of Priors on Learning Outcomes\",\n        \"The Connection Between Priors and Regularization in Machine Learning\"\n      ]\n    },\n    {\n      \"title\": \"Section 6: Application: The Naive Bayes Classifier\",\n      \"topics\": [\n        \"Introduction to the Naive Bayes Algorithm\",\n        \"The 'Naive' Assumption: Conditional Independence\",\n        \"Strengths and Weaknesses of Naive Bayes\",\n        \"Worked Example: Classifying a Spam Email with Naive Bayes\"\n      ]\n    }\n  ]\n}\n```",
+  "run" : 1,
+  "schema_ok" : true,
+  "temperature" : 0.2,
+  "timestamp" : "2026-05-24T10:38:23.578014"
+}

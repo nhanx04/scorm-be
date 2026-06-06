@@ -1,0 +1,77 @@
+{
+  "cleaned" : "{\n  \"questions\": [\n    {\n      \"type\": \"MCQ_MULTIPLE\",\n      \"prompt\": \"According to the provided material, which of the following commands are part of the Data Definition Language (DDL)?\",\n      \"options\": [\n        \"CREATE\",\n        \"SELECT\",\n        \"DROP\",\n        \"GRANT\",\n        \"ALTER\"\n      ],\n      \"correctAnswer\": [\n        \"CREATE\",\n        \"DROP\",\n        \"ALTER\"\n      ],\n      \"explanation\": \"Slide 4: The material lists the basic SQL sub-languages. Under 'Data Definition Language (DDL)', it explicitly lists 'Create, Alter, Drop'.\"\n    },\n    {\n      \"type\": \"MATCHING\",\n      \"prompt\": \"Match each SQL constraint or clause with its correct description based on the document.\",\n      \"pairs\": [\n        {\n          \"left\": \"PRIMARY KEY clause\",\n          \"right\": \"Specifies one or more attributes that make up the primary key of a relation.\"\n        },\n        {\n          \"left\": \"UNIQUE clause\",\n          \"right\": \"Specifies alternate (secondary) keys.\"\n        },\n        {\n          \"left\": \"NOT NULL\",\n          \"right\": \"A constraint where NULL is not permitted for a particular attribute.\"\n        },\n        {\n          \"left\": \"DROP SCHEMA ... CASCADE\",\n          \"right\": \"Destroys a schema and all constraints and views that reference its tables.\"\n        }\n      ],\n      \"correctAnswer\": null,\n      \"explanation\": \"Theo tài liệu:\\n- Slide 15: 'PRIMARY KEY clause: specifies one or more attributes that make up the primary key of a relation.'\\n- Slide 15: 'UNIQUE clause: Specifies alternate (secondary) keys.'\\n- Slide 17: 'NOT NULL: NULL is not permitted for a particular attribute.'\\n- Slide 24 & 25: The CASCADE option for DROP means that all referencing constraints and views are dropped automatically.\"\n    },\n    {\n      \"type\": \"TRUE_FALSE\",\n      \"prompt\": \"True or False: When using the `DROP TABLE` command, if the table is referenced in any constraints, the default behavior is to automatically drop those constraints along with the table.\",\n      \"correctAnswer\": false,\n      \"explanation\": \"Slide 25: The document states that for `DROP TABLE`, 'RESTRICT (default): dropped only if it is not referenced in any constraints or views'. The behavior described in the question is CASCADE, not the default.\"\n    },\n    {\n      \"type\": \"FILL_IN_THE_BLANK\",\n      \"prompt\": \"Fill in the blank with the correct term from the document.\",\n      \"sentenceHtml\": \"A <input> is a named collection of schemas.\",\n      \"correctAnswer\": [\n        \"Catalog\"\n      ],\n      \"explanation\": \"Slide 8: The material defines a Catalog as 'a named collection of schemas'.\"\n    },\n    {\n      \"type\": \"SHORT_ANSWER\",\n      \"prompt\": \"According to the material, what are the four possible 'referential triggered actions' for a FOREIGN KEY constraint?\",\n      \"correctAnswer\": [\n        \"RESTRICT\",\n        \"SET NULL\",\n        \"CASCADE\",\n        \"SET DEFAULT\"\n      ],\n      \"explanation\": \"Slide 16: The document explicitly lists the four actions: 'Referential triggered actions: RESTRICT (default), SET NULL, CASCADE, and SET DEFAULT'.\"\n    }\n  ]\n}",
+  "completion_tokens" : 787,
+  "doc_file" : "4-1_SQL.pdf",
+  "doc_id" : "D02",
+  "doc_language" : "en",
+  "doc_pages" : 114,
+  "doc_title" : "Structured Query Language (DDL/DML/DCL)",
+  "empty_field" : false,
+  "error_message" : null,
+  "error_type" : null,
+  "feature" : "quiz",
+  "json_parse_ok" : true,
+  "latency_ms" : 19580,
+  "model" : "gemini-2.5-pro",
+  "parsed" : {
+    "questions" : [ {
+      "type" : "MCQ_MULTIPLE",
+      "prompt" : "According to the provided material, which of the following commands are part of the Data Definition Language (DDL)?",
+      "options" : [ "CREATE", "SELECT", "DROP", "GRANT", "ALTER" ],
+      "correctAnswer" : [ "CREATE", "DROP", "ALTER" ],
+      "explanation" : "Slide 4: The material lists the basic SQL sub-languages. Under 'Data Definition Language (DDL)', it explicitly lists 'Create, Alter, Drop'.",
+      "sentenceHtml" : null,
+      "pairs" : null
+    }, {
+      "type" : "MATCHING",
+      "prompt" : "Match each SQL constraint or clause with its correct description based on the document.",
+      "options" : null,
+      "correctAnswer" : null,
+      "explanation" : "Theo tài liệu:\n- Slide 15: 'PRIMARY KEY clause: specifies one or more attributes that make up the primary key of a relation.'\n- Slide 15: 'UNIQUE clause: Specifies alternate (secondary) keys.'\n- Slide 17: 'NOT NULL: NULL is not permitted for a particular attribute.'\n- Slide 24 & 25: The CASCADE option for DROP means that all referencing constraints and views are dropped automatically.",
+      "sentenceHtml" : null,
+      "pairs" : [ {
+        "left" : "PRIMARY KEY clause",
+        "right" : "Specifies one or more attributes that make up the primary key of a relation."
+      }, {
+        "left" : "UNIQUE clause",
+        "right" : "Specifies alternate (secondary) keys."
+      }, {
+        "left" : "NOT NULL",
+        "right" : "A constraint where NULL is not permitted for a particular attribute."
+      }, {
+        "left" : "DROP SCHEMA ... CASCADE",
+        "right" : "Destroys a schema and all constraints and views that reference its tables."
+      } ]
+    }, {
+      "type" : "TRUE_FALSE",
+      "prompt" : "True or False: When using the `DROP TABLE` command, if the table is referenced in any constraints, the default behavior is to automatically drop those constraints along with the table.",
+      "options" : null,
+      "correctAnswer" : false,
+      "explanation" : "Slide 25: The document states that for `DROP TABLE`, 'RESTRICT (default): dropped only if it is not referenced in any constraints or views'. The behavior described in the question is CASCADE, not the default.",
+      "sentenceHtml" : null,
+      "pairs" : null
+    }, {
+      "type" : "FILL_IN_THE_BLANK",
+      "prompt" : "Fill in the blank with the correct term from the document.",
+      "options" : null,
+      "correctAnswer" : [ "Catalog" ],
+      "explanation" : "Slide 8: The material defines a Catalog as 'a named collection of schemas'.",
+      "sentenceHtml" : "A <input> is a named collection of schemas.",
+      "pairs" : null
+    }, {
+      "type" : "SHORT_ANSWER",
+      "prompt" : "According to the material, what are the four possible 'referential triggered actions' for a FOREIGN KEY constraint?",
+      "options" : null,
+      "correctAnswer" : [ "RESTRICT", "SET NULL", "CASCADE", "SET DEFAULT" ],
+      "explanation" : "Slide 16: The document explicitly lists the four actions: 'Referential triggered actions: RESTRICT (default), SET NULL, CASCADE, and SET DEFAULT'.",
+      "sentenceHtml" : null,
+      "pairs" : null
+    } ]
+  },
+  "prompt_tokens" : 3172,
+  "raw" : "```json\n{\n  \"questions\": [\n    {\n      \"type\": \"MCQ_MULTIPLE\",\n      \"prompt\": \"According to the provided material, which of the following commands are part of the Data Definition Language (DDL)?\",\n      \"options\": [\n        \"CREATE\",\n        \"SELECT\",\n        \"DROP\",\n        \"GRANT\",\n        \"ALTER\"\n      ],\n      \"correctAnswer\": [\n        \"CREATE\",\n        \"DROP\",\n        \"ALTER\"\n      ],\n      \"explanation\": \"Slide 4: The material lists the basic SQL sub-languages. Under 'Data Definition Language (DDL)', it explicitly lists 'Create, Alter, Drop'.\"\n    },\n    {\n      \"type\": \"MATCHING\",\n      \"prompt\": \"Match each SQL constraint or clause with its correct description based on the document.\",\n      \"pairs\": [\n        {\n          \"left\": \"PRIMARY KEY clause\",\n          \"right\": \"Specifies one or more attributes that make up the primary key of a relation.\"\n        },\n        {\n          \"left\": \"UNIQUE clause\",\n          \"right\": \"Specifies alternate (secondary) keys.\"\n        },\n        {\n          \"left\": \"NOT NULL\",\n          \"right\": \"A constraint where NULL is not permitted for a particular attribute.\"\n        },\n        {\n          \"left\": \"DROP SCHEMA ... CASCADE\",\n          \"right\": \"Destroys a schema and all constraints and views that reference its tables.\"\n        }\n      ],\n      \"correctAnswer\": null,\n      \"explanation\": \"Theo tài liệu:\\n- Slide 15: 'PRIMARY KEY clause: specifies one or more attributes that make up the primary key of a relation.'\\n- Slide 15: 'UNIQUE clause: Specifies alternate (secondary) keys.'\\n- Slide 17: 'NOT NULL: NULL is not permitted for a particular attribute.'\\n- Slide 24 & 25: The CASCADE option for DROP means that all referencing constraints and views are dropped automatically.\"\n    },\n    {\n      \"type\": \"TRUE_FALSE\",\n      \"prompt\": \"True or False: When using the `DROP TABLE` command, if the table is referenced in any constraints, the default behavior is to automatically drop those constraints along with the table.\",\n      \"correctAnswer\": false,\n      \"explanation\": \"Slide 25: The document states that for `DROP TABLE`, 'RESTRICT (default): dropped only if it is not referenced in any constraints or views'. The behavior described in the question is CASCADE, not the default.\"\n    },\n    {\n      \"type\": \"FILL_IN_THE_BLANK\",\n      \"prompt\": \"Fill in the blank with the correct term from the document.\",\n      \"sentenceHtml\": \"A <input> is a named collection of schemas.\",\n      \"correctAnswer\": [\n        \"Catalog\"\n      ],\n      \"explanation\": \"Slide 8: The material defines a Catalog as 'a named collection of schemas'.\"\n    },\n    {\n      \"type\": \"SHORT_ANSWER\",\n      \"prompt\": \"According to the material, what are the four possible 'referential triggered actions' for a FOREIGN KEY constraint?\",\n      \"correctAnswer\": [\n        \"RESTRICT\",\n        \"SET NULL\",\n        \"CASCADE\",\n        \"SET DEFAULT\"\n      ],\n      \"explanation\": \"Slide 16: The document explicitly lists the four actions: 'Referential triggered actions: RESTRICT (default), SET NULL, CASCADE, and SET DEFAULT'.\"\n    }\n  ]\n}\n```",
+  "run" : 1,
+  "schema_ok" : true,
+  "temperature" : 0.2,
+  "timestamp" : "2026-06-05T07:32:36.816899"
+}

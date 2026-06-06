@@ -1,0 +1,97 @@
+{
+  "cleaned" : "{\n  \"questions\": [\n    {\n      \"citation\": {\n        \"reasoning\": \"The quote directly lists each language under its corresponding application domain.\",\n        \"sourceLocation\": \"Introduction.4\",\n        \"verbatimQuote\": \"Scientific Applications: Fortran, ... Business Applications: COBOL, ... Artificial Intelligence: LISP, ... Systems Programming: ... C, ...\"\n      },\n      \"correctAnswer\": null,\n      \"pairs\": [\n        {\n          \"left\": \"COBOL\",\n          \"right\": \"Business Applications\"\n        },\n        {\n          \"left\": \"LISP\",\n          \"right\": \"Artificial Intelligence\"\n        },\n        {\n          \"left\": \"Fortran\",\n          \"right\": \"Scientific Applications\"\n        },\n        {\n          \"left\": \"C\",\n          \"right\": \"Systems Programming\"\n        }\n      ],\n      \"prompt\": \"Match each programming language to its primary application domain as listed in the material.\",\n      \"type\": \"MATCHING\"\n    },\n    {\n      \"citation\": {\n        \"reasoning\": \"The quote lists Lisp, Prolog, and SQL as examples of declarative programming sub-paradigms.\",\n        \"sourceLocation\": \"Introduction.7\",\n        \"verbatimQuote\": \"Declarative: on what the computer is to do. • Functional: Lisp, ML, Haskell • Logic or constraint-based: Prolog ... • Query-based: SQL, GraphQL.\"\n      },\n      \"correctAnswer\": [\n        \"Prolog\",\n        \"SQL\",\n        \"Lisp\"\n      ],\n      \"options\": [\n        \"Prolog\",\n        \"SQL\",\n        \"Lisp\",\n        \"C\",\n        \"Pascal\"\n      ],\n      \"prompt\": \"According to the text, which of the following languages are classified under the Declarative programming methodology?\",\n      \"type\": \"MCQ_MULTIPLE\"\n    },\n    {\n      \"citation\": {\n        \"reasoning\": \"The quote explicitly states the dominance of imperative languages is due to von Neumann computers.\",\n        \"sourceLocation\": \"Introduction.8\",\n        \"verbatimQuote\": \"Well-known computer architecture: von Neumann. • Imperative languages, most dominant, because of von Neumann computers.\"\n      },\n      \"correctAnswer\": true,\n      \"prompt\": \"The von Neumann architecture's design is presented as a primary reason for the dominance of imperative languages.\",\n      \"type\": \"TRUE_FALSE\"\n    },\n    {\n      \"citation\": {\n        \"reasoning\": \"The quote provides the exact definition for the term 'Orthogonality'.\",\n        \"sourceLocation\": \"Introduction.5\",\n        \"verbatimQuote\": \"Orthogonality: every combination of features is meaningful. Independent functions should be controlled by independent mechanisms.\"\n      },\n      \"correctAnswer\": [\n        \"Orthogonality\"\n      ],\n      \"prompt\": \"Fill in the blank with the correct language characteristic.\",\n      \"sentenceHtml\": \"The characteristic where every combination of features is meaningful and independent functions are controlled by independent mechanisms is called ___(1)___.\",\n      \"type\": \"FILL_IN_THE_BLANK\"\n    },\n    {\n      \"citation\": {\n        \"reasoning\": \"The prompt describes factors related to expense, which directly corresponds to the 'Cost' evaluation criterion.\",\n        \"sourceLocation\": \"Introduction.6\",\n        \"verbatimQuote\": \"Evaluation 1 Readability 2 Writability 3 Reliability 4 Cost\"\n      },\n      \"correctAnswer\": \"Cost\",\n      \"options\": [\n        \"Readability\",\n        \"Writability\",\n        \"Reliability\",\n        \"Cost\"\n      ],\n      \"prompt\": \"If a team is primarily concerned with the total expense of training and program execution, which evaluation criterion are they focusing on?\",\n      \"type\": \"MCQ_SINGLE\"\n    }\n  ]\n}",
+  "completion_tokens" : 879,
+  "doc_file" : "1-Introduction-2023.pdf",
+  "doc_id" : "D01",
+  "doc_language" : "en",
+  "doc_pages" : 36,
+  "doc_title" : "Introduction to Programming Languages and Compilers",
+  "empty_field" : false,
+  "error_message" : null,
+  "error_type" : null,
+  "feature" : "quiz",
+  "json_parse_ok" : true,
+  "latency_ms" : 24975,
+  "model" : "gemini-2.5-pro",
+  "parsed" : {
+    "questions" : [ {
+      "type" : "MATCHING",
+      "prompt" : "Match each programming language to its primary application domain as listed in the material.",
+      "options" : null,
+      "correctAnswer" : null,
+      "citation" : {
+        "sourceLocation" : "Introduction.4",
+        "verbatimQuote" : "Scientific Applications: Fortran, ... Business Applications: COBOL, ... Artificial Intelligence: LISP, ... Systems Programming: ... C, ...",
+        "reasoning" : "The quote directly lists each language under its corresponding application domain."
+      },
+      "sentenceHtml" : null,
+      "pairs" : [ {
+        "left" : "COBOL",
+        "right" : "Business Applications"
+      }, {
+        "left" : "LISP",
+        "right" : "Artificial Intelligence"
+      }, {
+        "left" : "Fortran",
+        "right" : "Scientific Applications"
+      }, {
+        "left" : "C",
+        "right" : "Systems Programming"
+      } ]
+    }, {
+      "type" : "MCQ_MULTIPLE",
+      "prompt" : "According to the text, which of the following languages are classified under the Declarative programming methodology?",
+      "options" : [ "Prolog", "SQL", "Lisp", "C", "Pascal" ],
+      "correctAnswer" : [ "Prolog", "SQL", "Lisp" ],
+      "citation" : {
+        "sourceLocation" : "Introduction.7",
+        "verbatimQuote" : "Declarative: on what the computer is to do. • Functional: Lisp, ML, Haskell • Logic or constraint-based: Prolog ... • Query-based: SQL, GraphQL.",
+        "reasoning" : "The quote lists Lisp, Prolog, and SQL as examples of declarative programming sub-paradigms."
+      },
+      "sentenceHtml" : null,
+      "pairs" : null
+    }, {
+      "type" : "TRUE_FALSE",
+      "prompt" : "The von Neumann architecture's design is presented as a primary reason for the dominance of imperative languages.",
+      "options" : null,
+      "correctAnswer" : true,
+      "citation" : {
+        "sourceLocation" : "Introduction.8",
+        "verbatimQuote" : "Well-known computer architecture: von Neumann. • Imperative languages, most dominant, because of von Neumann computers.",
+        "reasoning" : "The quote explicitly states the dominance of imperative languages is due to von Neumann computers."
+      },
+      "sentenceHtml" : null,
+      "pairs" : null
+    }, {
+      "type" : "FILL_IN_THE_BLANK",
+      "prompt" : "Fill in the blank with the correct language characteristic.",
+      "options" : null,
+      "correctAnswer" : [ "Orthogonality" ],
+      "citation" : {
+        "sourceLocation" : "Introduction.5",
+        "verbatimQuote" : "Orthogonality: every combination of features is meaningful. Independent functions should be controlled by independent mechanisms.",
+        "reasoning" : "The quote provides the exact definition for the term 'Orthogonality'."
+      },
+      "sentenceHtml" : "The characteristic where every combination of features is meaningful and independent functions are controlled by independent mechanisms is called ___(1)___.",
+      "pairs" : null
+    }, {
+      "type" : "MCQ_SINGLE",
+      "prompt" : "If a team is primarily concerned with the total expense of training and program execution, which evaluation criterion are they focusing on?",
+      "options" : [ "Readability", "Writability", "Reliability", "Cost" ],
+      "correctAnswer" : "Cost",
+      "citation" : {
+        "sourceLocation" : "Introduction.6",
+        "verbatimQuote" : "Evaluation 1 Readability 2 Writability 3 Reliability 4 Cost",
+        "reasoning" : "The prompt describes factors related to expense, which directly corresponds to the 'Cost' evaluation criterion."
+      },
+      "sentenceHtml" : null,
+      "pairs" : null
+    } ]
+  },
+  "prompt_tokens" : 3648,
+  "raw" : "```json\n{\n  \"questions\": [\n    {\n      \"citation\": {\n        \"reasoning\": \"The quote directly lists each language under its corresponding application domain.\",\n        \"sourceLocation\": \"Introduction.4\",\n        \"verbatimQuote\": \"Scientific Applications: Fortran, ... Business Applications: COBOL, ... Artificial Intelligence: LISP, ... Systems Programming: ... C, ...\"\n      },\n      \"correctAnswer\": null,\n      \"pairs\": [\n        {\n          \"left\": \"COBOL\",\n          \"right\": \"Business Applications\"\n        },\n        {\n          \"left\": \"LISP\",\n          \"right\": \"Artificial Intelligence\"\n        },\n        {\n          \"left\": \"Fortran\",\n          \"right\": \"Scientific Applications\"\n        },\n        {\n          \"left\": \"C\",\n          \"right\": \"Systems Programming\"\n        }\n      ],\n      \"prompt\": \"Match each programming language to its primary application domain as listed in the material.\",\n      \"type\": \"MATCHING\"\n    },\n    {\n      \"citation\": {\n        \"reasoning\": \"The quote lists Lisp, Prolog, and SQL as examples of declarative programming sub-paradigms.\",\n        \"sourceLocation\": \"Introduction.7\",\n        \"verbatimQuote\": \"Declarative: on what the computer is to do. • Functional: Lisp, ML, Haskell • Logic or constraint-based: Prolog ... • Query-based: SQL, GraphQL.\"\n      },\n      \"correctAnswer\": [\n        \"Prolog\",\n        \"SQL\",\n        \"Lisp\"\n      ],\n      \"options\": [\n        \"Prolog\",\n        \"SQL\",\n        \"Lisp\",\n        \"C\",\n        \"Pascal\"\n      ],\n      \"prompt\": \"According to the text, which of the following languages are classified under the Declarative programming methodology?\",\n      \"type\": \"MCQ_MULTIPLE\"\n    },\n    {\n      \"citation\": {\n        \"reasoning\": \"The quote explicitly states the dominance of imperative languages is due to von Neumann computers.\",\n        \"sourceLocation\": \"Introduction.8\",\n        \"verbatimQuote\": \"Well-known computer architecture: von Neumann. • Imperative languages, most dominant, because of von Neumann computers.\"\n      },\n      \"correctAnswer\": true,\n      \"prompt\": \"The von Neumann architecture's design is presented as a primary reason for the dominance of imperative languages.\",\n      \"type\": \"TRUE_FALSE\"\n    },\n    {\n      \"citation\": {\n        \"reasoning\": \"The quote provides the exact definition for the term 'Orthogonality'.\",\n        \"sourceLocation\": \"Introduction.5\",\n        \"verbatimQuote\": \"Orthogonality: every combination of features is meaningful. Independent functions should be controlled by independent mechanisms.\"\n      },\n      \"correctAnswer\": [\n        \"Orthogonality\"\n      ],\n      \"prompt\": \"Fill in the blank with the correct language characteristic.\",\n      \"sentenceHtml\": \"The characteristic where every combination of features is meaningful and independent functions are controlled by independent mechanisms is called ___(1)___.\",\n      \"type\": \"FILL_IN_THE_BLANK\"\n    },\n    {\n      \"citation\": {\n        \"reasoning\": \"The prompt describes factors related to expense, which directly corresponds to the 'Cost' evaluation criterion.\",\n        \"sourceLocation\": \"Introduction.6\",\n        \"verbatimQuote\": \"Evaluation 1 Readability 2 Writability 3 Reliability 4 Cost\"\n      },\n      \"correctAnswer\": \"Cost\",\n      \"options\": [\n        \"Readability\",\n        \"Writability\",\n        \"Reliability\",\n        \"Cost\"\n      ],\n      \"prompt\": \"If a team is primarily concerned with the total expense of training and program execution, which evaluation criterion are they focusing on?\",\n      \"type\": \"MCQ_SINGLE\"\n    }\n  ]\n}\n```",
+  "run" : 1,
+  "schema_ok" : true,
+  "temperature" : 0.2,
+  "timestamp" : "2026-06-05T20:25:13.673773"
+}

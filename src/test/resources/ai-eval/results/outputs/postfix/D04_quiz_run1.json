@@ -1,0 +1,97 @@
+{
+  "cleaned" : "{\n  \"questions\": [\n    {\n      \"citation\": {\n        \"reasoning\": \"This slide provides the definitions for the concurrency problems used in the matching exercise.\",\n        \"sourceLocation\": \"Slide 9\",\n        \"verbatimQuote\": \"The Temporary Update (or Dirty Read) Problem. This occurs when one transaction updates a database item and then the transaction fails for some reason.\"\n      },\n      \"correctAnswer\": null,\n      \"pairs\": [\n        {\n          \"left\": \"Lost Update\",\n          \"right\": \"Two transactions access the same item, and their interleaved operations result in an incorrect final value.\"\n        },\n        {\n          \"left\": \"Dirty Read\",\n          \"right\": \"A transaction accesses an item updated by another transaction that subsequently fails and is rolled back.\"\n        },\n        {\n          \"left\": \"Incorrect Summary\",\n          \"right\": \"An aggregate function calculates values on a set of records while other transactions are simultaneously updating them.\"\n        },\n        {\n          \"left\": \"Unrepeatable Read\",\n          \"right\": \"A transaction reads the same item twice, but another transaction modifies it between the two reads.\"\n        }\n      ],\n      \"prompt\": \"Match each concurrency control problem with its correct description.\",\n      \"type\": \"MATCHING\"\n    },\n    {\n      \"citation\": {\n        \"reasoning\": \"This quote describes the final step of the write_item command, which is not part of the read_item command.\",\n        \"sourceLocation\": \"Slide 7\",\n        \"verbatimQuote\": \"Store the updated block from the buffer back to disk (either immediately or at some later point in time).\"\n      },\n      \"correctAnswer\": \"Storing the updated block from the buffer back to disk.\",\n      \"options\": [\n        \"Finding the address of the disk block containing the item.\",\n        \"Copying the disk block into a buffer in main memory.\",\n        \"Copying the item from the buffer to a program variable.\",\n        \"Storing the updated block from the buffer back to disk.\"\n      ],\n      \"prompt\": \"Which of the following steps is part of a `write_item(X)` operation but NOT part of a `read_item(X)` operation?\",\n      \"type\": \"MCQ_SINGLE\"\n    },\n    {\n      \"citation\": {\n        \"reasoning\": \"The slides list several categories of errors that can cause a transaction to fail, including system, logical, and disk failures.\",\n        \"sourceLocation\": \"Slide 14\",\n        \"verbatimQuote\": \"A transaction or system error : Some operation in the transaction may cause it to fail, such as integer overflow or division by zero.\"\n      },\n      \"correctAnswer\": [\n        \"A system crash due to a hardware error\",\n        \"A logical programming error causing division by zero\",\n        \"A disk block losing data due to a malfunction\"\n      ],\n      \"options\": [\n        \"A system crash due to a hardware error\",\n        \"A logical programming error causing division by zero\",\n        \"A disk block losing data due to a malfunction\",\n        \"A user successfully submitting a query interactively\"\n      ],\n      \"prompt\": \"Based on the provided material, which of the following scenarios could cause a transaction to fail? (Select all that apply)\",\n      \"type\": \"MCQ_MULTIPLE\"\n    },\n    {\n      \"citation\": {\n        \"reasoning\": \"This quote defines interleaved processing, which is the concept required to fill in the blank.\",\n        \"sourceLocation\": \"Slide 3\",\n        \"verbatimQuote\": \"Interleaved processing: concurrent execution of processes is interleaved in a single CPU\"\n      },\n      \"correctAnswer\": [\n        \"Interleaved\"\n      ],\n      \"prompt\": \"Fill in the blank: The concurrent execution of processes that are interleaved in a single CPU is known as ___ processing.\",\n      \"sentenceHtml\": \"<p>The concurrent execution of processes that are interleaved in a single CPU is known as <input /> processing.</p>\",\n      \"type\": \"FILL_IN_THE_BLANK\"\n    },\n    {\n      \"citation\": {\n        \"reasoning\": \"This quote explicitly names the boundaries that define the start and end of a transaction.\",\n        \"sourceLocation\": \"Slide 4\",\n        \"verbatimQuote\": \"Transaction boundaries: Begin and End transaction.\"\n      },\n      \"correctAnswer\": [\n        \"Begin and End transaction\",\n        \"Begin and End\",\n        \"Begin and End boundaries\"\n      ],\n      \"prompt\": \"What are the two specific commands mentioned in the text that define a transaction's boundaries within a program?\",\n      \"type\": \"SHORT_ANSWER\"\n    }\n  ]\n}",
+  "completion_tokens" : 1057,
+  "doc_file" : "Chapter_5 - Transaction Processing.pdf",
+  "doc_id" : "D04",
+  "doc_language" : "en",
+  "doc_pages" : 65,
+  "doc_title" : "Introduction to Transaction Processing Concepts and Theory",
+  "empty_field" : false,
+  "error_message" : null,
+  "error_type" : null,
+  "feature" : "quiz",
+  "json_parse_ok" : true,
+  "latency_ms" : 25243,
+  "model" : "gemini-2.5-pro",
+  "parsed" : {
+    "questions" : [ {
+      "type" : "MATCHING",
+      "prompt" : "Match each concurrency control problem with its correct description.",
+      "options" : null,
+      "correctAnswer" : null,
+      "citation" : {
+        "sourceLocation" : "Slide 9",
+        "verbatimQuote" : "The Temporary Update (or Dirty Read) Problem. This occurs when one transaction updates a database item and then the transaction fails for some reason.",
+        "reasoning" : "This slide provides the definitions for the concurrency problems used in the matching exercise."
+      },
+      "sentenceHtml" : null,
+      "pairs" : [ {
+        "left" : "Lost Update",
+        "right" : "Two transactions access the same item, and their interleaved operations result in an incorrect final value."
+      }, {
+        "left" : "Dirty Read",
+        "right" : "A transaction accesses an item updated by another transaction that subsequently fails and is rolled back."
+      }, {
+        "left" : "Incorrect Summary",
+        "right" : "An aggregate function calculates values on a set of records while other transactions are simultaneously updating them."
+      }, {
+        "left" : "Unrepeatable Read",
+        "right" : "A transaction reads the same item twice, but another transaction modifies it between the two reads."
+      } ]
+    }, {
+      "type" : "MCQ_SINGLE",
+      "prompt" : "Which of the following steps is part of a `write_item(X)` operation but NOT part of a `read_item(X)` operation?",
+      "options" : [ "Finding the address of the disk block containing the item.", "Copying the disk block into a buffer in main memory.", "Copying the item from the buffer to a program variable.", "Storing the updated block from the buffer back to disk." ],
+      "correctAnswer" : "Storing the updated block from the buffer back to disk.",
+      "citation" : {
+        "sourceLocation" : "Slide 7",
+        "verbatimQuote" : "Store the updated block from the buffer back to disk (either immediately or at some later point in time).",
+        "reasoning" : "This quote describes the final step of the write_item command, which is not part of the read_item command."
+      },
+      "sentenceHtml" : null,
+      "pairs" : null
+    }, {
+      "type" : "MCQ_MULTIPLE",
+      "prompt" : "Based on the provided material, which of the following scenarios could cause a transaction to fail? (Select all that apply)",
+      "options" : [ "A system crash due to a hardware error", "A logical programming error causing division by zero", "A disk block losing data due to a malfunction", "A user successfully submitting a query interactively" ],
+      "correctAnswer" : [ "A system crash due to a hardware error", "A logical programming error causing division by zero", "A disk block losing data due to a malfunction" ],
+      "citation" : {
+        "sourceLocation" : "Slide 14",
+        "verbatimQuote" : "A transaction or system error : Some operation in the transaction may cause it to fail, such as integer overflow or division by zero.",
+        "reasoning" : "The slides list several categories of errors that can cause a transaction to fail, including system, logical, and disk failures."
+      },
+      "sentenceHtml" : null,
+      "pairs" : null
+    }, {
+      "type" : "FILL_IN_THE_BLANK",
+      "prompt" : "Fill in the blank: The concurrent execution of processes that are interleaved in a single CPU is known as ___ processing.",
+      "options" : null,
+      "correctAnswer" : [ "Interleaved" ],
+      "citation" : {
+        "sourceLocation" : "Slide 3",
+        "verbatimQuote" : "Interleaved processing: concurrent execution of processes is interleaved in a single CPU",
+        "reasoning" : "This quote defines interleaved processing, which is the concept required to fill in the blank."
+      },
+      "sentenceHtml" : "<p>The concurrent execution of processes that are interleaved in a single CPU is known as <input /> processing.</p>",
+      "pairs" : null
+    }, {
+      "type" : "SHORT_ANSWER",
+      "prompt" : "What are the two specific commands mentioned in the text that define a transaction's boundaries within a program?",
+      "options" : null,
+      "correctAnswer" : [ "Begin and End transaction", "Begin and End", "Begin and End boundaries" ],
+      "citation" : {
+        "sourceLocation" : "Slide 4",
+        "verbatimQuote" : "Transaction boundaries: Begin and End transaction.",
+        "reasoning" : "This quote explicitly names the boundaries that define the start and end of a transaction."
+      },
+      "sentenceHtml" : null,
+      "pairs" : null
+    } ]
+  },
+  "prompt_tokens" : 3622,
+  "raw" : "```json\n{\n  \"questions\": [\n    {\n      \"citation\": {\n        \"reasoning\": \"This slide provides the definitions for the concurrency problems used in the matching exercise.\",\n        \"sourceLocation\": \"Slide 9\",\n        \"verbatimQuote\": \"The Temporary Update (or Dirty Read) Problem. This occurs when one transaction updates a database item and then the transaction fails for some reason.\"\n      },\n      \"correctAnswer\": null,\n      \"pairs\": [\n        {\n          \"left\": \"Lost Update\",\n          \"right\": \"Two transactions access the same item, and their interleaved operations result in an incorrect final value.\"\n        },\n        {\n          \"left\": \"Dirty Read\",\n          \"right\": \"A transaction accesses an item updated by another transaction that subsequently fails and is rolled back.\"\n        },\n        {\n          \"left\": \"Incorrect Summary\",\n          \"right\": \"An aggregate function calculates values on a set of records while other transactions are simultaneously updating them.\"\n        },\n        {\n          \"left\": \"Unrepeatable Read\",\n          \"right\": \"A transaction reads the same item twice, but another transaction modifies it between the two reads.\"\n        }\n      ],\n      \"prompt\": \"Match each concurrency control problem with its correct description.\",\n      \"type\": \"MATCHING\"\n    },\n    {\n      \"citation\": {\n        \"reasoning\": \"This quote describes the final step of the write_item command, which is not part of the read_item command.\",\n        \"sourceLocation\": \"Slide 7\",\n        \"verbatimQuote\": \"Store the updated block from the buffer back to disk (either immediately or at some later point in time).\"\n      },\n      \"correctAnswer\": \"Storing the updated block from the buffer back to disk.\",\n      \"options\": [\n        \"Finding the address of the disk block containing the item.\",\n        \"Copying the disk block into a buffer in main memory.\",\n        \"Copying the item from the buffer to a program variable.\",\n        \"Storing the updated block from the buffer back to disk.\"\n      ],\n      \"prompt\": \"Which of the following steps is part of a `write_item(X)` operation but NOT part of a `read_item(X)` operation?\",\n      \"type\": \"MCQ_SINGLE\"\n    },\n    {\n      \"citation\": {\n        \"reasoning\": \"The slides list several categories of errors that can cause a transaction to fail, including system, logical, and disk failures.\",\n        \"sourceLocation\": \"Slide 14\",\n        \"verbatimQuote\": \"A transaction or system error : Some operation in the transaction may cause it to fail, such as integer overflow or division by zero.\"\n      },\n      \"correctAnswer\": [\n        \"A system crash due to a hardware error\",\n        \"A logical programming error causing division by zero\",\n        \"A disk block losing data due to a malfunction\"\n      ],\n      \"options\": [\n        \"A system crash due to a hardware error\",\n        \"A logical programming error causing division by zero\",\n        \"A disk block losing data due to a malfunction\",\n        \"A user successfully submitting a query interactively\"\n      ],\n      \"prompt\": \"Based on the provided material, which of the following scenarios could cause a transaction to fail? (Select all that apply)\",\n      \"type\": \"MCQ_MULTIPLE\"\n    },\n    {\n      \"citation\": {\n        \"reasoning\": \"This quote defines interleaved processing, which is the concept required to fill in the blank.\",\n        \"sourceLocation\": \"Slide 3\",\n        \"verbatimQuote\": \"Interleaved processing: concurrent execution of processes is interleaved in a single CPU\"\n      },\n      \"correctAnswer\": [\n        \"Interleaved\"\n      ],\n      \"prompt\": \"Fill in the blank: The concurrent execution of processes that are interleaved in a single CPU is known as ___ processing.\",\n      \"sentenceHtml\": \"<p>The concurrent execution of processes that are interleaved in a single CPU is known as <input /> processing.</p>\",\n      \"type\": \"FILL_IN_THE_BLANK\"\n    },\n    {\n      \"citation\": {\n        \"reasoning\": \"This quote explicitly names the boundaries that define the start and end of a transaction.\",\n        \"sourceLocation\": \"Slide 4\",\n        \"verbatimQuote\": \"Transaction boundaries: Begin and End transaction.\"\n      },\n      \"correctAnswer\": [\n        \"Begin and End transaction\",\n        \"Begin and End\",\n        \"Begin and End boundaries\"\n      ],\n      \"prompt\": \"What are the two specific commands mentioned in the text that define a transaction's boundaries within a program?\",\n      \"type\": \"SHORT_ANSWER\"\n    }\n  ]\n}\n```",
+  "run" : 1,
+  "schema_ok" : true,
+  "temperature" : 0.2,
+  "timestamp" : "2026-06-05T20:42:26.039868"
+}

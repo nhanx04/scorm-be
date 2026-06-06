@@ -1,0 +1,233 @@
+# =====================================================================
+# AI Evaluation Configuration
+# =====================================================================
+# Cấu hình toàn bộ thí nghiệm đánh giá định lượng module AI.
+# Mục tiêu: đảm bảo tính reproducibility — bất kỳ ai chạy lại cũng
+# phải dùng đúng tài liệu, đúng version model, đúng tham số.
+#
+# Tham chiếu: báo cáo đồ án, mục 5.4 "Đánh giá module AI".
+# =====================================================================
+
+experiment:
+  id: "ai-eval-2026-05"
+  description: "Đánh giá định lượng module AI sinh outline, page content và quiz"
+  started_at: "2026-05-23"
+  authors:
+    - "2213813"
+    - "2212370"
+
+# ---------------------------------------------------------------------
+# Model — PIN cứng version để reproducible
+# ---------------------------------------------------------------------
+# Lưu ý: production app dùng spring.ai.google.genai.chat.options.temperature=0.7
+# Eval cần determinism cao hơn → đặt temperature thấp.
+model:
+  provider: "google-genai"
+  name: "gemini-2.5-pro"
+  # Snapshot version cụ thể (cập nhật khi chạy thực tế dựa trên response metadata)
+  version_pinned: "gemini-2.5-pro-preview-05-06"
+  temperature: 0.2
+  top_p: 0.95
+  max_output_tokens: 8192
+  # Tham số bổ sung cho LLM-as-judge (nhóm C) — dùng Flash để tiết kiệm
+  judge:
+    name: "gemini-2.5-flash"
+    temperature: 0.0
+    max_output_tokens: 1024
+
+# ---------------------------------------------------------------------
+# Số lần lặp — để đo độ ổn định (variance) giữa các lần gọi cùng input
+# ---------------------------------------------------------------------
+runs:
+  per_document_per_feature: 2
+  # Tổng calls = 10 docs × 3 features × 2 runs = 60 calls
+
+# ---------------------------------------------------------------------
+# Tập tài liệu test (collected on 2026-05-23)
+# ---------------------------------------------------------------------
+# 10 tài liệu giáo trình/slide thực tế thu thập được.
+#
+# Phân bố theo lĩnh vực:
+#   - CS (5):    D01 (PL), D02 (SQL), D03 (DSA), D04 (DB transaction), D06 (ML)
+#   - Math (1):  D05 (Graph theory)
+#   - Business (2): D07 (Design thinking), D08 (Marketing)
+#   - Physics (1):  D09 (Trường tĩnh điện)
+#   - Econ (1):  D10 (Microeconomics)
+#
+# Phân bố theo ngôn ngữ:
+#   - English (8):  D01–D07, D10
+#   - Vietnamese (2): D08, D09
+#
+# LIMITATION (cần ghi vào mục 5.4.7 Threats to Validity):
+#   - Tập tài liệu lệch về CS (5/10) — phản ánh bias của chuyên ngành nhóm,
+#     có thể không generalize tốt cho lĩnh vực khác.
+#   - Tỷ lệ EN/VI = 8/2 chưa cân bằng — kết quả cho tiếng Việt có sample size nhỏ.
+#   - Độ dài tài liệu chênh lệch lớn (25–360 trang) — cần phân tách kết quả
+#     theo bucket độ dài khi báo cáo.
+#
+# Trường `actual_pages` lấy từ `pdfinfo` ngày D1.
+documents:
+  - id: "D01"
+    file: "1-Introduction-2023.pdf"
+    domain: "cs"
+    title: "Introduction to Programming Languages and Compilers"
+    language: "en"
+    actual_pages: 36
+    source_hint: "Slide môn Principles of Programming Languages (HCMUT, Dr. Nguyen Hua Phung)"
+
+  - id: "D02"
+    file: "4-1_SQL.pdf"
+    domain: "cs"
+    title: "Structured Query Language (DDL/DML/DCL)"
+    language: "en"
+    actual_pages: 114
+    source_hint: "Slide chương 4 môn Cơ sở dữ liệu (HCMUT)"
+
+  - id: "D03"
+    file: "201_DSA___Chapter_7__Hash___Search__new_.pdf"
+    domain: "cs"
+    title: "Searching Algorithms and Hash Tables"
+    language: "en"
+    actual_pages: 124
+    source_hint: "Slide chương 7 môn Data Structures and Algorithms (HCMUT, Tran Ngoc Bao Duy)"
+
+  - id: "D04"
+    file: "Chapter_5 - Transaction Processing.pdf"
+    domain: "cs"
+    title: "Introduction to Transaction Processing Concepts and Theory"
+    language: "en"
+    actual_pages: 65
+    source_hint: "Slide chương 5 môn Cơ sở dữ liệu nâng cao"
+
+  - id: "D05"
+    file: "ds10connectivity.pdf"
+    domain: "math"
+    title: "Graph Connectivity (Discrete Structures - Chapter 9)"
+    language: "en"
+    actual_pages: 360
+    source_hint: "Slide chương 9 môn Discrete Structures for Computing (HCMUT)"
+    notes: "Tài liệu lớn nhất - cần monitor token cost khi sinh outline"
+
+  - id: "D06"
+    file: "BayesianLearning.pdf"
+    domain: "cs"
+    title: "Bayesian Learning"
+    language: "en"
+    actual_pages: 36
+    source_hint: "Slide bài giảng Bayesian Learning (HCMUT, Thanh-Sach LE)"
+
+  - id: "D07"
+    file: "05_Design_thinking_v3.pdf"
+    domain: "business"
+    title: "Design Thinking & Design Principles (Electronic Commerce)"
+    language: "en"
+    actual_pages: 72
+    source_hint: "Slide chương 5 môn Electronic Commerce"
+
+  - id: "D08"
+    file: "NVT- POM-Ch1- DAI CUONG VE TIEP THI.pdf"
+    domain: "business"
+    title: "Đại cương về Marketing"
+    language: "vi"
+    actual_pages: 26
+    source_hint: "Slide chương 1 môn Marketing căn bản (TS. Nguyễn Văn Tuấn)"
+
+  - id: "D09"
+    file: "Chương 6.pdf"
+    domain: "physics"
+    title: "Trường tĩnh điện trong chân không"
+    language: "vi"
+    actual_pages: 25
+    source_hint: "Slide chương 6 môn Vật lý đại cương (Điện trường)"
+
+  - id: "D10"
+    file: "Chuong2_CungCauDiemCanBangGiaTranGiaSanThue_Eng.pdf"
+    domain: "econ"
+    title: "Supply, Demand and Market Equilibrium"
+    language: "en"
+    actual_pages: 57
+    source_hint: "Slide chương 2 môn Microeconomics"
+
+# ---------------------------------------------------------------------
+# Các tính năng AI được test
+# ---------------------------------------------------------------------
+features:
+  - id: "outline"
+    endpoint: "/api/v1/ai/generate-outline-from-file"
+    request_params:
+      targetAudience: "Sinh viên đại học năm 2-3"
+      audienceProficiencyLevel: "Trung cấp"
+      duration: "8 tuần"
+      additionalInstructions: ""
+    dto_class: "com.scorm.generator.dto.ai.AiCourseOutline"
+
+  - id: "page-content"
+    endpoint: "/api/v1/ai/generate-page-content"
+    request_params:
+      pageTitle: "Sẽ lấy động từ outline đã sinh ở feature outline"
+      additionalContext: ""
+    dto_class: "com.scorm.generator.dto.ai.AiPageContentResponse"
+    few_shot_enabled: true
+
+  - id: "quiz"
+    endpoint: "/api/v1/ai/generate-quiz"
+    request_params:
+      numberOfQuestions: 5
+      questionTypes: ["SINGLE_CHOICE", "TRUE_FALSE"]
+      difficulty: "MEDIUM"
+    dto_class: "com.scorm.generator.dto.ai.AiQuizResponse"
+    few_shot_enabled: true
+
+# ---------------------------------------------------------------------
+# Tham số đo và mục tiêu (target) — tham chiếu mục 5.4
+# ---------------------------------------------------------------------
+metrics:
+  reliability:
+    json_parse_success_rate_target: 0.95
+    schema_validation_pass_target: 0.95
+    empty_field_rate_target: 0.02
+
+  latency:
+    p95_target_seconds: 30.0
+    max_acceptable_seconds: 60.0
+
+  cost:
+    # Đơn giá USD/1M token (Gemini 2.5 Pro công bố tháng 5/2026)
+    input_price_per_million: 3.50
+    output_price_per_million: 10.50
+    # Bump lên $15 vì tổng 915 trang tài liệu (D05 lên tới 360 trang)
+    # khiến token outline lớn hơn dự kiến ban đầu
+    total_budget_usd: 15.00
+
+  faithfulness:
+    auto_score_target: 4.0   # trên thang 1-5
+    hallucination_rate_target: 0.10   # < 10%
+
+  pedagogical:
+    all_criteria_pass_target: 0.70   # ≥ 70% câu hỏi đạt cả 4 tiêu chí
+
+  iwf:
+    flaw_free_rate_target: 0.50      # ≥ 50% câu hỏi không mắc flaw nào
+    severely_flawed_rate_target: 0.20  # ≤ 20% câu hỏi mắc ≥ 2 flaw
+    kappa_target: 0.60               # κ inter-rater ≥ 0.6
+
+# ---------------------------------------------------------------------
+# Output paths
+# ---------------------------------------------------------------------
+output:
+  base_dir: "src/test/resources/ai-eval/results"
+  reliability_csv: "reliability_{timestamp}.csv"
+  latency_cost_csv: "latency_cost_{timestamp}.csv"
+  faithfulness_auto_csv: "faithfulness_auto_{timestamp}.csv"
+  human_scoring_template: "human_scoring_template.csv"
+  iwf_scoring_template: "iwf_scoring_template.csv"
+
+# ---------------------------------------------------------------------
+# Sample size cho human evaluation (Nhóm C & D & IWF)
+# ---------------------------------------------------------------------
+human_eval:
+  faithfulness_sample_size: 30      # random 30 từ 60 outputs
+  reviewers: 2
+  quiz_sample_size: 50              # 10 docs × 5 câu hỏi/quiz
+  rubric_pedagogical: "rubrics/pedagogical-rubric.md"
+  rubric_iwf: "rubrics/iwf-checklist.md"

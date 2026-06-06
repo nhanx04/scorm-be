@@ -1,0 +1,74 @@
+{
+  "cleaned" : "{\n  \"questions\": [\n    {\n      \"type\": \"MCQ_SINGLE\",\n      \"prompt\": \"Theo Bài tập ví dụ 2, một quả cầu tâm O, bán kính R tích điện đều trên bề mặt với điện tích q > 0. Cường độ điện trường tại một điểm bên trong quả cầu (r < R) có giá trị bằng bao nhiêu?\",\n      \"options\": [\n        \"E = 0\",\n        \"E = k * q / r^2\",\n        \"E = k * q / R^2\",\n        \"Không xác định được từ tài liệu\"\n      ],\n      \"correctAnswer\": \"E = 0\",\n      \"explanation\": \"Theo tài liệu: Slide 8, phần Hướng dẫn giải Bài tập ví dụ 2, có nêu rõ: 'Ở bên trong quả cầu (r < R): Σqi = 0 nên E = 0.'\"\n    },\n    {\n      \"type\": \"TRUE_FALSE\",\n      \"prompt\": \"Đúng hay sai: Theo tài liệu, các đường sức của điện trường tĩnh là những đường cong khép kín.\",\n      \"correctAnswer\": false,\n      \"explanation\": \"Theo tài liệu: Slide 4, phần mô tả đường sức điện trường, có ghi: 'Đường sức điện trường tĩnh không khép kín.'\"\n    },\n    {\n      \"type\": \"FILL_IN_THE_BLANK\",\n      \"prompt\": \"Điền vào chỗ trống để hoàn thành phát biểu Định lý Gauss trong chân không.\",\n      \"sentenceHtml\": \"Trong chân không, thông lượng của vectơ cường độ điện trường gửi qua mặt kín S thì bằng tổng đại số điện tích chứa bên trong mặt kín chia cho ___(1)___.\",\n      \"correctAnswer\": [\n        \"ε0\"\n      ],\n      \"explanation\": \"Theo tài liệu: Slide 7, phần Định lý Gauss, phát biểu Định lý Gauss trong chân không là: 'Trong chân không, thông lượng của vectơ cường độ điện trường gửi qua mặt kín S thì bằng tổng đại số điện tích chứa bên trong mặt kín chia cho ε0.'\"\n    },\n    {\n      \"type\": \"SHORT_ANSWER\",\n      \"prompt\": \"Theo tài liệu, đại lượng vật lý nào được đưa vào để khử sự gián đoạn của vecto cường độ điện trường khi đi qua mặt phân cách giữa hai môi trường có hằng số điện môi khác nhau?\",\n      \"correctAnswer\": [\n        \"Vecto cảm ứng điện\",\n        \"vecto cảm ứng điện\"\n      ],\n      \"explanation\": \"Theo tài liệu: Slide 5, phần Vecto cảm ứng điện, có nêu: 'Để khử sự gián đoạn đó, ta đưa vào đại lượng mới là vecto cảm ứng điện D.'\"\n    },\n    {\n      \"type\": \"MATCHING\",\n      \"prompt\": \"Hãy ghép nối loại vật tích điện phân bố liên tục với ký hiệu mật độ điện tương ứng được nêu trong tài liệu.\",\n      \"pairs\": [\n        {\n          \"left\": \"Vật tích điện một chiều\",\n          \"right\": \"Mật độ điện dài λ\"\n        },\n        {\n          \"left\": \"Vật tích điện hai chiều\",\n          \"right\": \"Mật độ điện mặt σ\"\n        },\n        {\n          \"left\": \"Vật tích điện ba chiều\",\n          \"right\": \"Mật độ điện khối ρ\"\n        }\n      ],\n      \"correctAnswer\": null,\n      \"explanation\": \"Theo tài liệu: Slide 2, phần 'Điện trường do hệ điện tích phân bố liên tục gây ra', có định nghĩa: 'Nếu vật tích điện một chiều thì nó có mật độ điện dài λ=dq/dl. Nếu vật tích điện hai chiều thì nó có mật độ điện mặt σ=dq/dS. Nếu vật tích điện ba chiều thì nó có mật độ điện khối ρ=dq/dV.'\"\n    }\n  ]\n}",
+  "completion_tokens" : 864,
+  "doc_file" : "Chương 6.pdf",
+  "doc_id" : "D09",
+  "doc_language" : "vi",
+  "doc_pages" : 25,
+  "doc_title" : "Trường tĩnh điện trong chân không",
+  "empty_field" : false,
+  "error_message" : null,
+  "error_type" : null,
+  "feature" : "quiz",
+  "json_parse_ok" : true,
+  "latency_ms" : 17856,
+  "model" : "gemini-2.5-pro",
+  "parsed" : {
+    "questions" : [ {
+      "type" : "MCQ_SINGLE",
+      "prompt" : "Theo Bài tập ví dụ 2, một quả cầu tâm O, bán kính R tích điện đều trên bề mặt với điện tích q > 0. Cường độ điện trường tại một điểm bên trong quả cầu (r < R) có giá trị bằng bao nhiêu?",
+      "options" : [ "E = 0", "E = k * q / r^2", "E = k * q / R^2", "Không xác định được từ tài liệu" ],
+      "correctAnswer" : "E = 0",
+      "explanation" : "Theo tài liệu: Slide 8, phần Hướng dẫn giải Bài tập ví dụ 2, có nêu rõ: 'Ở bên trong quả cầu (r < R): Σqi = 0 nên E = 0.'",
+      "sentenceHtml" : null,
+      "pairs" : null
+    }, {
+      "type" : "TRUE_FALSE",
+      "prompt" : "Đúng hay sai: Theo tài liệu, các đường sức của điện trường tĩnh là những đường cong khép kín.",
+      "options" : null,
+      "correctAnswer" : false,
+      "explanation" : "Theo tài liệu: Slide 4, phần mô tả đường sức điện trường, có ghi: 'Đường sức điện trường tĩnh không khép kín.'",
+      "sentenceHtml" : null,
+      "pairs" : null
+    }, {
+      "type" : "FILL_IN_THE_BLANK",
+      "prompt" : "Điền vào chỗ trống để hoàn thành phát biểu Định lý Gauss trong chân không.",
+      "options" : null,
+      "correctAnswer" : [ "ε0" ],
+      "explanation" : "Theo tài liệu: Slide 7, phần Định lý Gauss, phát biểu Định lý Gauss trong chân không là: 'Trong chân không, thông lượng của vectơ cường độ điện trường gửi qua mặt kín S thì bằng tổng đại số điện tích chứa bên trong mặt kín chia cho ε0.'",
+      "sentenceHtml" : "Trong chân không, thông lượng của vectơ cường độ điện trường gửi qua mặt kín S thì bằng tổng đại số điện tích chứa bên trong mặt kín chia cho ___(1)___.",
+      "pairs" : null
+    }, {
+      "type" : "SHORT_ANSWER",
+      "prompt" : "Theo tài liệu, đại lượng vật lý nào được đưa vào để khử sự gián đoạn của vecto cường độ điện trường khi đi qua mặt phân cách giữa hai môi trường có hằng số điện môi khác nhau?",
+      "options" : null,
+      "correctAnswer" : [ "Vecto cảm ứng điện", "vecto cảm ứng điện" ],
+      "explanation" : "Theo tài liệu: Slide 5, phần Vecto cảm ứng điện, có nêu: 'Để khử sự gián đoạn đó, ta đưa vào đại lượng mới là vecto cảm ứng điện D.'",
+      "sentenceHtml" : null,
+      "pairs" : null
+    }, {
+      "type" : "MATCHING",
+      "prompt" : "Hãy ghép nối loại vật tích điện phân bố liên tục với ký hiệu mật độ điện tương ứng được nêu trong tài liệu.",
+      "options" : null,
+      "correctAnswer" : null,
+      "explanation" : "Theo tài liệu: Slide 2, phần 'Điện trường do hệ điện tích phân bố liên tục gây ra', có định nghĩa: 'Nếu vật tích điện một chiều thì nó có mật độ điện dài λ=dq/dl. Nếu vật tích điện hai chiều thì nó có mật độ điện mặt σ=dq/dS. Nếu vật tích điện ba chiều thì nó có mật độ điện khối ρ=dq/dV.'",
+      "sentenceHtml" : null,
+      "pairs" : [ {
+        "left" : "Vật tích điện một chiều",
+        "right" : "Mật độ điện dài λ"
+      }, {
+        "left" : "Vật tích điện hai chiều",
+        "right" : "Mật độ điện mặt σ"
+      }, {
+        "left" : "Vật tích điện ba chiều",
+        "right" : "Mật độ điện khối ρ"
+      } ]
+    } ]
+  },
+  "prompt_tokens" : 3775,
+  "raw" : "```json\n{\n  \"questions\": [\n    {\n      \"type\": \"MCQ_SINGLE\",\n      \"prompt\": \"Theo Bài tập ví dụ 2, một quả cầu tâm O, bán kính R tích điện đều trên bề mặt với điện tích q > 0. Cường độ điện trường tại một điểm bên trong quả cầu (r < R) có giá trị bằng bao nhiêu?\",\n      \"options\": [\n        \"E = 0\",\n        \"E = k * q / r^2\",\n        \"E = k * q / R^2\",\n        \"Không xác định được từ tài liệu\"\n      ],\n      \"correctAnswer\": \"E = 0\",\n      \"explanation\": \"Theo tài liệu: Slide 8, phần Hướng dẫn giải Bài tập ví dụ 2, có nêu rõ: 'Ở bên trong quả cầu (r < R): Σqi = 0 nên E = 0.'\"\n    },\n    {\n      \"type\": \"TRUE_FALSE\",\n      \"prompt\": \"Đúng hay sai: Theo tài liệu, các đường sức của điện trường tĩnh là những đường cong khép kín.\",\n      \"correctAnswer\": false,\n      \"explanation\": \"Theo tài liệu: Slide 4, phần mô tả đường sức điện trường, có ghi: 'Đường sức điện trường tĩnh không khép kín.'\"\n    },\n    {\n      \"type\": \"FILL_IN_THE_BLANK\",\n      \"prompt\": \"Điền vào chỗ trống để hoàn thành phát biểu Định lý Gauss trong chân không.\",\n      \"sentenceHtml\": \"Trong chân không, thông lượng của vectơ cường độ điện trường gửi qua mặt kín S thì bằng tổng đại số điện tích chứa bên trong mặt kín chia cho ___(1)___.\",\n      \"correctAnswer\": [\n        \"ε0\"\n      ],\n      \"explanation\": \"Theo tài liệu: Slide 7, phần Định lý Gauss, phát biểu Định lý Gauss trong chân không là: 'Trong chân không, thông lượng của vectơ cường độ điện trường gửi qua mặt kín S thì bằng tổng đại số điện tích chứa bên trong mặt kín chia cho ε0.'\"\n    },\n    {\n      \"type\": \"SHORT_ANSWER\",\n      \"prompt\": \"Theo tài liệu, đại lượng vật lý nào được đưa vào để khử sự gián đoạn của vecto cường độ điện trường khi đi qua mặt phân cách giữa hai môi trường có hằng số điện môi khác nhau?\",\n      \"correctAnswer\": [\n        \"Vecto cảm ứng điện\",\n        \"vecto cảm ứng điện\"\n      ],\n      \"explanation\": \"Theo tài liệu: Slide 5, phần Vecto cảm ứng điện, có nêu: 'Để khử sự gián đoạn đó, ta đưa vào đại lượng mới là vecto cảm ứng điện D.'\"\n    },\n    {\n      \"type\": \"MATCHING\",\n      \"prompt\": \"Hãy ghép nối loại vật tích điện phân bố liên tục với ký hiệu mật độ điện tương ứng được nêu trong tài liệu.\",\n      \"pairs\": [\n        {\n          \"left\": \"Vật tích điện một chiều\",\n          \"right\": \"Mật độ điện dài λ\"\n        },\n        {\n          \"left\": \"Vật tích điện hai chiều\",\n          \"right\": \"Mật độ điện mặt σ\"\n        },\n        {\n          \"left\": \"Vật tích điện ba chiều\",\n          \"right\": \"Mật độ điện khối ρ\"\n        }\n      ],\n      \"correctAnswer\": null,\n      \"explanation\": \"Theo tài liệu: Slide 2, phần 'Điện trường do hệ điện tích phân bố liên tục gây ra', có định nghĩa: 'Nếu vật tích điện một chiều thì nó có mật độ điện dài λ=dq/dl. Nếu vật tích điện hai chiều thì nó có mật độ điện mặt σ=dq/dS. Nếu vật tích điện ba chiều thì nó có mật độ điện khối ρ=dq/dV.'\"\n    }\n  ]\n}\n```",
+  "run" : 1,
+  "schema_ok" : true,
+  "temperature" : 0.2,
+  "timestamp" : "2026-06-05T07:35:05.371537"
+}

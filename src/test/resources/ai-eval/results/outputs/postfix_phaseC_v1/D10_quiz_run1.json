@@ -1,0 +1,97 @@
+{
+  "cleaned" : "{\n  \"questions\": [\n    {\n      \"citation\": {\n        \"reasoning\": \"This quote lists 'input prices' as a determinant that causes a shift in the supply curve.\",\n        \"sourceLocation\": \"Slide 14\",\n        \"verbatimQuote\": \"Changes in supply: Shifts due to some change in a determinant of supply • input prices, • technology, • expectations, • number of sellers\"\n      },\n      \"correctAnswer\": \"The supply of bicycles will shift to the left.\",\n      \"options\": [\n        \"The supply of bicycles will shift to the left.\",\n        \"The supply of bicycles will shift to the right.\",\n        \"The demand for bicycle assembly workers will increase.\",\n        \"The firm must increase output to maintain profit levels.\"\n      ],\n      \"prompt\": \"Workers at a bicycle plant earn minimum wage. If the government increases the minimum wage, what is the likely effect on the supply of bicycles?\",\n      \"type\": \"MCQ_SINGLE\"\n    },\n    {\n      \"citation\": {\n        \"reasoning\": \"The law of demand is explicitly tied to price changes, not changes in income, which is a non-price determinant.\",\n        \"sourceLocation\": \"Slide 6\",\n        \"verbatimQuote\": \"Law of demand • The quantity of a good demanded in a given time period increases as its price falls, ceteris paribus.\"\n      },\n      \"correctAnswer\": false,\n      \"prompt\": \"True or False: A consumer buying more of a product because their income increased is a direct illustration of the law of demand.\",\n      \"type\": \"TRUE_FALSE\"\n    },\n    {\n      \"citation\": {\n        \"reasoning\": \"The slide provides the exact quantities demanded and supplied at a price of $5, allowing for the calculation of the surplus.\",\n        \"sourceLocation\": \"Slide 18\",\n        \"verbatimQuote\": \"Surplus (excess supply): quantity supplied is greater than quantity demanded Example: if P = $5, then QD = 9 and QS = 25\"\n      },\n      \"correctAnswer\": [\n        \"16\",\n        \"16 units\"\n      ],\n      \"prompt\": \"Based on the market data provided in the 'Supply and Demand Together' slide, what is the size of the surplus when the price is $5?\",\n      \"type\": \"SHORT_ANSWER\"\n    },\n    {\n      \"citation\": {\n        \"reasoning\": \"The text explicitly distinguishes between a 'change in quantity demanded' (movement along the curve) and a 'change in demand' (shift).\",\n        \"sourceLocation\": \"Slide 7\",\n        \"verbatimQuote\": \"Changes in quantity demanded: Movements along a given demand curve in response to price changes of the good.\"\n      },\n      \"correctAnswer\": [\n        \"quantity demanded\",\n        \"demand\"\n      ],\n      \"prompt\": \"Complete the sentence to distinguish between the two types of changes.\",\n      \"sentenceHtml\": \"<p>A change in price causes a change in ___(1)___, shown as a movement along the curve, while a change in a non-price determinant causes a change in ___(2)___, shown as a shift of the curve.</p>\",\n      \"type\": \"FILL_IN_THE_BLANK\"\n    },\n    {\n      \"citation\": {\n        \"reasoning\": \"This quote lists 'tastes' as a non-price determinant of demand, which is one of the scenarios in the matching question.\",\n        \"sourceLocation\": \"Slide 6\",\n        \"verbatimQuote\": \"Determinants of demand • Tastes (desire for this and other goods) • Income (of the consumer) • Other goods (their availability and price)\"\n      },\n      \"correctAnswer\": null,\n      \"pairs\": [\n        {\n          \"left\": \"A popular celebrity endorses a new brand of sneakers.\",\n          \"right\": \"Increase in demand\"\n        },\n        {\n          \"left\": \"The price of rubber, an input for shoes, increases.\",\n          \"right\": \"Decrease in supply\"\n        },\n        {\n          \"left\": \"The price of the sneakers themselves decreases.\",\n          \"right\": \"Increase in quantity demanded\"\n        },\n        {\n          \"left\": \"A new automated manufacturing process is introduced.\",\n          \"right\": \"Increase in supply\"\n        }\n      ],\n      \"prompt\": \"Match each market event with its most likely immediate effect on the market for sneakers.\",\n      \"type\": \"MATCHING\"\n    }\n  ]\n}",
+  "completion_tokens" : 1018,
+  "doc_file" : "Chuong2_CungCauDiemCanBangGiaTranGiaSanThue_Eng.pdf",
+  "doc_id" : "D10",
+  "doc_language" : "en",
+  "doc_pages" : 57,
+  "doc_title" : "Supply, Demand and Market Equilibrium",
+  "empty_field" : false,
+  "error_message" : null,
+  "error_type" : null,
+  "feature" : "quiz",
+  "json_parse_ok" : true,
+  "latency_ms" : 28493,
+  "model" : "gemini-2.5-pro",
+  "parsed" : {
+    "questions" : [ {
+      "type" : "MCQ_SINGLE",
+      "prompt" : "Workers at a bicycle plant earn minimum wage. If the government increases the minimum wage, what is the likely effect on the supply of bicycles?",
+      "options" : [ "The supply of bicycles will shift to the left.", "The supply of bicycles will shift to the right.", "The demand for bicycle assembly workers will increase.", "The firm must increase output to maintain profit levels." ],
+      "correctAnswer" : "The supply of bicycles will shift to the left.",
+      "citation" : {
+        "sourceLocation" : "Slide 14",
+        "verbatimQuote" : "Changes in supply: Shifts due to some change in a determinant of supply • input prices, • technology, • expectations, • number of sellers",
+        "reasoning" : "This quote lists 'input prices' as a determinant that causes a shift in the supply curve."
+      },
+      "sentenceHtml" : null,
+      "pairs" : null
+    }, {
+      "type" : "TRUE_FALSE",
+      "prompt" : "True or False: A consumer buying more of a product because their income increased is a direct illustration of the law of demand.",
+      "options" : null,
+      "correctAnswer" : false,
+      "citation" : {
+        "sourceLocation" : "Slide 6",
+        "verbatimQuote" : "Law of demand • The quantity of a good demanded in a given time period increases as its price falls, ceteris paribus.",
+        "reasoning" : "The law of demand is explicitly tied to price changes, not changes in income, which is a non-price determinant."
+      },
+      "sentenceHtml" : null,
+      "pairs" : null
+    }, {
+      "type" : "SHORT_ANSWER",
+      "prompt" : "Based on the market data provided in the 'Supply and Demand Together' slide, what is the size of the surplus when the price is $5?",
+      "options" : null,
+      "correctAnswer" : [ "16", "16 units" ],
+      "citation" : {
+        "sourceLocation" : "Slide 18",
+        "verbatimQuote" : "Surplus (excess supply): quantity supplied is greater than quantity demanded Example: if P = $5, then QD = 9 and QS = 25",
+        "reasoning" : "The slide provides the exact quantities demanded and supplied at a price of $5, allowing for the calculation of the surplus."
+      },
+      "sentenceHtml" : null,
+      "pairs" : null
+    }, {
+      "type" : "FILL_IN_THE_BLANK",
+      "prompt" : "Complete the sentence to distinguish between the two types of changes.",
+      "options" : null,
+      "correctAnswer" : [ "quantity demanded", "demand" ],
+      "citation" : {
+        "sourceLocation" : "Slide 7",
+        "verbatimQuote" : "Changes in quantity demanded: Movements along a given demand curve in response to price changes of the good.",
+        "reasoning" : "The text explicitly distinguishes between a 'change in quantity demanded' (movement along the curve) and a 'change in demand' (shift)."
+      },
+      "sentenceHtml" : "<p>A change in price causes a change in ___(1)___, shown as a movement along the curve, while a change in a non-price determinant causes a change in ___(2)___, shown as a shift of the curve.</p>",
+      "pairs" : null
+    }, {
+      "type" : "MATCHING",
+      "prompt" : "Match each market event with its most likely immediate effect on the market for sneakers.",
+      "options" : null,
+      "correctAnswer" : null,
+      "citation" : {
+        "sourceLocation" : "Slide 6",
+        "verbatimQuote" : "Determinants of demand • Tastes (desire for this and other goods) • Income (of the consumer) • Other goods (their availability and price)",
+        "reasoning" : "This quote lists 'tastes' as a non-price determinant of demand, which is one of the scenarios in the matching question."
+      },
+      "sentenceHtml" : null,
+      "pairs" : [ {
+        "left" : "A popular celebrity endorses a new brand of sneakers.",
+        "right" : "Increase in demand"
+      }, {
+        "left" : "The price of rubber, an input for shoes, increases.",
+        "right" : "Decrease in supply"
+      }, {
+        "left" : "The price of the sneakers themselves decreases.",
+        "right" : "Increase in quantity demanded"
+      }, {
+        "left" : "A new automated manufacturing process is introduced.",
+        "right" : "Increase in supply"
+      } ]
+    } ]
+  },
+  "prompt_tokens" : 4208,
+  "raw" : "```json\n{\n  \"questions\": [\n    {\n      \"citation\": {\n        \"reasoning\": \"This quote lists 'input prices' as a determinant that causes a shift in the supply curve.\",\n        \"sourceLocation\": \"Slide 14\",\n        \"verbatimQuote\": \"Changes in supply: Shifts due to some change in a determinant of supply • input prices, • technology, • expectations, • number of sellers\"\n      },\n      \"correctAnswer\": \"The supply of bicycles will shift to the left.\",\n      \"options\": [\n        \"The supply of bicycles will shift to the left.\",\n        \"The supply of bicycles will shift to the right.\",\n        \"The demand for bicycle assembly workers will increase.\",\n        \"The firm must increase output to maintain profit levels.\"\n      ],\n      \"prompt\": \"Workers at a bicycle plant earn minimum wage. If the government increases the minimum wage, what is the likely effect on the supply of bicycles?\",\n      \"type\": \"MCQ_SINGLE\"\n    },\n    {\n      \"citation\": {\n        \"reasoning\": \"The law of demand is explicitly tied to price changes, not changes in income, which is a non-price determinant.\",\n        \"sourceLocation\": \"Slide 6\",\n        \"verbatimQuote\": \"Law of demand • The quantity of a good demanded in a given time period increases as its price falls, ceteris paribus.\"\n      },\n      \"correctAnswer\": false,\n      \"prompt\": \"True or False: A consumer buying more of a product because their income increased is a direct illustration of the law of demand.\",\n      \"type\": \"TRUE_FALSE\"\n    },\n    {\n      \"citation\": {\n        \"reasoning\": \"The slide provides the exact quantities demanded and supplied at a price of $5, allowing for the calculation of the surplus.\",\n        \"sourceLocation\": \"Slide 18\",\n        \"verbatimQuote\": \"Surplus (excess supply): quantity supplied is greater than quantity demanded Example: if P = $5, then QD = 9 and QS = 25\"\n      },\n      \"correctAnswer\": [\n        \"16\",\n        \"16 units\"\n      ],\n      \"prompt\": \"Based on the market data provided in the 'Supply and Demand Together' slide, what is the size of the surplus when the price is $5?\",\n      \"type\": \"SHORT_ANSWER\"\n    },\n    {\n      \"citation\": {\n        \"reasoning\": \"The text explicitly distinguishes between a 'change in quantity demanded' (movement along the curve) and a 'change in demand' (shift).\",\n        \"sourceLocation\": \"Slide 7\",\n        \"verbatimQuote\": \"Changes in quantity demanded: Movements along a given demand curve in response to price changes of the good.\"\n      },\n      \"correctAnswer\": [\n        \"quantity demanded\",\n        \"demand\"\n      ],\n      \"prompt\": \"Complete the sentence to distinguish between the two types of changes.\",\n      \"sentenceHtml\": \"<p>A change in price causes a change in ___(1)___, shown as a movement along the curve, while a change in a non-price determinant causes a change in ___(2)___, shown as a shift of the curve.</p>\",\n      \"type\": \"FILL_IN_THE_BLANK\"\n    },\n    {\n      \"citation\": {\n        \"reasoning\": \"This quote lists 'tastes' as a non-price determinant of demand, which is one of the scenarios in the matching question.\",\n        \"sourceLocation\": \"Slide 6\",\n        \"verbatimQuote\": \"Determinants of demand • Tastes (desire for this and other goods) • Income (of the consumer) • Other goods (their availability and price)\"\n      },\n      \"correctAnswer\": null,\n      \"pairs\": [\n        {\n          \"left\": \"A popular celebrity endorses a new brand of sneakers.\",\n          \"right\": \"Increase in demand\"\n        },\n        {\n          \"left\": \"The price of rubber, an input for shoes, increases.\",\n          \"right\": \"Decrease in supply\"\n        },\n        {\n          \"left\": \"The price of the sneakers themselves decreases.\",\n          \"right\": \"Increase in quantity demanded\"\n        },\n        {\n          \"left\": \"A new automated manufacturing process is introduced.\",\n          \"right\": \"Increase in supply\"\n        }\n      ],\n      \"prompt\": \"Match each market event with its most likely immediate effect on the market for sneakers.\",\n      \"type\": \"MATCHING\"\n    }\n  ]\n}\n```",
+  "run" : 1,
+  "schema_ok" : true,
+  "temperature" : 0.2,
+  "timestamp" : "2026-06-05T20:29:05.778147"
+}

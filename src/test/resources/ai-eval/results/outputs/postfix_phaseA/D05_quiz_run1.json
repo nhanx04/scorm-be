@@ -1,0 +1,77 @@
+{
+  "cleaned" : "{\n  \"questions\": [\n    {\n      \"type\": \"MCQ_SINGLE\",\n      \"prompt\": \"According to the course contents, which of the following is listed as a Shortest Path Problem algorithm?\",\n      \"options\": [\n        \"Dijkstra's Algorithm\",\n        \"Euler's Path Algorithm\",\n        \"Hamilton's Circuit Method\",\n        \"Graph Coloring Technique\"\n      ],\n      \"correctAnswer\": \"Dijkstra's Algorithm\",\n      \"explanation\": \"Slide 9.4: 'Shortest Path Problem Dijkstra's Algorithm'. The table of contents explicitly lists Dijkstra's Algorithm under the Shortest Path Problem section.\"\n    },\n    {\n      \"type\": \"TRUE_FALSE\",\n      \"prompt\": \"True or False: The slides concerning Euler and Hamilton circuits were created by researchers from VNUHCM.\",\n      \"correctAnswer\": false,\n      \"explanation\": \"Slide 9.2: 'Some slides about Euler and Hamilton circuits are created by Chung Ki-hong and Hur Joon-seok from KAIST.'. The acknowledgement slide states these specific slides were created by individuals from KAIST, not VNUHCM.\"\n    },\n    {\n      \"type\": \"SHORT_ANSWER\",\n      \"prompt\": \"Based on the diagram on slide 9.5, what is the specified length of the circuit shown?\",\n      \"correctAnswer\": [\n        \"4\"\n      ],\n      \"explanation\": \"Slide 9.5: 'Circuit of length 4'. The image of the circuit is explicitly labeled with its length in the provided material.\"\n    },\n    {\n      \"type\": \"FILL_IN_THE_BLANK\",\n      \"prompt\": \"Complete the course learning outcome based on the provided document.\",\n      \"sentenceHtml\": \"L.O.2.3 is to 'Explain problem modeling using ___ structures'.\",\n      \"correctAnswer\": [\n        \"discrete\"\n      ],\n      \"explanation\": \"Slide 9.3: 'L.O.2.3 � Explain problem modeling using discrete structures'. This learning outcome is listed verbatim in the course outcomes section.\"\n    },\n    {\n      \"type\": \"MATCHING\",\n      \"prompt\": \"Match each topic to its main category as presented in the course contents.\",\n      \"pairs\": [\n        {\n          \"left\": \"Floyd-Warshall Algorithm\",\n          \"right\": \"Shortest Path Problem\"\n        },\n        {\n          \"left\": \"Paths and Circuits\",\n          \"right\": \"Connectivity\"\n        },\n        {\n          \"left\": \"Graph Coloring\",\n          \"right\": \"Others\"\n        },\n        {\n          \"left\": \"Hamilton Paths and Circuits\",\n          \"right\": \"Euler and Hamilton Paths\"\n        }\n      ],\n      \"correctAnswer\": null,\n      \"explanation\": \"Slide 9.4: 'Contents 1 Connectivity Paths and Circuits 2 Euler and Hamilton Paths ... 3 Shortest Path Problem ... Floyd-Warshall Algorithm ... 4 Graph Coloring'. The contents slide organizes these topics under their respective categories.\"\n    }\n  ]\n}",
+  "completion_tokens" : 689,
+  "doc_file" : "ds10connectivity.pdf",
+  "doc_id" : "D05",
+  "doc_language" : "en",
+  "doc_pages" : 360,
+  "doc_title" : "Graph Connectivity (Discrete Structures - Chapter 9)",
+  "empty_field" : false,
+  "error_message" : null,
+  "error_type" : null,
+  "feature" : "quiz",
+  "json_parse_ok" : true,
+  "latency_ms" : 22910,
+  "model" : "gemini-2.5-pro",
+  "parsed" : {
+    "questions" : [ {
+      "type" : "MCQ_SINGLE",
+      "prompt" : "According to the course contents, which of the following is listed as a Shortest Path Problem algorithm?",
+      "options" : [ "Dijkstra's Algorithm", "Euler's Path Algorithm", "Hamilton's Circuit Method", "Graph Coloring Technique" ],
+      "correctAnswer" : "Dijkstra's Algorithm",
+      "explanation" : "Slide 9.4: 'Shortest Path Problem Dijkstra's Algorithm'. The table of contents explicitly lists Dijkstra's Algorithm under the Shortest Path Problem section.",
+      "sentenceHtml" : null,
+      "pairs" : null
+    }, {
+      "type" : "TRUE_FALSE",
+      "prompt" : "True or False: The slides concerning Euler and Hamilton circuits were created by researchers from VNUHCM.",
+      "options" : null,
+      "correctAnswer" : false,
+      "explanation" : "Slide 9.2: 'Some slides about Euler and Hamilton circuits are created by Chung Ki-hong and Hur Joon-seok from KAIST.'. The acknowledgement slide states these specific slides were created by individuals from KAIST, not VNUHCM.",
+      "sentenceHtml" : null,
+      "pairs" : null
+    }, {
+      "type" : "SHORT_ANSWER",
+      "prompt" : "Based on the diagram on slide 9.5, what is the specified length of the circuit shown?",
+      "options" : null,
+      "correctAnswer" : [ "4" ],
+      "explanation" : "Slide 9.5: 'Circuit of length 4'. The image of the circuit is explicitly labeled with its length in the provided material.",
+      "sentenceHtml" : null,
+      "pairs" : null
+    }, {
+      "type" : "FILL_IN_THE_BLANK",
+      "prompt" : "Complete the course learning outcome based on the provided document.",
+      "options" : null,
+      "correctAnswer" : [ "discrete" ],
+      "explanation" : "Slide 9.3: 'L.O.2.3 � Explain problem modeling using discrete structures'. This learning outcome is listed verbatim in the course outcomes section.",
+      "sentenceHtml" : "L.O.2.3 is to 'Explain problem modeling using ___ structures'.",
+      "pairs" : null
+    }, {
+      "type" : "MATCHING",
+      "prompt" : "Match each topic to its main category as presented in the course contents.",
+      "options" : null,
+      "correctAnswer" : null,
+      "explanation" : "Slide 9.4: 'Contents 1 Connectivity Paths and Circuits 2 Euler and Hamilton Paths ... 3 Shortest Path Problem ... Floyd-Warshall Algorithm ... 4 Graph Coloring'. The contents slide organizes these topics under their respective categories.",
+      "sentenceHtml" : null,
+      "pairs" : [ {
+        "left" : "Floyd-Warshall Algorithm",
+        "right" : "Shortest Path Problem"
+      }, {
+        "left" : "Paths and Circuits",
+        "right" : "Connectivity"
+      }, {
+        "left" : "Graph Coloring",
+        "right" : "Others"
+      }, {
+        "left" : "Hamilton Paths and Circuits",
+        "right" : "Euler and Hamilton Paths"
+      } ]
+    } ]
+  },
+  "prompt_tokens" : 2981,
+  "raw" : "```json\n{\n  \"questions\": [\n    {\n      \"type\": \"MCQ_SINGLE\",\n      \"prompt\": \"According to the course contents, which of the following is listed as a Shortest Path Problem algorithm?\",\n      \"options\": [\n        \"Dijkstra's Algorithm\",\n        \"Euler's Path Algorithm\",\n        \"Hamilton's Circuit Method\",\n        \"Graph Coloring Technique\"\n      ],\n      \"correctAnswer\": \"Dijkstra's Algorithm\",\n      \"explanation\": \"Slide 9.4: 'Shortest Path Problem Dijkstra's Algorithm'. The table of contents explicitly lists Dijkstra's Algorithm under the Shortest Path Problem section.\"\n    },\n    {\n      \"type\": \"TRUE_FALSE\",\n      \"prompt\": \"True or False: The slides concerning Euler and Hamilton circuits were created by researchers from VNUHCM.\",\n      \"correctAnswer\": false,\n      \"explanation\": \"Slide 9.2: 'Some slides about Euler and Hamilton circuits are created by Chung Ki-hong and Hur Joon-seok from KAIST.'. The acknowledgement slide states these specific slides were created by individuals from KAIST, not VNUHCM.\"\n    },\n    {\n      \"type\": \"SHORT_ANSWER\",\n      \"prompt\": \"Based on the diagram on slide 9.5, what is the specified length of the circuit shown?\",\n      \"correctAnswer\": [\n        \"4\"\n      ],\n      \"explanation\": \"Slide 9.5: 'Circuit of length 4'. The image of the circuit is explicitly labeled with its length in the provided material.\"\n    },\n    {\n      \"type\": \"FILL_IN_THE_BLANK\",\n      \"prompt\": \"Complete the course learning outcome based on the provided document.\",\n      \"sentenceHtml\": \"L.O.2.3 is to 'Explain problem modeling using ___ structures'.\",\n      \"correctAnswer\": [\n        \"discrete\"\n      ],\n      \"explanation\": \"Slide 9.3: 'L.O.2.3 � Explain problem modeling using discrete structures'. This learning outcome is listed verbatim in the course outcomes section.\"\n    },\n    {\n      \"type\": \"MATCHING\",\n      \"prompt\": \"Match each topic to its main category as presented in the course contents.\",\n      \"pairs\": [\n        {\n          \"left\": \"Floyd-Warshall Algorithm\",\n          \"right\": \"Shortest Path Problem\"\n        },\n        {\n          \"left\": \"Paths and Circuits\",\n          \"right\": \"Connectivity\"\n        },\n        {\n          \"left\": \"Graph Coloring\",\n          \"right\": \"Others\"\n        },\n        {\n          \"left\": \"Hamilton Paths and Circuits\",\n          \"right\": \"Euler and Hamilton Paths\"\n        }\n      ],\n      \"correctAnswer\": null,\n      \"explanation\": \"Slide 9.4: 'Contents 1 Connectivity Paths and Circuits 2 Euler and Hamilton Paths ... 3 Shortest Path Problem ... Floyd-Warshall Algorithm ... 4 Graph Coloring'. The contents slide organizes these topics under their respective categories.\"\n    }\n  ]\n}\n```",
+  "run" : 1,
+  "schema_ok" : true,
+  "temperature" : 0.2,
+  "timestamp" : "2026-06-05T12:52:17.945220"
+}

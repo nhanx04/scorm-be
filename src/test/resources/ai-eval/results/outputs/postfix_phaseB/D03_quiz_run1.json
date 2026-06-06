@@ -1,0 +1,94 @@
+{
+  "cleaned" : "{\n  \"questions\": [\n    {\n      \"type\": \"MCQ_SINGLE\",\n      \"prompt\": \"Which of the following represents the time complexity of the Binary Search algorithm?\",\n      \"options\": [\n        \"O(log n)\",\n        \"O(n)\",\n        \"O(√n)\",\n        \"O(n log n)\"\n      ],\n      \"correctAnswer\": \"O(log n)\",\n      \"citation\": {\n        \"sourceLocation\": \"Slide 6\",\n        \"verbatimQuote\": \"Binary Search ... Time complexity: O(log n)\",\n        \"reasoning\": \"The source material explicitly states the time complexity for the Binary Search algorithm.\"\n      }\n    },\n    {\n      \"type\": \"TRUE_FALSE\",\n      \"prompt\": \"True or False: Interval Search algorithms are designed to work efficiently on unsorted data structures.\",\n      \"correctAnswer\": false,\n      \"citation\": {\n        \"sourceLocation\": \"Slide 5\",\n        \"verbatimQuote\": \"Interval Search: These algorithms are specifically designed for searching in sorted data-structures.\",\n        \"reasoning\": \"The quote clarifies that Interval Search algorithms are specifically for sorted data structures, making the statement false.\"\n      }\n    },\n    {\n      \"type\": \"MATCHING\",\n      \"prompt\": \"Match each searching algorithm to its correct time complexity as described in the material.\",\n      \"pairs\": [\n        {\n          \"left\": \"Linear Search\",\n          \"right\": \"O(n)\"\n        },\n        {\n          \"left\": \"Binary Search\",\n          \"right\": \"O(log n)\"\n        },\n        {\n          \"left\": \"Jump Search\",\n          \"right\": \"O(√n)\"\n        }\n      ],\n      \"correctAnswer\": null,\n      \"citation\": {\n        \"sourceLocation\": \"Slide 7\",\n        \"verbatimQuote\": \"Jump Search ... Time complexity: √n.\",\n        \"reasoning\": \"The material provides the time complexities for each of the listed algorithms on their respective slides.\"\n      }\n    },\n    {\n      \"type\": \"SHORT_ANSWER\",\n      \"prompt\": \"What is the return value of a Linear Search if the element 'x' is not found in the list?\",\n      \"correctAnswer\": [\n        \"-1\"\n      ],\n      \"citation\": {\n        \"sourceLocation\": \"Slide 5\",\n        \"verbatimQuote\": \"If x doesn’t match with any of elements, return -1.\",\n        \"reasoning\": \"The text directly specifies that -1 should be returned when no match is found.\"\n      }\n    },\n    {\n      \"type\": \"FILL_IN_THE_BLANK\",\n      \"prompt\": \"Complete the sentence based on the description of Jump Search.\",\n      \"sentenceHtml\": \"The basic idea of Jump Search is to check fewer elements than linear search by jumping ahead by ___ steps.\",\n      \"correctAnswer\": [\n        \"fixed\"\n      ],\n      \"citation\": {\n        \"sourceLocation\": \"Slide 7\",\n        \"verbatimQuote\": \"The basic idea is to check fewer elements (than linear search) by jumping ahead by fixed steps or skipping some elements\",\n        \"reasoning\": \"The quote provides the exact word to complete the description of the Jump Search approach.\"\n      }\n    }\n  ]\n}",
+  "completion_tokens" : 757,
+  "doc_file" : "201_DSA___Chapter_7__Hash___Search__new_.pdf",
+  "doc_id" : "D03",
+  "doc_language" : "en",
+  "doc_pages" : 124,
+  "doc_title" : "Searching Algorithms and Hash Tables",
+  "empty_field" : false,
+  "error_message" : null,
+  "error_type" : null,
+  "feature" : "quiz",
+  "json_parse_ok" : true,
+  "latency_ms" : 18868,
+  "model" : "gemini-2.5-pro",
+  "parsed" : {
+    "questions" : [ {
+      "type" : "MCQ_SINGLE",
+      "prompt" : "Which of the following represents the time complexity of the Binary Search algorithm?",
+      "options" : [ "O(log n)", "O(n)", "O(√n)", "O(n log n)" ],
+      "correctAnswer" : "O(log n)",
+      "citation" : {
+        "sourceLocation" : "Slide 6",
+        "verbatimQuote" : "Binary Search ... Time complexity: O(log n)",
+        "reasoning" : "The source material explicitly states the time complexity for the Binary Search algorithm."
+      },
+      "sentenceHtml" : null,
+      "pairs" : null
+    }, {
+      "type" : "TRUE_FALSE",
+      "prompt" : "True or False: Interval Search algorithms are designed to work efficiently on unsorted data structures.",
+      "options" : null,
+      "correctAnswer" : false,
+      "citation" : {
+        "sourceLocation" : "Slide 5",
+        "verbatimQuote" : "Interval Search: These algorithms are specifically designed for searching in sorted data-structures.",
+        "reasoning" : "The quote clarifies that Interval Search algorithms are specifically for sorted data structures, making the statement false."
+      },
+      "sentenceHtml" : null,
+      "pairs" : null
+    }, {
+      "type" : "MATCHING",
+      "prompt" : "Match each searching algorithm to its correct time complexity as described in the material.",
+      "options" : null,
+      "correctAnswer" : null,
+      "citation" : {
+        "sourceLocation" : "Slide 7",
+        "verbatimQuote" : "Jump Search ... Time complexity: √n.",
+        "reasoning" : "The material provides the time complexities for each of the listed algorithms on their respective slides."
+      },
+      "sentenceHtml" : null,
+      "pairs" : [ {
+        "left" : "Linear Search",
+        "right" : "O(n)"
+      }, {
+        "left" : "Binary Search",
+        "right" : "O(log n)"
+      }, {
+        "left" : "Jump Search",
+        "right" : "O(√n)"
+      } ]
+    }, {
+      "type" : "SHORT_ANSWER",
+      "prompt" : "What is the return value of a Linear Search if the element 'x' is not found in the list?",
+      "options" : null,
+      "correctAnswer" : [ "-1" ],
+      "citation" : {
+        "sourceLocation" : "Slide 5",
+        "verbatimQuote" : "If x doesn’t match with any of elements, return -1.",
+        "reasoning" : "The text directly specifies that -1 should be returned when no match is found."
+      },
+      "sentenceHtml" : null,
+      "pairs" : null
+    }, {
+      "type" : "FILL_IN_THE_BLANK",
+      "prompt" : "Complete the sentence based on the description of Jump Search.",
+      "options" : null,
+      "correctAnswer" : [ "fixed" ],
+      "citation" : {
+        "sourceLocation" : "Slide 7",
+        "verbatimQuote" : "The basic idea is to check fewer elements (than linear search) by jumping ahead by fixed steps or skipping some elements",
+        "reasoning" : "The quote provides the exact word to complete the description of the Jump Search approach."
+      },
+      "sentenceHtml" : "The basic idea of Jump Search is to check fewer elements than linear search by jumping ahead by ___ steps.",
+      "pairs" : null
+    } ]
+  },
+  "prompt_tokens" : 2842,
+  "raw" : "```json\n{\n  \"questions\": [\n    {\n      \"type\": \"MCQ_SINGLE\",\n      \"prompt\": \"Which of the following represents the time complexity of the Binary Search algorithm?\",\n      \"options\": [\n        \"O(log n)\",\n        \"O(n)\",\n        \"O(√n)\",\n        \"O(n log n)\"\n      ],\n      \"correctAnswer\": \"O(log n)\",\n      \"citation\": {\n        \"sourceLocation\": \"Slide 6\",\n        \"verbatimQuote\": \"Binary Search ... Time complexity: O(log n)\",\n        \"reasoning\": \"The source material explicitly states the time complexity for the Binary Search algorithm.\"\n      }\n    },\n    {\n      \"type\": \"TRUE_FALSE\",\n      \"prompt\": \"True or False: Interval Search algorithms are designed to work efficiently on unsorted data structures.\",\n      \"correctAnswer\": false,\n      \"citation\": {\n        \"sourceLocation\": \"Slide 5\",\n        \"verbatimQuote\": \"Interval Search: These algorithms are specifically designed for searching in sorted data-structures.\",\n        \"reasoning\": \"The quote clarifies that Interval Search algorithms are specifically for sorted data structures, making the statement false.\"\n      }\n    },\n    {\n      \"type\": \"MATCHING\",\n      \"prompt\": \"Match each searching algorithm to its correct time complexity as described in the material.\",\n      \"pairs\": [\n        {\n          \"left\": \"Linear Search\",\n          \"right\": \"O(n)\"\n        },\n        {\n          \"left\": \"Binary Search\",\n          \"right\": \"O(log n)\"\n        },\n        {\n          \"left\": \"Jump Search\",\n          \"right\": \"O(√n)\"\n        }\n      ],\n      \"correctAnswer\": null,\n      \"citation\": {\n        \"sourceLocation\": \"Slide 7\",\n        \"verbatimQuote\": \"Jump Search ... Time complexity: √n.\",\n        \"reasoning\": \"The material provides the time complexities for each of the listed algorithms on their respective slides.\"\n      }\n    },\n    {\n      \"type\": \"SHORT_ANSWER\",\n      \"prompt\": \"What is the return value of a Linear Search if the element 'x' is not found in the list?\",\n      \"correctAnswer\": [\n        \"-1\"\n      ],\n      \"citation\": {\n        \"sourceLocation\": \"Slide 5\",\n        \"verbatimQuote\": \"If x doesn’t match with any of elements, return -1.\",\n        \"reasoning\": \"The text directly specifies that -1 should be returned when no match is found.\"\n      }\n    },\n    {\n      \"type\": \"FILL_IN_THE_BLANK\",\n      \"prompt\": \"Complete the sentence based on the description of Jump Search.\",\n      \"sentenceHtml\": \"The basic idea of Jump Search is to check fewer elements than linear search by jumping ahead by ___ steps.\",\n      \"correctAnswer\": [\n        \"fixed\"\n      ],\n      \"citation\": {\n        \"sourceLocation\": \"Slide 7\",\n        \"verbatimQuote\": \"The basic idea is to check fewer elements (than linear search) by jumping ahead by fixed steps or skipping some elements\",\n        \"reasoning\": \"The quote provides the exact word to complete the description of the Jump Search approach.\"\n      }\n    }\n  ]\n}\n```",
+  "run" : 1,
+  "schema_ok" : true,
+  "temperature" : 0.2,
+  "timestamp" : "2026-06-05T13:02:20.297076"
+}

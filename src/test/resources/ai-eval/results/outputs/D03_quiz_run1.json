@@ -1,0 +1,83 @@
+{
+  "cleaned" : "{\n  \"questions\": [\n    {\n      \"type\": \"MATCHING\",\n      \"prompt\": \"Match each searching algorithm with its corresponding time complexity as described in the document.\",\n      \"pairs\": [\n        {\n          \"left\": \"Linear Search\",\n          \"right\": \"O(log n)\"\n        },\n        {\n          \"left\": \"Binary Search\",\n          \"right\": \"O(√n)\"\n        },\n        {\n          \"left\": \"Jump Search\",\n          \"right\": \"O(n)\"\n        }\n      ],\n      \"correctAnswer\": [\n        {\n          \"left\": \"Linear Search\",\n          \"right\": \"O(n)\"\n        },\n        {\n          \"left\": \"Binary Search\",\n          \"right\": \"O(log n)\"\n        },\n        {\n          \"left\": \"Jump Search\",\n          \"right\": \"O(√n)\"\n        }\n      ],\n      \"explanation\": \"The document explicitly states the time complexity for Linear Search is O(n), for Binary Search is O(log n), and for Jump Search is O(√n).\"\n    },\n    {\n      \"type\": \"MCQ_SINGLE\",\n      \"prompt\": \"According to the document, what is the primary condition required for using Interval Search algorithms like Binary Search and Jump Search?\",\n      \"options\": [\n        \"The data structure must be an array.\",\n        \"The data structure must be sorted.\",\n        \"The algorithm must be implemented iteratively.\",\n        \"The list must be traversed sequentially.\"\n      ],\n      \"correctAnswer\": \"The data structure must be sorted.\",\n      \"explanation\": \"The text defines Interval Search as algorithms 'specifically designed for searching in sorted data-structures'. Both Binary Search and Jump Search are described as operating on 'sorted arrays'.\"\n    },\n    {\n      \"type\": \"TRUE_FALSE\",\n      \"prompt\": \"Based on the text, the Jump Search algorithm combines jumping ahead by fixed steps with a subsequent Binary Search on a smaller block.\",\n      \"correctAnswer\": false,\n      \"explanation\": \"The document states that after finding the correct block, Jump Search will 'Perform the linear search on the block k', not a binary search.\"\n    },\n    {\n      \"type\": \"SHORT_ANSWER\",\n      \"prompt\": \"What are the two main categories of searching algorithms mentioned in the document?\",\n      \"correctAnswer\": [\n        \"Sequential Search and Interval Search\",\n        \"Interval Search and Sequential Search\"\n      ],\n      \"explanation\": \"The document classifies searching algorithms into two categories: '1 Sequential Search' and '2 Interval Search'.\"\n    },\n    {\n      \"type\": \"FILL_IN_THE_BLANK\",\n      \"sentenceHtml\": \"In a Linear Search, if the target element 'x' does not match any of the elements in the list, the algorithm should return ____.\",\n      \"correctAnswer\": [\n        \"-1\"\n      ],\n      \"explanation\": \"The third step in the 'Linear Search Approach' section states: 'If x doesn’t match with any of elements, return -1.'\"\n    }\n  ]\n}",
+  "completion_tokens" : 701,
+  "doc_file" : "201_DSA___Chapter_7__Hash___Search__new_.pdf",
+  "doc_id" : "D03",
+  "doc_language" : "en",
+  "doc_pages" : 124,
+  "doc_title" : "Searching Algorithms and Hash Tables",
+  "empty_field" : true,
+  "error_message" : null,
+  "error_type" : null,
+  "feature" : "quiz",
+  "json_parse_ok" : true,
+  "latency_ms" : 15824,
+  "model" : "gemini-2.5-pro",
+  "parsed" : {
+    "questions" : [ {
+      "type" : "MATCHING",
+      "prompt" : "Match each searching algorithm with its corresponding time complexity as described in the document.",
+      "options" : null,
+      "correctAnswer" : [ {
+        "left" : "Linear Search",
+        "right" : "O(n)"
+      }, {
+        "left" : "Binary Search",
+        "right" : "O(log n)"
+      }, {
+        "left" : "Jump Search",
+        "right" : "O(√n)"
+      } ],
+      "explanation" : "The document explicitly states the time complexity for Linear Search is O(n), for Binary Search is O(log n), and for Jump Search is O(√n).",
+      "sentenceHtml" : null,
+      "pairs" : [ {
+        "left" : "Linear Search",
+        "right" : "O(log n)"
+      }, {
+        "left" : "Binary Search",
+        "right" : "O(√n)"
+      }, {
+        "left" : "Jump Search",
+        "right" : "O(n)"
+      } ]
+    }, {
+      "type" : "MCQ_SINGLE",
+      "prompt" : "According to the document, what is the primary condition required for using Interval Search algorithms like Binary Search and Jump Search?",
+      "options" : [ "The data structure must be an array.", "The data structure must be sorted.", "The algorithm must be implemented iteratively.", "The list must be traversed sequentially." ],
+      "correctAnswer" : "The data structure must be sorted.",
+      "explanation" : "The text defines Interval Search as algorithms 'specifically designed for searching in sorted data-structures'. Both Binary Search and Jump Search are described as operating on 'sorted arrays'.",
+      "sentenceHtml" : null,
+      "pairs" : null
+    }, {
+      "type" : "TRUE_FALSE",
+      "prompt" : "Based on the text, the Jump Search algorithm combines jumping ahead by fixed steps with a subsequent Binary Search on a smaller block.",
+      "options" : null,
+      "correctAnswer" : false,
+      "explanation" : "The document states that after finding the correct block, Jump Search will 'Perform the linear search on the block k', not a binary search.",
+      "sentenceHtml" : null,
+      "pairs" : null
+    }, {
+      "type" : "SHORT_ANSWER",
+      "prompt" : "What are the two main categories of searching algorithms mentioned in the document?",
+      "options" : null,
+      "correctAnswer" : [ "Sequential Search and Interval Search", "Interval Search and Sequential Search" ],
+      "explanation" : "The document classifies searching algorithms into two categories: '1 Sequential Search' and '2 Interval Search'.",
+      "sentenceHtml" : null,
+      "pairs" : null
+    }, {
+      "type" : "FILL_IN_THE_BLANK",
+      "prompt" : null,
+      "options" : null,
+      "correctAnswer" : [ "-1" ],
+      "explanation" : "The third step in the 'Linear Search Approach' section states: 'If x doesn’t match with any of elements, return -1.'",
+      "sentenceHtml" : "In a Linear Search, if the target element 'x' does not match any of the elements in the list, the algorithm should return ____.",
+      "pairs" : null
+    } ]
+  },
+  "prompt_tokens" : 2100,
+  "raw" : "```json\n{\n  \"questions\": [\n    {\n      \"type\": \"MATCHING\",\n      \"prompt\": \"Match each searching algorithm with its corresponding time complexity as described in the document.\",\n      \"pairs\": [\n        {\n          \"left\": \"Linear Search\",\n          \"right\": \"O(log n)\"\n        },\n        {\n          \"left\": \"Binary Search\",\n          \"right\": \"O(√n)\"\n        },\n        {\n          \"left\": \"Jump Search\",\n          \"right\": \"O(n)\"\n        }\n      ],\n      \"correctAnswer\": [\n        {\n          \"left\": \"Linear Search\",\n          \"right\": \"O(n)\"\n        },\n        {\n          \"left\": \"Binary Search\",\n          \"right\": \"O(log n)\"\n        },\n        {\n          \"left\": \"Jump Search\",\n          \"right\": \"O(√n)\"\n        }\n      ],\n      \"explanation\": \"The document explicitly states the time complexity for Linear Search is O(n), for Binary Search is O(log n), and for Jump Search is O(√n).\"\n    },\n    {\n      \"type\": \"MCQ_SINGLE\",\n      \"prompt\": \"According to the document, what is the primary condition required for using Interval Search algorithms like Binary Search and Jump Search?\",\n      \"options\": [\n        \"The data structure must be an array.\",\n        \"The data structure must be sorted.\",\n        \"The algorithm must be implemented iteratively.\",\n        \"The list must be traversed sequentially.\"\n      ],\n      \"correctAnswer\": \"The data structure must be sorted.\",\n      \"explanation\": \"The text defines Interval Search as algorithms 'specifically designed for searching in sorted data-structures'. Both Binary Search and Jump Search are described as operating on 'sorted arrays'.\"\n    },\n    {\n      \"type\": \"TRUE_FALSE\",\n      \"prompt\": \"Based on the text, the Jump Search algorithm combines jumping ahead by fixed steps with a subsequent Binary Search on a smaller block.\",\n      \"correctAnswer\": false,\n      \"explanation\": \"The document states that after finding the correct block, Jump Search will 'Perform the linear search on the block k', not a binary search.\"\n    },\n    {\n      \"type\": \"SHORT_ANSWER\",\n      \"prompt\": \"What are the two main categories of searching algorithms mentioned in the document?\",\n      \"correctAnswer\": [\n        \"Sequential Search and Interval Search\",\n        \"Interval Search and Sequential Search\"\n      ],\n      \"explanation\": \"The document classifies searching algorithms into two categories: '1 Sequential Search' and '2 Interval Search'.\"\n    },\n    {\n      \"type\": \"FILL_IN_THE_BLANK\",\n      \"sentenceHtml\": \"In a Linear Search, if the target element 'x' does not match any of the elements in the list, the algorithm should return ____.\",\n      \"correctAnswer\": [\n        \"-1\"\n      ],\n      \"explanation\": \"The third step in the 'Linear Search Approach' section states: 'If x doesn’t match with any of elements, return -1.'\"\n    }\n  ]\n}\n```",
+  "run" : 1,
+  "schema_ok" : true,
+  "temperature" : 0.2,
+  "timestamp" : "2026-05-24T10:35:52.865337"
+}

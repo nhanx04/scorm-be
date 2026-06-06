@@ -1,0 +1,77 @@
+{
+  "cleaned" : "{\n  \"questions\": [\n    {\n      \"type\": \"MCQ_SINGLE\",\n      \"prompt\": \"According to the document, which of the following is listed as a specific algorithm under the 'Shortest Path Problem' section?\",\n      \"options\": [\n        \"A* Search Algorithm\",\n        \"Kruskal's Algorithm\",\n        \"Dijkstra's Algorithm\",\n        \"Prim's Algorithm\"\n      ],\n      \"correctAnswer\": \"Dijkstra's Algorithm\",\n      \"explanation\": \"According to the document: The 'Contents' section on multiple slides (e.g., 9.4) lists 'Dijkstra's Algorithm' as a sub-topic under 'Shortest Path Problem'.\"\n    },\n    {\n      \"type\": \"TRUE_FALSE\",\n      \"prompt\": \"True or False: The document states that all slides about Euler and Hamilton circuits were created by the main authors from University of Technology - VNUHCM.\",\n      \"correctAnswer\": false,\n      \"explanation\": \"According to the document: Slide 9.2, under 'Acknowledgement', states: 'Some slides about Euler and Hamilton circuits are created by Chung Ki-hong and Hur Joon-seok from KAIST.' This indicates that not all slides were created by the main authors.\"\n    },\n    {\n      \"type\": \"SHORT_ANSWER\",\n      \"prompt\": \"Based on the 'Course outcomes' slide, what is the description for the course learning outcome L.O.1?\",\n      \"correctAnswer\": [\n        \"Understanding of logic and discrete structures\"\n      ],\n      \"explanation\": \"According to the document: Slide 9.3 lists the course learning outcomes. It explicitly states: 'L.O.1 Understanding of logic and discrete structures'.\"\n    },\n    {\n      \"type\": \"FILL_IN_THE_BLANK\",\n      \"prompt\": \"Fill in the blank based on the information provided on the title slide.\",\n      \"sentenceHtml\": \"This document on Graph connectivity is part of the course titled '___(1)___ for Computing'.\",\n      \"correctAnswer\": [\n        \"Discrete Structures\"\n      ],\n      \"explanation\": \"According to the document: Slide 9.1, in the top right corner, displays the course name as 'Discrete Structures for Computing on August 16, 2021'.\"\n    },\n    {\n      \"type\": \"MATCHING\",\n      \"prompt\": \"Match the main section from the document's table of contents with its corresponding sub-topic.\",\n      \"pairs\": [\n        {\n          \"left\": \"Connectivity\",\n          \"right\": \"Paths and Circuits\"\n        },\n        {\n          \"left\": \"Euler and Hamilton Paths\",\n          \"right\": \"Euler Paths and Circuits\"\n        },\n        {\n          \"left\": \"Shortest Path Problem\",\n          \"right\": \"Bellman-Ford Algorithm\"\n        },\n        {\n          \"left\": \"Course outcomes\",\n          \"right\": \"L.O.4 Compute quantities of discrete structures and probabilities\"\n        }\n      ],\n      \"correctAnswer\": null,\n      \"explanation\": \"According to the document: The 'Contents' section on slide 9.4 and the 'Course outcomes' on slide 9.3 show these pairings. 'Connectivity' contains 'Paths and Circuits'; 'Euler and Hamilton Paths' contains 'Euler Paths and Circuits'; 'Shortest Path Problem' contains 'Bellman-Ford Algorithm'; and 'Course outcomes' contains 'L.O.4'.\"\n    }\n  ]\n}",
+  "completion_tokens" : 789,
+  "doc_file" : "ds10connectivity.pdf",
+  "doc_id" : "D05",
+  "doc_language" : "en",
+  "doc_pages" : 360,
+  "doc_title" : "Graph Connectivity (Discrete Structures - Chapter 9)",
+  "empty_field" : false,
+  "error_message" : null,
+  "error_type" : null,
+  "feature" : "quiz",
+  "json_parse_ok" : true,
+  "latency_ms" : 20372,
+  "model" : "gemini-2.5-pro",
+  "parsed" : {
+    "questions" : [ {
+      "type" : "MCQ_SINGLE",
+      "prompt" : "According to the document, which of the following is listed as a specific algorithm under the 'Shortest Path Problem' section?",
+      "options" : [ "A* Search Algorithm", "Kruskal's Algorithm", "Dijkstra's Algorithm", "Prim's Algorithm" ],
+      "correctAnswer" : "Dijkstra's Algorithm",
+      "explanation" : "According to the document: The 'Contents' section on multiple slides (e.g., 9.4) lists 'Dijkstra's Algorithm' as a sub-topic under 'Shortest Path Problem'.",
+      "sentenceHtml" : null,
+      "pairs" : null
+    }, {
+      "type" : "TRUE_FALSE",
+      "prompt" : "True or False: The document states that all slides about Euler and Hamilton circuits were created by the main authors from University of Technology - VNUHCM.",
+      "options" : null,
+      "correctAnswer" : false,
+      "explanation" : "According to the document: Slide 9.2, under 'Acknowledgement', states: 'Some slides about Euler and Hamilton circuits are created by Chung Ki-hong and Hur Joon-seok from KAIST.' This indicates that not all slides were created by the main authors.",
+      "sentenceHtml" : null,
+      "pairs" : null
+    }, {
+      "type" : "SHORT_ANSWER",
+      "prompt" : "Based on the 'Course outcomes' slide, what is the description for the course learning outcome L.O.1?",
+      "options" : null,
+      "correctAnswer" : [ "Understanding of logic and discrete structures" ],
+      "explanation" : "According to the document: Slide 9.3 lists the course learning outcomes. It explicitly states: 'L.O.1 Understanding of logic and discrete structures'.",
+      "sentenceHtml" : null,
+      "pairs" : null
+    }, {
+      "type" : "FILL_IN_THE_BLANK",
+      "prompt" : "Fill in the blank based on the information provided on the title slide.",
+      "options" : null,
+      "correctAnswer" : [ "Discrete Structures" ],
+      "explanation" : "According to the document: Slide 9.1, in the top right corner, displays the course name as 'Discrete Structures for Computing on August 16, 2021'.",
+      "sentenceHtml" : "This document on Graph connectivity is part of the course titled '___(1)___ for Computing'.",
+      "pairs" : null
+    }, {
+      "type" : "MATCHING",
+      "prompt" : "Match the main section from the document's table of contents with its corresponding sub-topic.",
+      "options" : null,
+      "correctAnswer" : null,
+      "explanation" : "According to the document: The 'Contents' section on slide 9.4 and the 'Course outcomes' on slide 9.3 show these pairings. 'Connectivity' contains 'Paths and Circuits'; 'Euler and Hamilton Paths' contains 'Euler Paths and Circuits'; 'Shortest Path Problem' contains 'Bellman-Ford Algorithm'; and 'Course outcomes' contains 'L.O.4'.",
+      "sentenceHtml" : null,
+      "pairs" : [ {
+        "left" : "Connectivity",
+        "right" : "Paths and Circuits"
+      }, {
+        "left" : "Euler and Hamilton Paths",
+        "right" : "Euler Paths and Circuits"
+      }, {
+        "left" : "Shortest Path Problem",
+        "right" : "Bellman-Ford Algorithm"
+      }, {
+        "left" : "Course outcomes",
+        "right" : "L.O.4 Compute quantities of discrete structures and probabilities"
+      } ]
+    } ]
+  },
+  "prompt_tokens" : 2620,
+  "raw" : "```json\n{\n  \"questions\": [\n    {\n      \"type\": \"MCQ_SINGLE\",\n      \"prompt\": \"According to the document, which of the following is listed as a specific algorithm under the 'Shortest Path Problem' section?\",\n      \"options\": [\n        \"A* Search Algorithm\",\n        \"Kruskal's Algorithm\",\n        \"Dijkstra's Algorithm\",\n        \"Prim's Algorithm\"\n      ],\n      \"correctAnswer\": \"Dijkstra's Algorithm\",\n      \"explanation\": \"According to the document: The 'Contents' section on multiple slides (e.g., 9.4) lists 'Dijkstra's Algorithm' as a sub-topic under 'Shortest Path Problem'.\"\n    },\n    {\n      \"type\": \"TRUE_FALSE\",\n      \"prompt\": \"True or False: The document states that all slides about Euler and Hamilton circuits were created by the main authors from University of Technology - VNUHCM.\",\n      \"correctAnswer\": false,\n      \"explanation\": \"According to the document: Slide 9.2, under 'Acknowledgement', states: 'Some slides about Euler and Hamilton circuits are created by Chung Ki-hong and Hur Joon-seok from KAIST.' This indicates that not all slides were created by the main authors.\"\n    },\n    {\n      \"type\": \"SHORT_ANSWER\",\n      \"prompt\": \"Based on the 'Course outcomes' slide, what is the description for the course learning outcome L.O.1?\",\n      \"correctAnswer\": [\n        \"Understanding of logic and discrete structures\"\n      ],\n      \"explanation\": \"According to the document: Slide 9.3 lists the course learning outcomes. It explicitly states: 'L.O.1 Understanding of logic and discrete structures'.\"\n    },\n    {\n      \"type\": \"FILL_IN_THE_BLANK\",\n      \"prompt\": \"Fill in the blank based on the information provided on the title slide.\",\n      \"sentenceHtml\": \"This document on Graph connectivity is part of the course titled '___(1)___ for Computing'.\",\n      \"correctAnswer\": [\n        \"Discrete Structures\"\n      ],\n      \"explanation\": \"According to the document: Slide 9.1, in the top right corner, displays the course name as 'Discrete Structures for Computing on August 16, 2021'.\"\n    },\n    {\n      \"type\": \"MATCHING\",\n      \"prompt\": \"Match the main section from the document's table of contents with its corresponding sub-topic.\",\n      \"pairs\": [\n        {\n          \"left\": \"Connectivity\",\n          \"right\": \"Paths and Circuits\"\n        },\n        {\n          \"left\": \"Euler and Hamilton Paths\",\n          \"right\": \"Euler Paths and Circuits\"\n        },\n        {\n          \"left\": \"Shortest Path Problem\",\n          \"right\": \"Bellman-Ford Algorithm\"\n        },\n        {\n          \"left\": \"Course outcomes\",\n          \"right\": \"L.O.4 Compute quantities of discrete structures and probabilities\"\n        }\n      ],\n      \"correctAnswer\": null,\n      \"explanation\": \"According to the document: The 'Contents' section on slide 9.4 and the 'Course outcomes' on slide 9.3 show these pairings. 'Connectivity' contains 'Paths and Circuits'; 'Euler and Hamilton Paths' contains 'Euler Paths and Circuits'; 'Shortest Path Problem' contains 'Bellman-Ford Algorithm'; and 'Course outcomes' contains 'L.O.4'.\"\n    }\n  ]\n}\n```",
+  "run" : 1,
+  "schema_ok" : true,
+  "temperature" : 0.2,
+  "timestamp" : "2026-06-05T07:33:41.038822"
+}

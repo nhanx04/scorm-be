@@ -1,0 +1,97 @@
+{
+  "cleaned" : "{\n  \"questions\": [\n    {\n      \"citation\": {\n        \"reasoning\": \"The quote lists the main sections of the chapter, including 'Shortest Path Problem'.\",\n        \"sourceLocation\": \"Slide 9.4\",\n        \"verbatimQuote\": \"Contents 1 Connectivity ... 2 Euler and Hamilton Paths ... 3 Shortest Path Problem ... 4 Graph Coloring\"\n      },\n      \"correctAnswer\": \"Shortest Path Problem\",\n      \"options\": [\n        \"Shortest Path Problem\",\n        \"Minimum Spanning Trees\",\n        \"Maximum Flow Problems\",\n        \"Graph Traversal Methods\"\n      ],\n      \"prompt\": \"According to the table of contents, which of the following is a major topic in this chapter on graph connectivity?\",\n      \"type\": \"MCQ_SINGLE\"\n    },\n    {\n      \"citation\": {\n        \"reasoning\": \"The quote lists the algorithms for the shortest path problem, and Prim's algorithm is not included.\",\n        \"sourceLocation\": \"Slide 9.4\",\n        \"verbatimQuote\": \"Shortest Path Problem Dijkstra's Algorithm Bellman-Ford Algorithm Floyd-Warshall Algorithm Ford's algorithm\"\n      },\n      \"correctAnswer\": false,\n      \"prompt\": \"True or False: The provided material mentions Prim's algorithm as a method for solving the Shortest Path Problem.\",\n      \"type\": \"TRUE_FALSE\"\n    },\n    {\n      \"citation\": {\n        \"reasoning\": \"The quote explicitly states the university affiliation of the document's authors.\",\n        \"sourceLocation\": \"Slide 9.1\",\n        \"verbatimQuote\": \"Faculty of Computer Science and Engineering University of Technology - VNUHCM\"\n      },\n      \"correctAnswer\": [\n        \"University of Technology - VNUHCM\"\n      ],\n      \"prompt\": \"Based on the title slide, what is the full name of the university the authors are affiliated with?\",\n      \"type\": \"SHORT_ANSWER\"\n    },\n    {\n      \"citation\": {\n        \"reasoning\": \"The quote provides the complete sentence from which the names are extracted.\",\n        \"sourceLocation\": \"Slide 9.2\",\n        \"verbatimQuote\": \"Some slides about Euler and Hamilton circuits are created by Chung Ki-hong and Hur Joon-seok from KAIST.\"\n      },\n      \"correctAnswer\": [\n        \"Chung Ki-hong\",\n        \"Hur Joon-seok\"\n      ],\n      \"prompt\": \"Fill in the blanks with the names mentioned in the acknowledgement slide.\",\n      \"sentenceHtml\": \"Some slides about Euler and Hamilton circuits are created by ___(1)___ and ___(2)___ from KAIST.\",\n      \"type\": \"FILL_IN_THE_BLANK\"\n    },\n    {\n      \"citation\": {\n        \"reasoning\": \"The quote shows the hierarchical structure of the contents, linking each concept to its main section.\",\n        \"sourceLocation\": \"Slide 9.4\",\n        \"verbatimQuote\": \"1 Connectivity Paths and Circuits 2 Euler and Hamilton Paths ... Hamilton Paths and Circuits 3 Shortest Path Problem Dijkstra's Algorithm ... 4 Graph Coloring\"\n      },\n      \"correctAnswer\": null,\n      \"pairs\": [\n        {\n          \"left\": \"Dijkstra's Algorithm\",\n          \"right\": \"Shortest Path Problem\"\n        },\n        {\n          \"left\": \"Hamilton Paths\",\n          \"right\": \"Euler and Hamilton Paths\"\n        },\n        {\n          \"left\": \"Paths and Circuits\",\n          \"right\": \"Connectivity\"\n        },\n        {\n          \"left\": \"Graph Coloring\",\n          \"right\": \"Graph Coloring\"\n        }\n      ],\n      \"prompt\": \"Match each concept to its corresponding main section as listed in the table of contents.\",\n      \"type\": \"MATCHING\"\n    }\n  ]\n}",
+  "completion_tokens" : 873,
+  "doc_file" : "ds10connectivity.pdf",
+  "doc_id" : "D05",
+  "doc_language" : "en",
+  "doc_pages" : 360,
+  "doc_title" : "Graph Connectivity (Discrete Structures - Chapter 9)",
+  "empty_field" : false,
+  "error_message" : null,
+  "error_type" : null,
+  "feature" : "quiz",
+  "json_parse_ok" : true,
+  "latency_ms" : 24410,
+  "model" : "gemini-2.5-pro",
+  "parsed" : {
+    "questions" : [ {
+      "type" : "MCQ_SINGLE",
+      "prompt" : "According to the table of contents, which of the following is a major topic in this chapter on graph connectivity?",
+      "options" : [ "Shortest Path Problem", "Minimum Spanning Trees", "Maximum Flow Problems", "Graph Traversal Methods" ],
+      "correctAnswer" : "Shortest Path Problem",
+      "citation" : {
+        "sourceLocation" : "Slide 9.4",
+        "verbatimQuote" : "Contents 1 Connectivity ... 2 Euler and Hamilton Paths ... 3 Shortest Path Problem ... 4 Graph Coloring",
+        "reasoning" : "The quote lists the main sections of the chapter, including 'Shortest Path Problem'."
+      },
+      "sentenceHtml" : null,
+      "pairs" : null
+    }, {
+      "type" : "TRUE_FALSE",
+      "prompt" : "True or False: The provided material mentions Prim's algorithm as a method for solving the Shortest Path Problem.",
+      "options" : null,
+      "correctAnswer" : false,
+      "citation" : {
+        "sourceLocation" : "Slide 9.4",
+        "verbatimQuote" : "Shortest Path Problem Dijkstra's Algorithm Bellman-Ford Algorithm Floyd-Warshall Algorithm Ford's algorithm",
+        "reasoning" : "The quote lists the algorithms for the shortest path problem, and Prim's algorithm is not included."
+      },
+      "sentenceHtml" : null,
+      "pairs" : null
+    }, {
+      "type" : "SHORT_ANSWER",
+      "prompt" : "Based on the title slide, what is the full name of the university the authors are affiliated with?",
+      "options" : null,
+      "correctAnswer" : [ "University of Technology - VNUHCM" ],
+      "citation" : {
+        "sourceLocation" : "Slide 9.1",
+        "verbatimQuote" : "Faculty of Computer Science and Engineering University of Technology - VNUHCM",
+        "reasoning" : "The quote explicitly states the university affiliation of the document's authors."
+      },
+      "sentenceHtml" : null,
+      "pairs" : null
+    }, {
+      "type" : "FILL_IN_THE_BLANK",
+      "prompt" : "Fill in the blanks with the names mentioned in the acknowledgement slide.",
+      "options" : null,
+      "correctAnswer" : [ "Chung Ki-hong", "Hur Joon-seok" ],
+      "citation" : {
+        "sourceLocation" : "Slide 9.2",
+        "verbatimQuote" : "Some slides about Euler and Hamilton circuits are created by Chung Ki-hong and Hur Joon-seok from KAIST.",
+        "reasoning" : "The quote provides the complete sentence from which the names are extracted."
+      },
+      "sentenceHtml" : "Some slides about Euler and Hamilton circuits are created by ___(1)___ and ___(2)___ from KAIST.",
+      "pairs" : null
+    }, {
+      "type" : "MATCHING",
+      "prompt" : "Match each concept to its corresponding main section as listed in the table of contents.",
+      "options" : null,
+      "correctAnswer" : null,
+      "citation" : {
+        "sourceLocation" : "Slide 9.4",
+        "verbatimQuote" : "1 Connectivity Paths and Circuits 2 Euler and Hamilton Paths ... Hamilton Paths and Circuits 3 Shortest Path Problem Dijkstra's Algorithm ... 4 Graph Coloring",
+        "reasoning" : "The quote shows the hierarchical structure of the contents, linking each concept to its main section."
+      },
+      "sentenceHtml" : null,
+      "pairs" : [ {
+        "left" : "Dijkstra's Algorithm",
+        "right" : "Shortest Path Problem"
+      }, {
+        "left" : "Hamilton Paths",
+        "right" : "Euler and Hamilton Paths"
+      }, {
+        "left" : "Paths and Circuits",
+        "right" : "Connectivity"
+      }, {
+        "left" : "Graph Coloring",
+        "right" : "Graph Coloring"
+      } ]
+    } ]
+  },
+  "prompt_tokens" : 3071,
+  "raw" : "```json\n{\n  \"questions\": [\n    {\n      \"citation\": {\n        \"reasoning\": \"The quote lists the main sections of the chapter, including 'Shortest Path Problem'.\",\n        \"sourceLocation\": \"Slide 9.4\",\n        \"verbatimQuote\": \"Contents 1 Connectivity ... 2 Euler and Hamilton Paths ... 3 Shortest Path Problem ... 4 Graph Coloring\"\n      },\n      \"correctAnswer\": \"Shortest Path Problem\",\n      \"options\": [\n        \"Shortest Path Problem\",\n        \"Minimum Spanning Trees\",\n        \"Maximum Flow Problems\",\n        \"Graph Traversal Methods\"\n      ],\n      \"prompt\": \"According to the table of contents, which of the following is a major topic in this chapter on graph connectivity?\",\n      \"type\": \"MCQ_SINGLE\"\n    },\n    {\n      \"citation\": {\n        \"reasoning\": \"The quote lists the algorithms for the shortest path problem, and Prim's algorithm is not included.\",\n        \"sourceLocation\": \"Slide 9.4\",\n        \"verbatimQuote\": \"Shortest Path Problem Dijkstra's Algorithm Bellman-Ford Algorithm Floyd-Warshall Algorithm Ford's algorithm\"\n      },\n      \"correctAnswer\": false,\n      \"prompt\": \"True or False: The provided material mentions Prim's algorithm as a method for solving the Shortest Path Problem.\",\n      \"type\": \"TRUE_FALSE\"\n    },\n    {\n      \"citation\": {\n        \"reasoning\": \"The quote explicitly states the university affiliation of the document's authors.\",\n        \"sourceLocation\": \"Slide 9.1\",\n        \"verbatimQuote\": \"Faculty of Computer Science and Engineering University of Technology - VNUHCM\"\n      },\n      \"correctAnswer\": [\n        \"University of Technology - VNUHCM\"\n      ],\n      \"prompt\": \"Based on the title slide, what is the full name of the university the authors are affiliated with?\",\n      \"type\": \"SHORT_ANSWER\"\n    },\n    {\n      \"citation\": {\n        \"reasoning\": \"The quote provides the complete sentence from which the names are extracted.\",\n        \"sourceLocation\": \"Slide 9.2\",\n        \"verbatimQuote\": \"Some slides about Euler and Hamilton circuits are created by Chung Ki-hong and Hur Joon-seok from KAIST.\"\n      },\n      \"correctAnswer\": [\n        \"Chung Ki-hong\",\n        \"Hur Joon-seok\"\n      ],\n      \"prompt\": \"Fill in the blanks with the names mentioned in the acknowledgement slide.\",\n      \"sentenceHtml\": \"Some slides about Euler and Hamilton circuits are created by ___(1)___ and ___(2)___ from KAIST.\",\n      \"type\": \"FILL_IN_THE_BLANK\"\n    },\n    {\n      \"citation\": {\n        \"reasoning\": \"The quote shows the hierarchical structure of the contents, linking each concept to its main section.\",\n        \"sourceLocation\": \"Slide 9.4\",\n        \"verbatimQuote\": \"1 Connectivity Paths and Circuits 2 Euler and Hamilton Paths ... Hamilton Paths and Circuits 3 Shortest Path Problem Dijkstra's Algorithm ... 4 Graph Coloring\"\n      },\n      \"correctAnswer\": null,\n      \"pairs\": [\n        {\n          \"left\": \"Dijkstra's Algorithm\",\n          \"right\": \"Shortest Path Problem\"\n        },\n        {\n          \"left\": \"Hamilton Paths\",\n          \"right\": \"Euler and Hamilton Paths\"\n        },\n        {\n          \"left\": \"Paths and Circuits\",\n          \"right\": \"Connectivity\"\n        },\n        {\n          \"left\": \"Graph Coloring\",\n          \"right\": \"Graph Coloring\"\n        }\n      ],\n      \"prompt\": \"Match each concept to its corresponding main section as listed in the table of contents.\",\n      \"type\": \"MATCHING\"\n    }\n  ]\n}\n```",
+  "run" : 1,
+  "schema_ok" : true,
+  "temperature" : 0.2,
+  "timestamp" : "2026-06-05T13:03:02.650062"
+}

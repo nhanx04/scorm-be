@@ -1,0 +1,94 @@
+{
+  "cleaned" : "{\n  \"questions\": [\n    {\n      \"citation\": {\n        \"reasoning\": \"Tài liệu nêu rõ kết quả áp dụng định lý Gauss cho trường hợp này là E = 0.\",\n        \"sourceLocation\": \"Slide 8\",\n        \"verbatimQuote\": \"Ở bên trong quả cầu (r < R): nên E = 0.\"\n      },\n      \"correctAnswer\": \"Bằng 0 tại mọi điểm bên trong quả cầu.\",\n      \"options\": [\n        \"Bằng 0 tại mọi điểm bên trong quả cầu.\",\n        \"Có độ lớn không đổi và khác không.\",\n        \"Tăng dần theo khoảng cách từ tâm ra bề mặt.\",\n        \"Giảm dần khi đi từ bề mặt vào tâm.\"\n      ],\n      \"prompt\": \"Một quả cầu kim loại bán kính R, tích điện đều q > 0 trên bề mặt. Áp dụng định lý Gauss, hãy xác định cường độ điện trường tại một điểm bất kỳ bên trong quả cầu (r < R).\",\n      \"type\": \"MCQ_SINGLE\"\n    },\n    {\n      \"citation\": {\n        \"reasoning\": \"Tài liệu giải thích lý do đưa vào vectơ cảm ứng điện là để khử sự gián đoạn của vectơ E.\",\n        \"sourceLocation\": \"Slide 6\",\n        \"verbatimQuote\": \"Để khử sự gián đoạn đó, ta đưa vào đại lượng mới là vecto cảm ứng điện\"\n      },\n      \"correctAnswer\": true,\n      \"prompt\": \"Đúng hay Sai: Vectơ cảm ứng điện D được định nghĩa nhằm loại bỏ sự thay đổi đột ngột của vectơ cường độ điện trường E khi đi qua mặt phân cách của hai môi trường có hằng số điện môi khác nhau.\",\n      \"type\": \"TRUE_FALSE\"\n    },\n    {\n      \"citation\": {\n        \"reasoning\": \"Tài liệu cung cấp công thức tính cường độ điện trường cho một mặt phẳng rộng vô hạn.\",\n        \"sourceLocation\": \"Slide 11\",\n        \"verbatimQuote\": \"Mặt phẳng rộng vô hạn: sinh ra điện trường đều. E = σ / (2εε₀)\"\n      },\n      \"correctAnswer\": [\n        \"σ / (2εε₀)\"\n      ],\n      \"prompt\": \"Điền vào chỗ trống công thức tính độ lớn cường độ điện trường do một mặt phẳng rộng vô hạn, tích điện đều với mật độ điện mặt σ gây ra.\",\n      \"sentenceHtml\": \"Theo tài liệu, cường độ điện trường do một mặt phẳng rộng vô hạn gây ra là một điện trường đều có độ lớn E = ___.\",\n      \"type\": \"FILL_IN_THE_BLANK\"\n    },\n    {\n      \"citation\": {\n        \"reasoning\": \"Tài liệu khẳng định rằng đường sức của điện trường tĩnh là các đường không khép kín.\",\n        \"sourceLocation\": \"Slide 5\",\n        \"verbatimQuote\": \"Đường sức điện trường tĩnh không khép kín.\"\n      },\n      \"correctAnswer\": [\n        \"Không\",\n        \"Không khép kín\"\n      ],\n      \"prompt\": \"Dựa vào đặc điểm của đường sức điện trường được mô tả trong tài liệu, đường sức điện trường tĩnh có phải là một đường cong khép kín không?\",\n      \"type\": \"SHORT_ANSWER\"\n    },\n    {\n      \"citation\": {\n        \"reasoning\": \"Tài liệu cung cấp các công thức và kết quả tính điện trường cho các vật thể này.\",\n        \"sourceLocation\": \"Slide 10\",\n        \"verbatimQuote\": \"Nếu là vòng tròn (α = 360⁰): OE = 0\"\n      },\n      \"correctAnswer\": null,\n      \"pairs\": [\n        {\n          \"left\": \"Vòng tròn tích điện đều\",\n          \"right\": \"Tại tâm của vòng tròn\"\n        },\n        {\n          \"left\": \"Mặt cầu tích điện đều trên bề mặt\",\n          \"right\": \"Tại mọi điểm bên trong mặt cầu\"\n        },\n        {\n          \"left\": \"Quả cầu tích điện đều theo thể tích\",\n          \"right\": \"Chỉ tại tâm của quả cầu\"\n        }\n      ],\n      \"prompt\": \"Ghép mỗi vật thể tích điện với vị trí mà tại đó cường độ điện trường do nó gây ra bằng không (E=0), dựa trên các công thức đã cho.\",\n      \"type\": \"MATCHING\"\n    }\n  ]\n}",
+  "completion_tokens" : 997,
+  "doc_file" : "Chương 6.pdf",
+  "doc_id" : "D09",
+  "doc_language" : "vi",
+  "doc_pages" : 25,
+  "doc_title" : "Trường tĩnh điện trong chân không",
+  "empty_field" : false,
+  "error_message" : null,
+  "error_type" : null,
+  "feature" : "quiz",
+  "json_parse_ok" : true,
+  "latency_ms" : 27813,
+  "model" : "gemini-2.5-pro",
+  "parsed" : {
+    "questions" : [ {
+      "type" : "MCQ_SINGLE",
+      "prompt" : "Một quả cầu kim loại bán kính R, tích điện đều q > 0 trên bề mặt. Áp dụng định lý Gauss, hãy xác định cường độ điện trường tại một điểm bất kỳ bên trong quả cầu (r < R).",
+      "options" : [ "Bằng 0 tại mọi điểm bên trong quả cầu.", "Có độ lớn không đổi và khác không.", "Tăng dần theo khoảng cách từ tâm ra bề mặt.", "Giảm dần khi đi từ bề mặt vào tâm." ],
+      "correctAnswer" : "Bằng 0 tại mọi điểm bên trong quả cầu.",
+      "citation" : {
+        "sourceLocation" : "Slide 8",
+        "verbatimQuote" : "Ở bên trong quả cầu (r < R): nên E = 0.",
+        "reasoning" : "Tài liệu nêu rõ kết quả áp dụng định lý Gauss cho trường hợp này là E = 0."
+      },
+      "sentenceHtml" : null,
+      "pairs" : null
+    }, {
+      "type" : "TRUE_FALSE",
+      "prompt" : "Đúng hay Sai: Vectơ cảm ứng điện D được định nghĩa nhằm loại bỏ sự thay đổi đột ngột của vectơ cường độ điện trường E khi đi qua mặt phân cách của hai môi trường có hằng số điện môi khác nhau.",
+      "options" : null,
+      "correctAnswer" : true,
+      "citation" : {
+        "sourceLocation" : "Slide 6",
+        "verbatimQuote" : "Để khử sự gián đoạn đó, ta đưa vào đại lượng mới là vecto cảm ứng điện",
+        "reasoning" : "Tài liệu giải thích lý do đưa vào vectơ cảm ứng điện là để khử sự gián đoạn của vectơ E."
+      },
+      "sentenceHtml" : null,
+      "pairs" : null
+    }, {
+      "type" : "FILL_IN_THE_BLANK",
+      "prompt" : "Điền vào chỗ trống công thức tính độ lớn cường độ điện trường do một mặt phẳng rộng vô hạn, tích điện đều với mật độ điện mặt σ gây ra.",
+      "options" : null,
+      "correctAnswer" : [ "σ / (2εε₀)" ],
+      "citation" : {
+        "sourceLocation" : "Slide 11",
+        "verbatimQuote" : "Mặt phẳng rộng vô hạn: sinh ra điện trường đều. E = σ / (2εε₀)",
+        "reasoning" : "Tài liệu cung cấp công thức tính cường độ điện trường cho một mặt phẳng rộng vô hạn."
+      },
+      "sentenceHtml" : "Theo tài liệu, cường độ điện trường do một mặt phẳng rộng vô hạn gây ra là một điện trường đều có độ lớn E = ___.",
+      "pairs" : null
+    }, {
+      "type" : "SHORT_ANSWER",
+      "prompt" : "Dựa vào đặc điểm của đường sức điện trường được mô tả trong tài liệu, đường sức điện trường tĩnh có phải là một đường cong khép kín không?",
+      "options" : null,
+      "correctAnswer" : [ "Không", "Không khép kín" ],
+      "citation" : {
+        "sourceLocation" : "Slide 5",
+        "verbatimQuote" : "Đường sức điện trường tĩnh không khép kín.",
+        "reasoning" : "Tài liệu khẳng định rằng đường sức của điện trường tĩnh là các đường không khép kín."
+      },
+      "sentenceHtml" : null,
+      "pairs" : null
+    }, {
+      "type" : "MATCHING",
+      "prompt" : "Ghép mỗi vật thể tích điện với vị trí mà tại đó cường độ điện trường do nó gây ra bằng không (E=0), dựa trên các công thức đã cho.",
+      "options" : null,
+      "correctAnswer" : null,
+      "citation" : {
+        "sourceLocation" : "Slide 10",
+        "verbatimQuote" : "Nếu là vòng tròn (α = 360⁰): OE = 0",
+        "reasoning" : "Tài liệu cung cấp các công thức và kết quả tính điện trường cho các vật thể này."
+      },
+      "sentenceHtml" : null,
+      "pairs" : [ {
+        "left" : "Vòng tròn tích điện đều",
+        "right" : "Tại tâm của vòng tròn"
+      }, {
+        "left" : "Mặt cầu tích điện đều trên bề mặt",
+        "right" : "Tại mọi điểm bên trong mặt cầu"
+      }, {
+        "left" : "Quả cầu tích điện đều theo thể tích",
+        "right" : "Chỉ tại tâm của quả cầu"
+      } ]
+    } ]
+  },
+  "prompt_tokens" : 4945,
+  "raw" : "```json\n{\n  \"questions\": [\n    {\n      \"citation\": {\n        \"reasoning\": \"Tài liệu nêu rõ kết quả áp dụng định lý Gauss cho trường hợp này là E = 0.\",\n        \"sourceLocation\": \"Slide 8\",\n        \"verbatimQuote\": \"Ở bên trong quả cầu (r < R): nên E = 0.\"\n      },\n      \"correctAnswer\": \"Bằng 0 tại mọi điểm bên trong quả cầu.\",\n      \"options\": [\n        \"Bằng 0 tại mọi điểm bên trong quả cầu.\",\n        \"Có độ lớn không đổi và khác không.\",\n        \"Tăng dần theo khoảng cách từ tâm ra bề mặt.\",\n        \"Giảm dần khi đi từ bề mặt vào tâm.\"\n      ],\n      \"prompt\": \"Một quả cầu kim loại bán kính R, tích điện đều q > 0 trên bề mặt. Áp dụng định lý Gauss, hãy xác định cường độ điện trường tại một điểm bất kỳ bên trong quả cầu (r < R).\",\n      \"type\": \"MCQ_SINGLE\"\n    },\n    {\n      \"citation\": {\n        \"reasoning\": \"Tài liệu giải thích lý do đưa vào vectơ cảm ứng điện là để khử sự gián đoạn của vectơ E.\",\n        \"sourceLocation\": \"Slide 6\",\n        \"verbatimQuote\": \"Để khử sự gián đoạn đó, ta đưa vào đại lượng mới là vecto cảm ứng điện\"\n      },\n      \"correctAnswer\": true,\n      \"prompt\": \"Đúng hay Sai: Vectơ cảm ứng điện D được định nghĩa nhằm loại bỏ sự thay đổi đột ngột của vectơ cường độ điện trường E khi đi qua mặt phân cách của hai môi trường có hằng số điện môi khác nhau.\",\n      \"type\": \"TRUE_FALSE\"\n    },\n    {\n      \"citation\": {\n        \"reasoning\": \"Tài liệu cung cấp công thức tính cường độ điện trường cho một mặt phẳng rộng vô hạn.\",\n        \"sourceLocation\": \"Slide 11\",\n        \"verbatimQuote\": \"Mặt phẳng rộng vô hạn: sinh ra điện trường đều. E = σ / (2εε₀)\"\n      },\n      \"correctAnswer\": [\n        \"σ / (2εε₀)\"\n      ],\n      \"prompt\": \"Điền vào chỗ trống công thức tính độ lớn cường độ điện trường do một mặt phẳng rộng vô hạn, tích điện đều với mật độ điện mặt σ gây ra.\",\n      \"sentenceHtml\": \"Theo tài liệu, cường độ điện trường do một mặt phẳng rộng vô hạn gây ra là một điện trường đều có độ lớn E = ___.\",\n      \"type\": \"FILL_IN_THE_BLANK\"\n    },\n    {\n      \"citation\": {\n        \"reasoning\": \"Tài liệu khẳng định rằng đường sức của điện trường tĩnh là các đường không khép kín.\",\n        \"sourceLocation\": \"Slide 5\",\n        \"verbatimQuote\": \"Đường sức điện trường tĩnh không khép kín.\"\n      },\n      \"correctAnswer\": [\n        \"Không\",\n        \"Không khép kín\"\n      ],\n      \"prompt\": \"Dựa vào đặc điểm của đường sức điện trường được mô tả trong tài liệu, đường sức điện trường tĩnh có phải là một đường cong khép kín không?\",\n      \"type\": \"SHORT_ANSWER\"\n    },\n    {\n      \"citation\": {\n        \"reasoning\": \"Tài liệu cung cấp các công thức và kết quả tính điện trường cho các vật thể này.\",\n        \"sourceLocation\": \"Slide 10\",\n        \"verbatimQuote\": \"Nếu là vòng tròn (α = 360⁰): OE = 0\"\n      },\n      \"correctAnswer\": null,\n      \"pairs\": [\n        {\n          \"left\": \"Vòng tròn tích điện đều\",\n          \"right\": \"Tại tâm của vòng tròn\"\n        },\n        {\n          \"left\": \"Mặt cầu tích điện đều trên bề mặt\",\n          \"right\": \"Tại mọi điểm bên trong mặt cầu\"\n        },\n        {\n          \"left\": \"Quả cầu tích điện đều theo thể tích\",\n          \"right\": \"Chỉ tại tâm của quả cầu\"\n        }\n      ],\n      \"prompt\": \"Ghép mỗi vật thể tích điện với vị trí mà tại đó cường độ điện trường do nó gây ra bằng không (E=0), dựa trên các công thức đã cho.\",\n      \"type\": \"MATCHING\"\n    }\n  ]\n}\n```",
+  "run" : 1,
+  "schema_ok" : true,
+  "temperature" : 0.2,
+  "timestamp" : "2026-06-05T20:28:37.836404"
+}

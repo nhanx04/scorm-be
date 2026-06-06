@@ -1,12 +1,16 @@
 {
   "type": "SHORT_ANSWER",
   "description": "Câu hỏi trả lời ngắn. correctAnswer LUÔN là MẢNG chuỗi chứa các đáp án đồng nghĩa được chấp nhận (ví dụ: viết tắt, viết đầy đủ, biến thể chính tả). Trường options và sentenceHtml để null.",
-  "sourceContext": "World Wide Web (viết tắt là WWW hoặc Web) là một hệ thống thông tin gồm các tài liệu siêu văn bản và các tài nguyên khác được liên kết với nhau qua mạng Internet. Tim Berners-Lee phát minh ra Web vào năm 1989.",
+  "sourceContext": "Slide 1: World Wide Web (viết tắt là WWW hoặc Web) là một hệ thống thông tin gồm các tài liệu siêu văn bản và các tài nguyên khác được liên kết với nhau qua mạng Internet. Tim Berners-Lee phát minh ra Web vào năm 1989.",
   "expectedOutput": {
     "type": "SHORT_ANSWER",
     "prompt": "Ai là người phát minh ra World Wide Web vào năm 1989?",
     "options": null,
     "correctAnswer": ["Tim Berners-Lee", "Berners-Lee", "Tim Berners Lee"],
-    "explanation": "Theo tài liệu, Tim Berners-Lee là người phát minh ra Web vào năm 1989. Đáp án chấp nhận cả tên đầy đủ, họ ngắn và biến thể không có dấu gạch nối."
+    "citation": {
+      "sourceLocation": "Slide 1",
+      "verbatimQuote": "Tim Berners-Lee phát minh ra Web vào năm 1989",
+      "reasoning": "Quote nêu trực tiếp tên người phát minh và năm 1989."
+    }
   }
 }
