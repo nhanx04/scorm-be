@@ -69,13 +69,13 @@ public final class QuizPrompts {
 
     private static final String DIFFICULTY_RUBRIC = """
             QUY ĐỊNH ĐỘ KHÓ (rubric, mapped sang Bloom Taxonomy):
-            - Dễ:        Bloom L1-L2 (Remember / Understand) — nhận biết hoặc nhớ định nghĩa trực tiếp từ nguồn.
-            - Trung bình: Bloom L3 (Apply) — áp dụng khái niệm vào tình huống cụ thể, ví dụ minh họa, so sánh nhẹ.
-            - Khó:       Bloom L4-L5 (Analyze / Evaluate) — phân tích thành phần, đánh giá đa khái niệm, suy luận.
+            - Dễ / Easy:         Bloom L1-L2 (Remember / Understand) — nhận biết hoặc nhớ định nghĩa trực tiếp từ nguồn.
+            - Trung bình / Medium: Bloom L3 (Apply) — áp dụng khái niệm vào tình huống cụ thể, ví dụ minh họa, so sánh nhẹ.
+            - Khó / Hard:        Bloom L4-L5 (Analyze / Evaluate) — phân tích thành phần, đánh giá đa khái niệm, suy luận.
 
             PHÂN BỔ ĐỘ KHÓ (khi {difficulty} là "Mixed" hoặc khi {numberOfQuestions} >= 5):
             Mặc định 1 câu Dễ + 3 câu Trung bình + 1 câu Khó cho mỗi 5 câu. Điều chỉnh tỉ lệ tương ứng cho N khác.
-            Nếu {difficulty} chỉ định một mức (Dễ/Trung bình/Khó), tất cả câu cùng mức đó.
+            Nếu {difficulty} chỉ định một mức (Dễ/Trung bình/Khó hoặc Easy/Medium/Hard), tất cả câu cùng mức đó.
             """;
 
     private static final String CONCEPT_DIVERSITY = """

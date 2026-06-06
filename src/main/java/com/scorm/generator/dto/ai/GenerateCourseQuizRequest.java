@@ -12,6 +12,6 @@ public class GenerateCourseQuizRequest {
     private String pageTitle;
     private String sourceText; // Backend tự nạp từ tài liệu gốc của khóa học (không phải frontend gửi)
     private int numberOfQuestions = 6;
-    private String language = "Vietnamese";
+    private String language = "auto"; // "auto" = theo ngôn ngữ của nguồn (tài liệu/nội dung nhập)
     private String difficulty = "Trung bình";
 }

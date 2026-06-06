@@ -84,6 +84,20 @@ public class AiGeneratorService {
         }
 
         /**
+         * Hướng dẫn ngôn ngữ đầu ra. Mặc định ("auto"/null/blank) là để model viết
+         * THEO ngôn ngữ của nguồn (tài liệu hoặc nội dung người dùng nhập) thay vì
+         * ép cứng một ngôn ngữ. Nếu caller chỉ định ngôn ngữ cụ thể thì dùng đúng nó.
+         */
+        private static final String AUTO_LANGUAGE = "ngôn ngữ của tài liệu/nội dung nguồn (KHÔNG dịch sang ngôn ngữ khác)";
+
+        private static String resolveLanguage(String requested) {
+                if (requested == null || requested.isBlank() || requested.equalsIgnoreCase("auto")) {
+                        return AUTO_LANGUAGE;
+                }
+                return requested;
+        }
+
+        /**
          * Warn (don't fail) when the source text is likely too short to support
          * the requested question count without hallucination. The prompt already
          * tells the model "tạo ít câu hơn thay vì bịa", so we just observe.
@@ -295,6 +309,7 @@ public class AiGeneratorService {
                                 - Ngôn ngữ: {language}
                                 - Yêu cầu thêm: {additionalInstructions}
 
+                                {sourceGrounding}
                                 YÊU CẦU VỀ NỘI DUNG (Trường htmlContent):
                                 1. Trình bày bài học một cách sư phạm: Có đoạn mở đầu dẫn dắt, giải thích chi tiết các khái niệm, đưa ra ví dụ minh họa và tóm tắt ngắn ở cuối bài.
                                 2. Giá trị của trường `htmlContent` PHẢI là chuỗi mã HTML hợp lệ để hiển thị trực tiếp trên trình duyệt.
@@ -322,11 +337,14 @@ public class AiGeneratorService {
                                                                                 ? request.getSectionTitle()
                                                                                 : "Không xác định")
                                                 .param("pageTopic", request.getPageTopic())
-                                                .param("language", request.getLanguage())
+                                                .param("language", resolveLanguage(request.getLanguage()))
                                                 .param("additionalInstructions",
                                                                 request.getAdditionalInstructions() != null
                                                                                 ? request.getAdditionalInstructions()
                                                                                 : "Không có")
+                                                .param("sourceGrounding",
+                                                                buildPageContentGroundingBlock(
+                                                                                request.getSourceDocumentText()))
                                                 .param("fewShotExamples", buildPageContentFewShotBlock())
                                                 .param("formatInstructions", formatInstructions))
                                 .call()
@@ -335,6 +353,28 @@ public class AiGeneratorService {
                 // 4. Xử lý chuỗi và Convert
                 String jsonContent = stripJsonFence(rawResponse);
                 return converter.convert(jsonContent);
+        }
+
+        /**
+         * Khi khóa học có tài liệu gốc, ép nội dung bài học bám sát tài liệu thay vì
+         * để model viết tự do từ kiến thức chung. Trả về "" nếu không có tài liệu
+         * (giữ nguyên hành vi cũ: sinh nội dung từ chủ đề bài học).
+         *
+         * <p>Tài liệu được truyền qua {@code .param(...)} nên ký tự {@code {} } hoặc
+         * {@code %} bên trong KHÔNG bị template/Formatter diễn giải.
+         */
+        private static String buildPageContentGroundingBlock(String sourceDocumentText) {
+                if (sourceDocumentText == null || sourceDocumentText.isBlank()) {
+                        return "";
+                }
+                return "TÀI LIỆU GỐC CỦA KHÓA HỌC (nguồn dữ kiện chính — bám sát, KHÔNG bịa ngoài tài liệu):\n"
+                                + "=================================\n"
+                                + sourceDocumentText + "\n"
+                                + "=================================\n"
+                                + "YÊU CẦU BÁM NGUỒN:\n"
+                                + "1. Chỉ trình bày kiến thức CÓ trong TÀI LIỆU GỐC liên quan tới chủ đề bài học ở trên.\n"
+                                + "2. KHÔNG thêm khái niệm/số liệu nằm ngoài tài liệu, kể cả khi đúng trên thực tế.\n"
+                                + "3. Nếu tài liệu đề cập rất ít về chủ đề này, hãy viết NGẮN GỌN phần có thật thay vì bịa thêm.\n";
         }
 
         private String buildPageContentFewShotBlock() {
@@ -365,7 +405,7 @@ public class AiGeneratorService {
                 previewQuizCoverage(request.getSourceText(), request.getNumberOfQuestions());
 
                 String difficulty = request.getDifficulty() != null ? request.getDifficulty() : "Trung bình";
-                String language = request.getLanguage() != null ? request.getLanguage() : "Vietnamese";
+                String language = resolveLanguage(request.getLanguage());
 
                 return callQuizWithRetry(converter, request.getSourceText(),
                                 addendum -> chatClient.prompt()
@@ -448,7 +488,7 @@ public class AiGeneratorService {
                 String documentText = orEmpty(request.getSourceText()).trim();
                 String focusTopic = orEmpty(request.getFocusTopic()).trim();
                 String difficulty = request.getDifficulty() != null ? request.getDifficulty() : "Trung bình";
-                String language = request.getLanguage() != null ? request.getLanguage() : "Vietnamese";
+                String language = resolveLanguage(request.getLanguage());
 
                 // Không có cả tài liệu lẫn nội dung người dùng nhập → không thể ground.
                 if (documentText.isEmpty() && focusTopic.isEmpty()) {

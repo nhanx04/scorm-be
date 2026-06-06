@@ -99,7 +99,14 @@ public class AiFeatureController {
      * URL: /ai/generate-page-content
      */
     @PostMapping("/generate-page-content")
-    public ResponseEntity<AiPageContentResponse> generatePageContent(@RequestBody GeneratePageContentRequest request) {
+    public ResponseEntity<AiPageContentResponse> generatePageContent(
+            @RequestBody GeneratePageContentRequest request,
+            Authentication authentication) {
+        // Nạp tài liệu gốc của khóa học để nội dung bài học bám sát tài liệu (nếu có).
+        if (request.getCourseId() != null) {
+            String sourceDocument = courseService.getCourseSourceDocument(request.getCourseId(), authentication);
+            request.setSourceDocumentText(sourceDocument);
+        }
         AiPageContentResponse content = aiGeneratorService.generatePageContent(request);
         return ResponseEntity.ok(content);
     }
