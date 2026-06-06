@@ -1,6 +1,7 @@
 package com.scorm.generator.config;
 
 import com.scorm.generator.security.JwtAuthenticationFilter;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -18,6 +19,7 @@ import org.springframework.security.web.authentication.UsernamePasswordAuthentic
 
 import static org.springframework.http.HttpStatus.UNAUTHORIZED;
 
+@Slf4j
 @Configuration
 public class SecurityConfig {
 
@@ -31,16 +33,18 @@ public class SecurityConfig {
 
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
+        log.info("Configuring security filter chain with /api/health permitAll");
         http
                 .cors(cors -> {
                 })
                 .csrf(csrf -> csrf.disable())
                 .sessionManagement(sm -> sm.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
-                .exceptionHandling(eh -> eh.authenticationEntryPoint(new HttpStatusEntryPoint(UNAUTHORIZED)))
                 .authorizeHttpRequests(auth -> auth
+                        .requestMatchers("/api/health").permitAll()
                         .requestMatchers("/auth/**").permitAll()
                         .requestMatchers(org.springframework.http.HttpMethod.GET, "/libraries/**").permitAll()
                         .anyRequest().authenticated())
+                .exceptionHandling(eh -> eh.authenticationEntryPoint(new HttpStatusEntryPoint(UNAUTHORIZED)))
                 .authenticationProvider(authenticationProvider())
                 .addFilterBefore(jwtAuthFilter, UsernamePasswordAuthenticationFilter.class);
 
