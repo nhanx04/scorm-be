@@ -12,7 +12,8 @@ public record AiQuizResponse(
                         Object correctAnswer, // Đáp án đúng (dùng Object để linh hoạt kiểu dữ liệu)
                         Citation citation, // Bằng chứng từ tài liệu — server có thể verify substring
                         String sentenceHtml, // Dành cho câu hỏi điền khuyết
-                        List<MatchingPair> pairs // Dành cho câu hỏi nối chéo (Matching)
+                        List<MatchingPair> pairs, // Dành cho câu hỏi nối chéo (Matching)
+                        Integer bloomLevel // Mức Bloom Taxonomy 1-6 (đo/kiểm soát độ khó câu hỏi)
         ) {
         }
 

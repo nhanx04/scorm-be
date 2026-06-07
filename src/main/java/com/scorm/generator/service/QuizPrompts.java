@@ -38,6 +38,8 @@ public final class QuizPrompts {
             QUY ƯỚC DỮ LIỆU (áp dụng cho TẤT CẢ loại câu hỏi):
             - `type` và `prompt` BẮT BUỘC không rỗng cho MỌI loại — kể cả khi đã có sentenceHtml/options/pairs.
               `prompt` là chỉ dẫn hiển thị cho học viên (ví dụ "Chọn đáp án đúng:", "Đúng hay sai:", "Điền vào chỗ trống:").
+            - `bloomLevel` BẮT BUỘC là số nguyên 1-6 theo Bloom Taxonomy, KHỚP với độ khó yêu cầu:
+                Dễ/Easy → 1-2; Trung bình/Medium → 3; Khó/Hard → 4-5. Server sẽ kiểm tra trường này.
             - `citation` BẮT BUỘC có đủ 3 trường:
                 + sourceLocation: "Slide <N>" nếu nguồn chia slide, hoặc "Đoạn <N>" cho văn bản liên tục.
                 + verbatimQuote: chuỗi TRÍCH NGUYÊN VĂN từ nguồn — NGẮN (5-20 từ), LIỀN MẠCH trong 1 câu duy nhất.
@@ -59,12 +61,14 @@ public final class QuizPrompts {
 
     private static final String ITEM_WRITING_STANDARDS = """
             QUY TẮC CHẤT LƯỢNG ĐÁP ÁN (Item Writing Standards, dựa trên Haladyna et al. 2002):
-            - Distractor (đáp án sai trong MCQ) phải có độ dài tương đương đáp án đúng (chênh lệch ≤ 30%% số từ).
-            - KHÔNG dùng từ tuyệt đối ("luôn luôn", "không bao giờ", "tất cả", "duy nhất", "always", "never", "only")
+            - [TW-1] Đáp án đúng KHÔNG được dài hơn 1.5× độ dài trung bình các distractor (tránh length cue).
+            - [TW-5] KHÔNG dùng từ tuyệt đối ("luôn luôn", "không bao giờ", "tất cả", "duy nhất", "always", "never", "only")
               trong distractor — học viên sẽ loại được mà không cần kiến thức.
-            - KHÔNG dùng các option dạng "All of the above" / "None of the above" / "Tất cả đều đúng".
+            - [ID-2] KHÔNG dùng các option dạng "All of the above" / "None of the above" / "Tất cả đều đúng".
             - Stem (trường `prompt`) ≤ 25 từ, không chứa thông tin thừa ngoài câu hỏi.
             - Câu hỏi phủ định BẮT BUỘC viết hoa từ phủ định ("NOT", "KHÔNG", "EXCEPT") để học viên không bỏ sót.
+
+            ⚠️ Server TỰ ĐỘNG kiểm tra và LOẠI các lỗi TW-1, TW-5, ID-2 (substring/tỉ lệ độ dài) — vi phạm sẽ bị trả lại để sửa.
             """;
 
     private static final String DIFFICULTY_RUBRIC = """

@@ -54,6 +54,8 @@ public final class QuizSchemaValidator {
             AiQuestion q = response.questions().get(i);
             String prefix = "Q" + (i + 1) + " (" + safeType(q) + "): ";
             validateSchema(q, prefix, issues);
+            validateBloom(q, prefix, issues);
+            validateItemWritingFlaws(q, prefix, issues);
             if (normalisedSource != null) {
                 validateCitation(q, normalisedSource, prefix, issues);
             }
@@ -154,6 +156,122 @@ public final class QuizSchemaValidator {
             issues.add(prefix + "citation.verbatimQuote KHÔNG tìm thấy trong nguồn — "
                     + "có thể model bịa: \"" + truncate(raw, 80) + "\"");
         }
+    }
+
+    /**
+     * Bloom Taxonomy level must be present and in [1,6]. Makes question
+     * difficulty measurable (đo độ khó qua thang Bloom) — the prompt maps the
+     * requested difficulty onto these levels, this just enforces the model
+     * actually tags every question.
+     */
+    private static void validateBloom(AiQuestion q, String prefix, List<String> issues) {
+        Integer bloom = q.bloomLevel();
+        if (bloom == null) {
+            issues.add(prefix + "thiếu bloomLevel (mức Bloom 1-6) để xác định độ khó");
+        } else if (bloom < 1 || bloom > 6) {
+            issues.add(prefix + "bloomLevel ngoài khoảng [1,6]: " + bloom);
+        }
+    }
+
+    // --- Item Writing Flaws: high-precision subset enforced at generation time ---
+    // (TW-1 length cue, TW-5 absolute terms in distractor, ID-2 All/None of the
+    // above). Lexicons kept in lockstep with QuizPrompts.ITEM_WRITING_STANDARDS.
+    private static final List<String> ABSOLUTE_TERMS = List.of(
+            "always", "never", "only",
+            "luôn luôn", "không bao giờ", "tất cả", "duy nhất");
+    private static final List<String> AOTA_PATTERNS = List.of(
+            "all of the above", "none of the above",
+            "tất cả đều đúng", "tất cả các đáp án trên",
+            "không đáp án nào", "không có đáp án nào");
+    /** Below this word count an option is too short for the length-cue ratio to be meaningful. */
+    private static final int LENGTH_CUE_MIN_WORDS = 6;
+    private static final double LENGTH_CUE_RATIO = 1.5;
+
+    /**
+     * Mechanically detectable Item Writing Flaws (Haladyna et al. 2002). Only
+     * the high-precision subset is gated so the retry loop fixes clear flaws
+     * without churning on subjective ones (those stay in the prompt + offline
+     * rubric). Applies to choice-based questions only.
+     */
+    private static void validateItemWritingFlaws(AiQuestion q, String prefix, List<String> issues) {
+        String type = q.type() == null ? "" : q.type().toUpperCase();
+        boolean isMcq = type.equals("MCQ_SINGLE") || type.equals("MCQ_MULTIPLE");
+        if (!isMcq || q.options() == null || q.options().size() < 2) {
+            return;
+        }
+        List<String> options = q.options();
+
+        // ID-2: "All/None of the above" style options.
+        for (String opt : options) {
+            String low = opt == null ? "" : opt.toLowerCase();
+            if (AOTA_PATTERNS.stream().anyMatch(low::contains)) {
+                issues.add(prefix + "IWF ID-2: tránh option dạng \"All/None of the above\": \""
+                        + truncate(opt, 60) + "\"");
+                break;
+            }
+        }
+
+        // TW-5: absolute terms inside a distractor (not the correct answer).
+        java.util.Set<String> correct = correctAnswerStrings(q);
+        for (String opt : options) {
+            if (opt == null || correct.contains(opt.trim().toLowerCase())) {
+                continue; // skip the correct answer(s)
+            }
+            String low = opt.toLowerCase();
+            String hit = ABSOLUTE_TERMS.stream().filter(low::contains).findFirst().orElse(null);
+            if (hit != null) {
+                issues.add(prefix + "IWF TW-5: distractor chứa từ tuyệt đối \"" + hit
+                        + "\" (dễ bị loại không cần kiến thức): \"" + truncate(opt, 60) + "\"");
+                break;
+            }
+        }
+
+        // TW-1: length cue — correct answer markedly longer than the distractors.
+        validateLengthCue(q, correct, prefix, issues);
+    }
+
+    private static void validateLengthCue(AiQuestion q, java.util.Set<String> correct,
+                                          String prefix, List<String> issues) {
+        int correctWords = 0;
+        int distractorTotal = 0;
+        int distractorCount = 0;
+        for (String opt : q.options()) {
+            if (opt == null || opt.isBlank()) {
+                continue;
+            }
+            int w = opt.trim().split("\\s+").length;
+            if (correct.contains(opt.trim().toLowerCase())) {
+                correctWords = Math.max(correctWords, w);
+            } else {
+                distractorTotal += w;
+                distractorCount++;
+            }
+        }
+        if (distractorCount == 0 || correctWords < LENGTH_CUE_MIN_WORDS) {
+            return; // too short to be a meaningful cue
+        }
+        double avgDistractor = (double) distractorTotal / distractorCount;
+        if (avgDistractor > 0 && correctWords >= LENGTH_CUE_RATIO * avgDistractor) {
+            issues.add(prefix + "IWF TW-1: đáp án đúng dài bất thường (" + correctWords
+                    + " từ vs trung bình distractor " + String.format("%.1f", avgDistractor)
+                    + " từ) — rút gọn để tránh length cue");
+        }
+    }
+
+    /** Lowercased set of the correct answer option text(s), for distractor exclusion. */
+    private static java.util.Set<String> correctAnswerStrings(AiQuestion q) {
+        java.util.Set<String> out = new java.util.HashSet<>();
+        Object ca = q.correctAnswer();
+        if (ca instanceof String s) {
+            out.add(s.trim().toLowerCase());
+        } else if (ca instanceof List<?> list) {
+            for (Object o : list) {
+                if (o != null) {
+                    out.add(o.toString().trim().toLowerCase());
+                }
+            }
+        }
+        return out;
     }
 
     /** Lowercase + collapse all whitespace to single spaces + drop curly quotes. */

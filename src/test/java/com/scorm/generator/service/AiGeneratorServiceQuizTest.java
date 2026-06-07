@@ -99,7 +99,8 @@ class AiGeneratorServiceQuizTest {
                 + "\"verbatimQuote\":\"" + quote + "\","
                 + "\"reasoning\":\"Giải thích ngắn.\"},"
                 + "\"sentenceHtml\":null,"
-                + "\"pairs\":null"
+                + "\"pairs\":null,"
+                + "\"bloomLevel\":3"
                 + "}]}";
     }
 
