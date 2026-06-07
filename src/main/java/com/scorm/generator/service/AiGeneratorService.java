@@ -21,9 +21,7 @@ import com.scorm.generator.dto.ai.AiCourseOutline;
 import com.scorm.generator.dto.ai.GenerateCourseRequest;
 import com.scorm.generator.dto.ai.AiPageContentResponse;
 import com.scorm.generator.dto.ai.GeneratePageContentRequest;
-import com.scorm.generator.dto.ai.AiKnowledgeAnswerResponse;
 import com.scorm.generator.dto.ai.AiQuizResponse;
-import com.scorm.generator.dto.ai.AskKnowledgeRequest;
 import com.scorm.generator.dto.ai.GenerateCourseQuizRequest;
 import com.scorm.generator.dto.ai.GenerateQuizRequest;
 import com.scorm.generator.service.ai.PageContentExampleLoader;
@@ -554,68 +552,5 @@ public class AiGeneratorService {
 
         private static String orEmpty(String s) {
                 return s != null ? s : "";
-        }
-
-        public AiKnowledgeAnswerResponse askCourseKnowledge(AskKnowledgeRequest request) {
-                BeanOutputConverter<AiKnowledgeAnswerResponse> converter = new BeanOutputConverter<>(
-                                AiKnowledgeAnswerResponse.class);
-                String formatInstructions = converter.getFormat();
-
-                String userPrompt = """
-                                Bạn là trợ giảng AI cho khóa học. Chỉ được trả lời dựa trên ngữ cảnh khóa học và nội dung bài học cung cấp.
-
-                                NGỮ CẢNH:
-                                - courseTitle: {courseTitle}
-                                - courseDescription: {courseDescription}
-                                - sectionTitle: {sectionTitle}
-                                - pageTitle: {pageTitle}
-                                - pageContent: {pageContent}
-
-                                CÂU HỎI NGƯỜI HỌC:
-                                {question}
-
-                                QUY TẮC:
-                                1. Nếu đủ dữ liệu trong ngữ cảnh, trả lời ngắn gọn, rõ ràng, đúng trọng tâm.
-                                2. Nếu không đủ dữ liệu, trả lời rằng chưa đủ thông tin trong nội dung khóa học hiện tại và gợi ý người dùng bổ sung nội dung.
-                                3. Không bịa thông tin ngoài nội dung đã cung cấp.
-                                4. Ngôn ngữ trả lời: {language}.
-
-                                Trả về đúng JSON theo schema:
-                                {formatInstructions}
-                                """;
-
-                String rawResponse = chatClient.prompt()
-                                .user(u -> u.text(userPrompt)
-                                                .param("courseTitle",
-                                                                request.getCourseTitle() != null
-                                                                                ? request.getCourseTitle()
-                                                                                : "")
-                                                .param("courseDescription",
-                                                                request.getCourseDescription() != null
-                                                                                ? request.getCourseDescription()
-                                                                                : "")
-                                                .param("sectionTitle",
-                                                                request.getSectionTitle() != null
-                                                                                ? request.getSectionTitle()
-                                                                                : "")
-                                                .param("pageTitle",
-                                                                request.getPageTitle() != null ? request.getPageTitle()
-                                                                                : "")
-                                                .param("pageContent",
-                                                                request.getPageContent() != null
-                                                                                ? request.getPageContent()
-                                                                                : "")
-                                                .param("question",
-                                                                request.getQuestion() != null ? request.getQuestion()
-                                                                                : "")
-                                                .param("language",
-                                                                request.getLanguage() != null ? request.getLanguage()
-                                                                                : "Vietnamese")
-                                                .param("formatInstructions", formatInstructions))
-                                .call()
-                                .content();
-
-                String jsonContent = stripJsonFence(rawResponse);
-                return converter.convert(jsonContent);
         }
 }
