@@ -2,13 +2,10 @@ package com.scorm.generator.service.rag;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.ai.embedding.EmbeddingModel;
-import org.springframework.beans.factory.ObjectProvider;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -25,11 +22,8 @@ public class CourseRagService {
 
     private static final Logger log = LoggerFactory.getLogger(CourseRagService.class);
 
-    /** Google giới hạn số lượng văn bản mỗi request embedding; chia batch cho an toàn. */
-    private static final int EMBED_BATCH_SIZE = 50;
-
     private final DocumentChunkDao chunkDao;
-    private final ObjectProvider<EmbeddingModel> embeddingModelProvider;
+    private final GeminiEmbeddingClient embeddingClient;
     private final boolean ragEnabled;
     private final int chunkSize;
     private final int chunkOverlap;
@@ -37,13 +31,13 @@ public class CourseRagService {
 
     public CourseRagService(
             DocumentChunkDao chunkDao,
-            ObjectProvider<EmbeddingModel> embeddingModelProvider,
+            GeminiEmbeddingClient embeddingClient,
             @Value("${app.ai.rag.enabled:true}") boolean ragEnabled,
             @Value("${app.ai.rag.chunk-size:1200}") int chunkSize,
             @Value("${app.ai.rag.chunk-overlap:200}") int chunkOverlap,
             @Value("${app.ai.rag.top-k:6}") int defaultTopK) {
         this.chunkDao = chunkDao;
-        this.embeddingModelProvider = embeddingModelProvider;
+        this.embeddingClient = embeddingClient;
         this.ragEnabled = ragEnabled;
         this.chunkSize = chunkSize;
         this.chunkOverlap = chunkOverlap;
@@ -51,7 +45,7 @@ public class CourseRagService {
     }
 
     public boolean isEnabled() {
-        return ragEnabled && embeddingModelProvider.getIfAvailable() != null;
+        return ragEnabled && embeddingClient.isConfigured();
     }
 
     /** Khóa học đã có chunk index → có thể truy xuất RAG. */
@@ -82,16 +76,17 @@ public class CourseRagService {
         if (!isEnabled() || courseId == null || sourceText == null || sourceText.isBlank()) {
             return;
         }
-        EmbeddingModel embeddingModel = embeddingModelProvider.getIfAvailable();
-        if (embeddingModel == null) {
-            return;
-        }
         try {
             List<String> chunks = DocumentChunker.chunk(sourceText, chunkSize, chunkOverlap);
             if (chunks.isEmpty()) {
                 return;
             }
-            List<float[]> embeddings = embedInBatches(embeddingModel, chunks);
+            List<float[]> embeddings = embeddingClient.embedDocuments(chunks);
+            if (embeddings.size() != chunks.size()) {
+                log.warn("RAG: embedding count {} != chunk count {} for course {} — skipping ingest.",
+                        embeddings.size(), chunks.size(), courseId);
+                return;
+            }
 
             chunkDao.deleteByCourseId(courseId);
             chunkDao.insertBatch(courseId, chunks, embeddings);
@@ -129,27 +124,19 @@ public class CourseRagService {
         if (!isEnabled() || courseId == null || query == null || query.isBlank()) {
             return List.of();
         }
-        EmbeddingModel embeddingModel = embeddingModelProvider.getIfAvailable();
-        if (embeddingModel == null) {
-            return List.of();
-        }
         int k = (topK != null && topK > 0) ? topK : defaultTopK;
         try {
-            float[] queryEmbedding = embeddingModel.embed(query);
-            return chunkDao.searchSimilar(courseId, queryEmbedding, k);
+            float[] queryEmbedding = embeddingClient.embedQuery(query);
+            if (queryEmbedding == null) {
+                return List.of();
+            }
+            List<String> passages = chunkDao.searchSimilar(courseId, queryEmbedding, k);
+            log.info("RAG: retrieved {} passage(s) for course {} (query: \"{}\")",
+                    passages.size(), courseId, query.length() > 60 ? query.substring(0, 60) + "…" : query);
+            return passages;
         } catch (Exception e) {
             log.warn("RAG: retrieve failed for course {}: {}", courseId, e.getMessage());
             return List.of();
         }
-    }
-
-    private List<float[]> embedInBatches(EmbeddingModel embeddingModel, List<String> chunks) {
-        List<float[]> all = new ArrayList<>(chunks.size());
-        for (int from = 0; from < chunks.size(); from += EMBED_BATCH_SIZE) {
-            int to = Math.min(from + EMBED_BATCH_SIZE, chunks.size());
-            List<String> batch = chunks.subList(from, to);
-            all.addAll(embeddingModel.embed(batch));
-        }
-        return all;
     }
 }
