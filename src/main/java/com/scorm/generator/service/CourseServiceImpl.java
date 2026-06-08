@@ -26,6 +26,7 @@ import com.scorm.generator.repository.SectionRepository;
 import com.scorm.generator.repository.ThumbnailOfCourseRepository;
 import com.scorm.generator.repository.Question.QuestionOfQuizRepository;
 import com.scorm.generator.repository.Question.QuestionRepository;
+import com.scorm.generator.service.rag.CourseRagService;
 import org.springframework.http.HttpStatus;
 import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Service;
@@ -53,6 +54,7 @@ public class CourseServiceImpl implements CourseService {
     private final ScormExportConfigRepository scormExportConfigRepository;
     private final ScormPackageRepository scormPackageRepository;
     private final ObjectMapper objectMapper;
+    private final CourseRagService courseRagService;
 
     public CourseServiceImpl(
             CourseRepository courseRepository,
@@ -64,7 +66,8 @@ public class CourseServiceImpl implements CourseService {
             QuestionRepository questionRepository,
             ScormExportConfigRepository scormExportConfigRepository,
             ScormPackageRepository scormPackageRepository,
-            ObjectMapper objectMapper) {
+            ObjectMapper objectMapper,
+            CourseRagService courseRagService) {
         this.courseRepository = courseRepository;
         this.sectionRepository = sectionRepository;
         this.pageRepository = pageRepository;
@@ -75,6 +78,7 @@ public class CourseServiceImpl implements CourseService {
         this.scormExportConfigRepository = scormExportConfigRepository;
         this.scormPackageRepository = scormPackageRepository;
         this.objectMapper = objectMapper;
+        this.courseRagService = courseRagService;
     }
 
     @Override
@@ -116,6 +120,8 @@ public class CourseServiceImpl implements CourseService {
                 .build();
 
         Course saved = courseRepository.save(course);
+        // Index tài liệu nguồn cho RAG (nếu có) — chạy nền, không chặn response.
+        courseRagService.ingestAsync(saved.getCourseId(), saved.getSourceDocumentText());
         return CourseResponse.fromEntity(saved, parseJson(saved.getExtraInfor()));
     }
 
@@ -388,6 +394,9 @@ public class CourseServiceImpl implements CourseService {
                 }
             }
         }
+
+        // Index tài liệu nguồn cho RAG (nếu có) — chạy nền sau khi outline đã lưu.
+        courseRagService.ingestAsync(savedCourse.getCourseId(), savedCourse.getSourceDocumentText());
 
         // Trả về response chứa thông tin khoá học vừa được tạo
         return CourseResponse.fromEntity(savedCourse, parseJson(savedCourse.getExtraInfor()));

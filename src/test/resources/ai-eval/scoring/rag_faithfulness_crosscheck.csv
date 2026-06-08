@@ -1,0 +1,11 @@
+sample_id,doc_id,gemini_score,gemini_hallu,claude_score,claude_hallu,notes
+D01_page-content_RAG_run1,D01,3,false,4,false,Core matches KF1-4; extends to compilation/JIT but title scope (PL & Compilers) supports it; no contradiction
+D02_page-content_RAG_run1,D02,3,false,4,false,Maps KF1/2/5 closely; SELECT clauses & GRANT syntax are correct elaborations of listed commands; schema/catalog omitted
+D03_page-content_RAG_run1,D03,2,true,3,true,Adds Interpolation Search formula + Division Method specifics not in KF; KF-emphasized open addressing omitted
+D04_page-content_RAG_run1,D04,5,false,4,false,read/write steps near-verbatim to KF5; concurrency problems beyond the 5 KF but on-topic and standard
+D05_page-content_RAG_run1,D05,2,true,3,true,Accurate connectivity but adds k(G)/lambda(G)/nonseparable + specific vertex examples; omits most KF (Euler/Hamilton/shortest-path)
+D06_page-content_RAG_run1,D06,4,false,5,false,Maps all KF incl Learning-Inference-Decision pipeline + posterior predictive; Bayes formula supported by outline KF5
+D07_page-content_RAG_run1,D07,4,false,4,false,Tim Brown quote + Observe/Ideate/Implement phases match KF1/4; IA & visual principles fall within KF2 outline topics
+D08_page-content_RAG_run1,D08,5,false,5,false,Near-verbatim on all 5 KF (Needs/Wants/Demands, Kotler 2018, 5 exchange conditions)
+D09_page-content_RAG_run1,D09,3,false,3,false,E-field formula/direction/superposition match KF1-3; Gauss/potential/energy extensions within chapter scope (intro lists them)
+D10_page-content_RAG_run1,D10,3,false,3,false,Demand/supply/law-of-demand verbatim from KF1-3; equilibrium/surplus in title scope; price-control numbers are illustrative
