@@ -77,6 +77,32 @@ Xem file đính kèm trong báo cáo đồ án — mục 5.4. Các metric chính
 | C. Faithfulness | faithfulness_score, hallucination_rate | LLM-judge + human verify |
 | D. Pedagogical | clarity, single_correct, plausible_distractors, source_grounded | Human |
 | E. IWF | 12 flaws (TW-1..6, ID-1..6) | Human (2 reviewer + κ) |
+| F. RAG vs Stuffing | input_tokens, cost, latency, faithfulness (paired) | ✅ (xem D11) |
+
+### Nhóm F — RAG vs Full-document Stuffing (bổ sung sau khi tích hợp RAG)
+
+So sánh trong cặp giữa nhồi toàn bộ tài liệu (baseline) và truy xuất top-k chunk
+(RAG) cho chức năng sinh nội dung bài học. Xem `D11_RAG_COMPARISON.md`.
+
+```bash
+# page-content: smoke 1 tài liệu (~$0.1) / full toàn bộ
+mvn test -Dtest='RagComparisonEvaluationTest#smokeRagComparison' -Dai-eval.enabled=true
+mvn test -Dtest='RagComparisonEvaluationTest#fullRagComparison'  -Dai-eval.enabled=true
+# focused-quiz: smoke / full
+mvn test -Dtest='RagComparisonEvaluationTest#smokeRagComparisonQuiz' -Dai-eval.enabled=true
+mvn test -Dtest='RagComparisonEvaluationTest#fullRagComparisonQuiz'  -Dai-eval.enabled=true
+# Phân tích (truyền path CSV cụ thể: rag_comparison_*.csv hoặc rag_comparison_quiz_*.csv)
+python3 src/test/resources/ai-eval/analyze_rag_comparison.py [path/to/csv]
+# Kiểm định ý nghĩa thống kê (Wilcoxon signed-rank paired)
+python3 src/test/resources/ai-eval/wilcoxon_rag_comparison.py [path/to/csv]
+# Cross-check LLM-judge bằng model thứ 2 (tạo template → điền claude_* → tính κ)
+python3 src/test/resources/ai-eval/make_crosscheck_template.py
+python3 src/test/resources/ai-eval/compute_crosscheck_agreement.py
+```
+
+> Kết quả D11 (xem doc): hiệu quả token/chi phí giảm ~55–69% **có ý nghĩa thống kê**
+> (Wilcoxon p≤0,004); faithfulness là **đánh đổi** (RAG thấp hơn nhẹ, p=0,027), đã
+> kiểm chứng chéo judge bằng model 2 (κ hallu=1,00, QWK=0,66, 100% trong ±1).
 
 ## Tài liệu tham khảo
 
